@@ -82,6 +82,12 @@
 	#else
 		DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)] __attribute__ ((aligned (DATA_ALIGN)));
 	#endif
+#elif defined ( __GNUC__ )
+	#if defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
+		DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)] __attribute__((section(".ramfunc"), aligned(DATA_ALIGN)));
+	#else
+		DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)] __attribute__((aligned(DATA_ALIGN)));
+	#endif
 #endif
 
 
