@@ -285,7 +285,6 @@ void ARINC429R_ITConfig(uint32_t ARINC429R_IT, FunctionalState NewState)
 
 	/* Check the parameters */
 	assert_param(IS_ARINC429R_IT(ARINC429R_IT));
-	assert_param(IS_ARINC429R_IT(ARINC429R_IT));
 	assert_param(IS_FUNCTIONAL_STATE(NewState));
 
 	ARINC429Rx = MDR_ARINC429R;
