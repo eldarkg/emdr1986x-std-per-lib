@@ -3,4 +3,6 @@
 
 This isn't official library that compatible with GCC compiler.
 
-<b>In work.</b>
+<b>Now next MCU support gcc compiler:</b>
+- MDR1986VE9x
+- MDR1986VE1T
