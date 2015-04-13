@@ -36,7 +36,7 @@ extern "C" {
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
-#include "USB_Library/MDR32F9Qx_usb_device.h"
+#include "MDR32F9Qx_usb_device.h"
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
