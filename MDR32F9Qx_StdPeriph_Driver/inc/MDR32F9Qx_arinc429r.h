@@ -155,10 +155,10 @@ typedef struct {
   * @{
   */
 
-#define ARINC429R_ITMask_HF				((uint32_t)0x00000001)
-#define ARINC429R_ITMask_FF				((uint32_t)0x00000002)
-#define ARINC429R_ITMask_ER				((uint32_t)0x00000004)
-#define ARINC429R_ITMask_DR				((uint32_t)0x00000008)
+#define ARINC429R_ITMask_DR				((uint32_t)0x00000001)
+#define ARINC429R_ITMask_ER				((uint32_t)0x00000002)
+#define ARINC429R_ITMask_FF				((uint32_t)0x00000004)
+#define ARINC429R_ITMask_HF				((uint32_t)0x00000008)
 
 #define IS_ARINC429R_ITMask(ITMask)		((ITMask == ARINC429R_ITMask_HF) ||\
 										 (ITMask == ARINC429R_ITMask_FF) ||\
