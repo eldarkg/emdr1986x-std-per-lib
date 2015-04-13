@@ -33,10 +33,6 @@ extern "C" {
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
 
-#define USE_JTAG_A
-/* #define USE_JTAG_B */
-
-
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
   */
