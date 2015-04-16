@@ -2267,7 +2267,7 @@ typedef struct
 
 /* Bit field masks: */
 #define ADC_RESULT_Msk                          ((uint32_t)0x00000FFF)
-#define ADC_RESULT_CHANNEL_Msk                  ((uint32_t)0x0FFF0000)
+#define ADC_RESULT_CHANNEL_Msk                  ((uint32_t)0x001F0000)
 
 /** @} */ /* End of group ADC1_RESULT */
 
