@@ -5,6 +5,7 @@
 ; * @version: V1.0
 ; * @date:    09/07/2010
 ; *****************************************************************************
+;* <<< Use Configuration Wizard in Context Menu >>>
 ; * @copy
 ; *
 ; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
