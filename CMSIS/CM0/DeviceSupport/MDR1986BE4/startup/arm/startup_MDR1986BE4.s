@@ -7,6 +7,7 @@
 ; * @version	1.0
 ; * @date	2014-03-18
 ; *****************************************************************************
+;* <<< Use Configuration Wizard in Context Menu >>>
 ; * <br><br>
 ; *
 ; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
@@ -16,7 +17,7 @@
 ; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
 ; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
 ; *
-; 
+;
 ; * <h2><center>&copy; COPYRIGHT 2014 MDR1986BE4 </center></h2>
 ; *****************************************************************************
 ; * FILE startup_MDR1986BE4.s
@@ -27,7 +28,7 @@
 ; <h> Stack Configuration
 ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
-	
+
 Stack_Size      EQU     0x00000400
 
                 AREA    STACK, NOINIT, READWRITE, ALIGN=3
