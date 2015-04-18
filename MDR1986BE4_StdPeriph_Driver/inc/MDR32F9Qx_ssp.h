@@ -218,7 +218,7 @@ typedef struct
 #define SSP_IT_MASK							(SSP_IT_TX | SSP_IT_RX |\
 											 SSP_IT_RT | SSP_IT_ROR)
 
-#define IS_SSP_CONFIG_IT(IT)				((IT) & (~SSP_IT_MASK) == 0)
+#define IS_SSP_CONFIG_IT(IT)				(((IT) & (~SSP_IT_MASK)) == 0)
 
 #define IS_SSP_RESET_IT(IT)                 (((IT) == SSP_IT_RT) || \
                                              ((IT) == SSP_IT_ROR))
