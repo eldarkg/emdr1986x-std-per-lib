@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_lib.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    23/03/2014
   * @brief   This file contains all file IDs of the Milandr MDR32F9Qx
   *          firmware library source files.

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file	 MDR32F9Qx_eth.c
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    26.04.2013
   * @brief   This file contains all the ethernet firmware functions.
   ******************************************************************************

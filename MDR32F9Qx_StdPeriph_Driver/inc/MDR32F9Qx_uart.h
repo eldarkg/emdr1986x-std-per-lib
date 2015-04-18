@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_uart.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    27/04/2010
   * @brief   This file contains all the functions prototypes for the UART
   *          firmware library.

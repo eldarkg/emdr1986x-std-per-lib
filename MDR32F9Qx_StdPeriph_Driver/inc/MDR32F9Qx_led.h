@@ -2,9 +2,10 @@
   ******************************************************************************
   * @file	 MDR32F9Qx_led.h
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    31.10.2013
-  * @brief   This file contains all the 
+  * @brief   This file contains all the functions prototypes for the LED
+  *          firmware library.
   ******************************************************************************
   ******************************************************************************
   * <br><br>

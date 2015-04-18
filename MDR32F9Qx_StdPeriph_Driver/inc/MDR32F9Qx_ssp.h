@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_ssp.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    01/02/2011
   * @brief   This file contains all the functions prototypes for the SSP
   *          firmware library.
@@ -229,11 +229,7 @@ typedef struct
 #define SSP_IT_MASK							(SSP_IT_TX | SSP_IT_RX |\
 											 SSP_IT_RT | SSP_IT_ROR)
 
-#define IS_SSP_CONFIG_IT(IT)                (((IT) == SSP_IT_TX) || \
-                                             ((IT) == SSP_IT_RX) || \
-                                             ((IT) == SSP_IT_RT) || \
-                                             ((IT) == SSP_IT_ROR))
-
+#define IS_SSP_CONFIG_IT(IT)				((IT) & (~SSP_IT_MASK) == 0)
 
 #define IS_SSP_RESET_IT(IT)                 (((IT) == SSP_IT_RT) || \
                                              ((IT) == SSP_IT_ROR))

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_i2c.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    16/02/2011
   * @brief   This file contains all the functions prototypes for the I2C
   *          firmware library.

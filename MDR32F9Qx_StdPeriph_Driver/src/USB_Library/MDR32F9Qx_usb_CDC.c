@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    USB_Library\MDR32F9Qx_usb_CDC.c
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    02/03/2011
   * @brief   This file contains the implementation of the Communication Device
   *          Class driver as of:

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file	 MDR32F9Qx_arinc429t.h
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    15.04.2013
   * @brief    This file contains all the functions prototypes for the ARINC429T
   *          firmware library.

@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    USB_Library\MDR32F9Qx_usb_CDC.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    02/03/2011
   * @brief   This file contains all the interface types and function prototypes
   *          of the:

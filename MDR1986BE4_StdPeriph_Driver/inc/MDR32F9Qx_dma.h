@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_dma.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    11/06/2010
   * @brief   This file contains all the functions prototypes for the DMA
   *          firmware library.

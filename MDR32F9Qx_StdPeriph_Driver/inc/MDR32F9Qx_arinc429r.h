@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file	 MDR32F9Qx_arinc429R.h
+  * @file	 MDR32F9Qx_arinc429r.h
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    15.04.2013
   * @brief   This file contains all the functions prototypes for the
   * 		 ARINC429R firmware library.
@@ -19,7 +19,7 @@
   *
   * <h2><center>&copy; COPYRIGHT 2013 Milandr </center></h2>
   ******************************************************************************
-  * FILE MDR32F9Qx_arinc429R.h
+  * FILE MDR32F9Qx_arinc429r.h
   */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
@@ -208,4 +208,4 @@ uint32_t ARINC429R_ReceiveData(void);
 
 /******************* (C) COPYRIGHT 2013 Milandr ********************************
 *
-* END OF FILE MDR32F9Qx_arinc429R.h */
+* END OF FILE MDR32F9Qx_arinc429r.h */

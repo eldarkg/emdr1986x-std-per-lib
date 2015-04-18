@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    USB_Library\MDR32F9Qx_usb_default_handlers.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    18/03/2011
   * @brief   USB Library handlers definition file.
   ******************************************************************************

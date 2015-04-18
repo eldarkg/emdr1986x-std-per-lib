@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_wwdg.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    27/01/2011
   * @brief   This file contains all the functions prototypes for the WWDG
   *          firmware library.

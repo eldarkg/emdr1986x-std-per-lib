@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_rst_clk.c
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    23/09/2011
   * @brief   This file contains all the RST_CLK firmware functions.
   ******************************************************************************

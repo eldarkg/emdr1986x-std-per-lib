@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32Fx.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    22/06/2011
   * @brief   This file contains all the Special Function Registers definitions
   *          for the Milandr MDR32Fx microcontroller.

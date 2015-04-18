@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file	 MDR1986VE1T.h
   * @author  Sidorov Andrey
-  * @version V1.3.0
+  * @version V1.4.0
   * @date	 22/02/2013
   * @brief	 This file contains all the Special Function Registers definitions
   * 		 for the Milandr 1986V1T microcontroller.

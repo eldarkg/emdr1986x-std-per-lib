@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file	 MDR32F9Qx_audio.h
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    11.10.2013
   * @brief   This file contains all the functions prototypes for the AUDIO_IP
   * 		 firmware library.

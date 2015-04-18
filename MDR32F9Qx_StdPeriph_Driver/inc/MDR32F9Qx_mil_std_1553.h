@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file	 MDR32F9Qx_mil_std_1553.h
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    28.03.2013
   * @brief   This file contains all the functions prototypes for the
   * 		 MIL_STD_1553 firmware library.

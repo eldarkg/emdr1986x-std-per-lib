@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    system_MDR1986VE1T.c
   * @author  Andrey Sidorov
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    27/02/2013
   * @brief   CMSIS Cortex-M1 Device Peripheral Access Layer System Source File.
   ******************************************************************************

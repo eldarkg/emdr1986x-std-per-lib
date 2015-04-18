@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    MDR32F9Qx_port.h
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    16/06/2010
   * @brief   This file contains all the functions prototypes for the PORTs
   *          firmware library.

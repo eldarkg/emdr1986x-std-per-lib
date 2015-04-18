@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    system_MDR1986BE4.c
   * @author  Milandr Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    11/06/2014
   * @brief   CMSIS Cortex-M0 Device Peripheral Access Layer System Source File.
   ******************************************************************************

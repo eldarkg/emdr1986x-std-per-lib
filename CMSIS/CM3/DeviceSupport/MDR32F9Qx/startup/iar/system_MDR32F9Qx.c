@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    system_MDR32F9Qx.c
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    11/06/2010
   * @brief   CMSIS Cortex-M3 Device Peripheral Access Layer System Source File.
   ******************************************************************************

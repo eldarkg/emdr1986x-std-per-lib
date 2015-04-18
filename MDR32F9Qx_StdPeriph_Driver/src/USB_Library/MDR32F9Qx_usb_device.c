@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    USB_Library\MDR32F9Qx_usb_device.c
   * @author  Phyton Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    21/02/2011
   * @brief   This file contains implementation of the EndPoint and Device basic
   *          functionality as of USB Specification Rev.2 Chapter 9.

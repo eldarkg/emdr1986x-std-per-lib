@@ -1,8 +1,8 @@
 /**
   ******************************************************************************
-  * @file	 MDR32F9Qx_arinc429R.c
+  * @file	 MDR32F9Qx_arinc429r.c
   * @author	 sidorov.a
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    15.04.2013
   * @brief   This file contains all the ARINC429R firmware functions.
   ******************************************************************************
@@ -18,7 +18,7 @@
   *
   * <h2><center>&copy; COPYRIGHT 2013 Milandr </center></h2>
   ******************************************************************************
-  * FILE MDR32F9Qx_arinc429R.c
+  * FILE MDR32F9Qx_arinc429r.c
   */
 
 /* Includes ------------------------------------------------------------------*/
@@ -526,4 +526,4 @@ uint32_t ARINC429R_ReceiveDataDirect(uint32_t ARINC429R_CHANNELx)
 
 /******************* (C) COPYRIGHT 2013 Milandr ********************************
 *
-* END OF FILE MDR32F9Qx_arinc429R.c */
+* END OF FILE MDR32F9Qx_arinc429r.c */

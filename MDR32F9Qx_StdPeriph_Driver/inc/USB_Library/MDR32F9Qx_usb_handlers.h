@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    Examples/MDR32F9Q1_EVAL/USB/VCOM_Echo/inc/MDR32F9Qx_usb_handlers.h
   * @author  Milandr Application Team
-  * @version V1.3.0
+  * @version V1.4.0
   * @date    18/03/2011
   * @brief   USB Library user-defined handlers definition file.
   ******************************************************************************
