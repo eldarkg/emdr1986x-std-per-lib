@@ -191,7 +191,7 @@ typedef struct
 #if defined (USE_MDR1986VE9x)
 #define IS_TIMER_ALL_PERIPH(PERIPH) (((PERIPH) == MDR_TIMER1) || \
                                      ((PERIPH) == MDR_TIMER2) || \
-                                     ((PERIPH) == MDR_TIMER3)))
+                                     ((PERIPH) == MDR_TIMER3))
 #elif ((defined (USE_MDR1986VE3)) || (defined (USE_MDR1986VE1T)))
 #define IS_TIMER_ALL_PERIPH(PERIPH) (((PERIPH) == MDR_TIMER1) || \
                                      ((PERIPH) == MDR_TIMER2) || \
