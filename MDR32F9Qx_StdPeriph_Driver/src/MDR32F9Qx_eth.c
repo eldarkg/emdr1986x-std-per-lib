@@ -945,7 +945,7 @@ uint32_t ETH_WritePHYRegister(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t PHYAddr
 }
 
 /**
-  * @brief	Read the input ethenet frame.
+  * @brief	Read the input ethernet frame.
   * @param	ETHERNETx: Slect the ETHERNET peripheral.
   *         This parameter can be one of the following values:
   *         MDR_ETHERNET1, MDR_ETHERNET2 for MDR1986VE3 and
@@ -992,7 +992,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 				EthReceiverFreeBufferSize = 0 - EthReceiverFreeBufferSize;
 				tmp = i;
 				/* Read the the second part of the packet */
-				for( i = 0; i < (EthReceiverFreeBufferSize/4) + 1; i++){
+				for( i = 0; i < (uint32_t)((EthReceiverFreeBufferSize / 4) + 1); i++ ){
 					ptr_InputBuffer[tmp + i] = *ptr_InputFrame++;
 				}
 			}
@@ -1026,7 +1026,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 				EthReceiverFreeBufferSize = 0 - EthReceiverFreeBufferSize;
 				tmp = i;
 				/* Read the the second part of the packet */
-				for( i = 0; i < (EthReceiverFreeBufferSize/4) + 1; i++){
+				for( i = 0; i < (uint32_t)((EthReceiverFreeBufferSize / 4) + 1); i++ ){
 					ptr_InputBuffer[tmp + i] = *ptr_InputFrame++;
 				}
 			}
@@ -1077,13 +1077,13 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
 			/* Send frame */
 			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
-			if(((BufLen +3)/4 + 1) < EthReceiverFreeBufferSize){
+			if(((BufLen + 3) / 4 + 1) < (uint32_t)EthReceiverFreeBufferSize){
 				for( i = 0; i < (BufLen + 3)/4 + 1; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 			}
 			else{
-				for( i = 0; i < EthReceiverFreeBufferSize; i++ ){
+				for( i = 0; i < (uint32_t)EthReceiverFreeBufferSize; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 				tmp = i;
@@ -1104,13 +1104,13 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
 			/* Send frame */
 			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
-			if(((BufLen +3)/4 + 2) < EthReceiverFreeBufferSize){
+			if(((BufLen + 3) / 4 + 2) < (uint32_t)EthReceiverFreeBufferSize){
 				for( i = 0; i < (BufLen + 3)/4 + 2; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 			}
 			else{
-				for( i = 0; i < EthReceiverFreeBufferSize; i++ ){
+				for( i = 0; i < (uint32_t)EthReceiverFreeBufferSize; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 				tmp = i;
@@ -1138,9 +1138,9 @@ void ETH_DMAPrepare(void)
 {
 	DMA_CtrlDataInitTypeDef DMA_PriCtrlStr;
 	DMA_ChannelInitTypeDef DMA_InitStr;
-	
+
 	DMA_DeInit();
-	
+
 	DMA_StructInit(&DMA_InitStr);
 
 	/* Set Channel Structure */
