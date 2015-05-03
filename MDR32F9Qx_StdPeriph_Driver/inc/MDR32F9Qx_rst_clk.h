@@ -174,7 +174,7 @@ typedef struct {
 #define RST_CLK_CPU_PLLmul15                    ((uint32_t)0x0000000E)
 #define RST_CLK_CPU_PLLmul16                    ((uint32_t)0x0000000F)
 
-#define IS_RST_CLK_CPU_PLL_MUL(SRC)             ((SRC>=0) && (SRC<16))
+#define IS_RST_CLK_CPU_PLL_MUL(SRC)             ((SRC) < 16)
 
 /** @} */ /* End of group CPU_PLL_clock_multiplier */
 
@@ -224,7 +224,7 @@ typedef struct {
 #define RST_CLK_USB_PLLmul15                    ((uint32_t)0x0000000E)
 #define RST_CLK_USB_PLLmul16                    ((uint32_t)0x0000000F)
 
-#define IS_RST_CLK_USB_PLL_MUL(SRC)             ((SRC>=0) && (SRC<16))
+#define IS_RST_CLK_USB_PLL_MUL(SRC)             ((SRC) < 16)
 
 /** @} */ /* End of group USB_PLL_clock_multiplier */
 

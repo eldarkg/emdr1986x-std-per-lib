@@ -294,7 +294,7 @@ typedef struct
 #define UART_HCLKdiv64                      ((uint32_t)0x00000006)
 #define UART_HCLKdiv128                     ((uint32_t)0x00000007)
 
-#define IS_UART_CLOCK_BRG(BRG)              (((BRG) >= 0) && ((BRG) <= 7))
+#define IS_UART_CLOCK_BRG(BRG)              ((BRG) <= 7)
 
 /** @} */ /* End of group UART_Clock_BRG */
 
