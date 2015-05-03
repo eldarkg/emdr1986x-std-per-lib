@@ -978,7 +978,7 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
         case USB_GET_STATUS:
           if (requestDirection != USB_DEVICE_TO_HOST ||
              (USB_DeviceContext.USB_DeviceState == USB_DEV_STATE_ADDRESS && (recipient == USB_RECIPIENT_INTERFACE ||
-              recipient == USB_RECIPIENT_ENDPOINT && wIndex >= Num_USB_EndPoints)))
+              (recipient == USB_RECIPIENT_ENDPOINT && wIndex >= Num_USB_EndPoints))))
           {
             result = USB_ERROR;
           }
@@ -1008,6 +1008,8 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
                 /* Endpoint - return Halt status */
                 case USB_RECIPIENT_ENDPOINT:
                   SetupPacketData[0] = USB_EPContext[wIndex].EP_Halt;
+                  break;
+                default:
                   break;
               }
               SetupPacketData[1] = 0;
@@ -1242,6 +1244,10 @@ USB_Result USB_DeviceSetFeature(USB_RequestRecipient_TypeDef Recipient, uint16_t
 
 USB_Result USB_DeviceDoStatusInAck(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_t Length)
 {
+  (void)EPx;
+  (void)Buffer;
+  (void)Length;
+
   return USB_SUCCESS;
 }
 
@@ -1265,6 +1271,9 @@ USB_Result USB_DeviceDoStatusInAck(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_t
 
 USB_Result USB_DeviceDoStatusOutAck(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_t Length)
 {
+  (void)Buffer;
+  (void)Length;
+
   return USB_EP_doDataOut(EPx, 0, 0, 0);
 }
 
@@ -1290,6 +1299,10 @@ USB_Result USB_DeviceDoStatusOutAck(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_
 
 static USB_Result USB_Device_setAddressWork(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_t Length)
 {
+  (void)EPx;
+  (void)Buffer;
+  (void)Length;
+
   /* Set address */
   USB_SetSA(USB_DeviceContext.Address);
   /* Adjust device state */
@@ -1397,6 +1410,9 @@ void USB_IRQHandler(void)
 
 USB_Result USB_DeviceDummyGetStatus(USB_RequestRecipient_TypeDef Recipient, uint16_t wINDEX)
 {
+  (void)Recipient;
+  (void)wINDEX;
+
   return USB_SUCCESS;
 }
 
@@ -1414,6 +1430,8 @@ USB_Result USB_DeviceDummyGetStatus(USB_RequestRecipient_TypeDef Recipient, uint
 
 USB_Result USB_DeviceDummySetAddress(uint16_t wVALUE)
 {
+  (void)wVALUE;
+
   return USB_SUCCESS;
 }
 
@@ -1436,6 +1454,10 @@ USB_Result USB_DeviceDummySetAddress(uint16_t wVALUE)
 
 USB_Result USB_DeviceDummyGetDescriptor(uint16_t wVALUE, uint16_t wINDEX, uint16_t wLENGTH)
 {
+  (void)wVALUE;
+  (void)wINDEX;
+  (void)wLENGTH;
+
   return USB_ERROR;
 }
 
@@ -1458,6 +1480,10 @@ USB_Result USB_DeviceDummyGetDescriptor(uint16_t wVALUE, uint16_t wINDEX, uint16
 
 USB_Result USB_DeviceDummySetDescriptor(uint16_t wVALUE, uint16_t wINDEX, uint16_t wLENGTH)
 {
+  (void)wVALUE;
+  (void)wINDEX;
+  (void)wLENGTH;
+
   return USB_ERROR;
 }
 
@@ -1490,6 +1516,8 @@ uint8_t USB_DeviceDummyGetConfiguration(void)
 
 USB_Result USB_DeviceDummySetConfiguration(uint16_t wVALUE)
 {
+  (void)wVALUE;
+
   return USB_ERROR;
 }
 
@@ -1507,6 +1535,8 @@ USB_Result USB_DeviceDummySetConfiguration(uint16_t wVALUE)
 
 uint8_t USB_DeviceDummyGetInterface(uint16_t wINDEX)
 {
+  (void)wINDEX;
+
   return 0;
 }
 
@@ -1525,6 +1555,9 @@ uint8_t USB_DeviceDummyGetInterface(uint16_t wINDEX)
 
 USB_Result USB_DeviceDummySetInterface(uint16_t wVALUE, uint16_t wINDEX)
 {
+  (void)wVALUE;
+  (void)wINDEX;
+
   return USB_SUCCESS;
 }
 
@@ -1545,6 +1578,9 @@ USB_Result USB_DeviceDummySetInterface(uint16_t wVALUE, uint16_t wINDEX)
 
 USB_Result USB_DeviceDummySyncFrame(uint16_t wINDEX, uint8_t* DATA)
 {
+  (void)wINDEX;
+  (void)DATA;
+
   return USB_ERROR;
 }
 
@@ -1611,6 +1647,11 @@ USB_Result USB_DeviceDummyVendorRequest(void)
 
 USB_Result USB_DeviceDummyDataError(USB_EP_TypeDef EPx, uint32_t STS, uint32_t TS, uint32_t CTRL)
 {
+  (void)EPx;
+  (void)STS;
+  (void)TS;
+  (void)CTRL;
+
   return USB_ERROR;
 }
 
