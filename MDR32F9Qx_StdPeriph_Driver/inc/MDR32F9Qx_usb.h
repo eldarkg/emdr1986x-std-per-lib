@@ -57,7 +57,7 @@ typedef enum
   Num_USB_EndPoints
 }USB_EP_TypeDef;
 
-#define IS_USB_ENDPOINT(ENDPOINT)       (((ENDPOINT) >= 0) && ((ENDPOINT) < Num_USB_EndPoints))
+#define IS_USB_ENDPOINT(ENDPOINT)       ((ENDPOINT) < Num_USB_EndPoints)
 
 /**
   * @brief USB Clock Init Structure definition
