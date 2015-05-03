@@ -358,7 +358,7 @@ typedef struct
 #define IS_ADC_LEVEL_CONTROL_CONFIG(CONFIG) (((CONFIG) == ADC_LEVEL_CONTROL_Disable) || \
                                              ((CONFIG) == ADC_LEVEL_CONTROL_Enable ))
 
-#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x07FF))
+#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x0FFF))
 
 /** @} */ /* End of group ADCx_Level_Control */
 
