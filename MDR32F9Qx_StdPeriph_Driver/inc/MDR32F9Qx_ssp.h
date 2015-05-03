@@ -82,6 +82,11 @@ typedef struct
                                             ((PERIPH) == MDR_SSP2))
 #endif // #ifdef USE_MDR1986VE9x /* For Cortex M3 */
 
+#ifdef USE_MDR1986VE1T /* For Cortex M1 */
+#define IS_SSP_ALL_PERIPH(PERIPH)          (((PERIPH) == MDR_SSP1) || \
+                                            ((PERIPH) == MDR_SSP2) || \
+                                            ((PERIPH) == MDR_SSP3))
+#endif // #ifdef USE_MDR1986VE1T /* For Cortex M1 */
 
 #ifdef USE_MDR1986VE3 /* For Cortex M1 */
 #define IS_SSP_ALL_PERIPH(PERIPH)          (((PERIPH) == MDR_SSP1) || \
