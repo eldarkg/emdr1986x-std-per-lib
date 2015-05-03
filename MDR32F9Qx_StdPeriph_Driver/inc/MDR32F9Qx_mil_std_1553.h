@@ -230,14 +230,7 @@ typedef enum {
 												 MIL_STD_1553_IT_VALMESSIE |\
 												 MIL_STD_1553_IT_ERRIE)
 
-#define IS_MIL_STD_1553_IT(IT)					((IT) & (~MIL_STD_1553_IT_MASK) == 0)
-
-/*
-#define IS_MIL_STD_1553_IT(IT)					(((IT) == MIL_STD_1553_IT_IDLEIE) ||\
-												 ((IT) == MIL_STD_1553_IT_RFLAGNIE) ||\
-												 ((IT) == MIL_STD_1553_IT_VALMESSIE) ||\
-												 ((IT) == MIL_STD_1553_IT_ERRIE))
-*/
+#define IS_MIL_STD_1553_IT(IT)					(((IT) & (~MIL_STD_1553_IT_MASK)) == 0)
 
 /** @} */ /* End of group MIL_STD_1553_Interrupt_defintion */
 
