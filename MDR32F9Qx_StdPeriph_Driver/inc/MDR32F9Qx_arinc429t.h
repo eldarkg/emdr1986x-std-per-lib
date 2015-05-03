@@ -94,8 +94,7 @@ typedef struct {
 #define ARINC429T_CHANNEL3			((uint32_t)0x00000002)
 #define ARINC429T_CHANNEL4			((uint32_t)0x00000003)
 
-#define IS_ARINC429T_CHANNEL(CHANNELx)		(((CHANNELx) >= ARINC429T_CHANNEL1 ) &&\
-									         ((CHANNELx) <= ARINC429T_CHANNEL4 ))
+#define IS_ARINC429T_CHANNEL(CHANNELx)		((CHANNELx) <= ARINC429T_CHANNEL4)
 
 /** @} */ /* End of group ARINC429T_Channel */
 

@@ -421,7 +421,7 @@ typedef union {
 #define ETH_HCLKdiv64                      ((uint32_t)0x00000006)
 #define ETH_HCLKdiv128                     ((uint32_t)0x00000007)
 
-#define IS_ETH_CLOCK_BRG(BRG)              (((BRG) >= 0) && ((BRG) <= 7))
+#define IS_ETH_CLOCK_BRG(BRG)              ((BRG) <= 7)
 
 /** @} */ /* End of group ETHERNET_Clock_BRG */
 
@@ -516,9 +516,11 @@ typedef union {
 #define PHY_IT_MASKs					30
 #define PHY_ECTR						31
 
-#define IS_ETH_PHYReg(PHYreg)					(((PHYreg >= 0 ) &&  (PHYreg <= 6)) ||\
-												 (PHYreg == 18) || (PHYreg == 29)   ||\
-												 (PHYreg == 30) || (PHYreg == 31))
+#define IS_ETH_PHYReg(PHYreg)					(((PHYreg) <= 6) ||\
+												 ((PHYreg) == 18) ||\
+												 ((PHYreg) == 29) ||\
+												 ((PHYreg) == 30) ||\
+												 ((PHYreg) == 31))
 
 /** @} */ /* End of group PHY_Register_address */
 

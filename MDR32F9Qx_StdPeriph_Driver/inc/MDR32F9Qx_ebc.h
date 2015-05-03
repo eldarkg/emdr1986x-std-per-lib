@@ -253,7 +253,7 @@ typedef struct
 
 #define EBC_WS_HOLD_CYCLES_MSK	0x07
 
-#define IS_EBC_EBC_WS_HOLD_CYCLES(EBC_WS_HOLD_CYCLES) (((EBC_WS_HOLD_CYCLES) & ~EBC_WS_HOLD_CYCLES_MSK) == 0 )
+#define IS_EBC_WS_HOLD_CYCLES(EBC_WS_HOLD_CYCLES) (((EBC_WS_HOLD_CYCLES) & ~EBC_WS_HOLD_CYCLES_MSK) == 0 )
 
 /** @} */ /* End of groupe EBC_WS_HOLD_CYCLE WS HOLD Cycles */
 
@@ -292,7 +292,7 @@ typedef struct
 
 /** @}*/ /* End of groupe EBC_MEM_REGIONx EBC MEM REGION */
 
-#define IS_EBC_WS_ACTIVE(WS_ACTIVE)				((WS_ACTIVE >= 0) && (WS_ACTIVE < 127))
+#define IS_EBC_WS_ACTIVE(WS_ACTIVE)				((WS_ACTIVE) < 127)
 
 #endif /* #if defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)*/
 

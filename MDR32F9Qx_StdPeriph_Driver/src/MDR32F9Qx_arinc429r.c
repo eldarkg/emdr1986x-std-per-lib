@@ -42,7 +42,7 @@
   * @{
   */
 
-#define IS_ARINC429R_BRG(BRG)		(((BRG) >= 0 ) && ((BRG) <= 0x7F))
+#define IS_ARINC429R_BRG(BRG)		((BRG) <= 0x7F)
 #define IS_ARINC429R_DIV(DIV)		((DIV) <= 0xFF)
 #define IS_ARINC429R_LABLE(LABLE)	((LABLE & 0xFF) == 0)
 
@@ -81,7 +81,7 @@ void ARINC429R_BRG_Init(uint32_t ARINC429R_BRG)
 	/* Set the new value of the divisor */
 	tmpreg_CONTROL1 |= ((ARINC429R_BRG & 0x0F )<< ARINC429R_CONTROL1_DIV_Pos);
 	tmpreg_CONTROL2 |= (((ARINC429R_BRG & 0x70)>>4) << ARINC429R_CONTROL2_DIV_6_4_Pos);
-	
+
 	/* Write the control1 and control2 ARINC register */
 	ARINC429Rx->CONTROL1 = tmpreg_CONTROL1;
 	ARINC429Rx->CONTROL2 = tmpreg_CONTROL2;

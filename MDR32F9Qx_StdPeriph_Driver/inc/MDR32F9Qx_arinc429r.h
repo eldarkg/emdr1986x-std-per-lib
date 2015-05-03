@@ -103,9 +103,7 @@ typedef struct {
 #endif
 
 #if defined (USE_MDR1986VE1T)
-
-#define IS_ARINC429R_CHANNEL(CHANNEL)		((CHANNEL >= ARINC429R_CHANNEL1) &&\
-										     (CHANNEL <= ARINC429R_CHANNEL8))
+#define IS_ARINC429R_CHANNEL(CHANNEL)		((CHANNEL) <= ARINC429R_CHANNEL8)
 #endif
 
 
