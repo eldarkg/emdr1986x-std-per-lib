@@ -997,7 +997,7 @@ void RST_CLK_GetClocksFreq(RST_CLK_FreqTypeDef* RST_CLK_Clocks)
   uint32_t adc_c1_freq, adc_c3_freq;
   uint32_t adciu_c1_freq, adciu_c3_freq;
   uint32_t hsi_c1_freq, hse_c1_freq;
-  uint32_t per_c1_freq, per_c2_freq;
+  uint32_t per_c1_freq/*, per_c2_freq*/;
   uint32_t pll_mul;
   uint32_t temp;
 
@@ -1093,6 +1093,7 @@ void RST_CLK_GetClocksFreq(RST_CLK_FreqTypeDef* RST_CLK_Clocks)
   if(MDR_RST_CLK->PER1_CLOCK & 0x01)
 	  per_c1_freq /= 2;
 
+  /* FIXME unnecessary code
   switch((MDR_RST_CLK->PER1_CLOCK >> 2) & 0x03){
 	  case 0:
 		  per_c2_freq = cpu_c1_freq;
@@ -1107,6 +1108,7 @@ void RST_CLK_GetClocksFreq(RST_CLK_FreqTypeDef* RST_CLK_Clocks)
 		  per_c2_freq = HSI_Value;
 		  break;
   }
+  */
 
   /* Compute ADC_CLK frequency */
 
