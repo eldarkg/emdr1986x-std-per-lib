@@ -123,7 +123,7 @@ typedef struct
   * @{
   */
 
-#define IS_ADC_START_DELAY_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 15))
+#define IS_ADC_START_DELAY_VALUE(VALUE) ((VALUE) <= 15)
 
 /** @} */ /* End of group ADC_Start_Delay */
 
@@ -179,7 +179,7 @@ typedef struct
   * @{
   */
 
-#define IS_ADC_VREF_TRIMMING_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x1F))
+#define IS_ADC_VREF_TRIMMING_VALUE(VALUE) ((VALUE) <= 0x1F)
 
 /** @} */ /* End of group ADC_Int_VRef_Trimming */
 
@@ -328,7 +328,7 @@ typedef struct
 #define IS_ADC_LEVEL_CONTROL_CONFIG(CONFIG) (((CONFIG) == ADC_LEVEL_CONTROL_Disable) || \
                                              ((CONFIG) == ADC_LEVEL_CONTROL_Enable ))
 
-#define IS_ADC_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 0x0FFF))
+#define IS_ADC_VALUE(VALUE) ((VALUE) <= 0x0FFF)
 
 /** @} */ /* End of group ADCx_Level_Control */
 
@@ -400,7 +400,7 @@ typedef struct
   * @{
   */
 
-#define IS_ADC_DELAY_GO_VALUE(VALUE) (((VALUE) >= 0) && ((VALUE) <= 7))
+#define IS_ADC_DELAY_GO_VALUE(VALUE) ((VALUE) <= 7)
 
 /** @} */ /* End of group ADCx_Level_Control */
 

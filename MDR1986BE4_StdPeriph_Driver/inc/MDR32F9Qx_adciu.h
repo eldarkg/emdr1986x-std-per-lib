@@ -184,8 +184,7 @@ typedef struct {
 #define ADCIU_CHANNEL_NUMBER7						(uint32_t)(0x000000006)
 #define ADCIU_CHANNEL_NUMBER8						(uint32_t)(0x000000007)
 
-#define IS_ADCIU_CHANNEL_NUMBER(CHN)				((CHN >= ADCIU_CHANNEL_NUMBER1) &&\
-													 (CHN <= ADCIU_CHANNEL_NUMBER8))
+#define IS_ADCIU_CHANNEL_NUMBER(CHN)				(CHN <= ADCIU_CHANNEL_NUMBER8)
 
 /** @} */ /* End of group ADCIU_CHANNEL_NUMBER */
 

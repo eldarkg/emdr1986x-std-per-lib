@@ -131,7 +131,7 @@
   * @{
   */
 
-#define IS_RTC_CALIBRATION(CAL) ((CAL>=0) && (CAL<=255))
+#define IS_RTC_CALIBRATION(CAL) (CAL <= 255)
 
 /** @} */ /* End of group BKP_RTC_CALIBRATION */
 
