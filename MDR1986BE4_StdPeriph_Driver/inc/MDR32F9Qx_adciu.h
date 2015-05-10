@@ -26,6 +26,10 @@
 #ifndef MDR32F9QX_ADCIU_H_
 #define MDR32F9QX_ADCIU_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 
@@ -253,6 +257,10 @@ uint32_t ADCIU_GetResult(uint32_t ChannelNumber);
 /** @} */ /* End of group ADCIU */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* MDR32F9QX_ADCIU_H_ */
 

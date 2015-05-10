@@ -25,6 +25,10 @@
 #ifndef __MDR32F9QX_ADC_H
 #define __MDR32F9QX_ADC_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
@@ -501,6 +505,10 @@ ITStatus ADC1_GetITStatus(uint32_t ADC_IT);
 /** @} */ /* End of group ADC */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* __MDR32F9QX_ADC_H */
 

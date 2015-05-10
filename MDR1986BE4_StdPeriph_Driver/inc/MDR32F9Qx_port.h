@@ -25,6 +25,10 @@
 #ifndef __MDR32F9Qx_PORT_H
 #define __MDR32F9Qx_PORT_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
@@ -307,9 +311,12 @@ void PORT_Write(MDR_PORT_TypeDef* PORTx, uint32_t PortVal);
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
+
 #endif /* __MDR32F9Qx_PORT_H */
 
 /******************* (C) COPYRIGHT 2010 Phyton *********************************
 *
 * END OF FILE MDR32F9Qx_port.h */
-

@@ -25,6 +25,10 @@
 #ifndef __MDR32F9Qx_SSP_H
 #define __MDR32F9Qx_SSP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_lib.h"
 
@@ -290,9 +294,12 @@ void SSP_BRGInit(MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG);
 
 /** @} */ /* End of group MDR32F9Qx_StdPeriph_Driver */
 
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
+
 #endif /* __MDR32F9Qx_SSP_H */
 
 /******************* (C) COPYRIGHT 2011 Phyton *********
 *
 * END OF FILE MDR32F9Qx_ssp.h */
-

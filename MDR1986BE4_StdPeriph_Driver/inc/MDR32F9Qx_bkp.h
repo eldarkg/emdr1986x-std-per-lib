@@ -25,13 +25,13 @@
 #ifndef __MDR32F9Qx_BKP_H
 #define __MDR32F9Qx_BKP_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
-
-#define USE_JTAG_A
-/* #define USE_JTAG_B */
-
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
@@ -159,7 +159,6 @@
 
 /** @} */ /* End of group BKP_RTC_FLAG */
 
-
 /** @} */ /* End of group BKP_Exported_Constants */
 
 /** @defgroup BKP_Exported_Functions BKP Exported Functions
@@ -188,6 +187,10 @@ FlagStatus BKP_RTC_GetFlagStatus(uint32_t RTC_FLAG);
 /** @} */ /* End of group BKP */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* __MDR32F9Qx_BKP_H */
 

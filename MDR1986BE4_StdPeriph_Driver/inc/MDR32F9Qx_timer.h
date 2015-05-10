@@ -25,6 +25,10 @@
 #ifndef __MDR32F9QX_TIMER_H
 #define __MDR32F9QX_TIMER_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_lib.h"
 
@@ -762,6 +766,10 @@ void TIMER_BRGInit(MDR_TIMER_TypeDef* TIMERx, uint32_t TIMER_BRG);
 /** @} */ /* End of group TIMER */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* __MDR32F9QX_TIMER_H */
 

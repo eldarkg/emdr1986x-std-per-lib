@@ -36,6 +36,10 @@
 #ifndef __SYSTEM_MDR1986VE3_H
 #define __SYSTEM_MDR1986VE3_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** @addtogroup __MDR1986VE3_System_Exported_Variables MDR1986VE3 System Exported Variables
   * @{
   */
@@ -53,6 +57,10 @@ extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
 
 /** @} */ /* End of group __MDR1986VE3_System_Exported_Functions */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* #define __SYSTEM_MDR1986VE3_H */
 

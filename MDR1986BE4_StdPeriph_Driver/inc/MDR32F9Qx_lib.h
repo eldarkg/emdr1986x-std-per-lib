@@ -25,6 +25,10 @@
 #ifndef __MDR32F9QX_LIB_H
 #define __MDR32F9QX_LIB_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #define FILEID__MDR32F9X_EEPROM_C				1
 #define FILEID__MDR32F9X_RST_CLK_C				2
 #define FILEID__MDR32F9X_DMA_C					3
@@ -44,6 +48,10 @@
 #define FILEID__MDR32F9Qx_CRC_C					17
 
 #define  FILEID__USER_LO                    	100
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* __MDR32F9QX_LIB_H */
 

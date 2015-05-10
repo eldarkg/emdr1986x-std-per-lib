@@ -25,6 +25,10 @@
 #ifndef __MDR32F9Qx_WWDG_H
 #define __MDR32F9Qx_WWDG_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_lib.h"
 
@@ -90,9 +94,12 @@ void WWDG_ClearFlag(void);
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
+
 #endif /* __MDR32F9Qx_WWDG_H */
 
 /******************* (C) COPYRIGHT 2010 Phyton *********************************
 *
 * END OF FILE MDR32F9Qx_wwdg.h */
-

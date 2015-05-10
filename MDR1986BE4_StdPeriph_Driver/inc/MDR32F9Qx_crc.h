@@ -26,6 +26,10 @@
 #ifndef MDR32F9QX_CRC_H_
 #define MDR32F9QX_CRC_H_
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
@@ -154,6 +158,10 @@ uint16_t CRC_GetCRC(void);
 /** @} */ /* End of group CRC */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* MDR32F9QX_CRC_H_ */
 

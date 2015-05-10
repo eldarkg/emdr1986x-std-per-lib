@@ -36,6 +36,10 @@
 #ifndef __SYSTEM_MDR32F9Qx_H
 #define __SYSTEM_MDR32F9Qx_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** @addtogroup __MDR32F9QX_System_Exported_Variables MDR32F9QX System Exported Variables
   * @{
   */
@@ -53,6 +57,10 @@ extern void SystemInit(void);
 extern void SystemCoreClockUpdate(void);
 
 /** @} */ /* End of group __MDR32F9QX_System_Exported_Functions */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /*__SYSTEM_MDR32F9Qx_H */
 

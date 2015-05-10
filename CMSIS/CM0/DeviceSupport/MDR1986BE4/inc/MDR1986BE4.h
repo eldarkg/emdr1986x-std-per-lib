@@ -16,7 +16,7 @@
   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
-  
+
   * <h2><center>&copy; COPYRIGHT 2014 MDR1986BE4 </center></h2>
   ******************************************************************************
   * FILE MDR1986BE4.h
@@ -39,11 +39,11 @@
   */
 
 #ifdef __cplusplus
-extern  {
+extern "C" {
 #endif
 
 #if defined ( __CC_ARM   )
-	#pragma anon_unions	
+	#pragma anon_unions
 #endif
 
 /* MDR1986BE4 Interrupt Number Definition */

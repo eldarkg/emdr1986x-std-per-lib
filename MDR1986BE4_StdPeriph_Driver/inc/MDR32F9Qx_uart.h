@@ -25,6 +25,10 @@
 #ifndef __MDR32F9Qx_UART_H
 #define __MDR32F9Qx_UART_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
@@ -329,9 +333,12 @@ void UART_BRGInit(MDR_UART_TypeDef* UARTx, uint32_t UART_BRG);
 
 /** @} */ /* End of group MDR32F9Qx_StdPeriph_Driver */
 
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
+
 #endif /* __MDR32F9Qx_UART_H */
 
 /******************* (C) COPYRIGHT 2010 Phyton *********
 *
 * END OF FILE MDR32F9Qx_uart.h */
-

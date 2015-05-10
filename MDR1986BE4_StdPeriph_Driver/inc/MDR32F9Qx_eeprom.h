@@ -25,9 +25,13 @@
 #ifndef __MDR32F9Qx_EEPROM_H
 #define __MDR32F9Qx_EEPROM_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_lib.h"
 #include "MDR32F9Qx_config.h"
+#include "MDR32F9Qx_lib.h"
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
@@ -138,6 +142,10 @@ __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint3
 /** @} */ /* End of group EEPROM */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
+
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
 
 #endif /* __MDR32F9Qx_EEPROM_H */
 

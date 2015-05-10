@@ -25,6 +25,10 @@
 #ifndef __MDR32F9Qx_POWER_H
 #define __MDR32F9Qx_POWER_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_lib.h"
 
@@ -199,7 +203,6 @@ void POWER_DUccTrim(uint32_t DUccTrim);
 void POWER_DUccStandby(void);
 void POWER_SetFlagPOR(void);
 ErrorStatus POWER_FlagPORstatus(void);
-
 void POWER_PVDenable(FunctionalState NewState);
 void POWER_PVDlevelConfig(uint32_t POWER_PVDlevel);
 void POWER_PVBDlevelConfig(uint32_t POWER_PVBDlevel);
@@ -215,10 +218,12 @@ void POWER_EnterSTANDBYMode(void);
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
+#ifdef __cplusplus
+} // extern "C" block end
+#endif
+
 #endif /* __MDR32F9Qx_POWER_H */
 
 /******************* (C) COPYRIGHT 2011 Phyton *********************************
 *
 * END OF FILE MDR32F9Qx_power.h */
-
-
