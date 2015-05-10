@@ -272,16 +272,6 @@ uint32_t KEYPAD_GetPressedSecondKey(void)
 BitStatus KEYPAD_GetSwitchStatus(uint32_t switch_number)
 {
 	FlagStatus bitstatus;
-	uint32_t row, column, switch_col, bit_number;
-
-	/* Get number row in keyboard */
-	row = (MDR_KEYPAD->KEYPAD_CR & KEYPAD_CR_KEY_ROW_Msk) >> KEYPAD_CR_KEY_ROW_Pos;
-	/* Get number column in keyboard */
-	column = (MDR_KEYPAD->KEYPAD_CR & KEYPAD_CR_KEY_COL_Msk) >> KEYPAD_CR_KEY_COL_Pos;
-	/* Get number of the first switch in keyboard */
-	switch_col = (MDR_KEYPAD->KEYPAD_CR & KEYPAD_CR_KEY_SWCOL_Msk) >> KEYPAD_CR_KEY_SWCOL_Pos;
-	/* Compute the bit posishion of the first switch */
-	bit_number = ((column - switch_col + 1)*(row + 1) - 1);
 
 	/* Get the status of the requested switch */
 	if(MDR_KEYPAD->KEYPAD_SWR[switch_number/32] & (1 << (switch_number%32))){
