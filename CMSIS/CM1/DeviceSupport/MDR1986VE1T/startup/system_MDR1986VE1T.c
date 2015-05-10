@@ -1,10 +1,10 @@
 /**
   ******************************************************************************
-  * @file    system_MDR1986BE4.c
+  * @file    system_MDR1986VE1T.c
   * @author  Milandr Application Team
   * @version V1.4.0
-  * @date    11/06/2014
-  * @brief   CMSIS Cortex-M0 Device Peripheral Access Layer System Source File.
+  * @date    11/06/2013
+  * @brief   CMSIS Cortex-M1 Device Peripheral Access Layer System Source File.
   ******************************************************************************
   * <br><br>
   *
@@ -15,9 +15,9 @@
   * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
   * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
   *
-  * <h2><center>&copy; COPYRIGHT 2014 Milandr</center></h2>
+  * <h2><center>&copy; COPYRIGHT 2013 Milandr</center></h2>
   ******************************************************************************
-  * FILE system_MDR1986BE4.c
+  * FILE system_MDR1986VE1T.c
   */
 
 
@@ -25,11 +25,11 @@
   * @{
   */
 
-/** @defgroup MDR1986BE4
+/** @defgroup MDR1986VE1T
  *  @{
  */
 
-/** @addtogroup __MDR1986BE4 MDR1986BE4 System
+/** @addtogroup __MDR1986VE1T MDR1986VE1T System
   * @{
   */
 
@@ -37,12 +37,12 @@
   * @{
   */
 
-#include "MDR1986BE4.h"
+#include "MDR1986VE1T.h"
 #include "MDR32F9Qx_config.h"
 
 /** @} */ /* End of group System_Private_Includes */
 
-/** @addtogroup __MDR1986BE4_System_Private_Variables MDR1986BE4 System Private Variables
+/** @addtogroup __MDR1986VE1T_System_Private_Variables MDR1986VE1T System Private Variables
   * @{
   */
 
@@ -52,9 +52,9 @@
   uint32_t SystemCoreClock = (uint32_t)8000000;         /*!< System Clock Frequency (Core Clock)
                                                          *   default value */
 
-/** @} */ /* End of group __MDR1986BE4_System_Private_Variables */
+/** @} */ /* End of group __MDR1986VE1T_System_Private_Variables */
 
-/** @addtogroup __MDR1986BE4_System_Private_Functions MDR1986BE4 System Private Functions
+/** @addtogroup __MDR1986VE1T_System_Private_Functions MDR1986VE1T System Private Functions
   * @{
   */
 
@@ -130,11 +130,10 @@ void SystemCoreClockUpdate (void)
   */
 void SystemInit (void)
 {
-	/* Reset the RST clock configuration to the default reset state */
+  /* Reset the RST clock configuration to the default reset state */
 
   /* Reset all clock but RST_CLK & BKP_CLC bits */
-  MDR_RST_CLK->PER1_CLOCK   = (uint32_t)0x30;
-  MDR_RST_CLK->PER2_CLOCK   = (uint32_t)0x1010;
+  MDR_RST_CLK->PER_CLOCK   = (uint32_t)0x8000010;
 
   /* Reset CPU_CLOCK bits */
   MDR_RST_CLK->CPU_CLOCK   &= (uint32_t)0x00000000;
@@ -145,20 +144,23 @@ void SystemInit (void)
   /* Reset HSEON and HSEBYP bits */
   MDR_RST_CLK->HS_CONTROL  &= (uint32_t)0x00000000;
 
+  /* Reset USB_CLOCK bits */
+  MDR_RST_CLK->USB_CLOCK   &= (uint32_t)0x00000000;
+
   /* Reset ADC_MCO_CLOCK bits */
   MDR_RST_CLK->ADC_MCO_CLOCK   &= (uint32_t)0x00000000;
 
   SystemCoreClockUpdate();
 }
 
-/** @} */ /* End of group __MDR1986BE4_System_Private_Functions */
+/** @} */ /* End of group __MDR1986VE1T_System_Private_Functions */
 
-/** @} */ /* End of group __MDR1986BE4 */
+/** @} */ /* End of group __MDR1986VE1T */
 
-/** @} */ /* End of group MDR1986BE4 */
+/** @} */ /* End of group MDR1986VE1T */
 
 /** @} */ /* End of group __CMSIS */
 
-/******************* (C) COPYRIGHT 2014 Milandr *********************************
+/******************* (C) COPYRIGHT 2013 Milandr *********************************
 *
-* END OF FILE system_MDR1986BE4.c */
+* END OF FILE system_MDR1986VE1T.c */

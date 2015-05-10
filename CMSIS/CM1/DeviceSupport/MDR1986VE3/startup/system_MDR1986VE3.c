@@ -17,7 +17,7 @@
   *
   * <h2><center>&copy; COPYRIGHT 2013 Milandr</center></h2>
   ******************************************************************************
-  * FILE system_1986VE3.c
+  * FILE system_MDR1986VE3.c
   */
 
 
@@ -25,11 +25,11 @@
   * @{
   */
 
-/** @defgroup MDR1986VE3 MDR1986VE3
+/** @addtogroup MDR1986VE3 MDR1986VE3
  *  @{
  */
 
-/** @defgroup __MDR1986VE3_System_Eclipse MDR1986VE3 System Eclipse
+/** @defgroup MDR1986VE3_System_ARM MDR1986VE3 System ARM
   * @{
   */
 
@@ -42,7 +42,7 @@
 
 /** @} */ /* End of group System_Private_Includes */
 
-/** @addtogroup __MDR1986VE3_System_Private_Variables MDR1986VE3 System Private Variables
+/** @defgroup __MDR1986VE3_System_Private_Variables MDR1986VE3 System Private Variables
   * @{
   */
 
@@ -54,7 +54,7 @@
 
 /** @} */ /* End of group __MDR1986VE3_System_Private_Variables */
 
-/** @addtogroup __MDR1986VE3_System_Private_Functions MDR1986VE3 System Private Functions
+/** @defgroup __MDR1986VE3_System_Private_Functions MDR1986VE3 System Private Functions
   * @{
   */
 
@@ -130,7 +130,7 @@ void SystemCoreClockUpdate (void)
   */
 void SystemInit (void)
 {
-   /* Reset the RST clock configuration to the default reset state */
+	/* Reset the RST clock configuration to the default reset state */
 
   /* Reset all clock but RST_CLK & BKP_CLC bits */
   MDR_RST_CLK->PER_CLOCK   = (uint32_t)0x8000010;
@@ -156,9 +156,9 @@ void SystemInit (void)
 
 /** @} */ /* End of group __MDR1986VE3_System_Private_Functions */
 
-/** @} */ /* End of group __MDR1986VE3_System_Eclipse */
+/** @} */ /* End of group MDR1986VE3_System_ARM MDR1986VE3 System ARM */
 
-/** @} */ /* End of group MDR1986VE3 */
+/** @} */ /* End of group MDR1986VE3 MDR1986VE3 */
 
 /** @} */ /* End of group __CMSIS */
 
