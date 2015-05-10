@@ -59,7 +59,7 @@
   * @{
   */
 
-__RAMFUNC static void ProgramDelay(uint32_t Loops) __attribute__((section("EXECUTABLE_MEMORY_SECTION")));
+__RAMFUNC static void ProgramDelay(uint32_t Loops) __RAMFUNCSECTION;
 
 /**
   * @brief  Program delay.

@@ -68,25 +68,20 @@
 #if defined ( __ICCARM__ )
   #pragma data_alignment = DATA_ALIGN
 	DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)];
-#endif
-
-#if defined ( __CMCARM__ )
+#elif defined ( __CMCARM__ )
 	#pragma locate DMA_ControlTable 0x20000000 noinit
 	DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)];
 #elif defined ( __CC_ARM )
 	DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)] __attribute__ ((aligned (DATA_ALIGN)));
+#elif defined ( __GNUC__ )
+	DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_AlternateData)] __attribute__((aligned(DATA_ALIGN)));
 #endif
-
-
-
 
 /** @} */ /* End of group DMA_Private_Variables */
 
 /** @defgroup DMA_Private_FunctionPrototypes DMA Private Function Prototypes
   * @{
   */
-
-void DMA_CtrlDataInit(DMA_CtrlDataInitTypeDef *DMA_ctrl_data_ptr, DMA_CtrlDataTypeDef *DMA_ctrl_table_ptr);
 
 /** @} */ /* End of group DMA_Private_FunctionPrototypes */
 

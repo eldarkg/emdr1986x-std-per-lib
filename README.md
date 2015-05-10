@@ -7,6 +7,7 @@ This isn't official library that compatible with GCC compiler.
 - MDR1986VE9x
 - MDR1986VE1T
 - MDR1986VE3 (not tested)
+- MDR1986BE4 (not tested)
 
 <b>Documentation:</b>
 
