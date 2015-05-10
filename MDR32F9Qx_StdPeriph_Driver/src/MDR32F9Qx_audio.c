@@ -49,7 +49,7 @@
 
 #define IS_AUDIO_IP_AD_GAIN(AD_GAIN)					((AD_GAIN & (~0x0000003F)) == 0)
 #define IS_AUDIO_IP_DA_GAIN(DA_GAIN)					((DA_GAIN & (~0x0000003F)) == 0)
-#define IS_AUDIO_IP_CLEAR_IT(IT)						(IT & (~0x00000003) == 0)
+#define IS_AUDIO_IP_CLEAR_IT(IT)						((IT & (~0x00000003)) == 0)
 #define SHORT_CIRCUIT_DETECTION(SC)						((SC == AUDIO_IP_DACCTL_OVECBA) ||\
 														 (SC == AUDIO_IP_DACCTL_OVECBS))
 

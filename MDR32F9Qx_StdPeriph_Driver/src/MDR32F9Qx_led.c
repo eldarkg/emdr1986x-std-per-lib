@@ -367,7 +367,7 @@ const uint8_t font5x7[256 * 5] =
   */
 
 #define IS_LED_FLINKERING_DIV(DIV)			( DIV <= 0xFF )
-#define IS_LED_POSITION(POS)				((POS >=0 ) && (POS <= 256))
+#define IS_LED_POSITION(POS)				(POS <= 256)
 
 /** @} */ /* End of group LED_Private_Macros */
 
