@@ -150,7 +150,7 @@ SECTIONS
 		__data_end__ = .;
 	} > RAM
 
-	__edata = .;
+	__edata = __etext + SIZEOF(.data);
 
 	.ramfunc : AT (__edata)
 	{
