@@ -181,7 +181,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_CONTROL	CAN CONTROL
   * @{
-  */ 
+  */
 
 /*-- CAN_CONTROL: CAN Control Register -----------------------------*/
 /* Bit field positions: */
@@ -202,7 +202,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_STATUS	CAN STATUS
   * @{
-  */ 
+  */
 
 /*-- CAN_STATUS: CAN Status Register -------------------------------*/
 /* Bit field positions: */
@@ -241,7 +241,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_BITTMNG	CAN BITTMNG
   * @{
-  */ 
+  */
 
 /*-- CAN_BITTMNG: CAN Bittiming Register ---------------------------*/
 /* Bit field positions: */
@@ -264,7 +264,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_INT_EN	CAN INT EN
   * @{
-  */ 
+  */
 
 /*-- CAN_INT_EN: CAN Interrupt enable Register ---------------------*/
 /* Bit field positions: */
@@ -285,7 +285,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_RXID	CAN RXID
   * @{
-  */ 
+  */
 
 /*-- CAN_RXID:   CAN Receive ID Register ---------------------------*/
 /*-- CAN_TXID:   CAN Transmit ID Register --------------------------*/
@@ -302,7 +302,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_RXDLC	CAN RXDLC
   * @{
-  */ 
+  */
 
 /*-- CAN_RXDLC:   CAN Receive DLC Register -------------------------*/
 /*-- CAN_TXDLC:   CAN Transmit DLC Register ------------------------*/
@@ -327,7 +327,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_RXDATAL	CAN RXDATAL
   * @{
-  */ 
+  */
 
 /*-- CAN_RXDATAL:   CAN Receive Data low Register ------------------*/
 /*-- CAN_DATAL:     CAN Transmit Data low Register -----------------*/
@@ -348,7 +348,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_RXDATAH	CAN RXDATAH
   * @{
-  */ 
+  */
 
 /*-- CAN_RXDATAH:   CAN Receive Data high Register -----------------*/
 /*-- CAN_DATAH:     CAN Transmit Data high Register ----------------*/
@@ -369,7 +369,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_CAN_BUF_CON	CAN BUF CON
   * @{
-  */ 
+  */
 
 /*-- CAN_BUF_CON: CAN Buffer Connection Register -------------------*/
 /* Bit field positions: */
@@ -482,7 +482,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HTXC	USB HTXC
   * @{
-  */ 
+  */
 
 /*-- USB_HTXC: USB HTXC Register -----------------------------------*/
 /* Bit field positions: */
@@ -501,7 +501,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HTXLC	USB HTXLC
   * @{
-  */ 
+  */
 
 /*-- USB_HTXLC: USB HTXLC Register ---------------------------------*/
 /* Bit field positions: */
@@ -520,7 +520,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HIS	USB HIS
   * @{
-  */ 
+  */
 
 /*-- USB_HIS: USB_HIS Register -------------------------------------*/
 /* Bit field positions: */
@@ -539,7 +539,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HIM	USB HIM
   * @{
-  */ 
+  */
 
 /*-- USB_HIM: USB_HIM Register -------------------------------------*/
 /* Bit field positions: */
@@ -558,7 +558,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HRXS	USB HRXS
   * @{
-  */ 
+  */
 
 /*-- USB_HRXS: USB_HRXS Register -----------------------------------*/
 /* Bit field positions: */
@@ -585,7 +585,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_SEP_CTRL	USB SEP CTRL
   * @{
-  */ 
+  */
 
 /*-- USB_SEP_CTRL: USB_SEP Control Register ------------------------*/
 /* Bit field positions: */
@@ -606,7 +606,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_SEP_STS	USB SEP STS
   * @{
-  */ 
+  */
 
 /*-- USB_SEP_STS: USB_SEP Status Register --------------------------*/
 /* Bit field positions: */
@@ -633,7 +633,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_SC	USB SC
   * @{
-  */ 
+  */
 
 /*-- USB_SC: USB_SC Register ---------------------------------------*/
 /* Bit field positions: */
@@ -654,7 +654,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_SIS	USB SIS
   * @{
-  */ 
+  */
 
 /*-- USB_SIS: USB_SIS Register -------------------------------------*/
 /* Bit field positions: */
@@ -675,7 +675,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_SIM	USB SIM
   * @{
-  */ 
+  */
 
 /*-- USB_SIM: USB_SIM Register -------------------------------------*/
 /* Bit field positions: */
@@ -696,7 +696,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HSCR	USB HSCR
   * @{
-  */ 
+  */
 
 /*-- USB_HSCR: USB_HSCR Register -----------------------------------*/
 /* Bit field positions: */
@@ -723,7 +723,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_USB_HSVR	USB HSVR
   * @{
-  */ 
+  */
 
 /*-- USB_HSVR: USB_HSVR Register -----------------------------------*/
 /* Bit field positions: */
@@ -767,7 +767,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_EEPROM_CMD	EEPROM CMD
   * @{
-  */ 
+  */
 
 /*-- EEPROM_CMD: EEPROM Command Register ---------------------------*/
 /* Bit field positions: */
@@ -838,7 +838,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_CLOCK_STATUS	RST CLK CLOCK STATUS
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_CLOCK_STATUS: Clock Status Register -------------------*/
 /* Bit field positions: */
@@ -858,7 +858,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_PLL_CONTROL	RST CLK PLL CONTROL
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_PLL_CONTROL: PLL Control Register ---------------------*/
 /* Bit field positions: */
@@ -882,7 +882,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_HS_CONTROL	RST CLK HS CONTROL
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_HS_CONTROL: HS Control Register -----------------------*/
 /* Bit field positions: */
@@ -921,7 +921,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_USB_CLOCK	RST CLK USB CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_USB_CLOCK: USB Clock Register -------------------------*/
 /* Bit field positions: */
@@ -941,7 +941,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_ADC_MCO_CLOCK	RST CLK ADC MCO CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_ADC_MCO_CLOCK: ADC Clock Register ---------------------*/
 /* Bit field positions: */
@@ -961,7 +961,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_RTC_CLOCK	RST CLK RTC CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_RTC_CLOCK: RTC Clock Register -------------------------*/
 /* Bit field positions: */
@@ -981,7 +981,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_CAN_CLOCK	RST CLK CAN CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_CAN_CLOCK: CAN Clock Register -------------------------*/
 /* Bit field positions: */
@@ -1001,7 +1001,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_TIM_CLOCK	RST CLK TIM CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_TIM_CLOCK: Timer Clock Register -----------------------*/
 /* Bit field positions: */
@@ -1025,7 +1025,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_UART_CLOCK	RST CLK UART CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_UART_CLOCK: UART Clock Register -----------------------*/
 /* Bit field positions: */
@@ -1049,7 +1049,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_SSP_CLOCK	RST CLK SSP CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_SSP_CLOCK: SSP Clock Register -----------------------*/
 /* Bit field positions: */
@@ -1074,7 +1074,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_RST_CLK_ETH_CLOCK	RST CLK ETR CLOCK
   * @{
-  */ 
+  */
 
 /*-- RST_CLK_ETH_CLOCK: ETR Clock Register -----------------------*/
 /* Bit field positions: */
@@ -1145,7 +1145,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_DMA_STATUS	DMA STATUS
   * @{
-  */ 
+  */
 
 /*-- DMA_STATUS: DMA Status Register -------------------------------*/
 /* Bit field positions: */
@@ -1164,7 +1164,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_DMA_CFG	DMA CFG
   * @{
-  */ 
+  */
 
 /*-- DMA_CFG: DMA Configuration Register ---------------------------*/
 /* Bit field positions: */
@@ -1224,7 +1224,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_DR	UART DR
   * @{
-  */ 
+  */
 
 /*-- UART_DR: UART Data Register -----------------------------------*/
 /* Bit field positions: */
@@ -1245,7 +1245,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_RSR_ECR	UART RSR ECR
   * @{
-  */ 
+  */
 
 /*-- UART_RSR_ECR: UART RSR Register -------------------------------*/
 /* Bit field positions: */
@@ -1264,7 +1264,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_FR	UART FR
   * @{
-  */ 
+  */
 
 /*-- UART_FR: UART Flag Register -----------------------------------*/
 /* Bit field positions: */
@@ -1293,7 +1293,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_LCR_H	UART LCR H
   * @{
-  */ 
+  */
 
 /*-- UART_LCR_H: UART LCR_H Register -------------------------------*/
 /* Bit field positions: */
@@ -1318,7 +1318,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_CR	UART CR
   * @{
-  */ 
+  */
 
 /*-- UART_CR: UART Command Register --------------------------------*/
 /* Bit field positions: */
@@ -1353,7 +1353,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_IFLS	UART IFLS
   * @{
-  */ 
+  */
 
 /*-- UART_IFLS: UART IFLS Register ---------------------------------*/
 /* Bit field positions: */
@@ -1368,7 +1368,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_IMSC	UART IMSC
   * @{
-  */ 
+  */
 
 /*-- UART_IMSC: UART Interrupt Mask Register -----------------------*/
 /* Bit field positions: */
@@ -1402,7 +1402,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_RIS	UART RIS
   * @{
-  */ 
+  */
 
 /*-- UART_RIS: UART Interrupt Pending Register ---------------------*/
 /* Bit field positions: */
@@ -1435,7 +1435,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_MIS	UART MIS
   * @{
-  */ 
+  */
 
 /*-- UART_MIS: UART Masked Interrupt Pending Register --------------*/
 /* Bit field positions: */
@@ -1468,7 +1468,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_ICR	UART ICR
   * @{
-  */ 
+  */
 
 /*-- UART_ICR: UART Interrupt Clear Register -----------------------*/
 /* Bit field positions: */
@@ -1501,7 +1501,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_DMACR	UART DMACR
   * @{
-  */ 
+  */
 
 /*-- UART_DMACR: UART DMA Control Register -------------------------*/
 /* Bit field positions: */
@@ -1518,7 +1518,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_UART_RTTCR	UART RTTCR
   * @{
-  */ 
+  */
 
 /*-- UART_RTTCR: UART Test Control Register -------------------------*/
 /* Bit field positions: */
@@ -1576,7 +1576,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_CR0	SSP CR0
   * @{
-  */ 
+  */
 
 /*-- SSP_CR0: SSP Control0 Register --------------------------------*/
 /* Bit field positions: */
@@ -1604,7 +1604,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_CR1	SSP CR1
   * @{
-  */ 
+  */
 
 /*-- SSP_CR1: SSP Control1 Register --------------------------------*/
 /* Bit field positions: */
@@ -1631,7 +1631,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_SR	SSP SR
   * @{
-  */ 
+  */
 
 /*-- SSP_SR: SSP Status Register -----------------------------------*/
 /* Bit field positions: */
@@ -1660,7 +1660,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_IMSC	SSP IMSC
   * @{
-  */ 
+  */
 
 /*-- SSP_IMSC: SSP Interrupt Mask Register -------------------------*/
 /* Bit field positions: */
@@ -1686,7 +1686,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_RIS	SSP RIS
   * @{
-  */ 
+  */
 
 /*-- SSP_RIS: SSP Interrupt Pending Register -----------------------*/
 /* Bit field positions: */
@@ -1712,7 +1712,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_MIS	SSP MIS
   * @{
-  */ 
+  */
 
 /*-- SSP_MIS: SSP Masked Interrupt Pending Register ----------------*/
 /* Bit field positions: */
@@ -1759,7 +1759,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_ICR	SSP ICR
   * @{
-  */ 
+  */
 
 /*-- SSP_ICR: SSP Interrupt Clear Register -------------------------*/
 /* Bit field positions: */
@@ -1774,7 +1774,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_SSP_DMACR	SSP DMACR
   * @{
-  */ 
+  */
 
 /*-- SSP_DMACR: SSP DMA Control Register ---------------------------*/
 /* Bit field positions: */
@@ -1822,7 +1822,7 @@ typedef struct {
   */
 /** @defgroup __1T_Periph_MIL_STD_1553_CONTROL	MIL STD 1553 CONTROL
   * @{
-  */ 
+  */
 
 /*-- MIL_STD_1553_CONTROL: MIL_STD_1553 Control Register -----*/
 /* Bit field positions: */
@@ -1858,7 +1858,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_MIL_STD_1553_STATUS	MIL STD 1553 STATUS
   * @{
-  */ 
+  */
 
 /*-- MIL_STD_1553_STATUS: MIL_STD_1553 Status Register -----*/
 /* Bit field positions: */
@@ -1881,7 +1881,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_MIL_STD_1553_ERROR	MIL STD 1553 ERROR
   * @{
-  */ 
+  */
 
 /*-- MIL_STD_1553_ERROR: MIL_STD_1553 ERROR Register -----*/
 /* Bit field positions: */
@@ -1906,7 +1906,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_MIL_STD_1553_ITEEN	MIL STD 1553 ITEEN
   * @{
-  */ 
+  */
 
 /*-- MIL_STD_1553_ITEEN: MIL_STD_1553 ITEEN Register -----*/
 /* Bit field positions: */
@@ -1950,7 +1950,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_POWER_PVDCS	POWER PVDCS
   * @{
-  */ 
+  */
 
 /*-- POWER_PVDCS: POWER Power Detector Control/Status Register -----*/
 /* Bit field positions: */
@@ -2005,7 +2005,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_WWDG_CR	WWDG CR
   * @{
-  */ 
+  */
 
 /*-- WWDG_CR: WWDG Command Register --------------------------------*/
 /* Bit field positions: */
@@ -2020,7 +2020,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_WWDG_CFR	WWDG CFR
   * @{
-  */ 
+  */
 
 /*-- WWDG_CFR: WWDG Configuration Register -------------------------*/
 /* Bit field positions: */
@@ -2064,7 +2064,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_IWDG_SR	IWDG SR
   * @{
-  */ 
+  */
 
 /*-- IWDG_SR: IWDG Status Register ---------------------------------*/
 /* Bit field positions: */
@@ -2141,7 +2141,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_CNTRL	TIMER CNTRL
   * @{
-  */ 
+  */
 
 /*-- TIMER_CNTRL: Timer Control Register ---------------------------*/
 /* Bit field positions: */
@@ -2166,7 +2166,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_CH_CNTRL	TIMER CH CNTRL
   * @{
-  */ 
+  */
 
 /*-- TIMER_CH_CNTRL: Timer Channel Control Register ----------------*/
 /* Bit field positions: */
@@ -2218,7 +2218,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_CH_DTG	TIMER CH DTG
   * @{
-  */ 
+  */
 
 /*-- TIMER_CH_DTG: Timer Channel DTG Register ----------------------*/
 /* Bit field positions: */
@@ -2235,7 +2235,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_BRKETR_CNTRL	TIMER BRKETR CNTRL
   * @{
-  */ 
+  */
 
 /*-- TIMER_BRKETR_CNTRL: Timer BRK/ETR Control Register ------------*/
 /* Bit field positions: */
@@ -2254,7 +2254,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_STATUS	TIMER STATUS
   * @{
-  */ 
+  */
 
 /*-- TIMER_STATUS: Timer Status Register ---------------------------*/
 /* Bit field positions: */
@@ -2281,7 +2281,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_IE	TIMER IE
   * @{
-  */ 
+  */
 
 /*-- TIMER_IE: Timer Interrupt Enable Register ---------------------*/
 /* Bit field positions: */
@@ -2308,7 +2308,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_DMA_RE	TIMER DMA RE
   * @{
-  */ 
+  */
 
 /*-- TIMER_DMA_RE: Timer DMA Request Enable Register ---------------*/
 /* Bit field positions: */
@@ -2335,7 +2335,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_TIMER_CH_CNTRL2	TIMER CH CNTRL2
   * @{
-  */ 
+  */
 
 /*-- TIMER_CH_CNTRL2: Timer Channel Control2 Register --------------*/
 /* Bit field positions: */
@@ -2392,7 +2392,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ADC1_CFG	ADC1 CFG
   * @{
-  */ 
+  */
 
 /*-- ADC1_CFG: ADC1 Configuration Register -------------------------*/
 /* Bit field positions: */
@@ -2438,7 +2438,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ADC2_CFG	ADC2 CFG
   * @{
-  */ 
+  */
 
 /*-- ADC2_CFG: ADC2 Configuration Register -------------------------*/
 /* Bit field positions: */
@@ -2452,7 +2452,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ADC1_RESULT	ADC1 RESULT
   * @{
-  */ 
+  */
 
 /*-- ADC1_RESULT: ADC1 Result Register -------------------------*/
 #define ADC_RESULT_Pos                        0
@@ -2466,7 +2466,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ADC_STASUS	ADC STASUS
   * @{
-  */ 
+  */
 
 /*-- ADC_STASUS: ADC STASUS Register -----*/
 /* Bit field positions: */
@@ -2487,7 +2487,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ADC_TRIM	ADC TRIM
   * @{
-  */ 
+  */
 
 /*-- ADC_TRIM: ADC TRIM Register -----*/
 /* Bit field positions: */
@@ -2532,7 +2532,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_DAC_CFG	DAC CFG
   * @{
-  */ 
+  */
 
 /*-- DAC_CFG: DAC Configuration Register ---------------------------*/
 /* Bit field positions: */
@@ -2560,7 +2560,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_DAC1_DATA	DAC1 DATA
   * @{
-  */ 
+  */
 
 /*-- DAC1_DATA: DAC1 Data Register ---------------------------------*/
 /* Bit field positions: */
@@ -2583,7 +2583,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_DAC2_DATA	DAC2 DATA
   * @{
-  */ 
+  */
 
 /*-- DAC2_DATA: DAC2 Data Register ---------------------------------*/
 /* Bit field positions: */
@@ -2639,7 +2639,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_PORT_FUNC	PORT FUNC
   * @{
-  */ 
+  */
 
 /*-- PORT_FUNC: PORT Function Register -----------------------------*/
 /* Bit field positions: */
@@ -2682,7 +2682,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_PORT_PULL	PORT PULL
   * @{
-  */ 
+  */
 
 /*-- PORT_PULL: PORT Pull Up/Down Register -------------------------*/
 /* Bit field positions: */
@@ -2697,7 +2697,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_PORT_PD	PORT PD
   * @{
-  */ 
+  */
 
 /*-- PORT_PD: PORT Driver Mode Register ----------------------------*/
 /* Bit field positions: */
@@ -2712,7 +2712,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_PORT_PWR	PORT PWR
   * @{
-  */ 
+  */
 
 /*-- PORT_PWR: PORT Power Register ---------------------------------*/
 /* Bit field positions: */
@@ -2782,6 +2782,9 @@ typedef struct
 	__IO uint32_t DATA_R_Direct[8];
 		 uint32_t RESERVED2[6];
 	__IO uint32_t INTMASK;
+		 uint32_t RESERVED3;
+	__IO uint32_t CONTROL8;
+	__IO uint32_t CONTROL9;
 }MDR_ARINC429R_TypeDef;
 
 /** @} */ /* End of group Periph_ARINC429R_Data_Structures */
@@ -2792,7 +2795,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429R_CONTROL1	ARINC429R CONTROL1
   * @{
-  */ 
+  */
 
 /*-- ARINC429R_CONTROL1: ARINC429R CONTROL1 Register -----*/
 /* Bit field positions: */
@@ -2836,7 +2839,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARICN429R_CONTROL2	ARICN429R CONTROL2
   * @{
-  */ 
+  */
 
 /*-- ARICN429R_CONTROL2: ARICN429R CONTROL2 Register -----*/
 /* Bit field positions: */
@@ -2883,7 +2886,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429R_CONTROL3	ARINC429R CONTROL3
   * @{
-  */ 
+  */
 
 /*-- ARINC429R_CONTROL3: ARINC429R CONTROL3 Register -----*/
 /* Bit field positions: */
@@ -2934,7 +2937,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429R_CONTROL4	ARINC429R CONTROL4
   * @{
-  */ 
+  */
 
 /*-- ARINC429R_CONTROL4: ARINC429R CONTROL4 Register -----*/
 /* Bit field positions: */
@@ -2953,7 +2956,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC492_CONTROL5	ARINC492 CONTROL5
   * @{
-  */ 
+  */
 
 /*-- ARINC492_CONTROL5: ARINC492 CONTROL5 Register -----*/
 /* Bit field positions: */
@@ -2972,7 +2975,53 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429R_INTMASK	ARINC429R INTMASK
   * @{
-  */ 
+  */
+
+/** @defgroup __1T_Periph_ARINC492_CONTROL8	ARINC492 CONTROL8
+  * @{
+  */
+
+/*-- ARINC492_CONTROL8: ARINC492 CONTROL8 Register -----*/
+/* Bit field positions: */
+#define ARINC429R_CONTROL8_ENPAR_Pos                0
+#define ARINC429R_CONTROL8_ODD_Pos                  14
+#define ARINC429R_CONTROL8_DA0_Pos                  28
+#define ARINC429R_CONTROL8_DA1_Pos                  29
+
+/* Bit field masks: */
+#define ARINC429R_CONTROL8_ENPAR                    ((uint32_t)0x00000001)
+#define ARINC429R_CONTROL8_ODD                      ((uint32_t)0x00004000)
+#define ARINC429R_CONTROL8_DA0                      ((uint32_t)0x10000000)
+#define ARINC429R_CONTROL8_DA1                      ((uint32_t)0x20000000)
+
+/** @} */ /* End of group ARINC492_CONTROL8 */
+
+/** @defgroup __1T_Periph_ARINC492_CONTROL9	ARINC492 CONTROL9
+  * @{
+  */
+
+/*-- ARINC492_CONTROL9: ARINC492 CONTROL9 Register -----*/
+/* Bit field positions: */
+#define ARINC429R_CONTROL9_ENSYNC0_Pos              0
+#define ARINC429R_CONTROL9_ENSYNC1_Pos              1
+#define ARINC429R_CONTROL9_ENSYNC2_Pos              2
+#define ARINC429R_CONTROL9_ENSYNC3_Pos              3
+#define ARINC429R_CONTROL9_ENSYNC4_Pos              4
+#define ARINC429R_CONTROL9_ENSYNC5_Pos              5
+#define ARINC429R_CONTROL9_ENSYNC6_Pos              6
+#define ARINC429R_CONTROL9_ENSYNC7_Pos              7
+
+/* Bit field masks: */
+#define ARINC429R_CONTROL9_ENSYNC0                  ((uint32_t)0x00000001)
+#define ARINC429R_CONTROL9_ENSYNC1                  ((uint32_t)0x00000002)
+#define ARINC429R_CONTROL9_ENSYNC2                  ((uint32_t)0x00000004)
+#define ARINC429R_CONTROL9_ENSYNC3                  ((uint32_t)0x00000008)
+#define ARINC429R_CONTROL9_ENSYNC4                  ((uint32_t)0x00000010)
+#define ARINC429R_CONTROL9_ENSYNC5                  ((uint32_t)0x00000020)
+#define ARINC429R_CONTROL9_ENSYNC6                  ((uint32_t)0x00000040)
+#define ARINC429R_CONTROL9_ENSYNC7                  ((uint32_t)0x00000080)
+
+/** @} */ /* End of group ARINC492_CONTROL9 */
 
 /*-- ARINC429R_INTMASK: ARINC429R INTMASK register -----*/
 /* Bit field positions: */
@@ -3010,44 +3059,44 @@ typedef struct
 #define ARINC429R_INTMASK_IEDR8_Pos					31
 
 /* Bit field masks: */
-#define ARINC429R_INTMASK_IEHF1						((uint32_t)0x00000001))
-#define ARINC429R_INTMASK_IEFF1						((uint32_t)0x00000002))
-#define ARINC429R_INTMASK_IEER1						((uint32_t)0x00000004))
-#define ARINC429R_INTMASK_IEDR1						((uint32_t)0x00000008))
-#define ARINC429R_INTMASK_IEHF2						((uint32_t)0x00000010))
-#define ARINC429R_INTMASK_IEFF2						((uint32_t)0x00000020))
-#define ARINC429R_INTMASK_IEER2						((uint32_t)0x00000040))
-#define ARINC429R_INTMASK_IEDR2						((uint32_t)0x00000080))
-#define ARINC429R_INTMASK_IEHF3						((uint32_t)0x00000100))
-#define ARINC429R_INTMASK_IEFF3						((uint32_t)0x00000200))
-#define ARINC429R_INTMASK_IEER3						((uint32_t)0x00000400))
-#define ARINC429R_INTMASK_IEDR3						((uint32_t)0x00000800))
-#define ARINC429R_INTMASK_IEHF4						((uint32_t)0x00001000))
-#define ARINC429R_INTMASK_IEFF4						((uint32_t)0x00002000))
-#define ARINC429R_INTMASK_IEER4						((uint32_t)0x00004000))
-#define ARINC429R_INTMASK_IEDR4						((uint32_t)0x00008000))
-#define ARINC429R_INTMASK_IEHF5						((uint32_t)0x00010000))
-#define ARINC429R_INTMASK_IEFF5						((uint32_t)0x00020000))
-#define ARINC429R_INTMASK_IEER5						((uint32_t)0x00040000))
-#define ARINC429R_INTMASK_IEDR5						((uint32_t)0x00080000))
-#define ARINC429R_INTMASK_IEHF6						((uint32_t)0x00100000))
-#define ARINC429R_INTMASK_IEFF6						((uint32_t)0x00200000))
-#define ARINC429R_INTMASK_IEER6						((uint32_t)0x00400000))
-#define ARINC429R_INTMASK_IEDR6						((uint32_t)0x00800000))
-#define ARINC429R_INTMASK_IEHF7						((uint32_t)0x01000000))
-#define ARINC429R_INTMASK_IEFF7						((uint32_t)0x02000000))
-#define ARINC429R_INTMASK_IEER7						((uint32_t)0x04000000))
-#define ARINC429R_INTMASK_IEDR7						((uint32_t)0x08000000))
-#define ARINC429R_INTMASK_IEHF8						((uint32_t)0x10000000))
-#define ARINC429R_INTMASK_IEFF8						((uint32_t)0x20000000))
-#define ARINC429R_INTMASK_IEER8						((uint32_t)0x40000000))
-#define ARINC429R_INTMASK_IEDR8						((uint32_t)0x80000000))
+#define ARINC429R_INTMASK_IEHF1                     ((uint32_t)0x00000001)
+#define ARINC429R_INTMASK_IEFF1                     ((uint32_t)0x00000002)
+#define ARINC429R_INTMASK_IEER1                     ((uint32_t)0x00000004)
+#define ARINC429R_INTMASK_IEDR1                     ((uint32_t)0x00000008)
+#define ARINC429R_INTMASK_IEHF2                     ((uint32_t)0x00000010)
+#define ARINC429R_INTMASK_IEFF2                     ((uint32_t)0x00000020)
+#define ARINC429R_INTMASK_IEER2                     ((uint32_t)0x00000040)
+#define ARINC429R_INTMASK_IEDR2                     ((uint32_t)0x00000080)
+#define ARINC429R_INTMASK_IEHF3                     ((uint32_t)0x00000100)
+#define ARINC429R_INTMASK_IEFF3                     ((uint32_t)0x00000200)
+#define ARINC429R_INTMASK_IEER3                     ((uint32_t)0x00000400)
+#define ARINC429R_INTMASK_IEDR3                     ((uint32_t)0x00000800)
+#define ARINC429R_INTMASK_IEHF4                     ((uint32_t)0x00001000)
+#define ARINC429R_INTMASK_IEFF4                     ((uint32_t)0x00002000)
+#define ARINC429R_INTMASK_IEER4                     ((uint32_t)0x00004000)
+#define ARINC429R_INTMASK_IEDR4                     ((uint32_t)0x00008000)
+#define ARINC429R_INTMASK_IEHF5                     ((uint32_t)0x00010000)
+#define ARINC429R_INTMASK_IEFF5                     ((uint32_t)0x00020000)
+#define ARINC429R_INTMASK_IEER5                     ((uint32_t)0x00040000)
+#define ARINC429R_INTMASK_IEDR5                     ((uint32_t)0x00080000)
+#define ARINC429R_INTMASK_IEHF6                     ((uint32_t)0x00100000)
+#define ARINC429R_INTMASK_IEFF6                     ((uint32_t)0x00200000)
+#define ARINC429R_INTMASK_IEER6                     ((uint32_t)0x00400000)
+#define ARINC429R_INTMASK_IEDR6                     ((uint32_t)0x00800000)
+#define ARINC429R_INTMASK_IEHF7                     ((uint32_t)0x01000000)
+#define ARINC429R_INTMASK_IEFF7                     ((uint32_t)0x02000000)
+#define ARINC429R_INTMASK_IEER7                     ((uint32_t)0x04000000)
+#define ARINC429R_INTMASK_IEDR7                     ((uint32_t)0x08000000)
+#define ARINC429R_INTMASK_IEHF8                     ((uint32_t)0x10000000)
+#define ARINC429R_INTMASK_IEFF8                     ((uint32_t)0x20000000)
+#define ARINC429R_INTMASK_IEER8                     ((uint32_t)0x40000000)
+#define ARINC429R_INTMASK_IEDR8                     ((uint32_t)0x80000000)
 
 /** @} */ /* End of group ARINC429R_INTMASK */
 
 /** @defgroup __1T_Periph_ARINC429R_STATUS1	ARINC429R STATUS1
   * @{
-  */ 
+  */
 
 /*-- ARINC429R_STATUS1: ARINC429R STATUS1 Register -----*/
 /* Bit field positions: */
@@ -3090,7 +3139,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429R_STATUS2	ARINC429R STATUS2
   * @{
-  */ 
+  */
 
 /*-- ARINC429R_STATUS2: ARINC429R STATUS2 Register -----*/
 /* Bit field positions: */
@@ -3154,6 +3203,7 @@ typedef struct
 	__IO uint32_t DATA3_T;
 	__IO uint32_t DATA4_T;
 	__IO uint32_t CONTROL3;
+	__IO uint32_t CONTROL4;
 }MDR_ARINC429T_TypeDef;
 
 /** @} */ /* End of group Periph_ARINC429T_Data_Structures */
@@ -3164,7 +3214,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429T_CONTROL1	ARINC429T CONTROL1
   * @{
-  */ 
+  */
 
 /*-- ARINC429T_CONTROL1: ARINC429T CONTROL1 Register -----*/
 /* Bit field positions: */
@@ -3205,7 +3255,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429T_CONTROL2	ARINC429T CONTROL2
   * @{
-  */ 
+  */
 
 /*-- ARINC429T_CONTROL2: ARINC429T CONTROL2 Register -----*/
 /* Bit field positions: */
@@ -3244,7 +3294,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_ARINC429T_CONTROL3	ARINC429T CONTROL3
   * @{
-  */ 
+  */
 
 /*-- ARINC429T_CONTROL3: ARINC429T CONTROL3 Register -----*/
 /* Bit field positions: */
@@ -3261,9 +3311,28 @@ typedef struct
 
 /** @} */ /* End of group ARINC429T_CONTROL3 */
 
+/** @defgroup __1T_Periph_ARINC429T_CONTROL4	ARINC429T CONTROL4
+  * @{
+  */
+
+/*-- ARINC429T_CONTROL4: ARINC429T CONTROL4 Register -----*/
+/* Bit field positions: */
+#define ARINC429T_CONTROL4_ENSYNC0_Pos              0
+#define ARINC429T_CONTROL4_ENSYNC1_Pos              1
+#define ARINC429T_CONTROL4_ENSYNC2_Pos              2
+#define ARINC429T_CONTROL4_ENSYNC3_Pos              3
+
+/* Bit field masks: */
+#define ARINC429T_CONTROL4_ENSYNC0                  ((uint32_t)0x00000001)
+#define ARINC429T_CONTROL4_ENSYNC1                  ((uint32_t)0x00000002)
+#define ARINC429T_CONTROL4_ENSYNC2                  ((uint32_t)0x00000004)
+#define ARINC429T_CONTROL4_ENSYNC3                  ((uint32_t)0x00000008)
+
+/** @} */ /* End of group ARINC429T_CONTROL4 */
+
 /** @defgroup __1T_Periph_ARINÑ429T_STATUS	ARINÑ429T STATUS
   * @{
-  */ 
+  */
 
 /*-- ARINÑ429T_STATUS: ARINÑ429T STATUS Register -----*/
 /* Bit field positions: */
@@ -3342,7 +3411,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_BKP_REG_0E	BKP REG 0E
   * @{
-  */ 
+  */
 
 /*-- BKP_REG_0E: Backup Register 14 --------------------------------*/
 /* Bit field positions: */
@@ -3367,7 +3436,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_BKP_REG_0F	BKP REG 0F
   * @{
-  */ 
+  */
 
 /*-- BKP_REG_0F: Backup Register 15 --------------------------------*/
 /* Bit field positions: */
@@ -3408,7 +3477,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_BKP_RTC_CS	BKP RTC CS
   * @{
-  */ 
+  */
 
 /*-- BKP_RTC_CS: Backup Realtime clock Register --------------------*/
 /* Bit field positions: */
@@ -3460,7 +3529,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_EBC_NAND_CYCLES	EBC NAND CYCLES
   * @{
-  */ 
+  */
 
 /*-- EBC_NAND_CYCLES: EBC NAND Timing Register ---------------------*/
 /* Bit field positions: */
@@ -3486,7 +3555,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_EBC_CONTROL	EBC CONTROL
   * @{
-  */ 
+  */
 
 /*-- EBC_CONTROL: EBC Control Register -----------------------------*/
 /* Bit field positions: */
@@ -3514,7 +3583,7 @@ typedef struct
 
 /** @defgroup __1T_Periph_EBC_RAM_CYCLESx	EBC RAM CYCLESx
   * @{
-  */ 
+  */
 
 /*-- EBC_RAM_CYCLESx: Register customization options exchange with RAM -------*/
 /* Bit field positions: */
@@ -3584,7 +3653,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_G_CFGl	ETH G CFGl
   * @{
-  */ 
+  */
 
 /*-- ETH_G_CFGl: ETH G_CFGl Register -----*/
 /* Bit field positions: */
@@ -3609,7 +3678,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_G_CFGh	ETH G CFGh
   * @{
-  */ 
+  */
 
 /*-- ETH_G_CFGh: ETH G_CFGh Register -----*/
 /* Bit field positions: */
@@ -3632,7 +3701,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_X_CFG	ETH X CFG
   * @{
-  */ 
+  */
 
 /*-- ETH_X_CFG: ETH X_CFG Register -----*/
 /* Bit field positions: */
@@ -3661,7 +3730,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_R_CFG	ETH R CFG
   * @{
-  */ 
+  */
 
 /*-- ETH_R_CFG: ETH R_CFG Register -----*/
 /* Bit field positions: */
@@ -3696,7 +3765,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_IMR	ETH IMR
   * @{
-  */ 
+  */
 
 /*-- ETH_IMR: ETH IMR Register -----*/
 /* Bit field positions: */
@@ -3737,7 +3806,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_IFR	ETH IFR
   * @{
-  */ 
+  */
 
 /*-- ETH_IFR: ETH IFR Register -----*/
 /* Bit field positions: */
@@ -3778,7 +3847,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_STAT	ETH STAT
   * @{
-  */ 
+  */
 
 /*-- ETH_STAT: ETH STAT Register -----*/
 /* Bit field positions: */
@@ -3811,7 +3880,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_MDIO_CTRL	ETH MDIO CTRL
   * @{
-  */ 
+  */
 
 /*-- ETH_MDIO_CTRL: ETH MDIO_CTRL Register -----*/
 /* Bit field positions: */
@@ -3834,7 +3903,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_PHY_CONTROL	ETH PHY CONTROL
   * @{
-  */ 
+  */
 
 /*-- ETH_PHY_CONTROL: ETH PHY_CONTROL Register -----*/
 /* Bit field positions: */
@@ -3859,7 +3928,7 @@ typedef struct {
 
 /** @defgroup __1T_Periph_ETH_PHY_STATUS	ETH PHY STATUS
   * @{
-  */ 
+  */
 
 /*-- ETH_PHY_STATUS: ETH PHY_STATUS Register -----*/
 /* Bit field positions: */
