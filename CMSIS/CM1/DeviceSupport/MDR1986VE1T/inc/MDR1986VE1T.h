@@ -2958,7 +2958,7 @@ typedef struct
   * @{
   */
 
-/*-- ARINC492_CONTROL5: ARINC492 CONTROL5 Register -----*/
+/*-- ARINC492R_CONTROL5: ARINC492R CONTROL5 Register -----*/
 /* Bit field positions: */
 #define ARINC429R_CONTROL5_DIV_CH5_Pos            	 0
 #define ARINC429R_CONTROL5_DIV_CH6_Pos            	 8
@@ -2971,57 +2971,85 @@ typedef struct
 #define ARINC429R_CONTROL5_DIV_CH7_Msk               ((uint32_t)0x00FF0000)
 #define ARINC429R_CONTROL5_DIV_CH8_Msk				 ((uint32_t)0xFF000000)
 
-/** @} */ /* End of group ARINC492_CONTROL5 */
+/** @} */ /* End of group ARINC492R_CONTROL5 */
 
-/** @defgroup __1T_Periph_ARINC429R_INTMASK	ARINC429R INTMASK
+/** @defgroup __1T_Periph_ARINC492R_CONTROL8	ARINC492R CONTROL8
   * @{
   */
 
-/** @defgroup __1T_Periph_ARINC492_CONTROL8	ARINC492 CONTROL8
-  * @{
-  */
-
-/*-- ARINC492_CONTROL8: ARINC492 CONTROL8 Register -----*/
+/*-- ARINC492R_CONTROL8: ARINC492R CONTROL8 Register -----*/
 /* Bit field positions: */
-#define ARINC429R_CONTROL8_ENPAR_Pos                0
-#define ARINC429R_CONTROL8_ODD_Pos                  14
+#define ARINC429R_CONTROL8_ENPAR1_Pos               0
+#define ARINC429R_CONTROL8_ENPAR2_Pos               1
+#define ARINC429R_CONTROL8_ENPAR3_Pos               2
+#define ARINC429R_CONTROL8_ENPAR4_Pos               3
+#define ARINC429R_CONTROL8_ENPAR5_Pos               4
+#define ARINC429R_CONTROL8_ENPAR6_Pos               5
+#define ARINC429R_CONTROL8_ENPAR7_Pos               6
+#define ARINC429R_CONTROL8_ENPAR8_Pos               7
+#define ARINC429R_CONTROL8_ODD1_Pos                 14
+#define ARINC429R_CONTROL8_ODD2_Pos                 15
+#define ARINC429R_CONTROL8_ODD3_Pos                 16
+#define ARINC429R_CONTROL8_ODD4_Pos                 17
+#define ARINC429R_CONTROL8_ODD5_Pos                 18
+#define ARINC429R_CONTROL8_ODD6_Pos                 19
+#define ARINC429R_CONTROL8_ODD7_Pos                 20
+#define ARINC429R_CONTROL8_ODD8_Pos                 21
 #define ARINC429R_CONTROL8_DA0_Pos                  28
 #define ARINC429R_CONTROL8_DA1_Pos                  29
 
 /* Bit field masks: */
-#define ARINC429R_CONTROL8_ENPAR                    ((uint32_t)0x00000001)
-#define ARINC429R_CONTROL8_ODD                      ((uint32_t)0x00004000)
+#define ARINC429R_CONTROL8_ENPAR1                   ((uint32_t)0x00000001)
+#define ARINC429R_CONTROL8_ENPAR2                   ((uint32_t)0x00000002)
+#define ARINC429R_CONTROL8_ENPAR3                   ((uint32_t)0x00000004)
+#define ARINC429R_CONTROL8_ENPAR4                   ((uint32_t)0x00000008)
+#define ARINC429R_CONTROL8_ENPAR5                   ((uint32_t)0x00000010)
+#define ARINC429R_CONTROL8_ENPAR6                   ((uint32_t)0x00000020)
+#define ARINC429R_CONTROL8_ENPAR7                   ((uint32_t)0x00000040)
+#define ARINC429R_CONTROL8_ENPAR8                   ((uint32_t)0x00000080)
+#define ARINC429R_CONTROL8_ODD1                     ((uint32_t)0x00004000)
+#define ARINC429R_CONTROL8_ODD2                     ((uint32_t)0x00008000)
+#define ARINC429R_CONTROL8_ODD3                     ((uint32_t)0x00010000)
+#define ARINC429R_CONTROL8_ODD4                     ((uint32_t)0x00020000)
+#define ARINC429R_CONTROL8_ODD5                     ((uint32_t)0x00040000)
+#define ARINC429R_CONTROL8_ODD6                     ((uint32_t)0x00080000)
+#define ARINC429R_CONTROL8_ODD7                     ((uint32_t)0x00100000)
+#define ARINC429R_CONTROL8_ODD8                     ((uint32_t)0x00200000)
 #define ARINC429R_CONTROL8_DA0                      ((uint32_t)0x10000000)
 #define ARINC429R_CONTROL8_DA1                      ((uint32_t)0x20000000)
 
-/** @} */ /* End of group ARINC492_CONTROL8 */
+/** @} */ /* End of group ARINC492R_CONTROL8 */
 
-/** @defgroup __1T_Periph_ARINC492_CONTROL9	ARINC492 CONTROL9
+/** @defgroup __1T_Periph_ARINC492R_CONTROL9	ARINC492R CONTROL9
   * @{
   */
 
-/*-- ARINC492_CONTROL9: ARINC492 CONTROL9 Register -----*/
+/*-- ARINC492R_CONTROL9: ARINC492R CONTROL9 Register -----*/
 /* Bit field positions: */
-#define ARINC429R_CONTROL9_ENSYNC0_Pos              0
-#define ARINC429R_CONTROL9_ENSYNC1_Pos              1
-#define ARINC429R_CONTROL9_ENSYNC2_Pos              2
-#define ARINC429R_CONTROL9_ENSYNC3_Pos              3
-#define ARINC429R_CONTROL9_ENSYNC4_Pos              4
-#define ARINC429R_CONTROL9_ENSYNC5_Pos              5
-#define ARINC429R_CONTROL9_ENSYNC6_Pos              6
-#define ARINC429R_CONTROL9_ENSYNC7_Pos              7
+#define ARINC429R_CONTROL9_ENSYNC1_Pos              0
+#define ARINC429R_CONTROL9_ENSYNC2_Pos              1
+#define ARINC429R_CONTROL9_ENSYNC3_Pos              2
+#define ARINC429R_CONTROL9_ENSYNC4_Pos              3
+#define ARINC429R_CONTROL9_ENSYNC5_Pos              4
+#define ARINC429R_CONTROL9_ENSYNC6_Pos              5
+#define ARINC429R_CONTROL9_ENSYNC7_Pos              6
+#define ARINC429R_CONTROL9_ENSYNC8_Pos              7
 
 /* Bit field masks: */
-#define ARINC429R_CONTROL9_ENSYNC0                  ((uint32_t)0x00000001)
-#define ARINC429R_CONTROL9_ENSYNC1                  ((uint32_t)0x00000002)
-#define ARINC429R_CONTROL9_ENSYNC2                  ((uint32_t)0x00000004)
-#define ARINC429R_CONTROL9_ENSYNC3                  ((uint32_t)0x00000008)
-#define ARINC429R_CONTROL9_ENSYNC4                  ((uint32_t)0x00000010)
-#define ARINC429R_CONTROL9_ENSYNC5                  ((uint32_t)0x00000020)
-#define ARINC429R_CONTROL9_ENSYNC6                  ((uint32_t)0x00000040)
-#define ARINC429R_CONTROL9_ENSYNC7                  ((uint32_t)0x00000080)
+#define ARINC429R_CONTROL9_ENSYNC1                  ((uint32_t)0x00000001)
+#define ARINC429R_CONTROL9_ENSYNC2                  ((uint32_t)0x00000002)
+#define ARINC429R_CONTROL9_ENSYNC3                  ((uint32_t)0x00000004)
+#define ARINC429R_CONTROL9_ENSYNC4                  ((uint32_t)0x00000008)
+#define ARINC429R_CONTROL9_ENSYNC5                  ((uint32_t)0x00000010)
+#define ARINC429R_CONTROL9_ENSYNC6                  ((uint32_t)0x00000020)
+#define ARINC429R_CONTROL9_ENSYNC7                  ((uint32_t)0x00000040)
+#define ARINC429R_CONTROL9_ENSYNC8                  ((uint32_t)0x00000080)
 
-/** @} */ /* End of group ARINC492_CONTROL9 */
+/** @} */ /* End of group ARINC492R_CONTROL9 */
+
+/** @defgroup __1T_Periph_ARINC429R_INTMASK	ARINC429R INTMASK
+  * @{
+  */
 
 /*-- ARINC429R_INTMASK: ARINC429R INTMASK register -----*/
 /* Bit field positions: */
@@ -3317,16 +3345,16 @@ typedef struct
 
 /*-- ARINC429T_CONTROL4: ARINC429T CONTROL4 Register -----*/
 /* Bit field positions: */
-#define ARINC429T_CONTROL4_ENSYNC0_Pos              0
-#define ARINC429T_CONTROL4_ENSYNC1_Pos              1
-#define ARINC429T_CONTROL4_ENSYNC2_Pos              2
-#define ARINC429T_CONTROL4_ENSYNC3_Pos              3
+#define ARINC429T_CONTROL4_ENSYNC1_Pos              0
+#define ARINC429T_CONTROL4_ENSYNC2_Pos              1
+#define ARINC429T_CONTROL4_ENSYNC3_Pos              2
+#define ARINC429T_CONTROL4_ENSYNC4_Pos              3
 
 /* Bit field masks: */
-#define ARINC429T_CONTROL4_ENSYNC0                  ((uint32_t)0x00000001)
-#define ARINC429T_CONTROL4_ENSYNC1                  ((uint32_t)0x00000002)
-#define ARINC429T_CONTROL4_ENSYNC2                  ((uint32_t)0x00000004)
-#define ARINC429T_CONTROL4_ENSYNC3                  ((uint32_t)0x00000008)
+#define ARINC429T_CONTROL4_ENSYNC1                  ((uint32_t)0x00000001)
+#define ARINC429T_CONTROL4_ENSYNC2                  ((uint32_t)0x00000002)
+#define ARINC429T_CONTROL4_ENSYNC3                  ((uint32_t)0x00000004)
+#define ARINC429T_CONTROL4_ENSYNC4                  ((uint32_t)0x00000008)
 
 /** @} */ /* End of group ARINC429T_CONTROL4 */
 
