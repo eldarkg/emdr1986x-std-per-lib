@@ -36,9 +36,9 @@ For each src in SRC list call:
 
 arm-none-eabi-gcc ${CFLAGS} -DUSE_MDR1986VE9x -D__STARTUP_CLEAR_BSS -D__START=main -I${INC} ${src} -o ${src}.o
 
-Link:
+Link (OBJ it is a list of all ${src}.o):
 
-arm-none-eabi-gcc ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/startup/gcc/MDR32F9Qx.ld --specs=nosys.specs -Wl,--gc-sections -ffreestanding -nostartfiles -Wl,-Map=example.map ${SRC} -o example.elf
+arm-none-eabi-gcc ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/startup/gcc/MDR32F9Qx.ld --specs=nosys.specs -Wl,--gc-sections -ffreestanding -nostartfiles -Wl,-Map=example.map ${OBJ} -o example.elf
 
 Hex:
 
