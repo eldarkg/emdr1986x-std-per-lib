@@ -5,7 +5,6 @@
 ; * @version: V1.0
 ; * @date:    09/07/2010
 ; *****************************************************************************
-;* <<< Use Configuration Wizard in Context Menu >>>
 ; * @copy
 ; *
 ; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
@@ -19,6 +18,8 @@
 ; ******************************************************************************
 ; * FILE startup_MDR32F9Qx.s
 ; */
+
+; <<< Use Configuration Wizard in Context Menu >>>
 
 ; Amount of memory (in bytes) allocated for Stack
 ; Tailor this value to your application needs

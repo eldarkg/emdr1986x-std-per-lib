@@ -7,7 +7,6 @@
 ; * @version	1.0
 ; * @date	2014-03-18
 ; *****************************************************************************
-;* <<< Use Configuration Wizard in Context Menu >>>
 ; * <br><br>
 ; *
 ; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
@@ -22,6 +21,8 @@
 ; *****************************************************************************
 ; * FILE startup_MDR1986BE4.s
 ; */
+
+; <<< Use Configuration Wizard in Context Menu >>>
 
 ; Amount of memory (in bytes) allocated for Stack
 ; Tailor this value to your application needs
