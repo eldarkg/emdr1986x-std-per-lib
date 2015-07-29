@@ -1,8 +1,6 @@
 ;/*****************************************************************************/
 ;/* 1986VE1T.s: Startup file for ARM Cortex-M1 Device Family                   */
 ;/*****************************************************************************/
-;/* <<< Use Configuration Wizard in Context Menu >>>                          */
-;/*****************************************************************************/
 ;/* This file is part of the uVision/ARM development tools.                   */
 ;/* Copyright (c) 2005-2008 Keil Software. All rights reserved.               */
 ;/* This software may only be used under the terms of a valid, current,       */
@@ -10,6 +8,7 @@
 ;/* development tools. Nothing else gives you the right to use this software. */
 ;/*****************************************************************************/
 
+;// <<< Use Configuration Wizard in Context Menu >>>
 
 ;// <h> Stack Configuration
 ;//   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
@@ -59,7 +58,7 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
                 DCD     SysTick_Handler           ; SysTick Handler
 
                 ; External Interrupts
-                
+
 				DCD     MIL_STD_1553B2_IRQHandler		;IRQ0
 				DCD     MIL_STD_1553B1_IRQHandler		;IRQ1
 				DCD     USB_IRQHandler				;IRQ2
@@ -106,7 +105,7 @@ Reset_Handler   PROC
                 ENDP
 
 
-; Dummy Exception Handlers (infinite loops which can be modified)                
+; Dummy Exception Handlers (infinite loops which can be modified)
 
 NMI_Handler     PROC
                 EXPORT  NMI_Handler				[WEAK]
@@ -149,7 +148,7 @@ USB_IRQHandler		PROC
 				EXPORT  USB_IRQHandler				[WEAK]
 				B       .
                 ENDP
-                
+
 CAN1_IRQHandler	PROC
 				EXPORT  CAN1_IRQHandler			[WEAK]
 				B       .
@@ -244,7 +243,7 @@ ARINC429T1_IRQHandler	PROC
 				EXPORT  ARINC429T1_IRQHandler		[WEAK]
 				B       .
                 ENDP
-                
+
 ARINC429T2_IRQHandler	PROC
 				EXPORT  ARINC429T2_IRQHandler		[WEAK]
 				B       .
@@ -292,13 +291,13 @@ EXT_INT4_IRQHandler	PROC
 ; User Initial Stack & Heap
 
                 IF      :DEF:__MICROLIB
-                
+
                 EXPORT  __initial_sp
                 EXPORT  __heap_base
                 EXPORT  __heap_limit
-                
+
                 ELSE
-                
+
                 IMPORT  __use_two_region_memory
                 EXPORT  __user_initial_stackheap
 __user_initial_stackheap
