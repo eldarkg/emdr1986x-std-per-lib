@@ -505,6 +505,7 @@ USB_Result USB_CDC_ClassRequest(void)
     defined (USB_CDC_CONTROL_LINE_STATE_SUPPORTED) ||\
     defined (USB_CDC_LINE_BREAK_SUPPORTED)
   uint16_t wValue = USB_CurrentSetupPacket.wValue;
+  (void)wValue;
 #endif
   uint16_t wIndex = USB_CurrentSetupPacket.wIndex,
            wLength = USB_CurrentSetupPacket.wLength;
