@@ -267,6 +267,9 @@ FlagStatus ARINC429T_GetFlagStatus(uint32_t ARINC429T_CHANNELx, uint32_t ARINC42
 		case ARINC429T_FLAG_HFT:
 			bitstatus = (ARINC429Tx->STATUS & (1 << (ARINC429T_STATUS_HFT1_Pos + ARINC429T_CHANNELx *3 + 2*(ARINC429T_CHANNELx >= ARINC429T_CHANNEL3)))) == 0 ? RESET : SET;
 			break;
+		default:
+			bitstatus = RESET;
+			break;
 	}
 	return (bitstatus);
 }
