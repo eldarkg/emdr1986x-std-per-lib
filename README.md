@@ -34,7 +34,7 @@ CFLAGS = -mcpu=cortex-m3 -mthumb -O2 -ffunction-sections -fdata-sections -Wall -
 
 For each src in SRC list call:
 
-arm-none-eabi-gcc ${CFLAGS} -DUSE_MDR1986VE9x -D__STARTUP_CLEAR_BSS -D__START=main -I${INC} ${src} -o ${src}.o
+arm-none-eabi-gcc ${CFLAGS} -DUSE_MDR1986VE9x -D__STARTUP_CLEAR_BSS -D__START=main -I${INC} -c ${src} -o ${src}.o
 
 Link (OBJ it is a list of all ${src}.o):
 
