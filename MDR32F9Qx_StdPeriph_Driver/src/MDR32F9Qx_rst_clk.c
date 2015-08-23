@@ -140,7 +140,7 @@
 #define LSION_OFFSET                15
 #define LSION_MASK                  ((uint32_t)(1 << LSION_OFFSET))
 
-#if defined(USE_MDR1986VE9x)
+#if defined(USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   #define PLLCPUON_BB                 RST_CLK_BB(PLL_CONTROL, 2)
   #define PLLCPUPLD_BB                RST_CLK_BB(PLL_CONTROL, 3)
   #define PLLUSBON_BB                 RST_CLK_BB(PLL_CONTROL, 0)
@@ -161,6 +161,16 @@
   #define USB_C1_SEL0_BB              RST_CLK_BB(USB_CLOCK, 0)
   #define USB_C1_SEL1_BB              RST_CLK_BB(USB_CLOCK, 1)
 #endif /* #if defined(USE_MDR1986VE9x) */
+
+#if defined (USE_MDR1901VC1T)
+	#define PLL_DSP_RDY_BB				  RST_CLK_BB(CLOCK_STATUS, RST_CLK_CLOCK_STATUS_PLL_DSP_RDY_Pos)
+	#define PLL_DSP_ON_BB				  RST_CLK_BB(PLL_CONTROL, RST_CLK_PLL_CONTROL_PLL_DSP_ON_Pos)
+	#define PLL_DSP_PLD_BB				  RST_CLK_BB(PLL_CONTROL, RST_CLK_PLL_CONTROL_PLL_DSP_PLD_Pos)
+
+	#define DSP_CLK_EN_BB				  RST_CLK_BB(DSP_CLOCK, RST_CLK_DSP_CLOCK_DSP_CLK_EN_Pos)
+	#define DSP_CLK_C3_SEL_BB  		  	  RST_CLK_BB(DSP_CLOCK, RST_CLK_DSP_CLOCK_DSP_C3_SEL_Pos)
+	#define DSP_CLK_C2_SEL_BB			  RST_CLK_BB(DSP_CLOCK, RST_CLK_DSP_CLOCK_DSP_C2_SEL_Pos)
+#endif
 
 /** @} */ /* End of group RST_CLK_Private_Constants */
 
@@ -420,7 +430,7 @@ void RST_CLK_HSIcmd(FunctionalState NewState)
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) HSION_BB = (uint32_t)NewState;
 #endif
 
@@ -505,7 +515,7 @@ void RST_CLK_LSIcmd(FunctionalState NewState)
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) LSION_BB = (uint32_t) NewState;
 #endif
 
@@ -625,9 +635,10 @@ void RST_CLK_CPU_PLLconfig ( uint32_t RST_CLK_CPU_PLLsource,
   temp &= PLLCPUmulclr;
   /* Set the PLLMUL[3:0] bits */
   temp |= (RST_CLK_CPU_PLLmul << PLLCPUMUL_OFFSET);
-  /* Store the new value */MDR_RST_CLK->PLL_CONTROL = temp;
+  /* Store the new value */
+  MDR_RST_CLK->PLL_CONTROL = temp;
 
-#if defined ( USE_MDR1986VE9x )/* For Cortex M3 */
+#if defined ( USE_MDR1986VE9x ) || defined (USE_MDR1901VC1T)
   if (*(__IO uint32_t *) PLLCPUON_BB) {
     *(__IO uint32_t *) PLLCPUPLD_BB = (uint32_t) 0x01;
     *(__IO uint32_t *) PLLCPUPLD_BB = (uint32_t) 0x00;
@@ -656,7 +667,7 @@ void RST_CLK_CPU_PLLuse(FunctionalState UsePLL)
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(UsePLL));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) CPU_C2_SEL_BB = (uint32_t) UsePLL;
 #endif
 
@@ -691,7 +702,7 @@ void RST_CLK_CPU_PLLcmd ( FunctionalState NewState )
 #endif
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) PLLCPUON_BB = (uint32_t) NewState;
 #endif
 
@@ -835,7 +846,8 @@ void RST_CLK_USB_PLLconfig ( uint32_t RST_CLK_USB_PLLsource,
   temp &= USB_C1_SELclr;
   /* Set the USB_C1_SEL bits */
   temp |= RST_CLK_USB_PLLsource;
-  /* Store the new value */MDR_RST_CLK->USB_CLOCK = temp;
+  /* Store the new value */
+  MDR_RST_CLK->USB_CLOCK = temp;
 
   /* Set USBPLL multiplier */
   temp = MDR_RST_CLK->PLL_CONTROL;
@@ -843,9 +855,10 @@ void RST_CLK_USB_PLLconfig ( uint32_t RST_CLK_USB_PLLsource,
   temp &= PLLUSBmulclr;
   /* Set the PLLMUL[3:0] bits */
   temp |= (RST_CLK_USB_PLLmul << PLLUSBMUL_OFFSET);
-  /* Store the new value */MDR_RST_CLK->PLL_CONTROL = temp;
+  /* Store the new value */
+  MDR_RST_CLK->PLL_CONTROL = temp;
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   if (*(__IO uint32_t *) PLLUSBON_BB) {
     *(__IO uint32_t *) PLLUSBRLD_BB = (uint32_t) 0x01;
     *(__IO uint32_t *) PLLUSBRLD_BB = (uint32_t) 0x00;
@@ -876,7 +889,7 @@ void RST_CLK_USB_PLLuse ( FunctionalState UsePLL )
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(UsePLL));
 
-#ifdef USE_MDR1986VE9x /* for Cortex M3 series */
+#if defined ( USE_MDR1986VE9x ) || defined (USE_MDR1901VC1T) /* for Cortex M3 series */
   *(__IO uint32_t *) USB_C2_SEL_BB = (uint32_t) UsePLL;
 #endif // #ifdef USE_MDR1986VE9x /* for Cortex M3 series */
 
@@ -911,7 +924,7 @@ void RST_CLK_USB_PLLcmd ( FunctionalState NewState )
 #endif
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) PLLUSBON_BB = (uint32_t) NewState;
 #endif
 
@@ -974,7 +987,7 @@ void RST_CLK_USBclkPrescaler(FunctionalState NewState)
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
    *(__IO uint32_t *) USB_C3_SEL_BB = (uint32_t)NewState;
 #endif
 
@@ -1012,7 +1025,7 @@ void RST_CLK_USBclkEnable ( FunctionalState NewState )
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) USB_CLK_EN_BB = (uint32_t) NewState;
 #endif
 
@@ -1109,7 +1122,7 @@ void RST_CLK_ADCclkEnable ( FunctionalState NewState )
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) ADC_CLK_EN_BB = (uint32_t) NewState;
 #endif
 
@@ -1131,7 +1144,7 @@ void RST_CLK_ADCclkEnable ( FunctionalState NewState )
 
 }
 
-#if defined ( USE_MDR1986VE3 )
+#if defined ( USE_MDR1986VE3 ) || defined (USE_MDR1901VC1T)
 
 /**
   * @brief  Set the RST_CLK_AUC clock configuration to the default reset state.
@@ -1142,9 +1155,9 @@ void RST_CLK_AUCclkDeInit(void)
 {
 
   MDR_RST_CLK->ADC_MCO_CLOCK &= ~(RST_CLK_ADC_MCO_CLOCK_AUC_C1_SEL_Msk |
-                              RST_CLK_ADC_MCO_CLOCK_AUC_C2_SEL_Msk |
-                              RST_CLK_ADC_MCO_CLOCK_AUC_C3_SEL_Msk |
-                              RST_CLK_ADC_MCO_CLOCK_AUC_CLK_EN);
+                              	  RST_CLK_ADC_MCO_CLOCK_AUC_C2_SEL_Msk |
+                              	  RST_CLK_ADC_MCO_CLOCK_AUC_C3_SEL_Msk |
+                              	  RST_CLK_ADC_MCO_CLOCK_AUC_CLK_EN);
 
 }
 /**
@@ -1281,7 +1294,7 @@ void RST_CLK_RTC_HSIclkEnable ( FunctionalState NewState )
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) HSI_RTC_EN_BB = (uint32_t) NewState;
 #endif
 
@@ -1349,7 +1362,7 @@ void RST_CLK_RTC_HSEclkEnable(FunctionalState NewState)
   /* Check the parameters */
   assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   *(__IO uint32_t *) HSE_RTC_EN_BB = (uint32_t)NewState;
 #endif
 
@@ -1646,6 +1659,7 @@ void RST_CLK_GetClocksFreq(RST_CLK_FreqTypeDef* RST_CLK_Clocks)
   *                RST_CLK_FLAG_LSERDY
   *                RST_CLK_FLAG_PLLCPURDY
   *                RST_CLK_FLAG_PLLUSBRDY
+  *                RST_CLK_FLAG_PLLDSPRDY
   * @retval The new state of RCC_FLAG (SET or RESET).
   */
 FlagStatus RST_CLK_GetFlagStatus(uint32_t RST_CLK_FLAG)
@@ -1680,13 +1694,170 @@ FlagStatus RST_CLK_GetFlagStatus(uint32_t RST_CLK_FLAG)
   return bitstatus;
 }
 
+#if defined (USE_MDR1901VC1T)
+
+/**
+ * @brief	Select the sourse of DSP_C1 CLOCK.
+ * @param	DSP_CLOCK: defines the the clock source of the DSP_C1.
+ * 			This parameter can be one of the following values:
+ * 				@arg DSP_C1_CLOCK_HSI
+ * 				@arg DSP_C1_CLOCK_HSI2
+ * 				@arg DSP_C1_CLOCK_HSE
+ * 				@arg DSP_C1_CLOCK_HSE2
+ * @retval	None
+ */
+void RST_CLK_DSP_Selection(uint32_t DSP_CLOCK)
+{
+	uint32_t tmpreg;
+	/* Check the parameters */
+	assert_param(IS_DSP_C1_CLOCK(DSP_CLOCK));
+
+	tmpreg = MDR_RST_CLK->DSP_CLOCK & (~RST_CLK_DSP_CLOCK_DSP_C1_SEL_Msk);
+
+	tmpreg |= DSP_CLOCK;
+
+	MDR_RST_CLK->DSP_CLOCK = tmpreg;
+}
+
+
+/**
+  * @brief	Configures the DSP_PLL multiplication factor.
+  * @param	PLLMul: specifies the PLL multiplication factor.
+  *         This parameter must be a number between 0 and 15.
+  *         	@arg DSP_PLL_MUL1
+  *         	@arg DSP_PLL_MUL2
+  *         	@arg DSP_PLL_MUL3
+  *         	@arg DSP_PLL_MUL4
+  *         	@arg DSP_PLL_MUL5
+  *         	@arg DSP_PLL_MUL6
+  *         	@arg DSP_PLL_MUL7
+  *         	@arg DSP_PLL_MUL8
+  *         	@arg DSP_PLL_MUL9
+  *         	@arg DSP_PLL_MUL10
+  *         	@arg DSP_PLL_MUL11
+  *         	@arg DSP_PLL_MUL12
+  *         	@arg DSP_PLL_MUL13
+  *         	@arg DSP_PLL_MUL14
+  *         	@arg DSP_PLL_MUL15
+  *         	@arg DSP_PLL_MUL16
+  * @retval None.
+  */
+void RST_CLK_DSPPLLConfig(uint32_t DSP_PLL_Mul)
+{
+
+	uint32_t tmpreg;
+	/* Check the parameters */
+	assert_param(IS_DSP_PLL_MULL(DSP_PLL_Mul));
+
+	tmpreg = MDR_RST_CLK->PLL_CONTROL & (~RST_CLK_PLL_CONTROL_PLL_DSP_MUL_Msk);
+
+	tmpreg |= DSP_PLL_Mul << RST_CLK_PLL_CONTROL_PLL_DSP_MUL_Pos;
+
+	MDR_RST_CLK->PLL_CONTROL = tmpreg;
+
+	if (*(__IO uint32_t *) PLL_DSP_ON_BB ) {
+		*(__IO uint32_t *) PLL_DSP_PLD_BB = (uint32_t) 0x01;
+		*(__IO uint32_t *) PLL_DSP_PLD_BB = (uint32_t) 0x00;
+	}
+}
+
+/**
+  * @brief	Enable or disable the DSP PLL.
+  * @param	NewState: the new state of the DSP PLL.
+  * 			This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void RST_CLK_DSPPLL_CMD(FunctionalState NewState)
+{
+	/* Check the parameters */
+	assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+	*(__IO uint32_t *)PLL_DSP_ON_BB = (uint32_t) NewState;
+}
+
+/**
+  * @brief  Get DSP_PLL status
+  * @param  None
+  * @retval enum ErrorStatus: SUCCESS if DSP_PLL output clock is ready, else ERROR.
+  */
+ErrorStatus RST_CLK_DSP_PLLStatus(void)
+{
+  __IO uint32_t startCounter = 0;
+  ErrorStatus state;
+  FlagStatus flag;
+
+  /* Wait until DSPPLL is ready or time out is occure */
+  do
+  {
+    flag = RST_CLK_GetFlagStatus(RST_CLK_FLAG_PLLDSPRDY);
+    startCounter++;
+  } while ((startCounter < PLLDSPonTimeOut) && (flag == RESET));
+
+  if (RST_CLK_GetFlagStatus(RST_CLK_FLAG_PLLDSPRDY) != RESET)
+  {
+    state = SUCCESS;
+  }
+  else
+  {
+    state = ERROR;
+  }
+  return state;
+}
+
+/**
+  * @brief	Select the DSP_PLL output as input for DSP_C3_SEL or bypass the CPU_PLL.
+  * @param  UsePLL: usage state of the DSP_PLL. This parameter can be: ENABLE or DISABLE.
+  * @retval None
+  */
+void RST_CLK_DSP_PLLUse(FunctionalState UsePLL)
+{
+	/* Check the parameters */
+	assert_param(IS_FUNCTIONAL_STATE(UsePLL));
+
+	*(__IO uint32_t *) DSP_CLK_C2_SEL_BB = (uint32_t) UsePLL;
+}
+
+
+/**
+  * @brief	Use DSP_C2  or DSP_C2/2 output as DSP_CLK.
+  * @param	DSP_Prescaler: enables or disables halving the DSP_C2 output clock.
+  * 			This parameter can be:
+  * 			@arg DSP_PRESCALER1
+  * 			@arg DSP_PRESCALER2
+  * @retval	None
+  */
+void RST_CLK_DSPPrescaler(uint32_t DSP_Prescaler)
+{
+	/* Check the parameters */
+	assert_param(IS_DSP_PRESCALER(DSP_Prescaler));
+
+	*(__IO uint32_t *) DSP_CLK_C3_SEL_BB = (uint32_t) DSP_Prescaler;
+}
+
+/**
+  * @brief	Enable or disable DSP clock.
+  * @param	NewState: New state of the DSP CLK.
+  * 			This parameter can be: ENABLE or DISABLE.
+  * @retval	None
+  */
+void RST_CLK_DSPCmd(FunctionalState NewState)
+{
+	/* Check the parameters */
+	assert_param(IS_FUNCTIONAL_STATE(NewState));
+
+	/* Set the new  state of the DSP CLK bit */
+	*(__IO uint32_t *) DSP_CLK_EN_BB = (uint32_t) NewState;
+}
+
+#endif
+
 /** @} */ /* End of group RST_CLK_Private_Functions */
 
 /** @} */ /* End of group RST_CLK */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/******************* (C) COPYRIGHT 2014 Milandr ********************************
 *
 * END OF FILE MDR32F9Qx_rst_clk.c */
 

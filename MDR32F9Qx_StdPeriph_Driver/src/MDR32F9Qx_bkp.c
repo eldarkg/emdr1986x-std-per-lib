@@ -54,15 +54,15 @@
 #define BB_ADDR(TP, MOD, SFR, BIT)  (PERIPH_BB_BASE + SFR_OFFSET(TP, MOD, SFR)*32 + BIT*4)
 #define BKP_BB(SFR, BIT)            BB_ADDR(MDR_BKP_TypeDef, BKP_OFFSET, SFR, BIT)
 
-#if defined (USE_MDR1986VE9x)
-#define BKP_JTAGA_BB                BKP_BB(REG_0E, BKP_REG_0E_JTAGA_Pos)
-#define BKP_JTAGB_BB                BKP_BB(REG_0E, BKP_REG_0E_JTAGB_Pos)
-#define BKP_FPOR_BB                 BKP_BB(REG_0E, BKP_REG_0E_FPOR_Pos)
-#define BKP_STANDBY_BB              BKP_BB(REG_0F, BKP_REG_0F_STANDBY_Pos)
-#define RTC_ENABLE_BB               BKP_BB(REG_0F, BKP_REG_0F_RTC_EN_Pos)
-#define RTC_RESET_BB                BKP_BB(REG_0F, BKP_REG_0F_RTC_RESET_Pos)
-#define RTC_WEC_BB                  BKP_BB(RTC_CS, BKP_RTC_CS_WEC_Pos)
-#endif // #if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
+	#define BKP_JTAGA_BB                BKP_BB(REG_0E, BKP_REG_0E_JTAGA_Pos)
+	#define BKP_JTAGB_BB                BKP_BB(REG_0E, BKP_REG_0E_JTAGB_Pos)
+	#define BKP_FPOR_BB                 BKP_BB(REG_0E, BKP_REG_0E_FPOR_Pos)
+	#define BKP_STANDBY_BB              BKP_BB(REG_0F, BKP_REG_0F_STANDBY_Pos)
+	#define RTC_ENABLE_BB               BKP_BB(REG_0F, BKP_REG_0F_RTC_EN_Pos)
+	#define RTC_RESET_BB                BKP_BB(REG_0F, BKP_REG_0F_RTC_RESET_Pos)
+	#define RTC_WEC_BB                  BKP_BB(RTC_CS, BKP_RTC_CS_WEC_Pos)
+#endif
 /* --------------------- BKP registers bit mask ------------------------ */
 
 /* BKP_REG0E register bit mask */
@@ -124,7 +124,7 @@ void BKP_DeInit(void)
   MDR_BKP -> REG_0F = (uint32_t) (BKP_REG_0F_LSI_ON);
 }
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 /**
   * @brief  Enables or disables the JTAG A.
   * @param  NewState: new state of the JTAG A.
@@ -192,7 +192,7 @@ void BKP_RTC_Enable ( FunctionalState NewState )
 {
 	/* Check the parameters */
 	assert_param(IS_FUNCTIONAL_STATE(NewState));
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	*(__IO uint32_t *) RTC_ENABLE_BB = (uint32_t) NewState;
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	if(NewState != DISABLE){
@@ -236,7 +236,7 @@ void BKP_RTC_Reset ( FunctionalState NewState )
 	/* Check the parameters */
 	assert_param(IS_FUNCTIONAL_STATE(NewState));
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	*(__IO uint32_t *) RTC_RESET_BB = (uint32_t) NewState;
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	if(NewState != DISABLE){
@@ -338,7 +338,7 @@ void BKP_RTC_SetPrescaler(uint32_t PrescalerValue)
 void BKP_RTC_WaitForUpdate ( void )
 {
 	/* Loop until WEC flag is set */
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	while (*(__IO uint32_t *) RTC_WEC_BB != 0);
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	while((MDR_BKP->RTC_CS & BKP_RTC_CS_WEC) == BKP_RTC_CS_WEC);

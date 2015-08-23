@@ -42,6 +42,19 @@
 #define CR1_EN_Set                 ((uint16_t)0x0002)  /*!< SSP Enable Mask */
 #define CR1_EN_Reset               ((uint16_t)0xFFFD)  /*!< SSP Disable Mask */
 
+#if defined (USE_MDR1986VE3)
+	#define SSP4_BRG_Mask			RST_CLK_UART_SSP_CLOCK_SSP4_BRG_Msk
+	#define SSP4_BRG_Pos			RST_CLK_UART_SSP_CLOCK_SSP4_BRG_Pos
+	#define SSP4_CLK_EN				RST_CLK_UART_SSP_CLOCK_SSP4_CLK_EN
+#endif
+
+#if defined (USE_MDR1901VC1T)
+	#define SSP4_BRG_Mask			RST_CLK_SPP2_CLOCK_SSP4_BRG_Msk
+	#define SSP4_BRG_Pos			RST_CLK_SPP2_CLOCK_SSP4_BRG_Pos
+	#define SSP4_CLK_EN				RST_CLK_SPP2_CLOCK_SSP4_CLK_EN
+#endif
+
+
 /** @} */ /* End of group SSP_Private_Defines */
 
 /** @defgroup SSP_Private_Functions SSP Private Functions
@@ -412,6 +425,11 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 	}
 	else
 #endif	// #ifdef USE_MDR1986VE3 /* For Cortex M1 */
+#if defined (USE_MDR1901VC1T)
+	if(SSPx == MDR_SSP4)
+		tmpreg = MDR_RST_CLK->SPP2_CLOCK;
+	else
+#endif
 		tmpreg = MDR_RST_CLK->SSP_CLOCK;
 
 
@@ -427,19 +445,19 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 			tmpreg &= ~RST_CLK_SSP_CLOCK_SSP2_BRG_Msk;
 			tmpreg |= (SSP_BRG << 8);
 		}
-#ifdef USE_MDR1986VE3 /* For Cortex M1 */
+#if defined  (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
 		else{
 			if(SSPx == MDR_SSP3) {
 				tmpreg |= RST_CLK_SSP_CLOCK_SSP3_CLK_EN;
 				tmpreg &= ~RST_CLK_SSP_CLOCK_SSP3_BRG_Msk;
-				tmpreg |= (SSP_BRG << 16);
+				tmpreg |= (SSP_BRG << RST_CLK_SSP_CLOCK_SSP3_BRG_Pos);
 			}
 
 			else{
 				if(SSPx == MDR_SSP4) {
-					tmpreg |= RST_CLK_UART_SSP_CLOCK_SSP4_CLK_EN;
-					tmpreg &= ~RST_CLK_UART_SSP_CLOCK_SSP4_BRG_Msk;
-					tmpreg |= (SSP_BRG << 16);
+					tmpreg |= SSP4_CLK_EN;
+					tmpreg &= ~SSP4_BRG_Mask;
+					tmpreg |= (SSP_BRG << SSP4_BRG_Pos);
 				}
 			}
 		}
@@ -451,9 +469,14 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 	}
 	else
 #endif // #ifdef USE_MDR1986VE3 /* For Cortex M1 */
+#if defined (USE_MDR1901VC1T)
+	if(SSPx == MDR_SSP4)
+		MDR_RST_CLK->SPP2_CLOCK = tmpreg;
+#endif
 		MDR_RST_CLK->SSP_CLOCK = tmpreg;
 
 }
+
 
 /** @} */ /* End of group SSP_Private_Functions */
 

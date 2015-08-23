@@ -50,7 +50,7 @@ extern "C" {
   */
 
 typedef struct {
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	uint32_t ADC_SynchronousMode; 		/*!< Enables or disables the ADC1, ADC2 synchronous mode operation.
 	 	 	 	 	 	 	 	 	 	 	 This parameter can be a value of @ref ADC_Synchronous_Mode */
 #endif
@@ -129,7 +129,7 @@ typedef struct
   * @{
   */
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 
 /** @defgroup ADC_Synchronous_Mode ADC Synchronous Mode
   * @{
@@ -205,7 +205,7 @@ typedef struct
   * @{
   */
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	#define IS_ADC_VREF_TRIMMING_VALUE(VALUE) ((VALUE) <= 0x0F)
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	#define IS_ADC_VREF_TRIMMING_VALUE(VALUE) ((VALUE) <= 0x1F)
@@ -438,9 +438,31 @@ typedef struct
   * @{
   */
 
-#define ADCx_FLAG_OVERWRITE                   (((uint32_t)0x1) << ADC_STATUS_FLG_REG_OVERWRITE_Pos)
-#define ADCx_FLAG_OUT_OF_RANGE                (((uint32_t)0x1) << ADC_STATUS_FLG_REG_AWOIFEN_Pos)
-#define ADCx_FLAG_END_OF_CONVERSION           (((uint32_t)0x1) << ADC_STATUS_FLG_REG_EOCIF_Pos)
+#if defined ADC_STATUS_FLG_REG_OVERWRITE_Pos
+	#define ADCx_FLAG_OVERWRITE                   (((uint32_t)0x1) << ADC_STATUS_FLG_REG_OVERWRITE_Pos)
+#endif
+
+#if defined ADC1_STATUS_FLG_REG_OVERWRITE_Pos
+	#define ADCx_FLAG_OVERWRITE                   (((uint32_t)0x1) << ADC1_STATUS_FLG_REG_OVERWRITE_Pos)
+#endif
+
+#if defined (ADC_STATUS_FLG_REG_AWOIFEN_Pos)
+	#define ADCx_FLAG_OUT_OF_RANGE                (((uint32_t)0x1) << ADC_STATUS_FLG_REG_AWOIFEN_Pos)
+#endif
+
+#if defined (ADC1_STATUS_FLG_REG_AWOIFEN_Pos)
+	#define ADCx_FLAG_OUT_OF_RANGE                (((uint32_t)0x1) << ADC1_STATUS_FLG_REG_AWOIFEN_Pos)
+#endif
+
+#if defined (ADC_STATUS_FLG_REG_EOCIF_Pos)
+	#define ADCx_FLAG_END_OF_CONVERSION           (((uint32_t)0x1) << ADC_STATUS_FLG_REG_EOCIF_Pos)
+#endif
+
+#if defined (ADC1_STATUS_FLG_REG_EOCIF_Pos)
+	#define ADCx_FLAG_END_OF_CONVERSION           (((uint32_t)0x1) << ADC1_STATUS_FLG_REG_EOCIF_Pos)
+#endif
+
+
 
 #define IS_ADCx_STATUS_FLAG(FLAG) (((FLAG) == ADCx_FLAG_OVERWRITE        ) || \
                                    ((FLAG) == ADCx_FLAG_OUT_OF_RANGE     ) || \
@@ -453,7 +475,7 @@ typedef struct
 #define ADC2_FLAG_OUT_OF_RANGE                (ADCx_FLAG_OUT_OF_RANGE      << 16)
 #define ADC2_FLAG_END_OF_CONVERSION           (ADCx_FLAG_END_OF_CONVERSION << 16)
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 #define IS_ADC_STATUS_FLAG(FLAG) (((FLAG) == ADC1_FLAG_OVERWRITE        ) || \
                                   ((FLAG) == ADC1_FLAG_OUT_OF_RANGE     ) || \
                                   ((FLAG) == ADC1_FLAG_END_OF_CONVERSION) || \
@@ -485,7 +507,7 @@ typedef struct
 #define ADC2_IT_OUT_OF_RANGE               (ADCx_IT_OUT_OF_RANGE      << 16)
 #define ADC2_IT_END_OF_CONVERSION          (ADCx_IT_END_OF_CONVERSION << 16)
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 #define IS_ADC_CONFIG_IT(IT)              (((IT) == ADC1_IT_OUT_OF_RANGE     ) || \
                                            ((IT) == ADC1_IT_END_OF_CONVERSION) || \
                                            ((IT) == ADC2_IT_OUT_OF_RANGE     ) || \

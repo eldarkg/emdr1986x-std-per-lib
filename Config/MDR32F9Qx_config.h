@@ -67,13 +67,15 @@
 	#include "MDR1986VE1T.h"
 #elif defined ( USE_MDR1986VE3 )
 	#include "MDR1986VE3.h"
+#elif defined ( USE_MDR1901VC1T )
+	#include "MDR1901VC1T.h"
 #elif defined (USE_MDR1986BE4)
 	#include "MDR1986BE4.h"
 #endif
 
 /* Uncomment the line(s) below to define used JTAG port(s). Leave all commented
  * if there is no JTAG ports */
-#if (((!defined(USE_MDR1986VE3)) || (!defined(USE_MDR1986VE1T))) && (defined(USE_MDR1986VE9x)))
+#if (defined(USE_MDR1986VE9x) || defined (USE_MDR1901VC1T))
 /* #define USE_JTAG_A */
  #define USE_JTAG_B 
 #endif
@@ -94,6 +96,7 @@
 #define LSIonTimeOut    ((uint16_t)0x0600)
 #define PLLCPUonTimeOut ((uint16_t)0x0600)
 #define PLLUSBonTimeOut ((uint16_t)0x0600)
+#define PLLDSPonTimeOut ((uint16_t)0x0600)
 
 #define FLASH_PROG_FREQ_MHZ     (8.0)
 /* Use debug uart */
@@ -119,6 +122,12 @@
 	#define DEBUG_UART_PINS				(PORT_Pin_0 | PORT_Pin_1)
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_OVERRID
 	#define DEBUG_BAUD_RATE				115200
+#elif defined (USE_MDR1901VC1T)
+	#define DEBUG_UART 			MDR_UART3
+	#define DEBUG_UART_PORT			MDR_PORTF
+	#define DEBUG_UART_PINS			(PORT_Pin_0 | PORT_Pin_1)
+	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_ALTER
+	#define DEBUG_BAUD_RATE			115200
 #endif
 
 //#define PRINTF_FORMAT_FULL

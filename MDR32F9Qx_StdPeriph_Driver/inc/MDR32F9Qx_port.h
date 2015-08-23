@@ -46,7 +46,7 @@ extern "C" {
   * @{
   */
 
-#if defined (USE_MDR1986VE9x) || defined (USE_MDR1986VE1T)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1986VE1T) || defined (USE_MDR1901VC1T)
 #define IS_PORT_ALL_PERIPH(PERIPH) (((PERIPH) == MDR_PORTA) || \
                                     ((PERIPH) == MDR_PORTB) || \
                                     ((PERIPH) == MDR_PORTC) || \

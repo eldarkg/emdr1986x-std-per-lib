@@ -21,8 +21,8 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_i2c.h"
 #include "MDR32F9Qx_config.h"
+#include "MDR32F9Qx_i2c.h"
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9X_I2C_C
 
@@ -35,7 +35,7 @@
   * @{
   */
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined ( USE_MDR1901VC1T)
 
 /** @defgroup I2C_Private_Functions I2C Private Functions
   * @{

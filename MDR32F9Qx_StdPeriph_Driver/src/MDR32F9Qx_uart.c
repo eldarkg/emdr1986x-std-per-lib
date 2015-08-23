@@ -62,11 +62,16 @@
 
 
 #if defined (USE_MDR1986VE3)
-#define UART3_BRG_Mask				((uint32_t)0x0007) /*!< UART3  clock divider Mask */
-#define UART4_BRG_Mask				((uint32_t)0x0700) /*!< UART4 clock divider Mask */
-#define UART4_BRG_Offs              ((uint32_t)0x0008) /*!< UART4 clock divider Offset */
-
+	#define UART3_BRG_Mask				((uint32_t)0x0007) /*!< UART3  clock divider Mask */
+	#define UART3_BRG_Offs              ((uint32_t)0x0000) /*!< UART3 clock divider Offset */
+	#define UART4_BRG_Mask				((uint32_t)0x0700) /*!< UART4 clock divider Mask */
+	#define UART4_BRG_Offs              ((uint32_t)0x0008) /*!< UART4 clock divider Offset */
 #endif // #if defined (USE_MDR1986VE3)
+
+#if defined (USE_MDR1901VC1T)
+	#define UART3_BRG_Mask				((uint32_t)0x70000) /*!< UART3  clock divider Mask */
+	#define UART3_BRG_Offs              ((uint32_t)0x0010) /*!< UART4 clock divider Offset */
+#endif
 
 /** @} */ /* End of group UART_Private_Defines */
 
@@ -147,11 +152,13 @@ BaudRateStatus UART_Init ( MDR_UART_TypeDef* UARTx,
 		if (UARTx == MDR_UART2) {
 			cpuclock /= (1 << ((tmpreg & UART2_BRG_Mask) >> UART2_BRG_Offs));
 		}
-#if defined (USE_MDR1986VE3) /* For Cortex M1 */
+#if defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
 		else
 			if(UARTx == MDR_UART3) {
-				cpuclock /= (1 << (tmpreg & UART3_BRG_Mask ));
+				cpuclock /= (1 << ((tmpreg & UART3_BRG_Mask ) >> UART3_BRG_Offs));
 			}
+#endif
+#if defined (USE_MDR1986VE3)
 			else
 				if(UARTx == MDR_UART4) {
 					cpuclock /= (1 << ((tmpreg & UART4_BRG_Mask) >> UART4_BRG_Offs));
@@ -636,7 +643,14 @@ void UART_BRGInit(MDR_UART_TypeDef* UARTx, uint32_t UART_BRG)
   assert_param(IS_UART_ALL_PERIPH(UARTx));
   assert_param(IS_UART_CLOCK_BRG(UART_BRG));
 
+
+#if defined (USE_MDR1986VE3)
+  if((UARTx == MDR_UART3) || (UARTx == MDR_UART4))
+	  tmpreg = MDR_RST_CLK->UART_SSP_CLOCK;
+  else
+#endif
   tmpreg = MDR_RST_CLK->UART_CLOCK;
+
 
   if (UARTx == MDR_UART1)
   {
@@ -650,6 +664,34 @@ void UART_BRGInit(MDR_UART_TypeDef* UARTx, uint32_t UART_BRG)
     tmpreg &= ~RST_CLK_UART_CLOCK_UART2_BRG_Msk;
     tmpreg |= (UART_BRG << 8);
   }
+#if defined (USE_MDR1901VC1T)
+  else if( UARTx == MDR_UART3)
+  {
+	  tmpreg |= RST_CLK_UART_CLOCK_UART3_CLK_EN;
+	  tmpreg &= ~ RST_CLK_UART_CLOCK_UART3_BRG_Msk;
+	  tmpreg |= (UART_BRG << RST_CLK_UART_CLOCK_UART3_BRG_Pos);
+  }
+#endif
+#if defined (USE_MDR1986VE3)
+  else if(UARTx == MDR_UART3)
+  {
+	  tmpreg |= RST_CLK_UART_SSP_CLOCK_UART3_CLK_EN;
+	  tmpreg &= ~RST_CLK_UART_SSP_CLOCK_UART3_BRG_Msk;
+	  tmpreg |= (UART_BRG << RST_CLK_UART_SSP_CLOCK_UART3_BRG_Pos);
+  }
+  else if(UARTx == MDR_UART4)
+  {
+	  tmpreg |= RST_CLK_UART_SSP_CLOCK_UART4_CLK_EN;
+	  tmpreg &= ~RST_CLK_UART_SSP_CLOCK_UART4_BRG_Msk;
+	  tmpreg |= (UART_BRG << RST_CLK_UART_SSP_CLOCK_UART4_BRG_Pos);
+  }
+#endif
+
+#if defined (USE_MDR1986VE3)
+  if((UARTx == MDR_UART3) || (UARTx == MDR_UART4))
+	  MDR_RST_CLK->UART_SSP_CLOCK = tmpreg;
+  else
+#endif
   MDR_RST_CLK->UART_CLOCK = tmpreg;
 }
 

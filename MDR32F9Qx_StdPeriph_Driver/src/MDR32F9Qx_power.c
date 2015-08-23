@@ -45,7 +45,7 @@
   * @{
   */
 
-#if defined (USE_MDR1986VE9x) /* For Cortex M3 */
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 /* POWER registers bit address in the alias region */
 #define PERIPH_BASE                 0x40000000
 #define PERIPH_BB_BASE              0x42000000
@@ -165,7 +165,7 @@ void POWER_DUccTrim(uint32_t DUccTrim)
   */
 void POWER_DUccStandby ( void )
 {
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 *(__IO uint32_t *) BKP_STANDBY_BB = (uint32_t) 0x01;
 #elif defined (USE_MDR1986VE3)
 	MDR_BKP->REG_0F |= BKP_REG_0F_STANDBY;
@@ -234,7 +234,7 @@ void POWER_PVBDlevelConfig(uint32_t POWER_PVBDlevel)
   */
 void POWER_SetFlagPOR ( void )
 {
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	*(__IO uint32_t *) BKP_FPOR_BB = (uint32_t) 0x01;
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	MDR_BKP->REG_0E |= BKP_REG_0E_FPOR;
@@ -249,7 +249,7 @@ void POWER_SetFlagPOR ( void )
 ErrorStatus POWER_FlagPORstatus(void)
 {
   ErrorStatus state = ERROR;
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   if (*(__IO uint32_t *) BKP_FPOR_BB == 0)
   {
     state = SUCCESS;
@@ -272,7 +272,7 @@ void POWER_PVDenable ( FunctionalState NewState )
 {
 	/* Check the parameters */
 	assert_param(IS_FUNCTIONAL_STATE(NewState));
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	*(__IO uint32_t *) POWER_PVDEN_BB = (uint32_t) NewState;
 #elif defined (USE_MDR1986VE3) || defined (USE_MDR1986VE1T)
 	if(NewState != DISABLE){
@@ -379,7 +379,7 @@ void POWER_PVD_INVconfig(uint32_t POWER_INV, FunctionalState NewState)
     MDR_POWER->PVDCS &= (uint32_t)~POWER_INV;
   }
 }
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 /**
   * @brief  Enters STOP mode.
   * @param  POWER_Regulator_state: specifies the regulator state in STOP mode.
@@ -447,7 +447,7 @@ void POWER_EnterSLEEPMode(void)
 void POWER_EnterSTANDBYMode ( void )
 {
 	/* Select STANDBY mode */
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	*(__IO uint32_t *) BKP_STANDBY_BB = (uint32_t) 0x01;
 	/* Set SLEEPDEEP bit of Cortex System Control Register */
 	*(__IO uint32_t *) SCB->SCR |= SCB_SCR_SLEEPDEEP_Msk;

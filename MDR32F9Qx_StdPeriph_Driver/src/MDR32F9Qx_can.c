@@ -30,6 +30,8 @@
   * @{
   */
 
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
+
 /** @defgroup CAN CAN
   * @{
   */
@@ -938,6 +940,8 @@ static __INLINE uint32_t CAN_ReadBufferSFR(__IO uint32_t* SFR)
 /** @} */ /* End of group CAN_Private_Functions */
 
 /** @} */ /* End of group CAN */
+
+#endif /* #if defined (USE_MDR1986VE9x) || defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3) */
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 

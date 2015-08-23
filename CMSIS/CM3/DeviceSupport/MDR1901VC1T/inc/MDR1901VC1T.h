@@ -1,26 +1,26 @@
 /**
- ******************************************************************************
- * @file	MDR1901VC1T.h
- * @author	Milandr Application Team
- * @brief	CMSIS Cortex-CM3 Peripheral Access Layer Header File for
- * 		MDR1901VC1T from Milandr
- * @version	1.0
- * @date	2014-02-05
- ******************************************************************************
- * <br><br>
- *
- * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
- * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
- * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
- * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
- * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
- * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
- *
+  ******************************************************************************
+  * @file	MDR1901VC1T.h
+  * @author	Milandr Application Team
+  * @brief	CMSIS Cortex-CM3 Peripheral Access Layer Header File for
+  * 		MDR1901VC1T from Milandr
+  * @version	1.0
+  * @date	2014-02-11
+  ******************************************************************************
+  * <br><br>
+  *
+  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
+  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  *
 
- * <h2><center>&copy; COPYRIGHT 2014 MDR1901VC1T </center></h2>
- ******************************************************************************
- * FILE MDR1901VC1T.h
- */
+  * <h2><center>&copy; COPYRIGHT 2014 MDR1901VC1T </center></h2>
+  ******************************************************************************
+  * FILE MDR1901VC1T.h
+  */
 
 /* Define to prevent recursive inclusion -------------------------------------*/
 #ifndef __MDR1901VC1T_H
@@ -49,48 +49,61 @@ extern "C" {
 /* MDR1901VC1T Interrupt Number Definition */
 typedef enum IQRn{
 /*-- Cortex-CM3 Processor Exceptions Numbers ----------------------------------*/
-	NonMaskableInt_IRQn                   = -14, /*!< 2 Non Maskable Interrupt  */
+	NonMaskableInt_IRQn                   = -14, /*!< 2 Non Maskable Interrupt */
 	HardFault_IRQn                        = -13, /*!< 3 Hard Fault Interrupt */
 	MemoryManagement_IRQn                 = -12, /*!< 4 Memory Management Interrupt */
 	BusFault_IRQn                         = -11, /*!< 5 Bus Fault Interrupt */
 	UsageFault_IRQn                       = -10, /*!< 6 Usage Fault Interrupt */
-	SVCall_IRQn                           = -5, /*!< 11 SV Call Interrupt */
+	SVCall_IRQn                           = -5, /*!< 10 SV Call Interrupt */
 	PendSV_IRQn                           = -2, /*!< 14 Pend SV Interrupt */
-	SysTick_IRQn                          = -1, /*!< 15 System Tick Timer Interrupt  */
+	SysTick_IRQn                          = -1, /*!< 15 System Tick Timer Interrupt */
 /*-- MDR1901VC1T specific Interrupt Numbers --------------------------------------*/
 	SSP3_IRQn                             = 0, /*!< SSP3 Interrupt */
-	SSP4_IRQn                             = 1, /*!< SSP4 Interrupt */
-	USB_IRQn                              = 2, /*!< USB Host Interrupt */
-	MCBSP1_IRQn                           = 3, /*!< MCBSP1 Interrupt */
-	MCBSP2_IRQn                           = 4, /*!< MCBSP2 Interrupt */
-	DMA_IRQn                              = 5, /*!< DMA Interrupt */
-	UART1_IRQn                            = 6, /*!< UART1 Interrupt */
-	UART2_IRQn                            = 7, /*!< UART2 Interrupt */
-	SSP1_IRQn                             = 8, /*!< SSP1 Interrupt */
-	MCBSP3_IRQn                           = 9, /*!< MCBSP3 Interrupt */
-	I2C_IRQn                              = 10, /*!< I2C Interrupt */
-	POWER_IRQn                            = 11, /*!< POWER Detecor Interrupt */
-	WWDG_IRQn                             = 12, /*!< Window Watchdog Interrupt */
-	DMA_DSP_IRQn                          = 13, /*!< DMA DSP Interrupt */
-	TIMER1_IRQn                           = 14, /*!< Timer1 Interrupt */
-	TIMER2_IRQn                           = 15, /*!< Timer2 Interrupt */
-	TIMER3_IRQn                           = 16, /*!< Timer3 Interrupt */
-	ADC_IRQn                              = 17, /*!< ADC Interrupt */
-	SDIO_IRQn                             = 18, /*!< SDIO Interrupt */
-	COMPARATOR_IRQn                       = 19, /*!< COMPARATOR Interrupt */
-	SSP2_IRQn                             = 20, /*!< SSP2 Interrupt */
-	AUDIO_IP_IRQn                         = 21, /*!< Audio IP Interrupt */
-	DSP_CRPT_IRQn                         = 22, /*!< DSP CRPT Interrupt */
-	DSP_TIMER_IRQn                        = 23, /*!< DSP TIMER Interrupt */
-	DSP_CORE_IRQn                         = 24, /*!< DSP CORE Interrupt */
-	DSP_STATE_IRQn                        = 25, /*!< DSP STATE Interrupt */
-	UART3_IRQn                            = 26, /*!< UART3 Interrupt */
-	BACKUP_IRQn                           = 27, /*!< BACKUP Interrupt */
-	EXT_INT1_IRQn                         = 28, /*!< EXT_INT1 Interrupt */
-	EXT_INT2_IRQn                         = 29, /*!< EXT_INT2 Interrupt */
-	EXT_INT3_IRQn                         = 30, /*!< EXT_INT3 Interrupt */
-	EXT_INT4_IRQn                         = 31  /*!< EXT_INT4 Interrupt */
+	SSP4_IRQn                             = 1, /*!< SSP4  Interrupt */
+	USB_IRQn                              = 2, /*!< USB Host  Interrupt */
+	MCBSP1_IRQn                           = 3, /*!< MCBSP1  Interrupt */
+	MCBSP2_IRQn                           = 4, /*!< MCBSP2  Interrupt */
+	DMA_IRQn                              = 5, /*!< DMA  Interrupt */
+	UART1_IRQn                            = 6, /*!< UART1  Interrupt */
+	UART2_IRQn                            = 7, /*!< UART2  Interrupt */
+	SSP1_IRQn                             = 8, /*!< SSP1  Interrupt */
+	MCBSP3_IRQn                           = 9, /*!< MCBSP3  Interrupt */
+	I2C_IRQn                              = 10, /*!< I2C  Interrupt */
+	POWER_IRQn                            = 11, /*!< POWER Detecor  Interrupt */
+	WWDG_IRQn                             = 12, /*!< Window Watchdog  Interrupt */
+	DMA_DSP_IRQn                          = 13, /*!< DMA DSP  Interrupt */
+	TIMER1_IRQn                           = 14, /*!< Timer1  Interrupt */
+	TIMER2_IRQn                           = 15, /*!< Timer2  Interrupt */
+	TIMER3_IRQn                           = 16, /*!< Timer3  Interrupt */
+	ADC_IRQn                              = 17, /*!< ADC  Interrupt */
+	SDIO_IRQn                             = 18, /*!< SDIO  Interrupt */
+	COMPARATOR_IRQn                       = 19, /*!< COMPARATOR  Interrupt */
+	SSP2_IRQn                             = 20, /*!< SSP2  Interrupt */
+	AUDIO_IP_IRQn                         = 21, /*!< Audio IP  Interrupt */
+	DSP_CRPT_IRQn                         = 22, /*!< DSP CRPT  Interrupt */
+	DSP_TIMER_IRQn                        = 23, /*!< DSP TIMER  Interrupt */
+	DSP_CORE_IRQn                         = 24, /*!< DSP CORE  Interrupt */
+	DSP_STATE_IRQn                        = 25, /*!< DSP STATE  Interrupt */
+	UART3_IRQn                            = 26, /*!< UART3  Interrupt */
+	BACKUP_IRQn                           = 27, /*!< BACKUP  Interrupt */
+	EXT_INT1_IRQn                         = 28, /*!< EXT_INT1  Interrupt */
+	EXT_INT2_IRQn                         = 29, /*!< EXT_INT2  Interrupt */
+	EXT_INT3_IRQn                         = 30, /*!< EXT_INT3  Interrupt */
+	EXT_INT4_IRQn                         = 31  /*!< EXT_INT4  Interrupt */
 }IRQn_Type;
+
+/** @addtogroup __Configuration_of_CMSIS Configuration of CMSIS
+  * @{
+  */
+
+/* Configuration of the Cortex-M3 Processor and Core Peripherals */
+#define __CM3_REV              0x0102   /*!< Cortex-M3 Core Revision                      */
+#define __MPU_PRESENT             1     /*!< MPU present or not                           */
+#define __NVIC_PRIO_BITS          3     /*!< Number of Bits used for Priority Levels      */
+#define __Vendor_SysTickConfig    0     /*!< Set to 1 if different SysTick Config is used */
+
+/** @} */ /* End of group __Configuration_of_CMSIS */
+
 
 /* Includes ------------------------------------------------------------------*/
 #include "core_cm3.h"
@@ -101,7 +114,7 @@ typedef enum IQRn{
   */
 
 typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus;
-
+#define IS_FLAG_STATUS(FLAG) (((FLAG) == RESET) || ((FLAG) == SET))
 typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
 #define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
 typedef enum {ERROR = 0, SUCCESS = !ERROR} ErrorStatus;
@@ -428,13 +441,13 @@ typedef struct {
 /*-- USB_HTXLC:USB HTXLC Register -----*/
 
 /* Bit field positions: */
-#define USB_HTXLC_TXLC_Pos                                 0
+#define USB_HTXLC_Pos                                      0
 #define USB_HTXLC_DC_Pos                                   2
 #define USB_HTXLC_FSPL_Pos                                 3
 #define USB_HTXLC_FSLR_Pos                                 4
 
 /* Bit field masks: */
-#define USB_HTXLC_TXLC_Msk                                 ((uint32_t)0x00000003)
+#define USB_HTXLC_Msk                                	   ((uint32_t)0x00000003)
 #define USB_HTXLC_DC                                       ((uint32_t)0x00000004)
 #define USB_HTXLC_FSPL                                     ((uint32_t)0x00000008)
 #define USB_HTXLC_FSLR                                     ((uint32_t)0x00000010)
@@ -818,18 +831,18 @@ typedef struct {
 /*-- USB_SC:USB SC Register -----*/
 
 /* Bit field positions: */
-#define USB_SC_SCGEN_Pos                                   0
-#define USB_SC_SCTXLS_Pos                                  1
-#define USB_SC_SCDC_Pos                                    3
-#define USB_SC_SCFSP_Pos                                   4
-#define USB_SC_SCFSR_Pos                                   5
+#define USB_SCGEN_Pos                                   0
+#define USB_SCTXLS_Pos                                  1
+#define USB_SCDC_Pos                                    3
+#define USB_SCFSP_Pos                                   4
+#define USB_SCFSR_Pos                                   5
 
 /* Bit field masks: */
-#define USB_SC_SCGEN                                       ((uint32_t)0x00000001)
-#define USB_SC_SCTXLS_Msk                                  ((uint32_t)0x00000006)
-#define USB_SC_SCDC                                        ((uint32_t)0x00000008)
-#define USB_SC_SCFSP                                       ((uint32_t)0x00000010)
-#define USB_SC_SCFSR                                       ((uint32_t)0x00000020)
+#define USB_SCGEN                                       ((uint32_t)0x00000001)
+#define USB_SCTXLS_Msk                                  ((uint32_t)0x00000006)
+#define USB_SCDC                                        ((uint32_t)0x00000008)
+#define USB_SCFSP                                       ((uint32_t)0x00000010)
+#define USB_SCFSR                                       ((uint32_t)0x00000020)
 
 /** @} */ /* End of group USB_SC */
 
@@ -1075,6 +1088,7 @@ typedef struct {
 	__IO uint32_t	DI;                     /*!<EEPROM Read Data Register */
 	__IO uint32_t	DO;                     /*!<EEPROM Write Data Register */
 	__IO uint32_t	KEY;                    /*!<EEPROM Key Register */
+	__IO uint32_t	CTRL;                   /*!< */
 }MDR_EEPROM_TypeDef;
 
 /** @defgroup Periph_EEPROM_CMD EEPROM CMD
@@ -1087,7 +1101,7 @@ typedef struct {
 #define EEPROM_CMD_CON_Pos                                 0
 #define EEPROM_CMD_WR_Pos                                  1
 #define EEPROM_CMD_RD_Pos                                  2
-#define EEPROM_CMD_Delay_Pos                               3
+#define EEPROM_CMD_DELAY_Pos                               3
 #define EEPROM_CMD_XE_Pos                                  6
 #define EEPROM_CMD_YE_Pos                                  7
 #define EEPROM_CMD_SE_Pos                                  8
@@ -1101,7 +1115,7 @@ typedef struct {
 #define EEPROM_CMD_CON                                     ((uint32_t)0x00000001)
 #define EEPROM_CMD_WR                                      ((uint32_t)0x00000002)
 #define EEPROM_CMD_RD                                      ((uint32_t)0x00000004)
-#define EEPROM_CMD_Delay_Msk                               ((uint32_t)0x00000038)
+#define EEPROM_CMD_DELAY_Msk                               ((uint32_t)0x00000038)
 #define EEPROM_CMD_XE                                      ((uint32_t)0x00000040)
 #define EEPROM_CMD_YE                                      ((uint32_t)0x00000080)
 #define EEPROM_CMD_SE                                      ((uint32_t)0x00000100)
@@ -1168,6 +1182,22 @@ typedef struct {
 #define EEPROM_KEY_KEY_Msk                                 ((uint32_t)0xFFFFFFFF)
 
 /** @} */ /* End of group EEPROM_KEY */
+
+/** @defgroup Periph_EEPROM_CTRL EEPROM CTRL
+  * @{
+  */
+
+/*-- EEPROM_CTRL:EEPROM CTRL Register -----*/
+
+/* Bit field positions: */
+#define EEPROM_CTRL_ICEN_Pos                               0
+#define EEPROM_CTRL_DCEN_Pos                               1
+
+/* Bit field masks: */
+#define EEPROM_CTRL_ICEN                                   ((uint32_t)0x00000001)
+#define EEPROM_CTRL_DCEN                                   ((uint32_t)0x00000002)
+
+/** @} */ /* End of group EEPROM_CTRL */
 
 /** @} */ /* End of group EEPROM */
 
@@ -1313,10 +1343,9 @@ typedef struct {
 #define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_Pos               8
 #define RST_CLK_ADC_MCO_CLOCK_MCO_EN_Pos                   12
 #define RST_CLK_ADC_MCO_CLOCK_ADC_CLK_EN_Pos               13
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL1_Pos                 16
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL0_Pos                 17
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL2_Pos                 20
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL3_Pos                 24
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C1_SEL_Pos               16
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C2_SEL_Pos               20
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C3_SEL_Pos               24
 #define RST_CLK_ADC_MCO_CLOCK_AUC_CLK_EN_Pos               31
 
 /* Bit field masks: */
@@ -1325,10 +1354,9 @@ typedef struct {
 #define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_Msk               ((uint32_t)0x00000F00)
 #define RST_CLK_ADC_MCO_CLOCK_MCO_EN                       ((uint32_t)0x00001000)
 #define RST_CLK_ADC_MCO_CLOCK_ADC_CLK_EN                   ((uint32_t)0x00002000)
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL1                     ((uint32_t)0x00010000)
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL0                     ((uint32_t)0x00020000)
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL2_Msk                 ((uint32_t)0x00300000)
-#define RST_CLK_ADC_MCO_CLOCK_AUC_SEL3_Msk                 ((uint32_t)0x0F000000)
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C1_SEL_Msk               ((uint32_t)0x00030000)
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C2_SEL_Msk               ((uint32_t)0x00300000)
+#define RST_CLK_ADC_MCO_CLOCK_AUC_C3_SEL_Msk               ((uint32_t)0x0F000000)
 #define RST_CLK_ADC_MCO_CLOCK_AUC_CLK_EN                   ((uint32_t)0x80000000)
 
 /** @} */ /* End of group RST_CLK_ADC_MCO_CLOCK */
@@ -1424,14 +1452,18 @@ typedef struct {
 /* Bit field positions: */
 #define RST_CLK_SSP_CLOCK_SSP1_BRG_Pos                     0
 #define RST_CLK_SSP_CLOCK_SSP2_BRG_Pos                     8
+#define RST_CLK_SSP_CLOCK_SSP3_BRG_Pos                     16
 #define RST_CLK_SSP_CLOCK_SSP1_CLK_EN_Pos                  24
 #define RST_CLK_SSP_CLOCK_SSP2_CLK_EN_Pos                  25
+#define RST_CLK_SSP_CLOCK_SSP3_CLK_EN_Pos                  26
 
 /* Bit field masks: */
 #define RST_CLK_SSP_CLOCK_SSP1_BRG_Msk                     ((uint32_t)0x000000FF)
 #define RST_CLK_SSP_CLOCK_SSP2_BRG_Msk                     ((uint32_t)0x0000FF00)
+#define RST_CLK_SSP_CLOCK_SSP3_BRG_Msk                     ((uint32_t)0x00FF0000)
 #define RST_CLK_SSP_CLOCK_SSP1_CLK_EN                      ((uint32_t)0x01000000)
 #define RST_CLK_SSP_CLOCK_SSP2_CLK_EN                      ((uint32_t)0x02000000)
+#define RST_CLK_SSP_CLOCK_SSP3_CLK_EN                      ((uint32_t)0x04000000)
 
 /** @} */ /* End of group RST_CLK_SSP_CLOCK */
 
@@ -1934,10 +1966,10 @@ typedef struct {
 #define UART_CR_RXE_Pos                                    9
 #define UART_CR_DTR_Pos                                    10
 #define UART_CR_RTS_Pos                                    11
-#define UART_CR_Out1_Pos                                   12
-#define UART_CR_Out2_Pos                                   13
-#define UART_CR_RTSEn_Pos                                  14
-#define UART_CR_CTSEn_Pos                                  15
+#define UART_CR_OUT1_Pos                                   12
+#define UART_CR_OUT2_Pos                                   13
+#define UART_CR_RTSEN_Pos                                  14
+#define UART_CR_CTSEN_Pos                                  15
 
 /* Bit field masks: */
 #define UART_CR_UARTEN                                     ((uint32_t)0x00000001)
@@ -1948,10 +1980,10 @@ typedef struct {
 #define UART_CR_RXE                                        ((uint32_t)0x00000200)
 #define UART_CR_DTR                                        ((uint32_t)0x00000400)
 #define UART_CR_RTS                                        ((uint32_t)0x00000800)
-#define UART_CR_Out1                                       ((uint32_t)0x00001000)
-#define UART_CR_Out2                                       ((uint32_t)0x00002000)
-#define UART_CR_RTSEn                                      ((uint32_t)0x00004000)
-#define UART_CR_CTSEn                                      ((uint32_t)0x00008000)
+#define UART_CR_OUT1                                       ((uint32_t)0x00001000)
+#define UART_CR_OUT2                                       ((uint32_t)0x00002000)
+#define UART_CR_RTSEN                                      ((uint32_t)0x00004000)
+#define UART_CR_CTSEN                                      ((uint32_t)0x00008000)
 
 /** @} */ /* End of group UART_CR */
 
@@ -2160,14 +2192,15 @@ typedef struct {
 #define SDIO_CR_WORK1_Pos                                  3
 #define SDIO_CR_SBITCMD_Pos                                4
 #define SDIO_CR_SBITDAT_Pos                                5
-#define SDIO_CR_DB_Pos                                     6
-#define SDIO_CR_CRCEN_CMD_Pos                              9
-#define SDIO_CR_TXEIE_DAT_Pos                              10
-#define SDIO_CR_RXNEIE_DAT_Pos                             11
+#define SDIO_CR_BR_Pos                                     6
+#define SDIO_CR_CRC_EN_DATA_Pos                            9
+#define SDIO_CR_CRC_EN_CMD_Pos                             10
+#define SDIO_CR_TXEIE_DAT_Pos                              11
+#define SDIO_CR_RXNEIE_DAT_Pos                             12
 #define SDIO_CR_RXFIE_DAT_Pos                              13
 #define SDIO_CR_TXEIE_CMD_Pos                              14
 #define SDIO_CR_RXNEIE_CMD_Pos                             15
-#define SDIO_CR_RXFIE_CMD_Pos                              16
+#define SDIO_CR_RXFEIE_CMD_Pos                             16
 #define SDIO_CR_WIDTHDAT_Pos                               17
 #define SDIO_CR_WRITECMD_Pos                               18
 #define SDIO_CR_ENDBUSY_Pos                                19
@@ -2181,14 +2214,15 @@ typedef struct {
 #define SDIO_CR_WORK1                                      ((uint32_t)0x00000008)
 #define SDIO_CR_SBITCMD                                    ((uint32_t)0x00000010)
 #define SDIO_CR_SBITDAT                                    ((uint32_t)0x00000020)
-#define SDIO_CR_DB_Msk                                     ((uint32_t)0x000001C0)
-#define SDIO_CR_CRCEN_CMD                                  ((uint32_t)0x00000200)
-#define SDIO_CR_TXEIE_DAT                                  ((uint32_t)0x00000400)
-#define SDIO_CR_RXNEIE_DAT_Msk                             ((uint32_t)0x00001800)
+#define SDIO_CR_BR_Msk                                     ((uint32_t)0x000001C0)
+#define SDIO_CR_CRC_EN_DATA                                ((uint32_t)0x00000200)
+#define SDIO_CR_CRC_EN_CMD                                 ((uint32_t)0x00000400)
+#define SDIO_CR_TXEIE_DAT                                  ((uint32_t)0x00000800)
+#define SDIO_CR_RXNEIE_DAT                                 ((uint32_t)0x00001000)
 #define SDIO_CR_RXFIE_DAT                                  ((uint32_t)0x00002000)
 #define SDIO_CR_TXEIE_CMD                                  ((uint32_t)0x00004000)
 #define SDIO_CR_RXNEIE_CMD                                 ((uint32_t)0x00008000)
-#define SDIO_CR_RXFIE_CMD                                  ((uint32_t)0x00010000)
+#define SDIO_CR_RXFEIE_CMD                                 ((uint32_t)0x00010000)
 #define SDIO_CR_WIDTHDAT                                   ((uint32_t)0x00020000)
 #define SDIO_CR_WRITECMD                                   ((uint32_t)0x00040000)
 #define SDIO_CR_ENDBUSY                                    ((uint32_t)0x00080000)
@@ -2428,14 +2462,14 @@ typedef struct {
 #define I2C_STA_TR_PROG_Pos                                1
 #define I2C_STA_LOST_ARB_Pos                               5
 #define I2C_STA_BUSY_Pos                                   6
-#define I2C_STA_Rx_ACK_Pos                                 7
+#define I2C_STA_RX_ACK_Pos                                 7
 
 /* Bit field masks: */
 #define I2C_STA_INT                                        ((uint32_t)0x00000001)
 #define I2C_STA_TR_PROG                                    ((uint32_t)0x00000002)
 #define I2C_STA_LOST_ARB                                   ((uint32_t)0x00000020)
 #define I2C_STA_BUSY                                       ((uint32_t)0x00000040)
-#define I2C_STA_Rx_ACK                                     ((uint32_t)0x00000080)
+#define I2C_STA_RX_ACK                                     ((uint32_t)0x00000080)
 
 /** @} */ /* End of group I2C_STA */
 
@@ -2656,325 +2690,342 @@ typedef struct {
 
 /** @} */ /* End of group IWDG */
 
-/** @defgroup MDR1901VC1T_Periph_TIM TIM
+/** @defgroup MDR1901VC1T_Periph_TIMER TIMER
   * @{
   */
 
 
-/* MDR_TIMx_TypeDef structure */
+/* MDR_TIMERx_TypeDef structure */
 typedef struct {
 	__IO uint32_t	CNT;                    /*!<Timer Counter Register */
 	__IO uint32_t	PSG;                    /*!<Timer Clock Prescaler Register */
 	__IO uint32_t	ARR;                    /*!<Timer Auto-Reload Register */
 	__IO uint32_t	CNTRL;                  /*!<Timer Control Register */
-	__IO uint32_t	CCR[4];                 /*!<Timer Capture/Compare Register */
-	__IO uint32_t	CH_CNTRL[4];            /*!<Timer Channel Control Register */
-	__IO uint32_t	CH_CNTRL1[4];           /*!<Timer Channel Control1 Register */
-	__IO uint32_t	CH_DTG[4];              /*!<Timer Channel DTG Register */
+	__IO uint32_t	CCR1;                   /*!<Timer Capture/Compare Register 1 */
+	__IO uint32_t	CCR2;                   /*!<Timer Capture/Compare Register 2 */
+	__IO uint32_t	CCR3;                   /*!<Timer Capture/Compare Register 3 */
+	__IO uint32_t	CCR4;                   /*!<Timer Capture/Compare Register 4 */
+	__IO uint32_t	CH1_CNTRL;              /*!<Timer Channel Control Register 1 */
+	__IO uint32_t	CH2_CNTRL;              /*!<Timer Channel Control Register 2 */
+	__IO uint32_t	CH3_CNTRL;              /*!<Timer Channel Control Register 3 */
+	__IO uint32_t	CH4_CNTRL;              /*!<Timer Channel Control Register 4 */
+	__IO uint32_t	CH1_CNTRL1;             /*!<Timer Channel Control1 Register 1 */
+	__IO uint32_t	CH2_CNTRL1;             /*!<Timer Channel Control1 Register 2 */
+	__IO uint32_t	CH3_CNTRL1;             /*!<Timer Channel Control1 Register 3 */
+	__IO uint32_t	CH4_CNTRL1;             /*!<Timer Channel Control1 Register 4 */
+	__IO uint32_t	CH1_DTG;                /*!<Timer Channel DTG Register 1 */
+	__IO uint32_t	CH2_DTG;                /*!<Timer Channel DTG Register 2 */
+	__IO uint32_t	CH3_DTG;                /*!<Timer Channel DTG Register 3 */
+	__IO uint32_t	CH4_DTG;                /*!<Timer Channel DTG Register 4 */
 	__IO uint32_t	BRKETR_CNTRL;           /*!<Timer BRK/ETR Control Register */
 	__IO uint32_t	STATUS;                 /*!<Timer Status Register */
 	__IO uint32_t	IE;                     /*!<Timer Interrupt Enable Register */
 	__IO uint32_t	DMA_RE;                 /*!<Timer DMA Request Enable Register */
-	__IO uint32_t	CH_CNTRL2[4];           /*!<Timer Channel Control2 Register */
-	__IO uint32_t	CCR1[4];                /*!<Timer Capture/Compare1 Register */
-}MDR_TIM_TypeDef;
+	__IO uint32_t	CH1_CNTRL2;             /*!<Timer Channel Control2 Register 1 */
+	__IO uint32_t	CH2_CNTRL2;             /*!<Timer Channel Control2 Register 2 */
+	__IO uint32_t	CH3_CNTRL2;             /*!<Timer Channel Control2 Register 3 */
+	__IO uint32_t	CH4_CNTRL2;             /*!<Timer Channel Control2 Register 4 */
+	__IO uint32_t	CCR11;                  /*!<Timer Capture/Compare1 Register 1 */
+	__IO uint32_t	CCR21;                  /*!<Timer Capture/Compare1 Register 2 */
+	__IO uint32_t	CCR31;                  /*!<Timer Capture/Compare1 Register 3 */
+	__IO uint32_t	CCR41;                  /*!<Timer Capture/Compare1 Register 4 */
+}MDR_TIMER_TypeDef;
 
-/** @defgroup Periph_TIM_CNT TIM CNT
+/** @defgroup Periph_TIMER_CNT TIMER CNT
   * @{
   */
 
-/*-- TIM_CNT:TIM CNT Register -----*/
+/*-- TIMER_CNT:TIMER CNT Register -----*/
 
 /* Bit field positions: */
-#define TIM_CNT_CNT_Pos                                    0
+#define TIMER_CNT_CNT_Pos                                  0
 
 /* Bit field masks: */
-#define TIM_CNT_CNT_Msk                                    ((uint32_t)0x0000FFFF)
+#define TIMER_CNT_CNT_Msk                                  ((uint32_t)0x0000FFFF)
 
-/** @} */ /* End of group TIM_CNT */
+/** @} */ /* End of group TIMER_CNT */
 
-/** @defgroup Periph_TIM_PSG TIM PSG
+/** @defgroup Periph_TIMER_PSG TIMER PSG
   * @{
   */
 
-/*-- TIM_PSG:TIM PSG Register -----*/
+/*-- TIMER_PSG:TIMER PSG Register -----*/
 
 /* Bit field positions: */
-#define TIM_PSG_PSG_Pos                                    0
+#define TIMER_PSG_PSG_Pos                                  0
 
 /* Bit field masks: */
-#define TIM_PSG_PSG_Msk                                    ((uint32_t)0x0000FFFF)
+#define TIMER_PSG_PSG_Msk                                  ((uint32_t)0x0000FFFF)
 
-/** @} */ /* End of group TIM_PSG */
+/** @} */ /* End of group TIMER_PSG */
 
-/** @defgroup Periph_TIM_ARR TIM ARR
+/** @defgroup Periph_TIMER_ARR TIMER ARR
   * @{
   */
 
-/*-- TIM_ARR:TIM ARR Register -----*/
+/*-- TIMER_ARR:TIMER ARR Register -----*/
 
 /* Bit field positions: */
-#define TIM_ARR_ARR_Pos                                    0
+#define TIMER_ARR_ARR_Pos                                  0
 
 /* Bit field masks: */
-#define TIM_ARR_ARR_Msk                                    ((uint32_t)0x0000FFFF)
+#define TIMER_ARR_ARR_Msk                                  ((uint32_t)0x0000FFFF)
 
-/** @} */ /* End of group TIM_ARR */
+/** @} */ /* End of group TIMER_ARR */
 
-/** @defgroup Periph_TIM_CNTRL TIM CNTRL
+/** @defgroup Periph_TIMER_CNTRL TIMER CNTRL
   * @{
   */
 
-/*-- TIM_CNTRL:TIM CNTRL Register -----*/
+/*-- TIMER_CNTRL:TIMER CNTRL Register -----*/
 
 /* Bit field positions: */
-#define TIM_CNTRL_CNT_EN_Pos                               0
-#define TIM_CNTRL_ARRB_EN_Pos                              1
-#define TIM_CNTRL_WR_CMPL_Pos                              2
-#define TIM_CNTRL_DIR_Pos                                  3
-#define TIM_CNTRL_FDTS_Pos                                 4
-#define TIM_CNTRL_CNT_MODE_Pos                             6
-#define TIM_CNTRL_EVENT_SEL_Pos                            8
+#define TIMER_CNTRL_CNT_EN_Pos                             0
+#define TIMER_CNTRL_ARRB_EN_Pos                            1
+#define TIMER_CNTRL_WR_CMPL_Pos                            2
+#define TIMER_CNTRL_DIR_Pos                                3
+#define TIMER_CNTRL_FDTS_Pos                               4
+#define TIMER_CNTRL_CNT_MODE_Pos                           6
+#define TIMER_CNTRL_EVENT_SEL_Pos                          8
 
 /* Bit field masks: */
-#define TIM_CNTRL_CNT_EN                                   ((uint32_t)0x00000001)
-#define TIM_CNTRL_ARRB_EN                                  ((uint32_t)0x00000002)
-#define TIM_CNTRL_WR_CMPL                                  ((uint32_t)0x00000004)
-#define TIM_CNTRL_DIR                                      ((uint32_t)0x00000008)
-#define TIM_CNTRL_FDTS_Msk                                 ((uint32_t)0x00000030)
-#define TIM_CNTRL_CNT_MODE_Msk                             ((uint32_t)0x000000C0)
-#define TIM_CNTRL_EVENT_SEL_Msk                            ((uint32_t)0x00000F00)
+#define TIMER_CNTRL_CNT_EN                                 ((uint32_t)0x00000001)
+#define TIMER_CNTRL_ARRB_EN                                ((uint32_t)0x00000002)
+#define TIMER_CNTRL_WR_CMPL                                ((uint32_t)0x00000004)
+#define TIMER_CNTRL_DIR                                    ((uint32_t)0x00000008)
+#define TIMER_CNTRL_FDTS_Msk                               ((uint32_t)0x00000030)
+#define TIMER_CNTRL_CNT_MODE_Msk                           ((uint32_t)0x000000C0)
+#define TIMER_CNTRL_EVENT_SEL_Msk                          ((uint32_t)0x00000F00)
 
-/** @} */ /* End of group TIM_CNTRL */
+/** @} */ /* End of group TIMER_CNTRL */
 
-/** @defgroup Periph_TIM_CCR_ TIM CCR_
+/** @defgroup Periph_TIMER_CCR TIMER CCR
   * @{
   */
 
-/*-- TIM_CCR_:TIM CCR_ Register -----*/
+/*-- TIMER_CCR:TIMER CCR Register -----*/
 
 /* Bit field positions: */
-#define TIM_CCR__CCR_Pos                                   0
+#define TIMER_CCR_CCR_Pos                                  0
 
 /* Bit field masks: */
-#define TIM_CCR__CCR_Msk                                   ((uint32_t)0x0000FFFF)
+#define TIMER_CCR_CCR_Msk                                  ((uint32_t)0x0000FFFF)
 
-/** @} */ /* End of group TIM_CCR_ */
+/** @} */ /* End of group TIMER_CCR */
 
-/** @defgroup Periph_TIM_CH_CNTRL TIM CH_CNTRL
+/** @defgroup Periph_TIMER_CH_CNTRL TIMER CH_CNTRL
   * @{
   */
 
-/*-- TIM_CH_CNTRL:TIM CH_CNTRL Register -----*/
+/*-- TIMER_CH_CNTRL:TIMER CH_CNTRL Register -----*/
 
 /* Bit field positions: */
-#define TIM_CH_CNTRL_CHFLTR_Pos                            0
-#define TIM_CH_CNTRL_CHSEL_Pos                             4
-#define TIM_CH_CNTRL_CHPSC_Pos                             6
-#define TIM_CH_CNTRL_OCCE_Pos                              8
-#define TIM_CH_CNTRL_OCCM_Pos                              9
-#define TIM_CH_CNTRL_BRKEN_Pos                             12
-#define TIM_CH_CNTRL_ETREN_Pos                             13
-#define TIM_CH_CNTRL_WR_CMPL_Pos                           14
-#define TIM_CH_CNTRL_CAP_nPWM_Pos                          15
+#define TIMER_CH_CNTRL_CHFLTR_Pos                          0
+#define TIMER_CH_CNTRL_CHSEL_Pos                           4
+#define TIMER_CH_CNTRL_CHPSC_Pos                           6
+#define TIMER_CH_CNTRL_OCCE_Pos                            8
+#define TIMER_CH_CNTRL_OCCM_Pos                            9
+#define TIMER_CH_CNTRL_BRKEN_Pos                           12
+#define TIMER_CH_CNTRL_ETREN_Pos                           13
+#define TIMER_CH_CNTRL_WR_CMPL_Pos                         14
+#define TIMER_CH_CNTRL_CAP_NPWM_Pos                        15
 
 /* Bit field masks: */
-#define TIM_CH_CNTRL_CHFLTR_Msk                            ((uint32_t)0x0000000F)
-#define TIM_CH_CNTRL_CHSEL_Msk                             ((uint32_t)0x00000030)
-#define TIM_CH_CNTRL_CHPSC_Msk                             ((uint32_t)0x000000C0)
-#define TIM_CH_CNTRL_OCCE                                  ((uint32_t)0x00000100)
-#define TIM_CH_CNTRL_OCCM_Msk                              ((uint32_t)0x00000E00)
-#define TIM_CH_CNTRL_BRKEN                                 ((uint32_t)0x00001000)
-#define TIM_CH_CNTRL_ETREN                                 ((uint32_t)0x00002000)
-#define TIM_CH_CNTRL_WR_CMPL                               ((uint32_t)0x00004000)
-#define TIM_CH_CNTRL_CAP_nPWM                              ((uint32_t)0x00008000)
+#define TIMER_CH_CNTRL_CHFLTR_Msk                          ((uint32_t)0x0000000F)
+#define TIMER_CH_CNTRL_CHSEL_Msk                           ((uint32_t)0x00000030)
+#define TIMER_CH_CNTRL_CHPSC_Msk                           ((uint32_t)0x000000C0)
+#define TIMER_CH_CNTRL_OCCE                                ((uint32_t)0x00000100)
+#define TIMER_CH_CNTRL_OCCM_Msk                            ((uint32_t)0x00000E00)
+#define TIMER_CH_CNTRL_BRKEN                               ((uint32_t)0x00001000)
+#define TIMER_CH_CNTRL_ETREN                               ((uint32_t)0x00002000)
+#define TIMER_CH_CNTRL_WR_CMPL                             ((uint32_t)0x00004000)
+#define TIMER_CH_CNTRL_CAP_NPWM                            ((uint32_t)0x00008000)
 
-/** @} */ /* End of group TIM_CH_CNTRL */
+/** @} */ /* End of group TIMER_CH_CNTRL */
 
-/** @defgroup Periph_TIM_CH_CNTRL1 TIM CH_CNTRL1
+/** @defgroup Periph_TIMER_CH_CNTRL1 TIMER CH_CNTRL1
   * @{
   */
 
-/*-- TIM_CH_CNTRL1:TIM CH_CNTRL1 Register -----*/
+/*-- TIMER_CH_CNTRL1:TIMER CH_CNTRL1 Register -----*/
 
 /* Bit field positions: */
-#define TIM_CH_CNTRL1_SELOE_Pos                            0
-#define TIM_CH_CNTRL1_SELO_Pos                             2
-#define TIM_CH_CNTRL1_INV_Pos                              4
-#define TIM_CH_CNTRL1_NSELOE_Pos                           8
-#define TIM_CH_CNTRL1_NSELO_Pos                            10
-#define TIM_CH_CNTRL1_NINV_Pos                             12
+#define TIMER_CH_CNTRL1_SELOE_Pos                          0
+#define TIMER_CH_CNTRL1_SELO_Pos                           2
+#define TIMER_CH_CNTRL1_INV_Pos                            4
+#define TIMER_CH_CNTRL1_NSELOE_Pos                         8
+#define TIMER_CH_CNTRL1_NSELO_Pos                          10
+#define TIMER_CH_CNTRL1_NINV_Pos                           12
 
 /* Bit field masks: */
-#define TIM_CH_CNTRL1_SELOE_Msk                            ((uint32_t)0x00000003)
-#define TIM_CH_CNTRL1_SELO_Msk                             ((uint32_t)0x0000000C)
-#define TIM_CH_CNTRL1_INV                                  ((uint32_t)0x00000010)
-#define TIM_CH_CNTRL1_NSELOE_Msk                           ((uint32_t)0x00000300)
-#define TIM_CH_CNTRL1_NSELO_Msk                            ((uint32_t)0x00000C00)
-#define TIM_CH_CNTRL1_NINV                                 ((uint32_t)0x00001000)
+#define TIMER_CH_CNTRL1_SELOE_Msk                          ((uint32_t)0x00000003)
+#define TIMER_CH_CNTRL1_SELO_Msk                           ((uint32_t)0x0000000C)
+#define TIMER_CH_CNTRL1_INV                                ((uint32_t)0x00000010)
+#define TIMER_CH_CNTRL1_NSELOE_Msk                         ((uint32_t)0x00000300)
+#define TIMER_CH_CNTRL1_NSELO_Msk                          ((uint32_t)0x00000C00)
+#define TIMER_CH_CNTRL1_NINV                               ((uint32_t)0x00001000)
 
-/** @} */ /* End of group TIM_CH_CNTRL1 */
+/** @} */ /* End of group TIMER_CH_CNTRL1 */
 
-/** @defgroup Periph_TIM_CH_DTG TIM CH_DTG
+/** @defgroup Periph_TIMER_CH_DTG TIMER CH_DTG
   * @{
   */
 
-/*-- TIM_CH_DTG:TIM CH_DTG Register -----*/
+/*-- TIMER_CH_DTG:TIMER CH_DTG Register -----*/
 
 /* Bit field positions: */
-#define TIM_CH_DTG_DTGx_Pos                                0
-#define TIM_CH_DTG_EDTS_Pos                                4
-#define TIM_CH_DTG_DTG_Pos                                 8
+#define TIMER_CH_DTGX_Pos                              0
+#define TIMER_CH_DTG_EDTS_Pos                          4
+#define TIMER_CH_DTG_Pos                               8
 
 /* Bit field masks: */
-#define TIM_CH_DTG_DTGx_Msk                                ((uint32_t)0x0000000F)
-#define TIM_CH_DTG_EDTS                                    ((uint32_t)0x00000010)
-#define TIM_CH_DTG_DTG_Msk                                 ((uint32_t)0x0000FF00)
+#define TIMER_CH_DTGX_Msk                              ((uint32_t)0x0000000F)
+#define TIMER_CH_DTG_EDTS                              ((uint32_t)0x00000010)
+#define TIMER_CH_DTG_Msk                               ((uint32_t)0x0000FF00)
 
-/** @} */ /* End of group TIM_CH_DTG */
+/** @} */ /* End of group TIMER_CH_DTG */
 
-/** @defgroup Periph_TIM_BRKETR_CNTRL TIM BRKETR_CNTRL
+/** @defgroup Periph_TIMER_BRKETR_CNTRL TIMER BRKETR_CNTRL
   * @{
   */
 
-/*-- TIM_BRKETR_CNTRL:TIM BRKETR_CNTRL Register -----*/
+/*-- TIMER_BRKETR_CNTRL:TIMER BRKETR_CNTRL Register -----*/
 
 /* Bit field positions: */
-#define TIM_BRKETR_CNTRL_BRK_INV_Pos                       0
-#define TIM_BRKETR_CNTRL_ETR_INV_Pos                       1
-#define TIM_BRKETR_CNTRL_ETR_PSC_Pos                       2
-#define TIM_BRKETR_CNTRL_ETR_FILTER_Pos                    4
+#define TIMER_BRKETR_CNTRL_BRK_INV_Pos                     0
+#define TIMER_BRKETR_CNTRL_ETR_INV_Pos                     1
+#define TIMER_BRKETR_CNTRL_ETR_PSC_Pos                     2
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_Pos                  4
 
 /* Bit field masks: */
-#define TIM_BRKETR_CNTRL_BRK_INV                           ((uint32_t)0x00000001)
-#define TIM_BRKETR_CNTRL_ETR_INV                           ((uint32_t)0x00000002)
-#define TIM_BRKETR_CNTRL_ETR_PSC_Msk                       ((uint32_t)0x0000000C)
-#define TIM_BRKETR_CNTRL_ETR_FILTER_Msk                    ((uint32_t)0x000000F0)
+#define TIMER_BRKETR_CNTRL_BRK_INV                         ((uint32_t)0x00000001)
+#define TIMER_BRKETR_CNTRL_ETR_INV                         ((uint32_t)0x00000002)
+#define TIMER_BRKETR_CNTRL_ETR_PSC_Msk                     ((uint32_t)0x0000000C)
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_Msk                  ((uint32_t)0x000000F0)
 
-/** @} */ /* End of group TIM_BRKETR_CNTRL */
+/** @} */ /* End of group TIMER_BRKETR_CNTRL */
 
-/** @defgroup Periph_TIM_STATUS TIM STATUS
+/** @defgroup Periph_TIMER_STATUS TIMER STATUS
   * @{
   */
 
-/*-- TIM_STATUS:TIM STATUS Register -----*/
+/*-- TIMER_STATUS:TIMER STATUS Register -----*/
 
 /* Bit field positions: */
-#define TIM_STATUS_CNT_ZERO_EVENT_Pos                      0
-#define TIM_STATUS_CNT_ARR_EVENT_Pos                       1
-#define TIM_STATUS_ETR_RE_EVENT_Pos                        2
-#define TIM_STATUS_ETR_FE_EVENT_Pos                        3
-#define TIM_STATUS_BRK_EVENT_Pos                           4
-#define TIM_STATUS_CCR_CAP_EVENT_Pos                       5
-#define TIM_STATUS_CCR_REF_EVENT_Pos                       9
-#define TIM_STATUS_CCR1_CAP_EVENT_Pos                      13
+#define TIMER_STATUS_CNT_ZERO_EVENT_Pos                    0
+#define TIMER_STATUS_CNT_ARR_EVENT_Pos                     1
+#define TIMER_STATUS_ETR_RE_EVENT_Pos                      2
+#define TIMER_STATUS_ETR_FE_EVENT_Pos                      3
+#define TIMER_STATUS_BRK_EVENT_Pos                         4
+#define TIMER_STATUS_CCR_CAP_EVENT_Pos                     5
+#define TIMER_STATUS_CCR_REF_EVENT_Pos                     9
+#define TIMER_STATUS_CCR1_CAP_EVENT_Pos                    13
 
 /* Bit field masks: */
-#define TIM_STATUS_CNT_ZERO_EVENT                          ((uint32_t)0x00000001)
-#define TIM_STATUS_CNT_ARR_EVENT                           ((uint32_t)0x00000002)
-#define TIM_STATUS_ETR_RE_EVENT                            ((uint32_t)0x00000004)
-#define TIM_STATUS_ETR_FE_EVENT                            ((uint32_t)0x00000008)
-#define TIM_STATUS_BRK_EVENT                               ((uint32_t)0x00000010)
-#define TIM_STATUS_CCR_CAP_EVENT_Msk                       ((uint32_t)0x000001E0)
-#define TIM_STATUS_CCR_REF_EVENT_Msk                       ((uint32_t)0x00001E00)
-#define TIM_STATUS_CCR1_CAP_EVENT_Msk                      ((uint32_t)0x0001E000)
+#define TIMER_STATUS_CNT_ZERO_EVENT                        ((uint32_t)0x00000001)
+#define TIMER_STATUS_CNT_ARR_EVENT                         ((uint32_t)0x00000002)
+#define TIMER_STATUS_ETR_RE_EVENT                          ((uint32_t)0x00000004)
+#define TIMER_STATUS_ETR_FE_EVENT                          ((uint32_t)0x00000008)
+#define TIMER_STATUS_BRK_EVENT                             ((uint32_t)0x00000010)
+#define TIMER_STATUS_CCR_CAP_EVENT_Msk                     ((uint32_t)0x000001E0)
+#define TIMER_STATUS_CCR_REF_EVENT_Msk                     ((uint32_t)0x00001E00)
+#define TIMER_STATUS_CCR1_CAP_EVENT_Msk                    ((uint32_t)0x0001E000)
 
-/** @} */ /* End of group TIM_STATUS */
+/** @} */ /* End of group TIMER_STATUS */
 
-/** @defgroup Periph_TIM_IE TIM IE
+/** @defgroup Periph_TIMER_IE TIMER IE
   * @{
   */
 
-/*-- TIM_IE:TIM IE Register -----*/
+/*-- TIMER_IE:TIMER IE Register -----*/
 
 /* Bit field positions: */
-#define TIM_IE_CNT_ZERO_EVENT_IE_Pos                       0
-#define TIM_IE_CNT_ARR_EVENT_IE_Pos                        1
-#define TIM_IE_ETR_RE_EVENT_IE_Pos                         2
-#define TIM_IE_ETR_FE_EVENT_IE_Pos                         3
-#define TIM_IE_BRK_EVENT_IE_Pos                            4
-#define TIM_IE_CCR_CAP_EVENT_IE_Pos                        5
-#define TIM_IE_CCR_REF_EVENT_IE_Pos                        9
-#define TIM_IE_CCR1_CAP_EVENT_IE_Pos                       13
+#define TIMER_IE_CNT_ZERO_EVENT_IE_Pos                     0
+#define TIMER_IE_CNT_ARR_EVENT_IE_Pos                      1
+#define TIMER_IE_ETR_RE_EVENT_IE_Pos                       2
+#define TIMER_IE_ETR_FE_EVENT_IE_Pos                       3
+#define TIMER_IE_BRK_EVENT_IE_Pos                          4
+#define TIMER_IE_CCR_CAP_EVENT_IE_Pos                      5
+#define TIMER_IE_CCR_REF_EVENT_IE_Pos                      9
+#define TIMER_IE_CCR1_CAP_EVENT_IE_Pos                     13
 
 /* Bit field masks: */
-#define TIM_IE_CNT_ZERO_EVENT_IE                           ((uint32_t)0x00000001)
-#define TIM_IE_CNT_ARR_EVENT_IE                            ((uint32_t)0x00000002)
-#define TIM_IE_ETR_RE_EVENT_IE                             ((uint32_t)0x00000004)
-#define TIM_IE_ETR_FE_EVENT_IE                             ((uint32_t)0x00000008)
-#define TIM_IE_BRK_EVENT_IE                                ((uint32_t)0x00000010)
-#define TIM_IE_CCR_CAP_EVENT_IE_Msk                        ((uint32_t)0x000001E0)
-#define TIM_IE_CCR_REF_EVENT_IE_Msk                        ((uint32_t)0x00001E00)
-#define TIM_IE_CCR1_CAP_EVENT_IE_Msk                       ((uint32_t)0x0001E000)
+#define TIMER_IE_CNT_ZERO_EVENT_IE                         ((uint32_t)0x00000001)
+#define TIMER_IE_CNT_ARR_EVENT_IE                          ((uint32_t)0x00000002)
+#define TIMER_IE_ETR_RE_EVENT_IE                           ((uint32_t)0x00000004)
+#define TIMER_IE_ETR_FE_EVENT_IE                           ((uint32_t)0x00000008)
+#define TIMER_IE_BRK_EVENT_IE                              ((uint32_t)0x00000010)
+#define TIMER_IE_CCR_CAP_EVENT_IE_Msk                      ((uint32_t)0x000001E0)
+#define TIMER_IE_CCR_REF_EVENT_IE_Msk                      ((uint32_t)0x00001E00)
+#define TIMER_IE_CCR1_CAP_EVENT_IE_Msk                     ((uint32_t)0x0001E000)
 
-/** @} */ /* End of group TIM_IE */
+/** @} */ /* End of group TIMER_IE */
 
-/** @defgroup Periph_TIM_DMA_RE TIM DMA_RE
+/** @defgroup Periph_TIMER_DMA_RE TIMER DMA_RE
   * @{
   */
 
-/*-- TIM_DMA_RE:TIM DMA_RE Register -----*/
+/*-- TIMER_DMA_RE:TIMER DMA_RE Register -----*/
 
 /* Bit field positions: */
-#define TIM_DMA_RE_CNT_ZERO_EVENT_RE_Pos                   0
-#define TIM_DMA_RE_CNT_ARR_EVENT_RE_Pos                    1
-#define TIM_DMA_RE_ETR_RE_EVENT_RE_Pos                     2
-#define TIM_DMA_RE_ETR_FE_EVENT_RE_Pos                     3
-#define TIM_DMA_RE_BRK_EVENT_RE_Pos                        4
-#define TIM_DMA_RE_CCR_CAP_EVENT_RE_Pos                    5
-#define TIM_DMA_RE_CCR_REF_EVENT_RE_Pos                    9
-#define TIM_DMA_RE_CCR1_CAP_EVENT_RE_Pos                   13
+#define TIMER_DMA_RE_CNT_ZERO_EVENT_RE_Pos                 0
+#define TIMER_DMA_RE_CNT_ARR_EVENT_RE_Pos                  1
+#define TIMER_DMA_RE_ETR_RE_EVENT_RE_Pos                   2
+#define TIMER_DMA_RE_ETR_FE_EVENT_RE_Pos                   3
+#define TIMER_DMA_RE_BRK_EVENT_RE_Pos                      4
+#define TIMER_DMA_RE_CCR_CAP_EVENT_RE_Pos                  5
+#define TIMER_DMA_RE_CCR_REF_EVENT_RE_Pos                  9
+#define TIMER_DMA_RE_CCR1_CAP_EVENT_RE_Pos                 13
 
 /* Bit field masks: */
-#define TIM_DMA_RE_CNT_ZERO_EVENT_RE                       ((uint32_t)0x00000001)
-#define TIM_DMA_RE_CNT_ARR_EVENT_RE                        ((uint32_t)0x00000002)
-#define TIM_DMA_RE_ETR_RE_EVENT_RE                         ((uint32_t)0x00000004)
-#define TIM_DMA_RE_ETR_FE_EVENT_RE                         ((uint32_t)0x00000008)
-#define TIM_DMA_RE_BRK_EVENT_RE                            ((uint32_t)0x00000010)
-#define TIM_DMA_RE_CCR_CAP_EVENT_RE_Msk                    ((uint32_t)0x000001E0)
-#define TIM_DMA_RE_CCR_REF_EVENT_RE_Msk                    ((uint32_t)0x00001E00)
-#define TIM_DMA_RE_CCR1_CAP_EVENT_RE_Msk                   ((uint32_t)0x0001E000)
+#define TIMER_DMA_RE_CNT_ZERO_EVENT_RE                     ((uint32_t)0x00000001)
+#define TIMER_DMA_RE_CNT_ARR_EVENT_RE                      ((uint32_t)0x00000002)
+#define TIMER_DMA_RE_ETR_RE_EVENT_RE                       ((uint32_t)0x00000004)
+#define TIMER_DMA_RE_ETR_FE_EVENT_RE                       ((uint32_t)0x00000008)
+#define TIMER_DMA_RE_BRK_EVENT_RE                          ((uint32_t)0x00000010)
+#define TIMER_DMA_RE_CCR_CAP_EVENT_RE_Msk                  ((uint32_t)0x000001E0)
+#define TIMER_DMA_RE_CCR_REF_EVENT_RE_Msk                  ((uint32_t)0x00001E00)
+#define TIMER_DMA_RE_CCR1_CAP_EVENT_RE_Msk                 ((uint32_t)0x0001E000)
 
-/** @} */ /* End of group TIM_DMA_RE */
+/** @} */ /* End of group TIMER_DMA_RE */
 
-/** @defgroup Periph_TIM_CH_CNTRL2 TIM CH_CNTRL2
+/** @defgroup Periph_TIMER_CH_CNTRL2 TIMER CH_CNTRL2
   * @{
   */
 
-/*-- TIM_CH_CNTRL2:TIM CH_CNTRL2 Register -----*/
+/*-- TIMER_CH_CNTRL2:TIMER CH_CNTRL2 Register -----*/
 
 /* Bit field positions: */
-#define TIM_CH_CNTRL2_CHSEL1_Pos                           0
-#define TIM_CH_CNTRL2_CCR1_EN_Pos                          2
-#define TIM_CH_CNTRL2_CCRRLD_Pos                           3
+#define TIMER_CH_CNTRL2_CHSEL1_Pos                         0
+#define TIMER_CH_CNTRL2_CCR1_EN_Pos                        2
+#define TIMER_CH_CNTRL2_CCRRLD_Pos                         3
 
 /* Bit field masks: */
-#define TIM_CH_CNTRL2_CHSEL1_Msk                           ((uint32_t)0x00000003)
-#define TIM_CH_CNTRL2_CCR1_EN                              ((uint32_t)0x00000004)
-#define TIM_CH_CNTRL2_CCRRLD                               ((uint32_t)0x00000008)
+#define TIMER_CH_CNTRL2_CHSEL1_Msk                         ((uint32_t)0x00000003)
+#define TIMER_CH_CNTRL2_CCR1_EN                            ((uint32_t)0x00000004)
+#define TIMER_CH_CNTRL2_CCRRLD                             ((uint32_t)0x00000008)
 
-/** @} */ /* End of group TIM_CH_CNTRL2 */
+/** @} */ /* End of group TIMER_CH_CNTRL2 */
 
-/** @defgroup Periph_TIM_CCR_ TIM CCR_
+/** @defgroup Periph_TIMER_CCR1 TIMER CCR1
   * @{
   */
 
-/*-- TIM_CCR_:TIM CCR_ Register -----*/
+/*-- TIMER_CCR1:TIMER CCR1 Register -----*/
 
 /* Bit field positions: */
-#define TIM_CCR__CCR_Pos                                   0
+#define TIMER_CCR1_CCR_Pos                                 0
 
 /* Bit field masks: */
-#define TIM_CCR__CCR_Msk                                   ((uint32_t)0x0000FFFF)
+#define TIMER_CCR1_CCR_Msk                                 ((uint32_t)0x0000FFFF)
 
-/** @} */ /* End of group TIM_CCR_ */
+/** @} */ /* End of group TIMER_CCR1 */
 
-/** @} */ /* End of group TIM */
+/** @} */ /* End of group TIMER */
 
 /** @defgroup MDR1901VC1T_Periph_ADC ADC
   * @{
   */
-
 
 /* MDR_ADC_TypeDef structure */
 typedef struct {
@@ -2992,371 +3043,349 @@ typedef struct {
 	__IO uint32_t	ADC2_CHSEL;             /*!<ADC2 Channel Selector Register */
 }MDR_ADC_TypeDef;
 
-/** @defgroup Periph_ADC_ADC1_CFG ADC ADC1_CFG
+/** @defgroup Periph_ADC1_CFG  ADC1_CFG
   * @{
   */
 
-/*-- ADC_ADC1_CFG:ADC ADC1_CFG Register -----*/
+/*-- ADC1_CFG: ADC1_CFG Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_CFG_Cfg_REG_ADON_Pos                      0
-#define ADC_ADC1_CFG_Cfg_REG_GO_Pos                        1
-#define ADC_ADC1_CFG_Cfg_REG_CLKS_Pos                      2
-#define ADC_ADC1_CFG_Cfg_REG_SAMPLE_Pos                    3
-#define ADC_ADC1_CFG_Cfg_REG_CHS_Pos                       4
-#define ADC_ADC1_CFG_Cfg_REG_CHCH_Pos                      9
-#define ADC_ADC1_CFG_Cfg_REG_RNGC_Pos                      10
-#define ADC_ADC1_CFG_Cfg_M_REF_Pos                         11
-#define ADC_ADC1_CFG_Cfg_REG_DIVCLK_Pos                    12
-#define ADC_ADC1_CFG_Cfg_Sync_Conver_Pos                   16
-#define ADC_ADC1_CFG_TS_EN_Pos                             17
-#define ADC_ADC1_CFG_TS_BUF_EN_Pos                         18
-#define ADC_ADC1_CFG_SEL_TS_Pos                            19
-#define ADC_ADC1_CFG_SEL_VREF_Pos                          20
-#define ADC_ADC1_CFG_TR_Pos                                21
-#define ADC_ADC1_CFG_Delay_Go_Pos                          25
-#define ADC_ADC1_CFG_Delay_ADC_Pos                         28
+#define ADC1_CFG_REG_ADON_Pos                              0
+#define ADC1_CFG_REG_GO_Pos                                1
+#define ADC1_CFG_REG_CLKS_Pos                              2
+#define ADC1_CFG_REG_SAMPLE_Pos                            3
+#define ADC1_CFG_REG_CHS_Pos                               4
+#define ADC1_CFG_REG_CHCH_Pos                              9
+#define ADC1_CFG_REG_RNGC_Pos                              10
+#define ADC1_CFG_M_REF_Pos                                 11
+#define ADC1_CFG_REG_DIVCLK_Pos                            12
+#define ADC1_CFG_SYNC_CONVER_Pos                           16
+#define ADC1_CFG_TS_EN_Pos                                 17
+#define ADC1_CFG_TS_BUF_EN_Pos                             18
+#define ADC1_CFG_SEL_TS_Pos                                19
+#define ADC1_CFG_SEL_VREF_Pos                              20
+#define ADC1_CFG_TR_Pos                                    21
+#define ADC1_CFG_DELAY_GO_Pos                              25
+#define ADC1_CFG_DELAY_ADC_Pos                             28
 
 /* Bit field masks: */
-#define ADC_ADC1_CFG_Cfg_REG_ADON                          ((uint32_t)0x00000001)
-#define ADC_ADC1_CFG_Cfg_REG_GO                            ((uint32_t)0x00000002)
-#define ADC_ADC1_CFG_Cfg_REG_CLKS                          ((uint32_t)0x00000004)
-#define ADC_ADC1_CFG_Cfg_REG_SAMPLE                        ((uint32_t)0x00000008)
-#define ADC_ADC1_CFG_Cfg_REG_CHS_Msk                       ((uint32_t)0x000001F0)
-#define ADC_ADC1_CFG_Cfg_REG_CHCH                          ((uint32_t)0x00000200)
-#define ADC_ADC1_CFG_Cfg_REG_RNGC                          ((uint32_t)0x00000400)
-#define ADC_ADC1_CFG_Cfg_M_REF                             ((uint32_t)0x00000800)
-#define ADC_ADC1_CFG_Cfg_REG_DIVCLK_Msk                    ((uint32_t)0x0000F000)
-#define ADC_ADC1_CFG_Cfg_Sync_Conver                       ((uint32_t)0x00010000)
-#define ADC_ADC1_CFG_TS_EN                                 ((uint32_t)0x00020000)
-#define ADC_ADC1_CFG_TS_BUF_EN                             ((uint32_t)0x00040000)
-#define ADC_ADC1_CFG_SEL_TS                                ((uint32_t)0x00080000)
-#define ADC_ADC1_CFG_SEL_VREF                              ((uint32_t)0x00100000)
-#define ADC_ADC1_CFG_TR_Msk                                ((uint32_t)0x01E00000)
-#define ADC_ADC1_CFG_Delay_Go_Msk                          ((uint32_t)0x0E000000)
-#define ADC_ADC1_CFG_Delay_ADC_Msk                         ((uint32_t)0xF0000000)
+#define ADC1_CFG_REG_ADON                                  ((uint32_t)0x00000001)
+#define ADC1_CFG_REG_GO                                    ((uint32_t)0x00000002)
+#define ADC1_CFG_REG_CLKS                                  ((uint32_t)0x00000004)
+#define ADC1_CFG_REG_SAMPLE                                ((uint32_t)0x00000008)
+#define ADC1_CFG_REG_CHS_Msk                               ((uint32_t)0x000001F0)
+#define ADC1_CFG_REG_CHCH                                  ((uint32_t)0x00000200)
+#define ADC1_CFG_REG_RNGC                                  ((uint32_t)0x00000400)
+#define ADC1_CFG_M_REF                                     ((uint32_t)0x00000800)
+#define ADC1_CFG_REG_DIVCLK_Msk                            ((uint32_t)0x0000F000)
+#define ADC1_CFG_SYNC_CONVER                               ((uint32_t)0x00010000)
+#define ADC1_CFG_TS_EN                                     ((uint32_t)0x00020000)
+#define ADC1_CFG_TS_BUF_EN                                 ((uint32_t)0x00040000)
+#define ADC1_CFG_SEL_TS                                    ((uint32_t)0x00080000)
+#define ADC1_CFG_SEL_VREF                                  ((uint32_t)0x00100000)
+#define ADC1_CFG_TR_Msk                                    ((uint32_t)0x01E00000)
+#define ADC1_CFG_DELAY_GO_Msk                              ((uint32_t)0x0E000000)
+#define ADC1_CFG_DELAY_ADC_Msk                             ((uint32_t)0xF0000000)
 
-/** @} */ /* End of group ADC_ADC1_CFG */
+/** @} */ /* End of group ADC1_CFG */
 
-/** @defgroup Periph_ADC_ADC2_CFG ADC ADC2_CFG
+/** @defgroup Periph_ADC2_CFG  ADC2_CFG
   * @{
   */
 
-/*-- ADC_ADC2_CFG:ADC ADC2_CFG Register -----*/
+/*-- ADC2_CFG: ADC2_CFG Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC2_CFG_Cfg_REG_ADON_Pos                      0
-#define ADC_ADC2_CFG_Cfg_REG_GO_Pos                        1
-#define ADC_ADC2_CFG_Cfg_REG_CLKS_Pos                      2
-#define ADC_ADC2_CFG_Cfg_REG_SAMPLE_Pos                    3
-#define ADC_ADC2_CFG_Cfg_REG_CHS_Pos                       4
-#define ADC_ADC2_CFG_Cfg_REG_CHCH_Pos                      9
-#define ADC_ADC2_CFG_Cfg_REG_RNGC_Pos                      10
-#define ADC_ADC2_CFG_Cfg_M_REF_Pos                         11
-#define ADC_ADC2_CFG_Cfg_REG_DIVCLK_Pos                    12
-#define ADC_ADC2_CFG_ADC1_OP_Pos                           17
-#define ADC_ADC2_CFG_ADC2_OP_Pos                           18
-#define ADC_ADC2_CFG_Delay_Go_Pos                          25
+#define ADC2_CFG_REG_ADON_Pos                              0
+#define ADC2_CFG_REG_GO_Pos                                1
+#define ADC2_CFG_REG_CLKS_Pos                              2
+#define ADC2_CFG_REG_SAMPLE_Pos                            3
+#define ADC2_CFG_REG_CHS_Pos                               4
+#define ADC2_CFG_REG_CHCH_Pos                              9
+#define ADC2_CFG_REG_RNGC_Pos                              10
+#define ADC2_CFG_M_REF_Pos                                 11
+#define ADC2_CFG_REG_DIVCLK_Pos                            12
+#define ADC2_CFG_ADC1_OP_Pos                               17
+#define ADC2_CFG_ADC2_OP_Pos                               18
+#define ADC2_CFG_DELAY_GO_Pos                              25
 
 /* Bit field masks: */
-#define ADC_ADC2_CFG_Cfg_REG_ADON                          ((uint32_t)0x00000001)
-#define ADC_ADC2_CFG_Cfg_REG_GO                            ((uint32_t)0x00000002)
-#define ADC_ADC2_CFG_Cfg_REG_CLKS                          ((uint32_t)0x00000004)
-#define ADC_ADC2_CFG_Cfg_REG_SAMPLE                        ((uint32_t)0x00000008)
-#define ADC_ADC2_CFG_Cfg_REG_CHS_Msk                       ((uint32_t)0x000001F0)
-#define ADC_ADC2_CFG_Cfg_REG_CHCH                          ((uint32_t)0x00000200)
-#define ADC_ADC2_CFG_Cfg_REG_RNGC                          ((uint32_t)0x00000400)
-#define ADC_ADC2_CFG_Cfg_M_REF                             ((uint32_t)0x00000800)
-#define ADC_ADC2_CFG_Cfg_REG_DIVCLK_Msk                    ((uint32_t)0x0000F000)
-#define ADC_ADC2_CFG_ADC1_OP                               ((uint32_t)0x00020000)
-#define ADC_ADC2_CFG_ADC2_OP                               ((uint32_t)0x00040000)
-#define ADC_ADC2_CFG_Delay_Go_Msk                          ((uint32_t)0x0E000000)
+#define ADC2_CFG_REG_ADON                                  ((uint32_t)0x00000001)
+#define ADC2_CFG_REG_GO                                    ((uint32_t)0x00000002)
+#define ADC2_CFG_REG_CLKS                                  ((uint32_t)0x00000004)
+#define ADC2_CFG_REG_SAMPLE                                ((uint32_t)0x00000008)
+#define ADC2_CFG_REG_CHS_Msk                               ((uint32_t)0x000001F0)
+#define ADC2_CFG_REG_CHCH                                  ((uint32_t)0x00000200)
+#define ADC2_CFG_REG_RNGC                                  ((uint32_t)0x00000400)
+#define ADC2_CFG_M_REF                                     ((uint32_t)0x00000800)
+#define ADC2_CFG_REG_DIVCLK_Msk                            ((uint32_t)0x0000F000)
+#define ADC2_CFG_ADC1_OP                                   ((uint32_t)0x00020000)
+#define ADC2_CFG_ADC2_OP                                   ((uint32_t)0x00040000)
+#define ADC2_CFG_DELAY_GO_Msk                              ((uint32_t)0x0E000000)
 
-/** @} */ /* End of group ADC_ADC2_CFG */
+/** @} */ /* End of group ADC2_CFG */
 
-/** @defgroup Periph_ADC_ADC1_H_LEVEL ADC ADC1_H_LEVEL
+/** @defgroup Periph_ADC1_H_LEVEL  ADC1_H_LEVEL
   * @{
   */
 
-/*-- ADC_ADC1_H_LEVEL:ADC ADC1_H_LEVEL Register -----*/
+/*-- ADC1_H_LEVEL: ADC1_H_LEVEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_H_LEVEL_REG_H_LEVEL_Pos                   0
+#define ADC1_H_LEVEL_REG_H_LEVEL_Pos                       0
 
 /* Bit field masks: */
-#define ADC_ADC1_H_LEVEL_REG_H_LEVEL_Msk                   ((uint32_t)0x00000FFF)
+#define ADC1_H_LEVEL_REG_H_LEVEL_Msk                       ((uint32_t)0x00000FFF)
 
-/** @} */ /* End of group ADC_ADC1_H_LEVEL */
+/** @} */ /* End of group ADC1_H_LEVEL */
 
-/** @defgroup Periph_ADC_ADC2_H_LEVEL ADC ADC2_H_LEVEL
+/** @defgroup Periph_ADC2_H_LEVEL  ADC2_H_LEVEL
   * @{
   */
 
-/*-- ADC_ADC2_H_LEVEL:ADC ADC2_H_LEVEL Register -----*/
+/*-- ADC2_H_LEVEL: ADC2_H_LEVEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC2_H_LEVEL_REG_H_LEVEL_Pos                   0
+#define ADC2_H_LEVEL_REG_H_LEVEL_Pos                       0
 
 /* Bit field masks: */
-#define ADC_ADC2_H_LEVEL_REG_H_LEVEL_Msk                   ((uint32_t)0x00000FFF)
+#define ADC2_H_LEVEL_REG_H_LEVEL_Msk                       ((uint32_t)0x00000FFF)
 
-/** @} */ /* End of group ADC_ADC2_H_LEVEL */
+/** @} */ /* End of group ADC2_H_LEVEL */
 
-/** @defgroup Periph_ADC_ADC1_L_LEVEL ADC ADC1_L_LEVEL
+/** @defgroup Periph_ADC1_L_LEVEL  ADC1_L_LEVEL
   * @{
   */
 
-/*-- ADC_ADC1_L_LEVEL:ADC ADC1_L_LEVEL Register -----*/
+/*-- ADC1_L_LEVEL: ADC1_L_LEVEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_L_LEVEL_REG_L_LEVEL_Pos                   0
+#define ADC1_L_LEVEL_REG_L_LEVEL_Pos                       0
 
 /* Bit field masks: */
-#define ADC_ADC1_L_LEVEL_REG_L_LEVEL_Msk                   ((uint32_t)0x00000FFF)
+#define ADC1_L_LEVEL_REG_L_LEVEL_Msk                       ((uint32_t)0x00000FFF)
 
-/** @} */ /* End of group ADC_ADC1_L_LEVEL */
+/** @} */ /* End of group ADC1_L_LEVEL */
 
-/** @defgroup Periph_ADC_ADC2_L_LEVEL ADC ADC2_L_LEVEL
+/** @defgroup Periph_ADC2_L_LEVEL  ADC2_L_LEVEL
   * @{
   */
 
-/*-- ADC_ADC2_L_LEVEL:ADC ADC2_L_LEVEL Register -----*/
+/*-- ADC2_L_LEVEL: ADC2_L_LEVEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC2_L_LEVEL_REG_L_LEVEL_Pos                   0
+#define ADC2_L_LEVEL_REG_L_LEVEL_Pos                       0
 
 /* Bit field masks: */
-#define ADC_ADC2_L_LEVEL_REG_L_LEVEL_Msk                   ((uint32_t)0x00000FFF)
+#define ADC2_L_LEVEL_REG_L_LEVEL_Msk                       ((uint32_t)0x00000FFF)
 
-/** @} */ /* End of group ADC_ADC2_L_LEVEL */
+/** @} */ /* End of group ADC2_L_LEVEL */
 
-/** @defgroup Periph_ADC_ADC1_RESULT ADC ADC1_RESULT
+/** @defgroup Periph_ADC1_RESULT  ADC1_RESULT
   * @{
   */
 
-/*-- ADC_ADC1_RESULT:ADC ADC1_RESULT Register -----*/
+/*-- ADC1_RESULT: ADC1_RESULT Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_RESULT_RESULT_Pos                         0
-#define ADC_ADC1_RESULT_CHANNEL_Pos                        16
+#define ADC1_RESULT_RESULT_Pos                             0
+#define ADC1_RESULT_CHANNEL_Pos                            16
 
 /* Bit field masks: */
-#define ADC_ADC1_RESULT_RESULT_Msk                         ((uint32_t)0x00000FFF)
-#define ADC_ADC1_RESULT_CHANNEL_Msk                        ((uint32_t)0x0FFF0000)
+#define ADC1_RESULT_RESULT_Msk                             ((uint32_t)0x00000FFF)
+#define ADC1_RESULT_CHANNEL_Msk                            ((uint32_t)0x0FFF0000)
 
-/** @} */ /* End of group ADC_ADC1_RESULT */
+/** @} */ /* End of group ADC1_RESULT */
 
-/** @defgroup Periph_ADC_ADC2_RESULT ADC ADC2_RESULT
+/** @defgroup Periph_ADC2_RESULT  ADC2_RESULT
   * @{
   */
 
-/*-- ADC_ADC2_RESULT:ADC ADC2_RESULT Register -----*/
+/*-- ADC2_RESULT: ADC2_RESULT Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC2_RESULT_RESULT_Pos                         0
-#define ADC_ADC2_RESULT_CHANNEL_Pos                        16
+#define ADC2_RESULT_RESULT_Pos                             0
+#define ADC2_RESULT_CHANNEL_Pos                            16
 
 /* Bit field masks: */
-#define ADC_ADC2_RESULT_RESULT_Msk                         ((uint32_t)0x00000FFF)
-#define ADC_ADC2_RESULT_CHANNEL_Msk                        ((uint32_t)0x0FFF0000)
+#define ADC2_RESULT_RESULT_Msk                             ((uint32_t)0x00000FFF)
+#define ADC2_RESULT_CHANNEL_Msk                            ((uint32_t)0x0FFF0000)
 
-/** @} */ /* End of group ADC_ADC2_RESULT */
+/** @} */ /* End of group ADC2_RESULT */
 
-/** @defgroup Periph_ADC_ADC1_STATUS ADC ADC1_STATUS
+/** @defgroup Periph_ADC1_STATUS  ADC1_STATUS
   * @{
   */
 
-/*-- ADC_ADC1_STATUS:ADC ADC1_STATUS Register -----*/
+/*-- ADC1_STATUS: ADC1_STATUS Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_STATUS_Flg_REG_OVERWRITE_Pos              0
-#define ADC_ADC1_STATUS_Flg_REG_AWOIFEN_Pos                1
-#define ADC_ADC1_STATUS_Flg_REG_EOCIF_Pos                  2
-#define ADC_ADC1_STATUS_AWOIF_IE_Pos                       3
-#define ADC_ADC1_STATUS_ECOIF_IE_Pos                       4
+#define ADC_STATUS_FLG_REG_OVERWRITE_Pos                   0
+#define ADC_STATUS_FLG_REG_AWOIFEN_Pos                     1
+#define ADC_STATUS_FLG_REG_EOCIF_Pos                       2
+#define ADC_STATUS_AWOIF_IE_Pos                            3
+#define ADC_STATUS_ECOIF_IE_Pos                            4
 
 /* Bit field masks: */
-#define ADC_ADC1_STATUS_Flg_REG_OVERWRITE                  ((uint32_t)0x00000001)
-#define ADC_ADC1_STATUS_Flg_REG_AWOIFEN                    ((uint32_t)0x00000002)
-#define ADC_ADC1_STATUS_Flg_REG_EOCIF                      ((uint32_t)0x00000004)
-#define ADC_ADC1_STATUS_AWOIF_IE                           ((uint32_t)0x00000008)
-#define ADC_ADC1_STATUS_ECOIF_IE                           ((uint32_t)0x00000010)
+#define ADC_STATUS_FLG_REG_OVERWRITE                       ((uint32_t)0x00000001)
+#define ADC_STATUS_FLG_REG_AWOIFEN                         ((uint32_t)0x00000002)
+#define ADC_STATUS_FLG_REG_EOCIF                           ((uint32_t)0x00000004)
+#define ADC_STATUS_AWOIF_IE                                ((uint32_t)0x00000008)
+#define ADC_STATUS_ECOIF_IE                                ((uint32_t)0x00000010)
 
-/** @} */ /* End of group ADC_ADC1_STATUS */
+/** @} */ /* End of group ADC1_STATUS */
 
-/** @defgroup Periph_ADC_ADC2_STATUS ADC ADC2_STATUS
+/** @defgroup Periph_ADC1_CHSEL  ADC1_CHSEL
   * @{
   */
 
-/*-- ADC_ADC2_STATUS:ADC ADC2_STATUS Register -----*/
+/*-- ADC1_CHSEL: ADC1_CHSEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC2_STATUS_Flg_REG_OVERWRITE_Pos              0
-#define ADC_ADC2_STATUS_Flg_REG_AWOIFEN_Pos                1
-#define ADC_ADC2_STATUS_Flg_REG_EOCIF_Pos                  2
-#define ADC_ADC2_STATUS_AWOIF_IE_Pos                       3
-#define ADC_ADC2_STATUS_ECOIF_IE_Pos                       4
+#define ADC1_CHSEL_SL_CH_CH_REF0_Pos                       0
+#define ADC1_CHSEL_SL_CH_CH_REF1_Pos                       1
+#define ADC1_CHSEL_SL_CH_CH_REF2_Pos                       2
+#define ADC1_CHSEL_SL_CH_CH_REF3_Pos                       3
+#define ADC1_CHSEL_SL_CH_CH_REF4_Pos                       4
+#define ADC1_CHSEL_SL_CH_CH_REF5_Pos                       5
+#define ADC1_CHSEL_SL_CH_CH_REF6_Pos                       6
+#define ADC1_CHSEL_SL_CH_CH_REF7_Pos                       7
+#define ADC1_CHSEL_SL_CH_CH_REF8_Pos                       8
+#define ADC1_CHSEL_SL_CH_CH_REF9_Pos                       9
+#define ADC1_CHSEL_SL_CH_CH_REF10_Pos                      10
+#define ADC1_CHSEL_SL_CH_CH_REF11_Pos                      11
+#define ADC1_CHSEL_SL_CH_CH_REF12_Pos                      12
+#define ADC1_CHSEL_SL_CH_CH_REF13_Pos                      13
+#define ADC1_CHSEL_SL_CH_CH_REF14_Pos                      14
+#define ADC1_CHSEL_SL_CH_CH_REF15_Pos                      15
+#define ADC1_CHSEL_SL_CH_CH_REF16_Pos                      16
+#define ADC1_CHSEL_SL_CH_CH_REF17_Pos                      17
+#define ADC1_CHSEL_SL_CH_CH_REF18_Pos                      18
+#define ADC1_CHSEL_SL_CH_CH_REF19_Pos                      19
+#define ADC1_CHSEL_SL_CH_CH_REF20_Pos                      20
+#define ADC1_CHSEL_SL_CH_CH_REF21_Pos                      21
+#define ADC1_CHSEL_SL_CH_CH_REF22_Pos                      22
+#define ADC1_CHSEL_SL_CH_CH_REF23_Pos                      23
+#define ADC1_CHSEL_SL_CH_CH_REF24_Pos                      24
+#define ADC1_CHSEL_SL_CH_CH_REF25_Pos                      25
+#define ADC1_CHSEL_SL_CH_CH_REF26_Pos                      26
+#define ADC1_CHSEL_SL_CH_CH_REF27_Pos                      27
+#define ADC1_CHSEL_SL_CH_CH_REF28_Pos                      28
+#define ADC1_CHSEL_SL_CH_CH_REF29_Pos                      29
+#define ADC1_CHSEL_SL_CH_CH_REF30_Pos                      30
+#define ADC1_CHSEL_SL_CH_CH_REF31_Pos                      31
 
 /* Bit field masks: */
-#define ADC_ADC2_STATUS_Flg_REG_OVERWRITE                  ((uint32_t)0x00000001)
-#define ADC_ADC2_STATUS_Flg_REG_AWOIFEN                    ((uint32_t)0x00000002)
-#define ADC_ADC2_STATUS_Flg_REG_EOCIF                      ((uint32_t)0x00000004)
-#define ADC_ADC2_STATUS_AWOIF_IE                           ((uint32_t)0x00000008)
-#define ADC_ADC2_STATUS_ECOIF_IE                           ((uint32_t)0x00000010)
+#define ADC1_CHSEL_SL_CH_CH_REF0                           ((uint32_t)0x00000001)
+#define ADC1_CHSEL_SL_CH_CH_REF1                           ((uint32_t)0x00000002)
+#define ADC1_CHSEL_SL_CH_CH_REF2                           ((uint32_t)0x00000004)
+#define ADC1_CHSEL_SL_CH_CH_REF3                           ((uint32_t)0x00000008)
+#define ADC1_CHSEL_SL_CH_CH_REF4                           ((uint32_t)0x00000010)
+#define ADC1_CHSEL_SL_CH_CH_REF5                           ((uint32_t)0x00000020)
+#define ADC1_CHSEL_SL_CH_CH_REF6                           ((uint32_t)0x00000040)
+#define ADC1_CHSEL_SL_CH_CH_REF7                           ((uint32_t)0x00000080)
+#define ADC1_CHSEL_SL_CH_CH_REF8                           ((uint32_t)0x00000100)
+#define ADC1_CHSEL_SL_CH_CH_REF9                           ((uint32_t)0x00000200)
+#define ADC1_CHSEL_SL_CH_CH_REF10                          ((uint32_t)0x00000400)
+#define ADC1_CHSEL_SL_CH_CH_REF11                          ((uint32_t)0x00000800)
+#define ADC1_CHSEL_SL_CH_CH_REF12                          ((uint32_t)0x00001000)
+#define ADC1_CHSEL_SL_CH_CH_REF13                          ((uint32_t)0x00002000)
+#define ADC1_CHSEL_SL_CH_CH_REF14                          ((uint32_t)0x00004000)
+#define ADC1_CHSEL_SL_CH_CH_REF15                          ((uint32_t)0x00008000)
+#define ADC1_CHSEL_SL_CH_CH_REF16                          ((uint32_t)0x00010000)
+#define ADC1_CHSEL_SL_CH_CH_REF17                          ((uint32_t)0x00020000)
+#define ADC1_CHSEL_SL_CH_CH_REF18                          ((uint32_t)0x00040000)
+#define ADC1_CHSEL_SL_CH_CH_REF19                          ((uint32_t)0x00080000)
+#define ADC1_CHSEL_SL_CH_CH_REF20                          ((uint32_t)0x00100000)
+#define ADC1_CHSEL_SL_CH_CH_REF21                          ((uint32_t)0x00200000)
+#define ADC1_CHSEL_SL_CH_CH_REF22                          ((uint32_t)0x00400000)
+#define ADC1_CHSEL_SL_CH_CH_REF23                          ((uint32_t)0x00800000)
+#define ADC1_CHSEL_SL_CH_CH_REF24                          ((uint32_t)0x01000000)
+#define ADC1_CHSEL_SL_CH_CH_REF25                          ((uint32_t)0x02000000)
+#define ADC1_CHSEL_SL_CH_CH_REF26                          ((uint32_t)0x04000000)
+#define ADC1_CHSEL_SL_CH_CH_REF27                          ((uint32_t)0x08000000)
+#define ADC1_CHSEL_SL_CH_CH_REF28                          ((uint32_t)0x10000000)
+#define ADC1_CHSEL_SL_CH_CH_REF29                          ((uint32_t)0x20000000)
+#define ADC1_CHSEL_SL_CH_CH_REF30                          ((uint32_t)0x40000000)
+#define ADC1_CHSEL_SL_CH_CH_REF31                          ((uint32_t)0x80000000)
 
-/** @} */ /* End of group ADC_ADC2_STATUS */
+/** @} */ /* End of group ADC1_CHSEL */
 
-/** @defgroup Periph_ADC_ADC1_CHSEL ADC ADC1_CHSEL
+/** @defgroup Periph_ADC2_CHSEL  ADC2_CHSEL
   * @{
   */
 
-/*-- ADC_ADC1_CHSEL:ADC ADC1_CHSEL Register -----*/
+/*-- ADC2_CHSEL: ADC2_CHSEL Register -----*/
 
 /* Bit field positions: */
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF0_Pos                   0
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF1_Pos                   1
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF2_Pos                   2
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF3_Pos                   3
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF4_Pos                   4
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF5_Pos                   5
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF6_Pos                   6
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF7_Pos                   7
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF8_Pos                   8
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF9_Pos                   9
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF10_Pos                  10
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF11_Pos                  11
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF12_Pos                  12
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF13_Pos                  13
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF14_Pos                  14
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF15_Pos                  15
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF16_Pos                  16
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF17_Pos                  17
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF18_Pos                  18
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF19_Pos                  19
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF20_Pos                  20
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF21_Pos                  21
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF22_Pos                  22
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF23_Pos                  23
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF24_Pos                  24
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF25_Pos                  25
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF26_Pos                  26
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF27_Pos                  27
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF28_Pos                  28
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF29_Pos                  29
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF30_Pos                  30
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF31_Pos                  31
+#define ADC2_CHSEL_SL_CH_CH_REF0_Pos                       0
+#define ADC2_CHSEL_SL_CH_CH_REF1_Pos                       1
+#define ADC2_CHSEL_SL_CH_CH_REF2_Pos                       2
+#define ADC2_CHSEL_SL_CH_CH_REF3_Pos                       3
+#define ADC2_CHSEL_SL_CH_CH_REF4_Pos                       4
+#define ADC2_CHSEL_SL_CH_CH_REF5_Pos                       5
+#define ADC2_CHSEL_SL_CH_CH_REF6_Pos                       6
+#define ADC2_CHSEL_SL_CH_CH_REF7_Pos                       7
+#define ADC2_CHSEL_SL_CH_CH_REF8_Pos                       8
+#define ADC2_CHSEL_SL_CH_CH_REF9_Pos                       9
+#define ADC2_CHSEL_SL_CH_CH_REF10_Pos                      10
+#define ADC2_CHSEL_SL_CH_CH_REF11_Pos                      11
+#define ADC2_CHSEL_SL_CH_CH_REF12_Pos                      12
+#define ADC2_CHSEL_SL_CH_CH_REF13_Pos                      13
+#define ADC2_CHSEL_SL_CH_CH_REF14_Pos                      14
+#define ADC2_CHSEL_SL_CH_CH_REF15_Pos                      15
+#define ADC2_CHSEL_SL_CH_CH_REF16_Pos                      16
+#define ADC2_CHSEL_SL_CH_CH_REF17_Pos                      17
+#define ADC2_CHSEL_SL_CH_CH_REF18_Pos                      18
+#define ADC2_CHSEL_SL_CH_CH_REF19_Pos                      19
+#define ADC2_CHSEL_SL_CH_CH_REF20_Pos                      20
+#define ADC2_CHSEL_SL_CH_CH_REF21_Pos                      21
+#define ADC2_CHSEL_SL_CH_CH_REF22_Pos                      22
+#define ADC2_CHSEL_SL_CH_CH_REF23_Pos                      23
+#define ADC2_CHSEL_SL_CH_CH_REF24_Pos                      24
+#define ADC2_CHSEL_SL_CH_CH_REF25_Pos                      25
+#define ADC2_CHSEL_SL_CH_CH_REF26_Pos                      26
+#define ADC2_CHSEL_SL_CH_CH_REF27_Pos                      27
+#define ADC2_CHSEL_SL_CH_CH_REF28_Pos                      28
+#define ADC2_CHSEL_SL_CH_CH_REF29_Pos                      29
+#define ADC2_CHSEL_SL_CH_CH_REF30_Pos                      30
+#define ADC2_CHSEL_SL_CH_CH_REF31_Pos                      31
 
 /* Bit field masks: */
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF0                       ((uint32_t)0x00000001)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF1                       ((uint32_t)0x00000002)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF2                       ((uint32_t)0x00000004)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF3                       ((uint32_t)0x00000008)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF4                       ((uint32_t)0x00000010)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF5                       ((uint32_t)0x00000020)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF6                       ((uint32_t)0x00000040)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF7                       ((uint32_t)0x00000080)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF8                       ((uint32_t)0x00000100)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF9                       ((uint32_t)0x00000200)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF10                      ((uint32_t)0x00000400)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF11                      ((uint32_t)0x00000800)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF12                      ((uint32_t)0x00001000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF13                      ((uint32_t)0x00002000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF14                      ((uint32_t)0x00004000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF15                      ((uint32_t)0x00008000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF16                      ((uint32_t)0x00010000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF17                      ((uint32_t)0x00020000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF18                      ((uint32_t)0x00040000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF19                      ((uint32_t)0x00080000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF20                      ((uint32_t)0x00100000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF21                      ((uint32_t)0x00200000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF22                      ((uint32_t)0x00400000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF23                      ((uint32_t)0x00800000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF24                      ((uint32_t)0x01000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF25                      ((uint32_t)0x02000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF26                      ((uint32_t)0x04000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF27                      ((uint32_t)0x08000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF28                      ((uint32_t)0x10000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF29                      ((uint32_t)0x20000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF30                      ((uint32_t)0x40000000)
-#define ADC_ADC1_CHSEL_Sl_Ch_Ch_REF31                      ((uint32_t)0x80000000)
+#define ADC2_CHSEL_SL_CH_CH_REF0                           ((uint32_t)0x00000001)
+#define ADC2_CHSEL_SL_CH_CH_REF1                           ((uint32_t)0x00000002)
+#define ADC2_CHSEL_SL_CH_CH_REF2                           ((uint32_t)0x00000004)
+#define ADC2_CHSEL_SL_CH_CH_REF3                           ((uint32_t)0x00000008)
+#define ADC2_CHSEL_SL_CH_CH_REF4                           ((uint32_t)0x00000010)
+#define ADC2_CHSEL_SL_CH_CH_REF5                           ((uint32_t)0x00000020)
+#define ADC2_CHSEL_SL_CH_CH_REF6                           ((uint32_t)0x00000040)
+#define ADC2_CHSEL_SL_CH_CH_REF7                           ((uint32_t)0x00000080)
+#define ADC2_CHSEL_SL_CH_CH_REF8                           ((uint32_t)0x00000100)
+#define ADC2_CHSEL_SL_CH_CH_REF9                           ((uint32_t)0x00000200)
+#define ADC2_CHSEL_SL_CH_CH_REF10                          ((uint32_t)0x00000400)
+#define ADC2_CHSEL_SL_CH_CH_REF11                          ((uint32_t)0x00000800)
+#define ADC2_CHSEL_SL_CH_CH_REF12                          ((uint32_t)0x00001000)
+#define ADC2_CHSEL_SL_CH_CH_REF13                          ((uint32_t)0x00002000)
+#define ADC2_CHSEL_SL_CH_CH_REF14                          ((uint32_t)0x00004000)
+#define ADC2_CHSEL_SL_CH_CH_REF15                          ((uint32_t)0x00008000)
+#define ADC2_CHSEL_SL_CH_CH_REF16                          ((uint32_t)0x00010000)
+#define ADC2_CHSEL_SL_CH_CH_REF17                          ((uint32_t)0x00020000)
+#define ADC2_CHSEL_SL_CH_CH_REF18                          ((uint32_t)0x00040000)
+#define ADC2_CHSEL_SL_CH_CH_REF19                          ((uint32_t)0x00080000)
+#define ADC2_CHSEL_SL_CH_CH_REF20                          ((uint32_t)0x00100000)
+#define ADC2_CHSEL_SL_CH_CH_REF21                          ((uint32_t)0x00200000)
+#define ADC2_CHSEL_SL_CH_CH_REF22                          ((uint32_t)0x00400000)
+#define ADC2_CHSEL_SL_CH_CH_REF23                          ((uint32_t)0x00800000)
+#define ADC2_CHSEL_SL_CH_CH_REF24                          ((uint32_t)0x01000000)
+#define ADC2_CHSEL_SL_CH_CH_REF25                          ((uint32_t)0x02000000)
+#define ADC2_CHSEL_SL_CH_CH_REF26                          ((uint32_t)0x04000000)
+#define ADC2_CHSEL_SL_CH_CH_REF27                          ((uint32_t)0x08000000)
+#define ADC2_CHSEL_SL_CH_CH_REF28                          ((uint32_t)0x10000000)
+#define ADC2_CHSEL_SL_CH_CH_REF29                          ((uint32_t)0x20000000)
+#define ADC2_CHSEL_SL_CH_CH_REF30                          ((uint32_t)0x40000000)
+#define ADC2_CHSEL_SL_CH_CH_REF31                          ((uint32_t)0x80000000)
 
-/** @} */ /* End of group ADC_ADC1_CHSEL */
-
-/** @defgroup Periph_ADC_ADC2_CHSEL ADC ADC2_CHSEL
-  * @{
-  */
-
-/*-- ADC_ADC2_CHSEL:ADC ADC2_CHSEL Register -----*/
-
-/* Bit field positions: */
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF0_Pos                   0
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF1_Pos                   1
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF2_Pos                   2
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF3_Pos                   3
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF4_Pos                   4
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF5_Pos                   5
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF6_Pos                   6
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF7_Pos                   7
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF8_Pos                   8
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF9_Pos                   9
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF10_Pos                  10
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF11_Pos                  11
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF12_Pos                  12
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF13_Pos                  13
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF14_Pos                  14
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF15_Pos                  15
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF16_Pos                  16
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF17_Pos                  17
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF18_Pos                  18
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF19_Pos                  19
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF20_Pos                  20
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF21_Pos                  21
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF22_Pos                  22
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF23_Pos                  23
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF24_Pos                  24
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF25_Pos                  25
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF26_Pos                  26
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF27_Pos                  27
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF28_Pos                  28
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF29_Pos                  29
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF30_Pos                  30
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF31_Pos                  31
-
-/* Bit field masks: */
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF0                       ((uint32_t)0x00000001)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF1                       ((uint32_t)0x00000002)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF2                       ((uint32_t)0x00000004)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF3                       ((uint32_t)0x00000008)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF4                       ((uint32_t)0x00000010)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF5                       ((uint32_t)0x00000020)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF6                       ((uint32_t)0x00000040)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF7                       ((uint32_t)0x00000080)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF8                       ((uint32_t)0x00000100)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF9                       ((uint32_t)0x00000200)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF10                      ((uint32_t)0x00000400)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF11                      ((uint32_t)0x00000800)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF12                      ((uint32_t)0x00001000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF13                      ((uint32_t)0x00002000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF14                      ((uint32_t)0x00004000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF15                      ((uint32_t)0x00008000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF16                      ((uint32_t)0x00010000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF17                      ((uint32_t)0x00020000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF18                      ((uint32_t)0x00040000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF19                      ((uint32_t)0x00080000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF20                      ((uint32_t)0x00100000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF21                      ((uint32_t)0x00200000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF22                      ((uint32_t)0x00400000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF23                      ((uint32_t)0x00800000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF24                      ((uint32_t)0x01000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF25                      ((uint32_t)0x02000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF26                      ((uint32_t)0x04000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF27                      ((uint32_t)0x08000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF28                      ((uint32_t)0x10000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF29                      ((uint32_t)0x20000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF30                      ((uint32_t)0x40000000)
-#define ADC_ADC2_CHSEL_Sl_Ch_Ch_REF31                      ((uint32_t)0x80000000)
-
-/** @} */ /* End of group ADC_ADC2_CHSEL */
+/** @} */ /* End of group ADC2_CHSEL */
 
 /** @} */ /* End of group ADC */
 
@@ -3372,59 +3401,59 @@ typedef struct {
 	__IO uint32_t	DAC2_DATA;              /*!<DAC2 Data Register */
 }MDR_DAC_TypeDef;
 
-/** @defgroup Periph_DAC_CFG DAC CFG
+/** @defgroup Periph_DAC_CFG  DAC_CFG
   * @{
   */
 
-/*-- DAC_CFG:DAC CFG Register -----*/
+/*-- DAC_CFG: DAC_CFG Register -----*/
 
 /* Bit field positions: */
-#define DAC_CFG_Cfg_M_REF0_Pos                             0
-#define DAC_CFG_Cfg_M_REF1_Pos                             1
-#define DAC_CFG_Cfg_ON_DAC0_Pos                            2
-#define DAC_CFG_Cfg_ON_DAC1_Pos                            3
-#define DAC_CFG_Cfg_SYNC_A_Pos                             4
+#define DAC_CFG_M_REF0_Pos                                 0
+#define DAC_CFG_M_REF1_Pos                                 1
+#define DAC_CFG_ON_DAC0_Pos                                2
+#define DAC_CFG_ON_DAC1_Pos                                3
+#define DAC_CFG_SYNC_A_Pos                                 4
 
 /* Bit field masks: */
-#define DAC_CFG_Cfg_M_REF0                                 ((uint32_t)0x00000001)
-#define DAC_CFG_Cfg_M_REF1                                 ((uint32_t)0x00000002)
-#define DAC_CFG_Cfg_ON_DAC0                                ((uint32_t)0x00000004)
-#define DAC_CFG_Cfg_ON_DAC1                                ((uint32_t)0x00000008)
-#define DAC_CFG_Cfg_SYNC_A                                 ((uint32_t)0x00000010)
+#define DAC_CFG_M_REF0                                     ((uint32_t)0x00000001)
+#define DAC_CFG_M_REF1                                     ((uint32_t)0x00000002)
+#define DAC_CFG_ON_DAC0                                    ((uint32_t)0x00000004)
+#define DAC_CFG_ON_DAC1                                    ((uint32_t)0x00000008)
+#define DAC_CFG_SYNC_A                                     ((uint32_t)0x00000010)
 
 /** @} */ /* End of group DAC_CFG */
 
-/** @defgroup Periph_DAC_DAC1_DATA DAC DAC1_DATA
+/** @defgroup Periph_DAC1_DATA  DAC1_DATA
   * @{
   */
 
-/*-- DAC_DAC1_DATA:DAC DAC1_DATA Register -----*/
+/*-- DAC1_DATA: DAC1_DATA Register -----*/
 
 /* Bit field positions: */
-#define DAC_DAC1_DATA_DAC0DATA_Pos                         0
-#define DAC_DAC1_DATA_DAC1DATA_Pos                         16
+#define DAC1_DATA_DAC0DATA_Pos                             0
+#define DAC1_DATA_DAC1DATA_Pos                             16
 
 /* Bit field masks: */
-#define DAC_DAC1_DATA_DAC0DATA_Msk                         ((uint32_t)0x00000FFF)
-#define DAC_DAC1_DATA_DAC1DATA_Msk                         ((uint32_t)0x0FFF0000)
+#define DAC1_DATA_DAC0DATA_Msk                             ((uint32_t)0x00000FFF)
+#define DAC1_DATA_DAC1DATA_Msk                             ((uint32_t)0x0FFF0000)
 
-/** @} */ /* End of group DAC_DAC1_DATA */
+/** @} */ /* End of group DAC1_DATA */
 
-/** @defgroup Periph_DAC_DAC2_DATA DAC DAC2_DATA
+/** @defgroup Periph_DAC2_DATA  DAC2_DATA
   * @{
   */
 
-/*-- DAC_DAC2_DATA:DAC DAC2_DATA Register -----*/
+/*-- DAC2_DATA: DAC2_DATA Register -----*/
 
 /* Bit field positions: */
-#define DAC_DAC2_DATA_DAC1DATA_Pos                         0
-#define DAC_DAC2_DATA_DAC0DATA_Pos                         16
+#define DAC2_DATA_DAC1DATA_Pos                             0
+#define DAC2_DATA_DAC0DATA_Pos                             16
 
 /* Bit field masks: */
-#define DAC_DAC2_DATA_DAC1DATA_Msk                         ((uint32_t)0x00000FFF)
-#define DAC_DAC2_DATA_DAC0DATA_Msk                         ((uint32_t)0x0FFF0000)
+#define DAC2_DATA_DAC1DATA_Msk                             ((uint32_t)0x00000FFF)
+#define DAC2_DATA_DAC0DATA_Msk                             ((uint32_t)0x0FFF0000)
 
-/** @} */ /* End of group DAC_DAC2_DATA */
+/** @} */ /* End of group DAC2_DATA */
 
 /** @} */ /* End of group DAC */
 
@@ -3455,7 +3484,7 @@ typedef struct {
 #define COMP_CFG_CREF_Pos                                  8
 #define COMP_CFG_CCH_Pos                                   9
 #define COMP_CFG_INV_Pos                                   11
-#define COMP_CFG_Ready_Pos                                 12
+#define COMP_CFG_READY_Pos                                 12
 #define COMP_CFG_CMPIE_Pos                                 13
 
 /* Bit field masks: */
@@ -3467,7 +3496,7 @@ typedef struct {
 #define COMP_CFG_CREF                                      ((uint32_t)0x00000100)
 #define COMP_CFG_CCH_Msk                                   ((uint32_t)0x00000600)
 #define COMP_CFG_INV                                       ((uint32_t)0x00000800)
-#define COMP_CFG_Ready                                     ((uint32_t)0x00001000)
+#define COMP_CFG_READY                                     ((uint32_t)0x00001000)
 #define COMP_CFG_CMPIE                                     ((uint32_t)0x00002000)
 
 /** @} */ /* End of group COMP_CFG */
@@ -3479,14 +3508,14 @@ typedef struct {
 /*-- COMP_RESULT:COMP RESULT Register -----*/
 
 /* Bit field positions: */
-#define COMP_RESULT_Rslt_Sy_Pos                            0
-#define COMP_RESULT_Rslt_As_Pos                            1
-#define COMP_RESULT_Rst_lch_Pos                            2
+#define COMP_RESULT_RSLT_SY_Pos                            0
+#define COMP_RESULT_RSLT_AS_Pos                            1
+#define COMP_RESULT_RST_LCH_Pos                            2
 
 /* Bit field masks: */
-#define COMP_RESULT_Rslt_Sy                                ((uint32_t)0x00000001)
-#define COMP_RESULT_Rslt_As                                ((uint32_t)0x00000002)
-#define COMP_RESULT_Rst_lch                                ((uint32_t)0x00000004)
+#define COMP_RESULT_RSLT_SY                                ((uint32_t)0x00000001)
+#define COMP_RESULT_RSLT_AS                                ((uint32_t)0x00000002)
+#define COMP_RESULT_RST_LCH                                ((uint32_t)0x00000004)
 
 /** @} */ /* End of group COMP_RESULT */
 
@@ -3497,10 +3526,10 @@ typedef struct {
 /*-- COMP_RESULT_LATCH:COMP RESULT_LATCH Register -----*/
 
 /* Bit field positions: */
-#define COMP_RESULT_LATCH_Rst_lch_Pos                      0
+#define COMP_RESULT_LATCH_RST_LCH_Pos                      0
 
 /* Bit field masks: */
-#define COMP_RESULT_LATCH_Rst_lch                          ((uint32_t)0x00000001)
+#define COMP_RESULT_LATCH_RST_LCH                          ((uint32_t)0x00000001)
 
 /** @} */ /* End of group COMP_RESULT_LATCH */
 
@@ -3935,19 +3964,19 @@ typedef struct {
 
 /* Bit field positions: */
 #define BKP_REG_0E_LOW_Pos                                 0
-#define BKP_REG_0E_SelectRI_Pos                            3
+#define BKP_REG_0E_SELECTRI_Pos                            3
 #define BKP_REG_0E_JTAGA_Pos                               6
 #define BKP_REG_0E_JTAGB_Pos                               7
-#define BKP_REG_0E_Trim_Pos                                8
+#define BKP_REG_0E_TRIM_Pos                                8
 #define BKP_REG_0E_FPOR_Pos                                11
 #define BKP_REG_0E_MODE_Pos                                12
 
 /* Bit field masks: */
 #define BKP_REG_0E_LOW_Msk                                 ((uint32_t)0x00000007)
-#define BKP_REG_0E_SelectRI_Msk                            ((uint32_t)0x00000038)
+#define BKP_REG_0E_SELECTRI_Msk                            ((uint32_t)0x00000038)
 #define BKP_REG_0E_JTAGA                                   ((uint32_t)0x00000040)
 #define BKP_REG_0E_JTAGB                                   ((uint32_t)0x00000080)
-#define BKP_REG_0E_Trim_Msk                                ((uint32_t)0x00000700)
+#define BKP_REG_0E_TRIM_Msk                                ((uint32_t)0x00000700)
 #define BKP_REG_0E_FPOR                                    ((uint32_t)0x00000800)
 #define BKP_REG_0E_MODE_Msk                                ((uint32_t)0x00007000)
 
@@ -4212,6 +4241,7 @@ typedef struct {
 #define DSP_CORE_DIR_XIRQ3_Pos                             10
 #define DSP_CORE_DIR_CDIRQ_Pos                             11
 #define DSP_CORE_DIR_CRIRQ_Pos                             12
+#define DSP_CORE_DIR_DMAIRQ_Pos                            13
 #define DSP_CORE_DIR_SNR_Pos                               15
 
 /* Bit field masks: */
@@ -4228,6 +4258,7 @@ typedef struct {
 #define DSP_CORE_DIR_XIRQ3                                 ((uint32_t)0x00000400)
 #define DSP_CORE_DIR_CDIRQ                                 ((uint32_t)0x00000800)
 #define DSP_CORE_DIR_CRIRQ                                 ((uint32_t)0x00001000)
+#define DSP_CORE_DIR_DMAIRQ                                ((uint32_t)0x00002000)
 #define DSP_CORE_DIR_SNR                                   ((uint32_t)0x00008000)
 
 /** @} */ /* End of group DSP_CORE_DIR */
@@ -4246,6 +4277,7 @@ typedef struct {
 #define DSP_CORE_AIR_ANMI_Pos                              4
 #define DSP_CORE_AIR_ADMARQ0_Pos                           6
 #define DSP_CORE_AIR_ADMARQ1_Pos                           7
+#define DSP_CORE_AIR_ADMARQ2_Pos                           8
 #define DSP_CORE_AIR_ADMARQ3_Pos                           9
 #define DSP_CORE_AIR_ADMADONE0_Pos                         10
 #define DSP_CORE_AIR_ADMADONE1_Pos                         11
@@ -4261,7 +4293,8 @@ typedef struct {
 #define DSP_CORE_AIR_AIRQ3                                 ((uint32_t)0x00000008)
 #define DSP_CORE_AIR_ANMI                                  ((uint32_t)0x00000010)
 #define DSP_CORE_AIR_ADMARQ0                               ((uint32_t)0x00000040)
-#define DSP_CORE_AIR_ADMARQ1_Msk                           ((uint32_t)0x00000180)
+#define DSP_CORE_AIR_ADMARQ1                               ((uint32_t)0x00000080)
+#define DSP_CORE_AIR_ADMARQ2                               ((uint32_t)0x00000100)
 #define DSP_CORE_AIR_ADMARQ3                               ((uint32_t)0x00000200)
 #define DSP_CORE_AIR_ADMADONE0                             ((uint32_t)0x00000400)
 #define DSP_CORE_AIR_ADMADONE1                             ((uint32_t)0x00000800)
@@ -4285,7 +4318,7 @@ typedef struct {
 	__IO uint32_t	ADCCTL;                 /*!<ADC control register */
 	__IO uint32_t	DACCTL;                 /*!<DAC control register */
 	__IO uint32_t	MASKCTL;                /*!<IRQ mask register */
-	__IO uint32_t	IQRFLAG;                /*!<IRQ flag register */
+	__IO uint32_t	IRQFLAG;                /*!<IRQ flag register */
 	__IO uint32_t	ADCREG;                 /*!<ADC FIFO register */
 	__IO uint32_t	DACREG;                 /*!<DAC FIFO register */
 }MDR_AUDIO_IP_TypeDef;
@@ -4319,14 +4352,14 @@ typedef struct {
 /*-- AUDIO_IP_ADCCTL:AUDIO_IP ADCCTL Register -----*/
 
 /* Bit field positions: */
-#define AUDIO_IP_ADCCTL_ADCGAIN_Pos                        0
-#define AUDIO_IP_ADCCTL_INBG0_Pos                          6
+#define AUDIO_IP_ADCCTL_ADGAIN_Pos                         0
+#define AUDIO_IP_ADCCTL_INBG_Pos                           6
 #define AUDIO_IP_ADCCTL_AINSEL_Pos                         8
 #define AUDIO_IP_ADCCTL_ICONT_Pos                          10
 
 /* Bit field masks: */
-#define AUDIO_IP_ADCCTL_ADCGAIN_Msk                        ((uint32_t)0x0000003F)
-#define AUDIO_IP_ADCCTL_INBG0_Msk                          ((uint32_t)0x000000C0)
+#define AUDIO_IP_ADCCTL_ADGAIN_Msk                         ((uint32_t)0x0000003F)
+#define AUDIO_IP_ADCCTL_INBG_Msk                           ((uint32_t)0x000000C0)
 #define AUDIO_IP_ADCCTL_AINSEL_Msk                         ((uint32_t)0x00000300)
 #define AUDIO_IP_ADCCTL_ICONT                              ((uint32_t)0x00000400)
 
@@ -4339,7 +4372,7 @@ typedef struct {
 /*-- AUDIO_IP_DACCTL:AUDIO_IP DACCTL Register -----*/
 
 /* Bit field positions: */
-#define AUDIO_IP_DACCTL_DACGAIN_Pos                        0
+#define AUDIO_IP_DACCTL_DAGAIN_Pos                         0
 #define AUDIO_IP_DACCTL_MUTE1_Pos                          6
 #define AUDIO_IP_DACCTL_ODAMP_Pos                          7
 #define AUDIO_IP_DACCTL_ODBIAS_Pos                         8
@@ -4350,7 +4383,7 @@ typedef struct {
 #define AUDIO_IP_DACCTL_DACRES_Pos                         15
 
 /* Bit field masks: */
-#define AUDIO_IP_DACCTL_DACGAIN_Msk                        ((uint32_t)0x0000003F)
+#define AUDIO_IP_DACCTL_DAGAIN_Msk                         ((uint32_t)0x0000003F)
 #define AUDIO_IP_DACCTL_MUTE1                              ((uint32_t)0x00000040)
 #define AUDIO_IP_DACCTL_ODAMP                              ((uint32_t)0x00000080)
 #define AUDIO_IP_DACCTL_ODBIAS                             ((uint32_t)0x00000100)
@@ -4384,27 +4417,27 @@ typedef struct {
 
 /** @} */ /* End of group AUDIO_IP_MASKCTL */
 
-/** @defgroup Periph_AUDIO_IP_IQRFLAG AUDIO_IP IQRFLAG
+/** @defgroup Periph_AUDIO_IP_IRQFLAG AUDIO_IP IRQFLAG
   * @{
   */
 
-/*-- AUDIO_IP_IQRFLAG:AUDIO_IP IQRFLAG Register -----*/
+/*-- AUDIO_IP_IRQFLAG:AUDIO_IP IRQFLAG Register -----*/
 
 /* Bit field positions: */
-#define AUDIO_IP_IQRFLAG_DAOVF_Pos                         0
-#define AUDIO_IP_IQRFLAG_ADCVF_Pos                         1
-#define AUDIO_IP_IQRFLAG_ADCNS_Pos                         2
-#define AUDIO_IP_IQRFLAG_DACNS_Pos                         3
-#define AUDIO_IP_IQRFLAG_OVERVCUR_Pos                      4
+#define AUDIO_IP_IRQFLAG_DAOVF_Pos                         0
+#define AUDIO_IP_IRQFLAG_ADCVF_Pos                         1
+#define AUDIO_IP_IRQFLAG_ADCNS_Pos                         2
+#define AUDIO_IP_IRQFLAG_DACNS_Pos                         3
+#define AUDIO_IP_IRQFLAG_OVERVCUR_Pos                      4
 
 /* Bit field masks: */
-#define AUDIO_IP_IQRFLAG_DAOVF                             ((uint32_t)0x00000001)
-#define AUDIO_IP_IQRFLAG_ADCVF                             ((uint32_t)0x00000002)
-#define AUDIO_IP_IQRFLAG_ADCNS                             ((uint32_t)0x00000004)
-#define AUDIO_IP_IQRFLAG_DACNS                             ((uint32_t)0x00000008)
-#define AUDIO_IP_IQRFLAG_OVERVCUR                          ((uint32_t)0x00000010)
+#define AUDIO_IP_IRQFLAG_DAOVF                             ((uint32_t)0x00000001)
+#define AUDIO_IP_IRQFLAG_ADCVF                             ((uint32_t)0x00000002)
+#define AUDIO_IP_IRQFLAG_ADCNS                             ((uint32_t)0x00000004)
+#define AUDIO_IP_IRQFLAG_DACNS                             ((uint32_t)0x00000008)
+#define AUDIO_IP_IRQFLAG_OVERVCUR                          ((uint32_t)0x00000010)
 
-/** @} */ /* End of group AUDIO_IP_IQRFLAG */
+/** @} */ /* End of group AUDIO_IP_IRQFLAG */
 
 /** @defgroup Periph_AUDIO_IP_ADCREG AUDIO_IP ADCREG
   * @{
@@ -4503,10 +4536,10 @@ typedef struct {
 /*-- MCBSP_SPCR:MCBSP SPCR Register -----*/
 
 /* Bit field positions: */
-#define MCBSP_SPCR_nCGRST_Pos                              0
-#define MCBSP_SPCR_nFGRST_Pos                              1
-#define MCBSP_SPCR_nRRST_Pos                               2
-#define MCBSP_SPCR_nXRST_Pos                               3
+#define MCBSP_SPCR_NCGRST_Pos                              0
+#define MCBSP_SPCR_NFGRST_Pos                              1
+#define MCBSP_SPCR_NRRST_Pos                               2
+#define MCBSP_SPCR_NXRST_Pos                               3
 #define MCBSP_SPCR_CLKSTP_Pos                              4
 #define MCBSP_SPCR_ABIS_Pos                                6
 #define MCBSP_SPCR_DLB_Pos                                 7
@@ -4526,10 +4559,10 @@ typedef struct {
 #define MCBSP_SPCR_FREE_Pos                                31
 
 /* Bit field masks: */
-#define MCBSP_SPCR_nCGRST                                  ((uint32_t)0x00000001)
-#define MCBSP_SPCR_nFGRST                                  ((uint32_t)0x00000002)
-#define MCBSP_SPCR_nRRST                                   ((uint32_t)0x00000004)
-#define MCBSP_SPCR_nXRST                                   ((uint32_t)0x00000008)
+#define MCBSP_SPCR_NCGRST                                  ((uint32_t)0x00000001)
+#define MCBSP_SPCR_NFGRST                                  ((uint32_t)0x00000002)
+#define MCBSP_SPCR_NRRST                                   ((uint32_t)0x00000004)
+#define MCBSP_SPCR_NXRST                                   ((uint32_t)0x00000008)
 #define MCBSP_SPCR_CLKSTP_Msk                              ((uint32_t)0x00000030)
 #define MCBSP_SPCR_ABIS                                    ((uint32_t)0x00000040)
 #define MCBSP_SPCR_DLB                                     ((uint32_t)0x00000080)
@@ -4964,6 +4997,7 @@ typedef struct {
 	__IO uint32_t	CHNL_PRI_ALT_CLR;       /*!< */
 	__IO uint32_t	CHNL_PRIORITY_SET;      /*!< */
 	__IO uint32_t	CHNL_PRIORITY_CLR;      /*!< */
+	__IO uint32_t	ERR_CLR;                /*!< */
 }MDR_DSP_DMA_TypeDef;
 
 /** @defgroup Periph_DSP_DMA_DMA_STATUS DSP_DMA DMA_STATUS
@@ -5158,6 +5192,20 @@ typedef struct {
 
 /** @} */ /* End of group DSP_DMA_CHNL_PRIORITY_CLR */
 
+/** @defgroup Periph_DSP_DMA_ERR_CLR DSP_DMA ERR_CLR
+  * @{
+  */
+
+/*-- DSP_DMA_ERR_CLR:DSP_DMA ERR_CLR Register -----*/
+
+/* Bit field positions: */
+#define DSP_DMA_ERR_CLR_CHNL_PRIORITY_SET_Pos              0
+
+/* Bit field masks: */
+#define DSP_DMA_ERR_CLR_CHNL_PRIORITY_SET                  ((uint32_t)0x00000001)
+
+/** @} */ /* End of group DSP_DMA_ERR_CLR */
+
 /** @} */ /* End of group DSP_DMA */
 
 /** @defgroup MDR1901VC1T_Periph_DSP_CRPT DSP_CRPT
@@ -5349,9 +5397,9 @@ typedef struct {
 #define MDR_POWER_BASE                 (0x40058000)
 #define MDR_WWDG_BASE                  (0x40060000)
 #define MDR_IWDG_BASE                  (0x40068000)
-#define MDR_TIM1_BASE                  (0x40070000)
-#define MDR_TIM2_BASE                  (0x40078000)
-#define MDR_TIM3_BASE                  (0x40080000)
+#define MDR_TIMER1_BASE                (0x40070000)
+#define MDR_TIMER2_BASE                (0x40078000)
+#define MDR_TIMER3_BASE                (0x40080000)
 #define MDR_ADC_BASE                   (0x40088000)
 #define MDR_DAC_BASE                   (0x40090000)
 #define MDR_COMP_BASE                  (0x40098000)
@@ -5367,9 +5415,9 @@ typedef struct {
 #define MDR_EBC_BASE                   (0x400F0000)
 #define MDR_DSP_CORE_BASE              (0x30000000)
 #define MDR_AUDIO_IP_BASE              (0x300000A0)
-#define MDR_MCBSP1_BASE                (0x30000140)
-#define MDR_MCBSP2_BASE                (0x30000250)
-#define MDR_MCBSP3_BASE                (0x30000360)
+#define MDR_MCBSP1_BASE                (0x30000040)
+#define MDR_MCBSP2_BASE                (0x30000050)
+#define MDR_MCBSP3_BASE                (0x30000060)
 #define MDR_DSP_TIMER_BASE             (0x30000070)
 #define MDR_DSP_DMA_BASE               (0x300000C0)
 #define MDR_DSP_CRPT_BASE              (0x30000080)
@@ -5394,9 +5442,9 @@ typedef struct {
 #define MDR_POWER                      ((MDR_POWER_TypeDef 	*) MDR_POWER_BASE)
 #define MDR_WWDG                       ((MDR_WWDG_TypeDef 	*) MDR_WWDG_BASE)
 #define MDR_IWDG                       ((MDR_IWDG_TypeDef 	*) MDR_IWDG_BASE)
-#define MDR_TIM1                       ((MDR_TIM_TypeDef 	*) MDR_TIM1_BASE)
-#define MDR_TIM2                       ((MDR_TIM_TypeDef 	*) MDR_TIM2_BASE)
-#define MDR_TIM3                       ((MDR_TIM_TypeDef 	*) MDR_TIM3_BASE)
+#define MDR_TIMER1                     ((MDR_TIMER_TypeDef 	*) MDR_TIMER1_BASE)
+#define MDR_TIMER2                     ((MDR_TIMER_TypeDef 	*) MDR_TIMER2_BASE)
+#define MDR_TIMER3                     ((MDR_TIMER_TypeDef 	*) MDR_TIMER3_BASE)
 #define MDR_ADC                        ((MDR_ADC_TypeDef 	*) MDR_ADC_BASE)
 #define MDR_DAC                        ((MDR_DAC_TypeDef 	*) MDR_DAC_BASE)
 #define MDR_COMP                       ((MDR_COMP_TypeDef 	*) MDR_COMP_BASE)

@@ -3358,11 +3358,11 @@ typedef struct
 
 /** @} */ /* End of group ARINC429T_CONTROL4 */
 
-/** @defgroup __1T_Periph_ARINÑ429T_STATUS	ARINÑ429T STATUS
+/** @defgroup __1T_Periph_ARINC429T_STATUS	ARINC429T STATUS
   * @{
   */
 
-/*-- ARINÑ429T_STATUS: ARINÑ429T STATUS Register -----*/
+/*-- ARINC429T_STATUS: ARINC429T STATUS Register -----*/
 /* Bit field positions: */
 #define ARINC429T_STATUS_TX_R1_Pos             0
 #define ARINC429T_STATUS_FFT1_Pos              1
@@ -3391,7 +3391,7 @@ typedef struct
 #define ARINC429T_STATUS_FFT4                   ((uint32_t)0x00001000)
 #define ARINC429T_STATUS_HFT4                   ((uint32_t)0x00002000)
 
-/** @} */ /* End of group ARINÑ429T_STATUS */
+/** @} */ /* End of group ARINC429T_STATUS */
 
 /** @} */ /* End of group __MDR1986VE1T_Periph_ARINC429T_Defines */
 

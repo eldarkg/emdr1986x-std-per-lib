@@ -124,7 +124,7 @@ void PORT_Init(MDR_PORT_TypeDef* PORTx, const PORT_InitTypeDef* PORT_InitStruct)
     mask_d <<= 1;
     pos++;
   }
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   /* Configure PORT registers with new values */
   PORTx->OE     = tmpreg_OE & (~JTAG_PINS(PORTx));
   PORTx->FUNC   = tmpreg_FUNC & (~JTAG_PINS(PORTx));
@@ -221,7 +221,7 @@ void PORT_SetBits ( MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin )
 	assert_param(IS_PORT_PIN(PORT_Pin));
 	assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 	PORTx->RXTX = PORT_Pin | (PORTx->RXTX & (~JTAG_PINS(PORTx)));
 #endif
 
@@ -244,7 +244,7 @@ void PORT_ResetBits(MDR_PORT_TypeDef* PORTx, uint32_t PORT_Pin)
   assert_param(IS_PORT_PIN(PORT_Pin));
   assert_param(IS_NOT_JTAG_PIN(PORTx, PORT_Pin));
 
-#if defined  (USE_MDR1986VE9x)
+#if defined  (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
   PORTx->RXTX &= ~(PORT_Pin | JTAG_PINS(PORTx));
 #endif
 

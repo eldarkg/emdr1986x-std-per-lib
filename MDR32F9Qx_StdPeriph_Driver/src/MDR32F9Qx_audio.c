@@ -35,7 +35,7 @@
   * @warning This module can be used only for MDR1986VE3 microcontroller's.
   * @{
   */
-#if defined (USE_MDR1986VE3)
+#if defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
 
 /** @defgroup AUDIO_IP_Private_Defines AUDIO_IP Private Defines
   * @{
@@ -158,7 +158,7 @@ void AUDIO_IP_Init(AUDIO_IP_InitTypeDef * AUDIO_IP_InitStruct)
 	tmpreg = (AUDIO_IP_InitStruct->DAGain) 													 |
 			 (AUDIO_IP_InitStruct->DACMute 					 << AUDIO_IP_DACCTL_MUTE1_Pos)   |
 			 (AUDIO_IP_InitStruct->DACOutputAmplifier		 << AUDIO_IP_DACCTL_ODAMP_Pos)   |
-			 (AUDIO_IP_InitStruct->DACBIASOffsetSchemeState	 << AUDIO_IP_DACCTL_BIAS_Pos)	 |
+			 (AUDIO_IP_InitStruct->DACBIASOffsetSchemeState	 << AUDIO_IP_DACCTL_ODBIAS_Pos)	 |
 			 (AUDIO_IP_InitStruct->DACAnalogState			 << AUDIO_IP_DACCTL_ODDAC_Pos)   |
 			 (AUDIO_IP_InitStruct->DACOverCurrentBufferDet 	 << AUDIO_IP_DACCTL_OVECBA_Pos)  |
 			 (AUDIO_IP_InitStruct->DACOverCurrentNetOffsetDet << AUDIO_IP_DACCTL_OVECBS_Pos)  |

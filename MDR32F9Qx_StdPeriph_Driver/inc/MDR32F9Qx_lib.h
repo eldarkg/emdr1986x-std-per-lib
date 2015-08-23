@@ -56,6 +56,8 @@ extern "C" {
 #define FILEID__MDR32F9Qx_AUDIO_C				25
 #define FILEID__MDR32F9Qx_KEYPAD_C				26
 #define FILEID__MDR32F9Qx_LED_C					27
+#define FILEID__MDR32F9Qx_SDIO_C				28
+#define FILEID__MDR32F9Qx_DSP_C					29
 
 #define  FILEID__USER_LO                    	100
 

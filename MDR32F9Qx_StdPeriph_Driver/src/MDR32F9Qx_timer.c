@@ -200,7 +200,7 @@ void TIMER_Cmd(MDR_TIMER_TypeDef* TIMERx, FunctionalState NewState)
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_SetCounter(MDR_TIMER_TypeDef* TIMERx, uint32_t Counter)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_SetCounter(MDR_TIMER_TypeDef* TIMERx, uint16_t Counter)
 #endif
 {
@@ -232,7 +232,7 @@ void TIMER_SetCntPrescaler(MDR_TIMER_TypeDef* TIMERx, uint16_t Prescaler)
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_SetCntAutoreload(MDR_TIMER_TypeDef* TIMERx, uint32_t Autoreload)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_SetCntAutoreload(MDR_TIMER_TypeDef* TIMERx, uint16_t Autoreload)
 #endif
 {
@@ -254,7 +254,7 @@ void TIMER_SetCntAutoreload(MDR_TIMER_TypeDef* TIMERx, uint16_t Autoreload)
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_CntAutoreloadConfig(MDR_TIMER_TypeDef* TIMERx, uint32_t Autoreload, uint32_t UpdateMode)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_CntAutoreloadConfig(MDR_TIMER_TypeDef* TIMERx, uint16_t Autoreload, uint32_t UpdateMode)
 #endif
 {
@@ -279,7 +279,7 @@ void TIMER_CntAutoreloadConfig(MDR_TIMER_TypeDef* TIMERx, uint16_t Autoreload, u
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 uint32_t TIMER_GetCounter(MDR_TIMER_TypeDef* TIMERx)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 uint16_t TIMER_GetCounter(MDR_TIMER_TypeDef* TIMERx)
 #endif
 {
@@ -691,7 +691,7 @@ void TIMER_ChnStructInit(TIMER_ChnInitTypeDef* TIMER_ChnInitStruct)
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_SetChnCompare(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint32_t Compare)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_SetChnCompare(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t Compare)
 #endif
 {
@@ -719,7 +719,7 @@ void TIMER_SetChnCompare(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t C
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_SetChnCompare1(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint32_t Compare)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_SetChnCompare1(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t Compare)
 #endif
 {
@@ -751,7 +751,7 @@ void TIMER_SetChnCompare1(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t 
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_ChnCompareConfig(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint32_t Compare, uint32_t UpdateMode)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_ChnCompareConfig(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t Compare, uint32_t UpdateMode)
 #endif
 {
@@ -794,7 +794,7 @@ void TIMER_ChnCompareConfig(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_ChnCompare1Config(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint32_t Compare, uint32_t UpdateMode)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_ChnCompare1Config(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16_t Compare, uint32_t UpdateMode)
 #endif
 {
@@ -832,7 +832,7 @@ void TIMER_ChnCompare1Config(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel, uint16
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 uint32_t TIMER_GetChnCapture(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 uint16_t TIMER_GetChnCapture(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel)
 #endif
 {
@@ -862,7 +862,7 @@ uint16_t TIMER_GetChnCapture(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel)
   */
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 uint32_t TIMER_GetChnCapture1(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel)
-#elif defined (USE_MDR1986VE9x)
+#elif defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 uint16_t TIMER_GetChnCapture1(MDR_TIMER_TypeDef* TIMERx, uint32_t Channel)
 #endif
 {
@@ -1782,7 +1782,7 @@ void TIMER_ClearFlag(MDR_TIMER_TypeDef* TIMERx, uint32_t Flags)
 #if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3)
 void TIMER_DMACmd(MDR_TIMER_TypeDef* TIMERx, uint32_t TIMER_DMASource, uint32_t TIMER_DMAChannel, FunctionalState NewState)
 #endif
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 void TIMER_DMACmd(MDR_TIMER_TypeDef* TIMERx, uint32_t TIMER_DMASource, FunctionalState NewState)
 #endif
 {

@@ -21,8 +21,8 @@
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_comp.h"
 #include "MDR32F9Qx_config.h"
+#include "MDR32F9Qx_comp.h"
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9X_COMP_C
 
@@ -35,7 +35,7 @@
   * @{
   */
 
-#if defined (USE_MDR1986VE9x)
+#if defined (USE_MDR1986VE9x) || defined (USE_MDR1901VC1T)
 
 /** @defgroup COMP_Private_Functions COMP Private Functions
   * @{

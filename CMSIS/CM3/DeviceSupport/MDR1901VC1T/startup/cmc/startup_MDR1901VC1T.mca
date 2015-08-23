@@ -1,0 +1,533 @@
+;/**
+; *****************************************************************************
+; * @file	startup_MDR1901VC1T.s
+; * @author	Milandr Application Team
+; * @brief	CMSIS Cortex-CM3 Peripheral Access Layer Header File for
+; * 		MDR1901VC1T from Milandr
+; * @version	1.0
+; * @date	2014-02-06
+; *****************************************************************************
+; * <br><br>
+; *
+; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+; * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+; * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
+; * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+; *
+; 
+; * <h2><center>&copy; COPYRIGHT 2014 MDR1901VC1T </center></h2>
+; *****************************************************************************
+; * FILE startup_MDR1901VC1T.s
+; */
+
+
+    .IF .NOT .DEFINED __VECTORS_ADDR
+        __VECTORS_ADDR  .EQU    08000000H
+    .ENDIF
+
+;    .PUBLIC  __initial_sp
+    .PUBLIC  __Vectors
+    .PUBLIC  __Vectors_End
+    .PUBLIC  __Vectors_Size
+;    .TYPE __initial_sp      (.ULONG)
+;    .TYPE __Vectors         (.ULONG)
+    .TYPE __Vectors_End     (.ULONG)
+
+    .EXTRN(code) ?start
+    .RSEG CSTACK,data
+    .ALIGN  3
+
+    .ASEG INTVEC,code
+    .ALIGN  6
+    .ORG    __VECTORS_ADDR             ; if vector table is located in RAM, change this value
+
+
+SET_HANDLER .MACRO Name
+    .EXTRNF16 Name               .VOID(.VOID)
+    .DCD      Name
+.ENDMAC;
+__Vectors:
+    .DCD     .SFE CSTACK                      ; Top of Stack
+    SET_HANDLER     Reset_Handler             ; Reset Handler
+    SET_HANDLER     NonMaskableInt_Handler       ; 2 Non Maskable Handeler
+    SET_HANDLER     HardFault_Handler            ; 3 Hard Fault Handeler
+    SET_HANDLER     MemoryManagement_Handler     ; 4 Memory Management Handeler
+    SET_HANDLER     BusFault_Handler             ; 5 Bus Fault Handeler
+    SET_HANDLER     UsageFault_Handler           ; 6 Usage Fault Handeler
+    .DCD     0                                   ; Reserved
+    .DCD     0                                   ; Reserved
+    .DCD     0                                   ; Reserved
+    .DCD     0                                   ; Reserved
+    SET_HANDLER     SVCall_Handler               ; 10 SV Call Handeler
+    .DCD     0                                   ; Reserved
+    .DCD     0                                   ; Reserved
+    SET_HANDLER     PendSV_Handler               ; 14 Pend SV Handeler
+    SET_HANDLER     SysTick_Handler              ; 15 System Tick Timer Handeler
+
+                 ; External Interrupts
+     SET_HANDLER     SSP3_IRQHandler             ; SSP3 Handeler
+     SET_HANDLER     SSP4_IRQHandler             ; SSP4  Handeler
+     SET_HANDLER     USB_IRQHandler              ; USB Host  Handeler
+     SET_HANDLER     MCBSP1_IRQHandler           ; MCBSP1  Handeler
+     SET_HANDLER     MCBSP2_IRQHandler           ; MCBSP2  Handeler
+     SET_HANDLER     DMA_IRQHandler              ; DMA  Handeler
+     SET_HANDLER     UART1_IRQHandler            ; UART1  Handeler
+     SET_HANDLER     UART2_IRQHandler            ; UART2  Handeler
+     SET_HANDLER     SSP1_IRQHandler             ; SSP1  Handeler
+     SET_HANDLER     MCBSP3_IRQHandler           ; MCBSP3  Handeler
+     SET_HANDLER     I2C_IRQHandler              ; I2C  Handeler
+     SET_HANDLER     POWER_IRQHandler            ; POWER Detecor  Handeler
+     SET_HANDLER     WWDG_IRQHandler             ; Window Watchdog  Handeler
+     SET_HANDLER     DMA_DSP_IRQHandler          ; DMA DSP  Handeler
+     SET_HANDLER     TIMER1_IRQHandler           ; Timer1  Handeler
+     SET_HANDLER     TIMER2_IRQHandler           ; Timer2  Handeler
+     SET_HANDLER     TIMER3_IRQHandler           ; Timer3  Handeler
+     SET_HANDLER     ADC_IRQHandler              ; ADC  Handeler
+     SET_HANDLER     SDIO_IRQHandler             ; SDIO  Handeler
+     SET_HANDLER     COMPARATOR_IRQHandler       ; COMPARATOR  Handeler
+     SET_HANDLER     SSP2_IRQHandler             ; SSP2  Handeler
+     SET_HANDLER     AUDIO_IP_IRQHandler         ; Audio IP  Handeler
+     SET_HANDLER     DSP_CRPT_IRQHandler         ; DSP CRPT  Handeler
+     SET_HANDLER     DSP_TIMER_IRQHandler        ; DSP TIMER  Handeler
+     SET_HANDLER     DSP_CORE_IRQHandler         ; DSP CORE  Handeler
+     SET_HANDLER     DSP_STATE_IRQHandler        ; DSP STATE  Handeler
+     SET_HANDLER     UART3_IRQHandler            ; UART3  Handeler
+     SET_HANDLER     BACKUP_IRQHandler           ; BACKUP  Handeler
+     SET_HANDLER     EXT_INT1_IRQHandler         ; EXT_INT1  Handeler
+     SET_HANDLER     EXT_INT2_IRQHandler         ; EXT_INT2  Handeler
+     SET_HANDLER     EXT_INT3_IRQHandler         ; EXT_INT3  Handeler
+     SET_HANDLER     EXT_INT4_IRQHandler         ; EXT_INT4  Handeler
+__Vectors_End:
+
+__Vectors_Size  .EQU  __Vectors_End - __Vectors
+
+.ENDMOD
+
+
+
+;=====================================================================;
+;                                                                     ;
+;                     Default Reset handler                           ;
+;                                                                     ;
+;=====================================================================;
+.LMODULE2 ?Reset_Handler
+.EXTRN(code) ?start
+.EXTRNF16 SystemInit .VOID(.VOID)
+
+.PUBLIC Reset_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+Reset_Handler?T:
+Reset_Handler   .EQU    Reset_Handler?T+1
+.FUNCTYPE .VOID Reset_Handler(.VOID)
+                 LDR     R0, =SystemInit
+                 BLX     R0
+                 LDR     R0, =?start
+                 BX      R0
+.ENDMOD
+
+
+
+;=====================================================================;
+;                                                                     ;
+;                     Default interrupt handlers                      ;
+;                                                                     ;
+;=====================================================================;
+.LMODULE2 ?NonMaskableInt_Handler
+.PUBLIC NonMaskableInt_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+NonMaskableInt_Handler?T:
+NonMaskableInt_Handler     .EQU    NonMaskableInt_Handler?T+1
+.FUNCTYPE .VOID NonMaskableInt_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?HardFault_Handler
+.PUBLIC HardFault_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+HardFault_Handler?T:
+HardFault_Handler     .EQU    HardFault_Handler?T+1
+.FUNCTYPE .VOID HardFault_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?MemoryManagement_Handler
+.PUBLIC MemoryManagement_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+MemoryManagement_Handler?T:
+MemoryManagement_Handler     .EQU    MemoryManagement_Handler?T+1
+.FUNCTYPE .VOID MemoryManagement_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?BusFault_Handler
+.PUBLIC BusFault_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+BusFault_Handler?T:
+BusFault_Handler     .EQU    BusFault_Handler?T+1
+.FUNCTYPE .VOID BusFault_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?UsageFault_Handler
+.PUBLIC UsageFault_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+UsageFault_Handler?T:
+UsageFault_Handler     .EQU    UsageFault_Handler?T+1
+.FUNCTYPE .VOID UsageFault_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SVCall_Handler
+.PUBLIC SVCall_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SVCall_Handler?T:
+SVCall_Handler     .EQU    SVCall_Handler?T+1
+.FUNCTYPE .VOID SVCall_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?PendSV_Handler
+.PUBLIC PendSV_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+PendSV_Handler?T:
+PendSV_Handler     .EQU    PendSV_Handler?T+1
+.FUNCTYPE .VOID PendSV_Handler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SysTick_Handler
+.PUBLIC SysTick_Handler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SysTick_Handler?T:
+SysTick_Handler     .EQU    SysTick_Handler?T+1
+.FUNCTYPE .VOID SysTick_Handler(.VOID)
+    B   $
+.ENDMOD
+
+; External Interrupts
+
+.LMODULE2 ?SSP3_IRQHandler
+.PUBLIC SSP3_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SSP3_IRQHandler?T:
+SSP3_IRQHandler     .EQU    SSP3_IRQHandler?T+1
+.FUNCTYPE .VOID SSP3_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SSP4_IRQHandler
+.PUBLIC SSP4_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SSP4_IRQHandler?T:
+SSP4_IRQHandler     .EQU    SSP4_IRQHandler?T+1
+.FUNCTYPE .VOID SSP4_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?USB_IRQHandler
+.PUBLIC USB_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+USB_IRQHandler?T:
+USB_IRQHandler     .EQU    USB_IRQHandler?T+1
+.FUNCTYPE .VOID USB_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?MCBSP1_IRQHandler
+.PUBLIC MCBSP1_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+MCBSP1_IRQHandler?T:
+MCBSP1_IRQHandler     .EQU    MCBSP1_IRQHandler?T+1
+.FUNCTYPE .VOID MCBSP1_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?MCBSP2_IRQHandler
+.PUBLIC MCBSP2_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+MCBSP2_IRQHandler?T:
+MCBSP2_IRQHandler     .EQU    MCBSP2_IRQHandler?T+1
+.FUNCTYPE .VOID MCBSP2_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DMA_IRQHandler
+.PUBLIC DMA_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DMA_IRQHandler?T:
+DMA_IRQHandler     .EQU    DMA_IRQHandler?T+1
+.FUNCTYPE .VOID DMA_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?UART1_IRQHandler
+.PUBLIC UART1_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+UART1_IRQHandler?T:
+UART1_IRQHandler     .EQU    UART1_IRQHandler?T+1
+.FUNCTYPE .VOID UART1_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?UART2_IRQHandler
+.PUBLIC UART2_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+UART2_IRQHandler?T:
+UART2_IRQHandler     .EQU    UART2_IRQHandler?T+1
+.FUNCTYPE .VOID UART2_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SSP1_IRQHandler
+.PUBLIC SSP1_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SSP1_IRQHandler?T:
+SSP1_IRQHandler     .EQU    SSP1_IRQHandler?T+1
+.FUNCTYPE .VOID SSP1_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?MCBSP3_IRQHandler
+.PUBLIC MCBSP3_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+MCBSP3_IRQHandler?T:
+MCBSP3_IRQHandler     .EQU    MCBSP3_IRQHandler?T+1
+.FUNCTYPE .VOID MCBSP3_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?I2C_IRQHandler
+.PUBLIC I2C_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+I2C_IRQHandler?T:
+I2C_IRQHandler     .EQU    I2C_IRQHandler?T+1
+.FUNCTYPE .VOID I2C_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?POWER_IRQHandler
+.PUBLIC POWER_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+POWER_IRQHandler?T:
+POWER_IRQHandler     .EQU    POWER_IRQHandler?T+1
+.FUNCTYPE .VOID POWER_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?WWDG_IRQHandler
+.PUBLIC WWDG_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+WWDG_IRQHandler?T:
+WWDG_IRQHandler     .EQU    WWDG_IRQHandler?T+1
+.FUNCTYPE .VOID WWDG_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DMA_DSP_IRQHandler
+.PUBLIC DMA_DSP_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DMA_DSP_IRQHandler?T:
+DMA_DSP_IRQHandler     .EQU    DMA_DSP_IRQHandler?T+1
+.FUNCTYPE .VOID DMA_DSP_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?TIMER1_IRQHandler
+.PUBLIC TIMER1_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+TIMER1_IRQHandler?T:
+TIMER1_IRQHandler     .EQU    TIMER1_IRQHandler?T+1
+.FUNCTYPE .VOID TIMER1_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?TIMER2_IRQHandler
+.PUBLIC TIMER2_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+TIMER2_IRQHandler?T:
+TIMER2_IRQHandler     .EQU    TIMER2_IRQHandler?T+1
+.FUNCTYPE .VOID TIMER2_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?TIMER3_IRQHandler
+.PUBLIC TIMER3_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+TIMER3_IRQHandler?T:
+TIMER3_IRQHandler     .EQU    TIMER3_IRQHandler?T+1
+.FUNCTYPE .VOID TIMER3_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?ADC_IRQHandler
+.PUBLIC ADC_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+ADC_IRQHandler?T:
+ADC_IRQHandler     .EQU    ADC_IRQHandler?T+1
+.FUNCTYPE .VOID ADC_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SDIO_IRQHandler
+.PUBLIC SDIO_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SDIO_IRQHandler?T:
+SDIO_IRQHandler     .EQU    SDIO_IRQHandler?T+1
+.FUNCTYPE .VOID SDIO_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?COMPARATOR_IRQHandler
+.PUBLIC COMPARATOR_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+COMPARATOR_IRQHandler?T:
+COMPARATOR_IRQHandler     .EQU    COMPARATOR_IRQHandler?T+1
+.FUNCTYPE .VOID COMPARATOR_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?SSP2_IRQHandler
+.PUBLIC SSP2_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+SSP2_IRQHandler?T:
+SSP2_IRQHandler     .EQU    SSP2_IRQHandler?T+1
+.FUNCTYPE .VOID SSP2_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?AUDIO_IP_IRQHandler
+.PUBLIC AUDIO_IP_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+AUDIO_IP_IRQHandler?T:
+AUDIO_IP_IRQHandler     .EQU    AUDIO_IP_IRQHandler?T+1
+.FUNCTYPE .VOID AUDIO_IP_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DSP_CRPT_IRQHandler
+.PUBLIC DSP_CRPT_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DSP_CRPT_IRQHandler?T:
+DSP_CRPT_IRQHandler     .EQU    DSP_CRPT_IRQHandler?T+1
+.FUNCTYPE .VOID DSP_CRPT_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DSP_TIMER_IRQHandler
+.PUBLIC DSP_TIMER_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DSP_TIMER_IRQHandler?T:
+DSP_TIMER_IRQHandler     .EQU    DSP_TIMER_IRQHandler?T+1
+.FUNCTYPE .VOID DSP_TIMER_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DSP_CORE_IRQHandler
+.PUBLIC DSP_CORE_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DSP_CORE_IRQHandler?T:
+DSP_CORE_IRQHandler     .EQU    DSP_CORE_IRQHandler?T+1
+.FUNCTYPE .VOID DSP_CORE_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?DSP_STATE_IRQHandler
+.PUBLIC DSP_STATE_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+DSP_STATE_IRQHandler?T:
+DSP_STATE_IRQHandler     .EQU    DSP_STATE_IRQHandler?T+1
+.FUNCTYPE .VOID DSP_STATE_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?UART3_IRQHandler
+.PUBLIC UART3_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+UART3_IRQHandler?T:
+UART3_IRQHandler     .EQU    UART3_IRQHandler?T+1
+.FUNCTYPE .VOID UART3_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?BACKUP_IRQHandler
+.PUBLIC BACKUP_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+BACKUP_IRQHandler?T:
+BACKUP_IRQHandler     .EQU    BACKUP_IRQHandler?T+1
+.FUNCTYPE .VOID BACKUP_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?EXT_INT1_IRQHandler
+.PUBLIC EXT_INT1_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+EXT_INT1_IRQHandler?T:
+EXT_INT1_IRQHandler     .EQU    EXT_INT1_IRQHandler?T+1
+.FUNCTYPE .VOID EXT_INT1_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?EXT_INT2_IRQHandler
+.PUBLIC EXT_INT2_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+EXT_INT2_IRQHandler?T:
+EXT_INT2_IRQHandler     .EQU    EXT_INT2_IRQHandler?T+1
+.FUNCTYPE .VOID EXT_INT2_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?EXT_INT3_IRQHandler
+.PUBLIC EXT_INT3_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+EXT_INT3_IRQHandler?T:
+EXT_INT3_IRQHandler     .EQU    EXT_INT3_IRQHandler?T+1
+.FUNCTYPE .VOID EXT_INT3_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+.LMODULE2 ?EXT_INT4_IRQHandler
+.PUBLIC EXT_INT4_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+EXT_INT4_IRQHandler?T:
+EXT_INT4_IRQHandler     .EQU    EXT_INT4_IRQHandler?T+1
+.FUNCTYPE .VOID EXT_INT4_IRQHandler(.VOID)
+    B   $
+.ENDMOD
+;=====================================================================;
+;                                                                     ;
+;       User-defined low-level initialization that is made            ;
+;                     before cstartup                                 ;
+;                                                                     ;
+;=====================================================================;
+
+
+.LMODULE2 ??LOW_LEVEL_INIT
+.PUBLIC __low_level_init
+
+.RSEG   ??CODE_CLIB,code
+.THUMB
+.FUNC __low_level_init  .VOID(.VOID)
+    BX      LR
+.ENDF
+
+.ENDMOD
+
+
+.LMODULE2 ??SystemInit
+.PUBLIC SystemInit
+.RSEG   ??CODE_CLIB,code
+.THUMB
+SystemInit?T:
+SystemInit .EQU SystemInit?T+1
+.FUNCTYPE .VOID SystemInit(.VOID)
+    BX      LR
+
+.END
+;/******************* (C) COPYRIGHT 2014 Milandr ******************************
+;*
+;* END OF FILE startup_MDR1901VC1T.s */
