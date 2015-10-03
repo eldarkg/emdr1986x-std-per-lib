@@ -38,7 +38,7 @@
   */
 
 #include "MDR1901VC1T.h"
-#include "MDR32F9QX_config.h"
+#include "MDR32F9Qx_config.h"
 
 /** @} */ /* End of group System_Private_Includes */
 
@@ -130,7 +130,7 @@ void SystemCoreClockUpdate (void)
   */
 void SystemInit (void)
 {
-	/* Reset the RST clock configuration to the default reset state */
+    /* Reset the RST clock configuration to the default reset state */
 
   /* Reset all clock but RST_CLK & BKP_CLC bits */
   MDR_RST_CLK->PER_CLOCK   = (uint32_t)0x8000010;

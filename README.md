@@ -4,10 +4,11 @@
 This isn't official library that compatible with GCC compiler.
 
 **Now next MCU support gcc compiler:**
-- MDR1986VE9x
+- MDR1901VC1T (not tested)
 - MDR1986VE1T
 - MDR1986VE3 (not tested)
 - MDR1986BE4 (not tested)
+- MDR1986VE9x
 
 [**Link to documentation**](https://github.com/eldarkg/emdr1986x-std-per-lib-doc)
 
@@ -53,10 +54,11 @@ Instead `cflag` `-mcpu=cortex-m3` use:
 ```
 -mcpu=cortex-m0     # MDR1986BE4
 -mcpu=cortex-m1     # MDR1986VE1T, MDR1986VE3
--mcpu=cortex-m3     # MDR1986VE9x
+-mcpu=cortex-m3     # MDR1986VE9x, MDR1901VC1T
 ```
 Instead compiler definition `-DUSE_MDR1986VE9x` use:
 ```
+-DUSE_MDR1901VC1T   # MDR1901VC1T
 -DUSE_MDR1986VE1T   # MDR1986VE1T
 -DUSE_MDR1986VE3    # MDR1986VE3
 -DUSE_MDR1986BE4    # MDR1986BE4
