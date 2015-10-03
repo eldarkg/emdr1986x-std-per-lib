@@ -16,18 +16,20 @@
 ; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
 ; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
 ; *
-; 
+;
 ; * <h2><center>&copy; COPYRIGHT 2014 MDR1901VC1T </center></h2>
 ; *****************************************************************************
 ; * FILE startup_MDR1901VC1T.s
 ; */
+
+; <<< Use Configuration Wizard in Context Menu >>>
 
 ; Amount of memory (in bytes) allocated for Stack
 ; Tailor this value to your application needs
 ; <h> Stack Configuration
 ;   <o> Stack Size (in Bytes) <0x0-0xFFFFFFFF:8>
 ; </h>
-	
+
 Stack_Size      EQU     0x00000400
 
                 AREA    STACK, NOINIT, READWRITE, ALIGN=3
