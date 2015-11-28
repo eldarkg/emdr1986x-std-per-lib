@@ -54,7 +54,7 @@ typedef enum IQRn{
 	MemoryManagement_IRQn                 = -12, /*!< 4 Memory Management Interrupt */
 	BusFault_IRQn                         = -11, /*!< 5 Bus Fault Interrupt */
 	UsageFault_IRQn                       = -10, /*!< 6 Usage Fault Interrupt */
-	SVCall_IRQn                           = -5, /*!< 10 SV Call Interrupt */
+	SVCall_IRQn                           = -5, /*!< 11 SV Call Interrupt */
 	PendSV_IRQn                           = -2, /*!< 14 Pend SV Interrupt */
 	SysTick_IRQn                          = -1, /*!< 15 System Tick Timer Interrupt */
 /*-- MDR1901VC1T specific Interrupt Numbers --------------------------------------*/
