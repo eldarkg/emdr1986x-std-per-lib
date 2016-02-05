@@ -440,7 +440,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __REV16(uint32_t val
 __attribute__( ( always_inline ) ) __STATIC_INLINE int32_t __REVSH(int32_t value)
 {
 #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
-  return (short)__builtin_bswap16(value);
+  return (short)__builtin_bswap16((uint16_t)value);
 #else
   uint32_t result;
 
@@ -460,7 +460,7 @@ __attribute__( ( always_inline ) ) __STATIC_INLINE int32_t __REVSH(int32_t value
  */
 __attribute__( ( always_inline ) ) __STATIC_INLINE uint32_t __ROR(uint32_t op1, uint32_t op2)
 {
-  return (op1 >> op2) | (op1 << (32 - op2)); 
+  return (op1 >> op2) | (op1 << (32 - op2));
 }
 
 
