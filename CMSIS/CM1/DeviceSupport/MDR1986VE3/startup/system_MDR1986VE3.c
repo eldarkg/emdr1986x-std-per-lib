@@ -99,6 +99,7 @@ void SystemCoreClockUpdate (void)
   /*Select CPU_CLK from HSI, CPU_C3, LSE, LSI cases */
   switch ((MDR_RST_CLK->CPU_CLOCK >> 8) & (uint32_t)0x03)
   {
+    uint32_t tmp;
     case 0 :
       /* HSI */
       SystemCoreClock = HSI_Value;
@@ -106,7 +107,16 @@ void SystemCoreClockUpdate (void)
     case 1 :
       /* CPU_C3 */
       /* Determine CPU_C3 frequency */
-      cpu_c3_freq = cpu_c2_freq / ((MDR_RST_CLK->CPU_CLOCK >> 4 & (uint32_t)0x0F) + 1);
+      tmp = MDR_RST_CLK->CPU_CLOCK >> 4 & (uint32_t)0x0F;
+      if (tmp & (uint32_t)0x8)
+      {
+        tmp &= (uint32_t)0x7;
+        cpu_c3_freq = cpu_c2_freq / ((uint32_t)2 << tmp);
+      }
+      else
+      {
+        cpu_c3_freq = cpu_c2_freq;
+      }
       SystemCoreClock = cpu_c3_freq;
       break;
     case 2 :

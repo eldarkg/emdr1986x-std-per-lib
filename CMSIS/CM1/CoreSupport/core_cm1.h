@@ -1,5 +1,5 @@
 /**************************************************************************//**
- * @file     core_cM1.h
+ * @file     core_cm1.h
  * @brief    CMSIS Cortex-M1 Core Peripheral Access Layer Header File
  * @version  V3.20
  * @date     25. February 2013
