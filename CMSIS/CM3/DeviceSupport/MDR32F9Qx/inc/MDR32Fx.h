@@ -104,7 +104,7 @@ typedef enum IRQn
 
 typedef enum {RESET = 0, SET = !RESET} FlagStatus, ITStatus, BitStatus;
 
-#define IS_BIT_STATUS(STATUS)	(((STATUS) == RESET) || ((STATE) == SET))
+#define IS_BIT_STATUS(STATUS) (((STATUS) == RESET) || ((STATE) == SET))
 
 typedef enum {DISABLE = 0, ENABLE = !DISABLE} FunctionalState;
 #define IS_FUNCTIONAL_STATE(STATE) (((STATE) == DISABLE) || ((STATE) == ENABLE))
@@ -176,7 +176,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_CAN_CONTROL	CAN CONTROL
+/** @defgroup Periph_CAN_CONTROL  CAN CONTROL
   * @{
   */
 
@@ -197,7 +197,7 @@ typedef struct
 
 /** @} */ /* End of group CAN_CONTROL */
 
-/** @defgroup Periph_CAN_STATUS	CAN STATUS
+/** @defgroup Periph_CAN_STATUS CAN STATUS
   * @{
   */
 
@@ -234,9 +234,14 @@ typedef struct
 #define CAN_STATUS_RX_ERR_CNT_Msk               ((uint32_t)0x00FF0000)
 #define CAN_STATUS_TX_ERR_CNT_Msk               ((uint32_t)0xFF000000)
 
+/* ERR STATUS Modes */
+#define CAN_STATUS_ERR_STATUS_ERROR_ACTIVE      0x00
+#define CAN_STATUS_ERR_STATUS_ERROR_PASSIVE     0x01
+#define CAN_STATUS_ERR_STATUS_ERROR_BUS_OFF_Pos 10
+
 /** @} */ /* End of group CAN_STATUS */
 
-/** @defgroup Periph_CAN_BITTMNG	CAN BITTMNG
+/** @defgroup Periph_CAN_BITTMNG  CAN BITTMNG
   * @{
   */
 
@@ -257,9 +262,45 @@ typedef struct
 #define CAN_BITTMNG_SJW_Msk                     ((uint32_t)0x06000000)
 #define CAN_BITTMNG_SB                          ((uint32_t)0x08000000)
 
+/* PSEG Modes */
+#define CAN_BITTMNG_PSEG_1_TQ                   0x00
+#define CAN_BITTMNG_PSEG_2_TQ                   0x01
+#define CAN_BITTMNG_PSEG_3_TQ                   0x02
+#define CAN_BITTMNG_PSEG_4_TQ                   0x03
+#define CAN_BITTMNG_PSEG_5_TQ                   0x04
+#define CAN_BITTMNG_PSEG_6_TQ                   0x05
+#define CAN_BITTMNG_PSEG_7_TQ                   0x06
+#define CAN_BITTMNG_PSEG_8_TQ                   0x07
+
+/* SEG1 Modes */
+#define CAN_BITTMNG_SEG1_1_TQ                   0x00
+#define CAN_BITTMNG_SEG1_2_TQ                   0x01
+#define CAN_BITTMNG_SEG1_3_TQ                   0x02
+#define CAN_BITTMNG_SEG1_4_TQ                   0x03
+#define CAN_BITTMNG_SEG1_5_TQ                   0x04
+#define CAN_BITTMNG_SEG1_6_TQ                   0x05
+#define CAN_BITTMNG_SEG1_7_TQ                   0x06
+#define CAN_BITTMNG_SEG1_8_TQ                   0x07
+
+/* SEG2 Modes */
+#define CAN_BITTMNG_SEG2_1_TQ                   0x00
+#define CAN_BITTMNG_SEG2_2_TQ                   0x01
+#define CAN_BITTMNG_SEG2_3_TQ                   0x02
+#define CAN_BITTMNG_SEG2_4_TQ                   0x03
+#define CAN_BITTMNG_SEG2_5_TQ                   0x04
+#define CAN_BITTMNG_SEG2_6_TQ                   0x05
+#define CAN_BITTMNG_SEG2_7_TQ                   0x06
+#define CAN_BITTMNG_SEG2_8_TQ                   0x07
+
+/* SJW Modes */
+#define CAN_BITTMNG_SJW_1_TQ                    0x00
+#define CAN_BITTMNG_SJW_2_TQ                    0x01
+#define CAN_BITTMNG_SJW_3_TQ                    0x02
+#define CAN_BITTMNG_SJW_4_TQ                    0x03
+
 /** @} */ /* End of group CAN_BITTMNG */
 
-/** @defgroup Periph_CAN_INT_EN	CAN INT EN
+/** @defgroup Periph_CAN_INT_EN CAN INT EN
   * @{
   */
 
@@ -280,7 +321,7 @@ typedef struct
 
 /** @} */ /* End of group CAN_INT_EN */
 
-/** @defgroup Periph_CAN_RXID	CAN RXID
+/** @defgroup Periph_CAN_RXID CAN RXID
   * @{
   */
 
@@ -297,7 +338,7 @@ typedef struct
 
 /** @} */ /* End of group CAN_RXID */
 
-/** @defgroup Periph_CAN_RXDLC	CAN RXDLC
+/** @defgroup Periph_CAN_RXDLC  CAN RXDLC
   * @{
   */
 
@@ -320,9 +361,20 @@ typedef struct
 #define CAN_DLC_SSR                             ((uint32_t)0x00000800)
 #define CAN_DLC_IDE                             ((uint32_t)0x00001000)
 
+/* DLC Modes */
+#define CAN_DLC_NO_DATA                         0x00
+#define CAN_DLC_1_BYTE                          0x01
+#define CAN_DLC_2_BYTES                         0x02
+#define CAN_DLC_3_BYTES                         0x03
+#define CAN_DLC_4_BYTES                         0x04
+#define CAN_DLC_5_BYTES                         0x05
+#define CAN_DLC_6_BYTES                         0x06
+#define CAN_DLC_7_BYTES                         0x07
+#define CAN_DLC_8_BYTES                         0x08
+
 /** @} */ /* End of group CAN_RXDLC */
 
-/** @defgroup Periph_CAN_RXDATAL	CAN RXDATAL
+/** @defgroup Periph_CAN_RXDATAL  CAN RXDATAL
   * @{
   */
 
@@ -343,7 +395,7 @@ typedef struct
 
 /** @} */ /* End of group CAN_RXDATAL */
 
-/** @defgroup Periph_CAN_RXDATAH	CAN RXDATAH
+/** @defgroup Periph_CAN_RXDATAH  CAN RXDATAH
   * @{
   */
 
@@ -364,7 +416,7 @@ typedef struct
 
 /** @} */ /* End of group CAN_RXDATAH */
 
-/** @defgroup Periph_CAN_BUF_CON	CAN BUF CON
+/** @defgroup Periph_CAN_BUF_CON  CAN BUF CON
   * @{
   */
 
@@ -477,7 +529,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_USB_HTXC	USB HTXC
+/** @defgroup Periph_USB_HTXC USB HTXC
   * @{
   */
 
@@ -496,7 +548,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HTXC */
 
-/** @defgroup Periph_USB_HTXLC	USB HTXLC
+/** @defgroup Periph_USB_HTXLC  USB HTXLC
   * @{
   */
 
@@ -515,7 +567,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HTXLC */
 
-/** @defgroup Periph_USB_HIS	USB HIS
+/** @defgroup Periph_USB_HIS  USB HIS
   * @{
   */
 
@@ -534,7 +586,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HIS */
 
-/** @defgroup Periph_USB_HIM	USB HIM
+/** @defgroup Periph_USB_HIM  USB HIM
   * @{
   */
 
@@ -553,7 +605,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HIM */
 
-/** @defgroup Periph_USB_HRXS	USB HRXS
+/** @defgroup Periph_USB_HRXS USB HRXS
   * @{
   */
 
@@ -580,7 +632,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HRXS */
 
-/** @defgroup Periph_USB_SEP_CTRL	USB SEP CTRL
+/** @defgroup Periph_USB_SEP_CTRL USB SEP CTRL
   * @{
   */
 
@@ -601,7 +653,7 @@ typedef struct
 
 /** @} */ /* End of group USB_SEP_CTRL */
 
-/** @defgroup Periph_USB_SEP_STS	USB SEP STS
+/** @defgroup Periph_USB_SEP_STS  USB SEP STS
   * @{
   */
 
@@ -628,7 +680,7 @@ typedef struct
 
 /** @} */ /* End of group USB_SEP_STS */
 
-/** @defgroup Periph_USB_SC	USB SC
+/** @defgroup Periph_USB_SC USB SC
   * @{
   */
 
@@ -649,7 +701,7 @@ typedef struct
 
 /** @} */ /* End of group USB_SC */
 
-/** @defgroup Periph_USB_SIS	USB SIS
+/** @defgroup Periph_USB_SIS  USB SIS
   * @{
   */
 
@@ -670,7 +722,7 @@ typedef struct
 
 /** @} */ /* End of group USB_SIS */
 
-/** @defgroup Periph_USB_SIM	USB SIM
+/** @defgroup Periph_USB_SIM  USB SIM
   * @{
   */
 
@@ -691,7 +743,7 @@ typedef struct
 
 /** @} */ /* End of group USB_SIM */
 
-/** @defgroup Periph_USB_HSCR	USB HSCR
+/** @defgroup Periph_USB_HSCR USB HSCR
   * @{
   */
 
@@ -718,7 +770,7 @@ typedef struct
 
 /** @} */ /* End of group USB_HSCR */
 
-/** @defgroup Periph_USB_HSVR	USB HSVR
+/** @defgroup Periph_USB_HSVR USB HSVR
   * @{
   */
 
@@ -761,7 +813,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_EEPROM_CMD	EEPROM CMD
+/** @defgroup Periph_EEPROM_CMD EEPROM CMD
   * @{
   */
 
@@ -793,6 +845,19 @@ typedef struct
 #define EEPROM_CMD_MAS1                         ((uint32_t)0x00000800)
 #define EEPROM_CMD_PROG                         ((uint32_t)0x00001000)
 #define EEPROM_CMD_NVSTR                        ((uint32_t)0x00002000)
+
+/* EEPROM Key */
+#define EEPROM_KEY                              0x8AAA5551
+
+#define EEPROM_ADDRESS                          0x08000000
+
+#define EEPROM_SECTOR_A_SHIFT                   0x00
+#define EEPROM_SECTOR_B_SHIFT                   0x04
+#define EEPROM_SECTOR_C_SHIFT                   0x08
+#define EEPROM_SECTOR_D_SHIFT                   0x0C
+
+#define EEPROM_WORD_SIZE                        4
+#define EEPROM_PAGE_SIZE                        4096
 
 /** @} */ /* End of group EEPROM_CMD */
 
@@ -831,7 +896,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_RST_CLK_CLOCK_STATUS	RST CLK CLOCK STATUS
+/** @defgroup Periph_RST_CLK_CLOCK_STATUS RST CLK CLOCK STATUS
   * @{
   */
 
@@ -848,7 +913,7 @@ typedef struct
 
 /** @} */ /* End of group RST_CLK_CLOCK_STATUS */
 
-/** @defgroup Periph_RST_CLK_PLL_CONTROL	RST CLK PLL CONTROL
+/** @defgroup Periph_RST_CLK_PLL_CONTROL  RST CLK PLL CONTROL
   * @{
   */
 
@@ -871,7 +936,7 @@ typedef struct
 
 /** @} */ /* End of group RST_CLK_PLL_CONTROL */
 
-/** @defgroup Periph_RST_CLK_HS_CONTROL	RST CLK HS CONTROL
+/** @defgroup Periph_RST_CLK_HS_CONTROL RST CLK HS CONTROL
   * @{
   */
 
@@ -886,7 +951,7 @@ typedef struct
 
 /** @} */ /* End of group RST_CLK_HS_CONTROL */
 
-/** @defgroup Periph_RST_CLK_CPU_CLOCK	RST CLK CPU CLOCK
+/** @defgroup Periph_RST_CLK_CPU_CLOCK  RST CLK CPU CLOCK
   * @{
   */
 
@@ -903,9 +968,36 @@ typedef struct
 #define RST_CLK_CPU_CLOCK_CPU_C3_SEL_Msk        ((uint32_t)0x000000F0)
 #define RST_CLK_CPU_CLOCK_HCLK_SEL_Msk          ((uint32_t)0x00000300)
 
+/* CPU C1 SEL Modes */
+#define RST_CLK_CPU_CLOCK_CPU_C1_SEL_HSI              0x00
+#define RST_CLK_CPU_CLOCK_CPU_C1_SEL_HSI_DIV_2        0x01
+#define RST_CLK_CPU_CLOCK_CPU_C1_SEL_HSE              0x02
+#define RST_CLK_CPU_CLOCK_CPU_C1_SEL_HSE_DIV_2        0x03
+
+/* CPU C2 SEL Modes */
+#define RST_CLK_CPU_CLOCK_CPU_C2_SEL_CPU_C1           0x00
+#define RST_CLK_CPU_CLOCK_CPU_C2_SEL_PLL_CPU          0x01
+
+/* CPU C3 SEL Modes */
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2           0x00
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_2     0x08
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_4     0x09
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_8     0x0A
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_16    0x0B
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_32    0x0C
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_64    0x0D
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_128   0x0E
+#define RST_CLK_CPU_CLOCK_CPU_C3_SEL_CPU_C2_DIV_256   0x0F
+
+/* HCLK SEL Modes */
+#define RST_CLK_CPU_CLOCK_HCLK_SEL_HSI                0x00
+#define RST_CLK_CPU_CLOCK_HCLK_SEL_CPU_C3             0x01
+#define RST_CLK_CPU_CLOCK_HCLK_SEL_LSE                0x02
+#define RST_CLK_CPU_CLOCK_HCLK_SEL_LSI                0x03
+
 /** @} */ /* End of group RST_CLK_CPU_CLOCK */
 
-/** @defgroup Periph_RST_CLK_USB_CLOCK	RST CLK USB CLOCK
+/** @defgroup Periph_RST_CLK_USB_CLOCK  RST CLK USB CLOCK
   * @{
   */
 
@@ -919,12 +1011,26 @@ typedef struct
 /* Bit field masks: */
 #define RST_CLK_USB_CLOCK_USB_C1_SEL_Msk        ((uint32_t)0x00000003)
 #define RST_CLK_USB_CLOCK_USB_C2_SEL            ((uint32_t)0x00000004)
-#define RST_CLK_USB_CLOCK_USB_C3_SEL	        ((uint32_t)0x00000010)
+#define RST_CLK_USB_CLOCK_USB_C3_SEL            ((uint32_t)0x00000010)
 #define RST_CLK_USB_CLOCK_USB_CLK_EN            ((uint32_t)0x00000100)
+
+/* USB C1 SEL Modes */
+#define RST_CLK_USB_CLOCK_USB_C1_SEL_HSI            0x00
+#define RST_CLK_USB_CLOCK_USB_C1_SEL_HSI_DIV_2      0x01
+#define RST_CLK_USB_CLOCK_USB_C1_SEL_HSE            0x02
+#define RST_CLK_USB_CLOCK_USB_C1_SEL_HSE_DIV_2      0x03
+
+/* USB C2 SEL Modes */
+#define RST_CLK_USB_CLOCK_USB_C2_SEL_USB_C1         0x00
+#define RST_CLK_USB_CLOCK_USB_C2_SEL_PLL_USB        0x01
+
+/* USB C3 SEL Modes */
+#define RST_CLK_USB_CLOCK_USB_C3_SEL_USB_C2         0x00
+#define RST_CLK_USB_CLOCK_USB_C3_SEL_USB_C2_DIV_2   0x01
 
 /** @} */ /* End of group RST_CLK_USB_CLOCK */
 
-/** @defgroup Periph_RST_CLK_ADC_MCO_CLOCK	RST CLK ADC MCO CLOCK
+/** @defgroup Periph_RST_CLK_ADC_MCO_CLOCK  RST CLK ADC MCO CLOCK
   * @{
   */
 
@@ -941,9 +1047,32 @@ typedef struct
 #define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_Msk    ((uint32_t)0x00000F00)
 #define RST_CLK_ADC_MCO_CLOCK_ADC_CLK_EN        ((uint32_t)0x00002000)
 
+/* ADC C1 SEL Modes */
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C1_SEL_CPU_C1           0x00
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C1_SEL_USB_C1           0x01
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C1_SEL_CPU_C2           0x02
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C1_SEL_USB_C2           0x03
+
+/* ADC C2 SEL Modes */
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C2_SEL_LSE              0x00
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C2_SEL_LSI              0x01
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C2_SEL_ADC_C1           0x02
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C2_SEL_HSI_C1           0x03
+
+/* ADC C3 SEL Modes */
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2           0x00
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_2     0x08
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_4     0x09
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_8     0x0A
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_16    0x0B
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_32    0x0C
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_64    0x0D
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_128   0x0E
+#define RST_CLK_ADC_MCO_CLOCK_ADC_C3_SEL_ADC_C2_DIV_256   0x0F
+
 /** @} */ /* End of group RST_CLK_ADC_MCO_CLOCK */
 
-/** @defgroup Periph_RST_CLK_RTC_CLOCK	RST CLK RTC CLOCK
+/** @defgroup Periph_RST_CLK_RTC_CLOCK  RST CLK RTC CLOCK
   * @{
   */
 
@@ -960,9 +1089,98 @@ typedef struct
 #define RST_CLK_RTC_CLOCK_HSE_RTC_EN            ((uint32_t)0x00000100)
 #define RST_CLK_RTC_CLOCK_HSI_RTC_EN            ((uint32_t)0x00000200)
 
+/* HSE SEL Modes */
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2          0x00
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_2    0x08
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_4    0x09
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_8    0x0A
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_16   0x0B
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_32   0x0C
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_64   0x0D
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_128  0x0E
+#define RST_CLK_RTC_CLOCK_HSE_SEL_HSE_C2_DIV_256  0x0F
+
+/* HSI SEL Modes */
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2          0x00
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_2    0x08
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_4    0x09
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_8    0x0A
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_16   0x0B
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_32   0x0C
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_64   0x0D
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_128  0x0E
+#define RST_CLK_RTC_CLOCK_HSI_SEL_HSI_C2_DIV_256  0x0F
+
 /** @} */ /* End of group RST_CLK_RTC_CLOCK */
 
-/** @defgroup Periph_RST_CLK_CAN_CLOCK	RST CLK CAN CLOCK
+/** @defgroup Periph_RST_CLK_CAN_CLOCK  RST CLK CAN CLOCK
+  * @{
+  */
+
+/*-- RST_CLK_PER_CLOCK: PER Clock Register ---------------------*/
+/* Bit field positions: */
+#define RST_CLK_PER_CLOCK_PCLK_EN_CAN1_Pos            0
+#define RST_CLK_PER_CLOCK_PCLK_EN_CAN2_Pos            1
+#define RST_CLK_PER_CLOCK_PCLK_EN_USB_Pos             2
+#define RST_CLK_PER_CLOCK_PCLK_EN_EEPROM_CNTRL_Pos    3
+#define RST_CLK_PER_CLOCK_PCLK_EN_RST_CLK_Pos         4
+#define RST_CLK_PER_CLOCK_PCLK_EN_DMA_Pos             5
+#define RST_CLK_PER_CLOCK_PCLK_EN_UART1_Pos           6
+#define RST_CLK_PER_CLOCK_PCLK_EN_UART2_Pos           7
+#define RST_CLK_PER_CLOCK_PCLK_EN_SPI1_Pos            8
+#define RST_CLK_PER_CLOCK_PCLK_EN_I2C_Pos             10
+#define RST_CLK_PER_CLOCK_PCLK_EN_POWER_Pos           11
+#define RST_CLK_PER_CLOCK_PCLK_EN_WWDT_Pos            12
+#define RST_CLK_PER_CLOCK_PCLK_EN_IWDT_Pos            13
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER1_Pos          14
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER2_Pos          15
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER3_Pos          16
+#define RST_CLK_PER_CLOCK_PCLK_EN_ADC_Pos             17
+#define RST_CLK_PER_CLOCK_PCLK_EN_DAC_Pos             18
+#define RST_CLK_PER_CLOCK_PCLK_EN_COMP_Pos            19
+#define RST_CLK_PER_CLOCK_PCLK_EN_SPI2_Pos            20
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTA_Pos           21
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTB_Pos           22
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTC_Pos           23
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTD_Pos           24
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTE_Pos           25
+#define RST_CLK_PER_CLOCK_PCLK_EN_BKP_Pos             27
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTF_Pos           29
+#define RST_CLK_PER_CLOCK_PCLK_EN_EXT_BUS_CNTRL_Pos   30
+
+/* Bit field masks: */
+#define RST_CLK_PER_CLOCK_PCLK_EN_CAN1                ((uint32_t)0x00000001)
+#define RST_CLK_PER_CLOCK_PCLK_EN_CAN2                ((uint32_t)0x00000002)
+#define RST_CLK_PER_CLOCK_PCLK_EN_USB                 ((uint32_t)0x00000004)
+#define RST_CLK_PER_CLOCK_PCLK_EN_EEPROM_CNTRL        ((uint32_t)0x00000008)
+#define RST_CLK_PER_CLOCK_PCLK_EN_RST_CLK             ((uint32_t)0x00000010)
+#define RST_CLK_PER_CLOCK_PCLK_EN_DMA                 ((uint32_t)0x00000020)
+#define RST_CLK_PER_CLOCK_PCLK_EN_UART1               ((uint32_t)0x00000040)
+#define RST_CLK_PER_CLOCK_PCLK_EN_UART2               ((uint32_t)0x00000080)
+#define RST_CLK_PER_CLOCK_PCLK_EN_SPI1                ((uint32_t)0x00000100)
+#define RST_CLK_PER_CLOCK_PCLK_EN_I2C                 ((uint32_t)0x00000400)
+#define RST_CLK_PER_CLOCK_PCLK_EN_POWER               ((uint32_t)0x00000800)
+#define RST_CLK_PER_CLOCK_PCLK_EN_WWDT                ((uint32_t)0x00001000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_IWDT                ((uint32_t)0x00002000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER1              ((uint32_t)0x00004000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER2              ((uint32_t)0x00008000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_TIMER3              ((uint32_t)0x00010000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_ADC                 ((uint32_t)0x00020000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_DAC                 ((uint32_t)0x00040000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_COMP                ((uint32_t)0x00080000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_SPI2                ((uint32_t)0x00100000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTA               ((uint32_t)0x00200000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTB               ((uint32_t)0x00400000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTC               ((uint32_t)0x00800000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTD               ((uint32_t)0x01000000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTE               ((uint32_t)0x02000000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_BKP                 ((uint32_t)0x08000000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_PORTF               ((uint32_t)0x20000000)
+#define RST_CLK_PER_CLOCK_PCLK_EN_EXT_BUS_CNTRL       ((uint32_t)0x40000000)
+
+/** @} */ /* End of group RST_CLK_PER_CLOCK */
+
+/** @defgroup Periph_RST_CLK_PER_CLOCK  RST CLK PER CLOCK
   * @{
   */
 
@@ -979,9 +1197,19 @@ typedef struct
 #define RST_CLK_CAN_CLOCK_CAN1_CLK_EN           ((uint32_t)0x01000000)
 #define RST_CLK_CAN_CLOCK_CAN2_CLK_EN           ((uint32_t)0x02000000)
 
+/* CAN BRG Modes */
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK          0x00
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_2    0x01
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_4    0x02
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_8    0x03
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_16   0x04
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_32   0x05
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_64   0x06
+#define RST_CLK_CAN_CLOCK_CAN_BRG_HCLK_DIV_128  0x07
+
 /** @} */ /* End of group RST_CLK_CAN_CLOCK */
 
-/** @defgroup Periph_RST_CLK_TIM_CLOCK	RST CLK TIM CLOCK
+/** @defgroup Periph_RST_CLK_TIM_CLOCK  RST CLK TIM CLOCK
   * @{
   */
 
@@ -1002,9 +1230,19 @@ typedef struct
 #define RST_CLK_TIM_CLOCK_TIM2_CLK_EN           ((uint32_t)0x02000000)
 #define RST_CLK_TIM_CLOCK_TIM3_CLK_EN           ((uint32_t)0x04000000)
 
+/* TIM BRG Modes */
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK          0x00
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_2    0x01
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_4    0x02
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_8    0x03
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_16   0x04
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_32   0x05
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_64   0x06
+#define RST_CLK_TIM_CLOCK_TIM_BRG_HCLK_DIV_128  0x07
+
 /** @} */ /* End of group RST_CLK_TIM_CLOCK */
 
-/** @defgroup Periph_RST_CLK_UART_CLOCK	RST CLK UART CLOCK
+/** @defgroup Periph_RST_CLK_UART_CLOCK RST CLK UART CLOCK
   * @{
   */
 
@@ -1021,9 +1259,19 @@ typedef struct
 #define RST_CLK_UART_CLOCK_UART1_CLK_EN         ((uint32_t)0x01000000)
 #define RST_CLK_UART_CLOCK_UART2_CLK_EN         ((uint32_t)0x02000000)
 
+/* UART BRG Modes */
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK            0x00
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_2      0x01
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_4      0x02
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_8      0x03
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_16     0x04
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_32     0x05
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_64     0x06
+#define RST_CLK_UART_CLOCK_UART_BRG_HCLK_DIV_128    0x07
+
 /** @} */ /* End of group RST_CLK_UART_CLOCK */
 
-/** @defgroup Periph_RST_CLK_SSP_CLOCK	RST CLK SSP CLOCK
+/** @defgroup Periph_RST_CLK_SSP_CLOCK  RST CLK SSP CLOCK
   * @{
   */
 
@@ -1039,6 +1287,16 @@ typedef struct
 #define RST_CLK_SSP_CLOCK_SSP2_BRG_Msk          ((uint32_t)0x0000FF00)
 #define RST_CLK_SSP_CLOCK_SSP1_CLK_EN           ((uint32_t)0x01000000)
 #define RST_CLK_SSP_CLOCK_SSP2_CLK_EN           ((uint32_t)0x02000000)
+
+/* SSP BRG Modes */
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK          0x00
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_2    0x01
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_4    0x02
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_8    0x03
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_16   0x04
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_32   0x05
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_64   0x06
+#define RST_CLK_SSP_CLOCK_SSP_BRG_HCLK_DIV_128  0x07
 
 /** @} */ /* End of group RST_CLK_SSP_CLOCK */
 
@@ -1083,7 +1341,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_DMA_STATUS	DMA STATUS
+/** @defgroup Periph_DMA_STATUS DMA STATUS
   * @{
   */
 
@@ -1102,7 +1360,7 @@ typedef struct
 
 /** @} */ /* End of group DMA_STATUS */
 
-/** @defgroup Periph_DMA_CFG	DMA CFG
+/** @defgroup Periph_DMA_CFG  DMA CFG
   * @{
   */
 
@@ -1156,7 +1414,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_UART_DR	UART DR
+/** @defgroup Periph_UART_DR  UART DR
   * @{
   */
 
@@ -1177,7 +1435,7 @@ typedef struct
 
 /** @} */ /* End of group UART_DR */
 
-/** @defgroup Periph_UART_RSR_ECR	UART RSR ECR
+/** @defgroup Periph_UART_RSR_ECR UART RSR ECR
   * @{
   */
 
@@ -1196,7 +1454,7 @@ typedef struct
 
 /** @} */ /* End of group UART_RSR_ECR */
 
-/** @defgroup Periph_UART_FR	UART FR
+/** @defgroup Periph_UART_FR  UART FR
   * @{
   */
 
@@ -1225,7 +1483,7 @@ typedef struct
 
 /** @} */ /* End of group UART_FR */
 
-/** @defgroup Periph_UART_LCR_H	UART LCR H
+/** @defgroup Periph_UART_LCR_H UART LCR H
   * @{
   */
 
@@ -1248,9 +1506,15 @@ typedef struct
 #define UART_LCR_H_WLEN_Msk                     ((uint32_t)0x00000060)
 #define UART_LCR_H_SPS                          ((uint32_t)0x00000080)
 
+/* WLEN Modes */
+#define UART_LCR_H_WLEN_5_BITS                  0x00
+#define UART_LCR_H_WLEN_6_BITS                  0x01
+#define UART_LCR_H_WLEN_7_BITS                  0x02
+#define UART_LCR_H_WLEN_8_BITS                  0x03
+
 /** @} */ /* End of group UART_LCR_H */
 
-/** @defgroup Periph_UART_CR	UART CR
+/** @defgroup Periph_UART_CR  UART CR
   * @{
   */
 
@@ -1285,7 +1549,7 @@ typedef struct
 
 /** @} */ /* End of group UART_CR */
 
-/** @defgroup Periph_UART_IFLS	UART IFLS
+/** @defgroup Periph_UART_IFLS  UART IFLS
   * @{
   */
 
@@ -1298,9 +1562,16 @@ typedef struct
 #define UART_IFLS_TXIFLSEL_Msk                  ((uint32_t)0x00000007)
 #define UART_IFLS_RXIFLSEL_Msk                  ((uint32_t)0x00000038)
 
+/* IFLSEL Modes */
+#define UART_IFLS_IFLSEL_1_DIV_8              0x00
+#define UART_IFLS_IFLSEL_1_DIV_4              0x01
+#define UART_IFLS_IFLSEL_1_DIV_2              0x02
+#define UART_IFLS_IFLSEL_3_DIV_4              0x03
+#define UART_IFLS_IFLSEL_7_DIV_8              0x04
+
 /** @} */ /* End of group UART_IFLS */
 
-/** @defgroup Periph_UART_IMSC	UART IMSC
+/** @defgroup Periph_UART_IMSC  UART IMSC
   * @{
   */
 
@@ -1333,7 +1604,7 @@ typedef struct
 
 /** @} */ /* End of group UART_IMSC */
 
-/** @defgroup Periph_UART_RIS	UART RIS
+/** @defgroup Periph_UART_RIS UART RIS
   * @{
   */
 
@@ -1366,7 +1637,7 @@ typedef struct
 
 /** @} */ /* End of group UART_RIS */
 
-/** @defgroup Periph_UART_MIS	UART MIS
+/** @defgroup Periph_UART_MIS UART MIS
   * @{
   */
 
@@ -1399,7 +1670,7 @@ typedef struct
 
 /** @} */ /* End of group UART_MIS */
 
-/** @defgroup Periph_UART_ICR	UART ICR
+/** @defgroup Periph_UART_ICR UART ICR
   * @{
   */
 
@@ -1432,7 +1703,7 @@ typedef struct
 
 /** @} */ /* End of group UART_ICR */
 
-/** @defgroup Periph_UART_DMACR	UART DMACR
+/** @defgroup Periph_UART_DMACR UART DMACR
   * @{
   */
 
@@ -1482,7 +1753,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_SSP_CR0	SSP CR0
+/** @defgroup Periph_SSP_CR0  SSP CR0
   * @{
   */
 
@@ -1501,9 +1772,29 @@ typedef struct
 #define SSP_CR0_SPH                             ((uint32_t)0x00000080)
 #define SSP_CR0_SCR_Msk                         ((uint32_t)0x0000FF00)
 
+/* DSS Modes */
+#define SSP_CR0_DSS_4_BITS                      0x03
+#define SSP_CR0_DSS_5_BITS                      0x04
+#define SSP_CR0_DSS_6_BITS                      0x05
+#define SSP_CR0_DSS_7_BITS                      0x06
+#define SSP_CR0_DSS_8_BITS                      0x07
+#define SSP_CR0_DSS_9_BITS                      0x08
+#define SSP_CR0_DSS_10_BITS                     0x09
+#define SSP_CR0_DSS_11_BITS                     0x0A
+#define SSP_CR0_DSS_12_BITS                     0x0B
+#define SSP_CR0_DSS_13_BITS                     0x0C
+#define SSP_CR0_DSS_14_BITS                     0x0D
+#define SSP_CR0_DSS_15_BITS                     0x0E
+#define SSP_CR0_DSS_16_BITS                     0x0F
+
+/* FRF Modes */
+#define SSP_CR0_FRF_SPI_MOT                     0x00
+#define SSP_CR0_FRF_SSI_TI                      0x01
+#define SSP_CR0_FRF_MW_NS                       0x02
+
 /** @} */ /* End of group SSP_CR0 */
 
-/** @defgroup Periph_SSP_CR1	SSP CR1
+/** @defgroup Periph_SSP_CR1  SSP CR1
   * @{
   */
 
@@ -1522,7 +1813,7 @@ typedef struct
 
 /** @} */ /* End of group SSP_CR1 */
 
-/** @defgroup Periph_SSP_SR	SSP SR
+/** @defgroup Periph_SSP_SR SSP SR
   * @{
   */
 
@@ -1543,7 +1834,20 @@ typedef struct
 
 /** @} */ /* End of group SSP_SR */
 
-/** @defgroup Periph_SSP_IMSC	SSP IMSC
+/** @defgroup Periph_SSP_CPSR SSP CPSR
+  * @{
+  */
+
+/*-- SSP_CPSR: SSP Clock Prescale Register --------------------------------*/
+/* Bit field positions: */
+#define SSP_CPSR_CPSDVSR_Pos                    0
+
+/* Bit field masks: */
+#define SSP_CPSR_CPSDVSR_Msk                    ((uint32_t)0x0000000F)
+
+/** @} */ /* End of group SSP_CPSR */
+
+/** @defgroup Periph_SSP_IMSC SSP IMSC
   * @{
   */
 
@@ -1562,7 +1866,7 @@ typedef struct
 
 /** @} */ /* End of group SSP_IMSC */
 
-/** @defgroup Periph_SSP_RIS	SSP RIS
+/** @defgroup Periph_SSP_RIS  SSP RIS
   * @{
   */
 
@@ -1581,7 +1885,7 @@ typedef struct
 
 /** @} */ /* End of group SSP_RIS */
 
-/** @defgroup Periph_SSP_MIS	SSP MIS
+/** @defgroup Periph_SSP_MIS  SSP MIS
   * @{
   */
 
@@ -1600,7 +1904,7 @@ typedef struct
 
 /** @} */ /* End of group SSP_MIS */
 
-/** @defgroup Periph_SSP_ICR	SSP ICR
+/** @defgroup Periph_SSP_ICR  SSP ICR
   * @{
   */
 
@@ -1615,7 +1919,7 @@ typedef struct
 
 /** @} */ /* End of group SSP_ICR */
 
-/** @defgroup Periph_SSP_DMACR	SSP DMACR
+/** @defgroup Periph_SSP_DMACR  SSP DMACR
   * @{
   */
 
@@ -1660,7 +1964,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_I2C_CTR	I2C CTR
+/** @defgroup Periph_I2C_CTR  I2C CTR
   * @{
   */
 
@@ -1677,7 +1981,7 @@ typedef struct
 
 /** @} */ /* End of group I2C_CTR */
 
-/** @defgroup Periph_I2C_STA	I2C STA
+/** @defgroup Periph_I2C_STA  I2C STA
   * @{
   */
 
@@ -1698,7 +2002,7 @@ typedef struct
 
 /** @} */ /* End of group I2C_STA */
 
-/** @defgroup Periph_I2C_CMD	I2C CMD
+/** @defgroup Periph_I2C_CMD  I2C CMD
   * @{
   */
 
@@ -1745,7 +2049,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_POWER_PVDCS	POWER PVDCS
+/** @defgroup Periph_POWER_PVDCS  POWER PVDCS
   * @{
   */
 
@@ -1800,7 +2104,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_WWDG_CR	WWDG CR
+/** @defgroup Periph_WWDG_CR  WWDG CR
   * @{
   */
 
@@ -1815,7 +2119,7 @@ typedef struct
 
 /** @} */ /* End of group WWDG_CR */
 
-/** @defgroup Periph_WWDG_CFR	WWDG CFR
+/** @defgroup Periph_WWDG_CFR WWDG CFR
   * @{
   */
 
@@ -1829,6 +2133,12 @@ typedef struct
 #define WWDG_CFR_W_Msk                          ((uint32_t)0x0000007F)
 #define WWDG_CFR_WGTB_Msk                       ((uint32_t)0x00000180)
 #define WWDG_CFR_EWI                            ((uint32_t)0x00000200)
+
+/* WGTB Modes */
+#define WWDG_CFR_WGTB_NO_DIV                    0x00
+#define WWDG_CFR_WGTB_DIV_2                     0x01
+#define WWDG_CFR_WGTB_DIV_4                     0x02
+#define WWDG_CFR_WGTB_DIV_8                     0x03
 
 /** @} */ /* End of group WWDG_CFR */
 
@@ -1859,7 +2169,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_IWDG_SR	IWDG SR
+/** @defgroup Periph_IWDG_SR  IWDG SR
   * @{
   */
 
@@ -1871,6 +2181,20 @@ typedef struct
 /* Bit field masks: */
 #define IWDG_SR_PVU                             ((uint32_t)0x00000001)
 #define IWDG_SR_RVU                             ((uint32_t)0x00000002)
+
+/* PR Modes */
+#define IWDG_PR_DIV_4                           0x00
+#define IWDG_PR_DIV_8                           0x01
+#define IWDG_PR_DIV_16                          0x02
+#define IWDG_PR_DIV_32                          0x03
+#define IWDG_PR_DIV_64                          0x04
+#define IWDG_PR_DIV_128                         0x05
+#define IWDG_PR_DIV_256                         0x06
+
+/* KR Keys */
+#define IWDG_KR_KEY_REG_EN                      0x00005555
+#define IWDG_KR_KEY_REWRITE                     0x0000AAAA
+#define IWDG_KR_KEY_WORK_EN                     0x0000CCCC
 
 /** @} */ /* End of group IWDG_SR */
 
@@ -1929,7 +2253,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_TIMER_CNTRL	TIMER CNTRL
+/** @defgroup Periph_TIMER_CNTRL  TIMER CNTRL
   * @{
   */
 
@@ -1952,9 +2276,34 @@ typedef struct
 #define TIMER_CNTRL_CNT_MODE_Msk                ((uint32_t)0x000000C0)
 #define TIMER_CNTRL_EVENT_SEL_Msk               ((uint32_t)0x00000F00)
 
+/* FDTS Modes */
+#define TIMER_CNTRL_FDTS_TIM_CLK                0x00
+#define TIMER_CNTRL_FDTS_SECOND_TIM_CLK         0x01
+#define TIMER_CNTRL_FDTS_THIRD_TIM_CLK          0x02
+#define TIMER_CNTRL_FDTS_FOURTH_TIM_CLK         0x03
+
+/* CNT Modes*/
+#define TIMER_CNTRL_CNT_MODE_UP_DIR_0_PSG_0             0x00
+#define TIMER_CNTRL_CNT_MODE_DOWN_DIR_1_PSG_0           0x00
+#define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_PSG_0     0x01
+#define TIMER_CNTRL_CNT_MODE_UP_DIR_0_EVENT_1           0x02
+#define TIMER_CNTRL_CNT_MODE_DOWN_DIR_1_EVENT_1         0x02
+#define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_EVENT_1   0x03
+
+/* EVENT SEL Modes */
+#define TIMER_CNTRL_EVENT_SEL_TIM_CLK           0x00
+#define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM1      0x01
+#define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM2      0x02
+#define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM3      0x03
+#define TIMER_CNTRL_EVENT_SEL_CH1_MODE1         0x04
+#define TIMER_CNTRL_EVENT_SEL_CH2_MODE1         0x05
+#define TIMER_CNTRL_EVENT_SEL_CH3_MODE1         0x06
+#define TIMER_CNTRL_EVENT_SEL_CH4_MODE1         0x07
+#define TIMER_CNTRL_EVENT_SEL_ETR_MODE2         0x08
+
 /** @} */ /* End of group TIMER_CNTRL */
 
-/** @defgroup Periph_TIMER_CH_CNTRL	TIMER CH CNTRL
+/** @defgroup Periph_TIMER_CH_CNTRL TIMER CH CNTRL
   * @{
   */
 
@@ -1981,9 +2330,67 @@ typedef struct
 #define TIMER_CH_CNTRL_WR_CMPL                  ((uint32_t)0x00004000)
 #define TIMER_CH_CNTRL_CAP_NPWM                 ((uint32_t)0x00008000)
 
+/* CHFLTR Modes */
+#define TIMER_CH_CNTRL_CHFLTR_1_TRG_TIM_CLK             0x00
+#define TIMER_CH_CNTRL_CHFLTR_2_TRG_TIM_CLK             0x01
+#define TIMER_CH_CNTRL_CHFLTR_4_TRG_TIM_CLK             0x02
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_TIM_CLK             0x03
+#define TIMER_CH_CNTRL_CHFLTR_6_TRG_FDTS_DIV_2          0x04
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_FDTS_DIV_2          0x05
+#define TIMER_CH_CNTRL_CHFLTR_6_TRG_FDTS_DIV_4          0x06
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_FDTS_DIV_4          0x07
+#define TIMER_CH_CNTRL_CHFLTR_6_TRG_FDTS_DIV_8          0x08
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_FDTS_DIV_8          0x09
+#define TIMER_CH_CNTRL_CHFLTR_5_TRG_FDTS_DIV_16         0x0A
+#define TIMER_CH_CNTRL_CHFLTR_6_TRG_FDTS_DIV_16         0x0B
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_FDTS_DIV_16         0x0C
+#define TIMER_CH_CNTRL_CHFLTR_5_TRG_FDTS_DIV_32         0x0D
+#define TIMER_CH_CNTRL_CHFLTR_6_TRG_FDTS_DIV_32         0x0E
+#define TIMER_CH_CNTRL_CHFLTR_8_TRG_FDTS_DIV_32         0x0F
+
+/* CHSEL Modes */
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE                   0x00
+#define TIMER_CH_CNTRL_CHSEL_NEG_EDGE                   0x01
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH1_FROM_CH2      0x02
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH2_FROM_CH3      0x02
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH3_FROM_CH4      0x02
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH4_FROM_CH1      0x02
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH1_FROM_CH3      0x03
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH2_FROM_CH4      0x03
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH3_FROM_CH1      0x03
+#define TIMER_CH_CNTRL_CHSEL_POS_EDGE_CH4_FROM_CH2      0x03
+
+/* CHPSC Modes */
+#define TIMER_CH_CNTRL_CHPSC_NO_DIV                     0x00
+#define TIMER_CH_CNTRL_CHPSC_DIV_2                      0x01
+#define TIMER_CH_CNTRL_CHPSC_DIV_4                      0x02
+#define TIMER_CH_CNTRL_CHPSC_DIV_8                      0x03
+
+/* OCCM Modes */
+// CCR1 EN = 0
+#define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
+#define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR               0x01
+#define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR               0x02
+#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
+#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+#define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CNT_CCR         0x06
+#define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CNT_CCR         0x06
+#define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CNT_CCR         0x07
+#define TIMER_CH_CNTRL_OCCM_REF_1_DIR_1_CNT_CCR         0x07
+// CCR1 EN = 1
+#define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
+#define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR_OR_CNT_CCR1   0x01
+#define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR_OR_CNT_CCR1   0x02
+#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
+#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+#define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CCR1_CNT_CCR    0x06
+#define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CCR_CNT_CCR1    0x06
+#define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CCR1_CNT_CCR    0x07
+#define TIMER_CH_CNTRL_OCCM_REF_1_DIR_1_CCR_CNT_CCR1    0x07
+
 /** @} */ /* End of group TIMER_CH_CNTRL */
 
-/** @defgroup Periph_TIMER_CH_CNTRL1	TIMER CH CNTRL1
+/** @defgroup Periph_TIMER_CH_CNTRL1  TIMER CH CNTRL1
   * @{
   */
 
@@ -2004,9 +2411,21 @@ typedef struct
 #define TIMER_CH_CNTRL1_NSELO_Msk               ((uint32_t)0x00000C00)
 #define TIMER_CH_CNTRL1_NINV                    ((uint32_t)0x00001000)
 
+/* SELOE Modes */
+#define TIMER_CH_CNTRL1_SELOE_OUT_DIS           0x00
+#define TIMER_CH_CNTRL1_SELOE_OUT_EN            0x01
+#define TIMER_CH_CNTRL1_SELOE_OUT_REF_Z_OUT     0x02
+#define TIMER_CH_CNTRL1_SELOE_OUT_DTG_Z_OUT     0x03
+
+/* SELO Modes */
+#define TIMER_CH_CNTRL1_SELO_OUT_0              0x00
+#define TIMER_CH_CNTRL1_SELO_OUT_1              0x01
+#define TIMER_CH_CNTRL1_SELO_OUT_REF            0x02
+#define TIMER_CH_CNTRL1_SELO_OUT_DTG            0x03
+
 /** @} */ /* End of group TIMER_CH_CNTRL1 */
 
-/** @defgroup Periph_TIMER_CH_DTG	TIMER CH DTG
+/** @defgroup Periph_TIMER_CH_DTG TIMER CH DTG
   * @{
   */
 
@@ -2023,7 +2442,7 @@ typedef struct
 
 /** @} */ /* End of group TIMER_CH_DTG */
 
-/** @defgroup Periph_TIMER_BRKETR_CNTRL	TIMER BRKETR CNTRL
+/** @defgroup Periph_TIMER_BRKETR_CNTRL TIMER BRKETR CNTRL
   * @{
   */
 
@@ -2040,9 +2459,33 @@ typedef struct
 #define TIMER_BRKETR_CNTRL_ETR_PSC_Msk          ((uint32_t)0x0000000C)
 #define TIMER_BRKETR_CNTRL_ETR_FILTER_Msk       ((uint32_t)0x000000F0)
 
+/* ETR PSC Modes */
+#define TIMER_BRKETR_CNTRL_ETR_PSC_NO_DIV       0x00
+#define TIMER_BRKETR_CNTRL_ETR_PSC_DIV_2        0x01
+#define TIMER_BRKETR_CNTRL_ETR_PSC_DIV_4        0x02
+#define TIMER_BRKETR_CNTRL_ETR_PSC_DIV_8        0x03
+
+/* ETR FILTER Modes */
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_1_TRG_TIM_CLK             0x00
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_2_TRG_TIM_CLK             0x01
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_4_TRG_TIM_CLK             0x02
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_TIM_CLK             0x03
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_6_TRG_FDTS_DIV_2          0x04
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_FDTS_DIV_2          0x05
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_6_TRG_FDTS_DIV_4          0x06
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_FDTS_DIV_4          0x07
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_6_TRG_FDTS_DIV_8          0x08
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_FDTS_DIV_8          0x09
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_5_TRG_FDTS_DIV_16         0x0A
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_6_TRG_FDTS_DIV_16         0x0B
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_FDTS_DIV_16         0x0C
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_5_TRG_FDTS_DIV_32         0x0D
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_6_TRG_FDTS_DIV_32         0x0E
+#define TIMER_BRKETR_CNTRL_ETR_FILTER_8_TRG_FDTS_DIV_32         0x0F
+
 /** @} */ /* End of group TIMER_BRKETR_CNTRL */
 
-/** @defgroup Periph_TIMER_STATUS	TIMER STATUS
+/** @defgroup Periph_TIMER_STATUS TIMER STATUS
   * @{
   */
 
@@ -2069,7 +2512,7 @@ typedef struct
 
 /** @} */ /* End of group TIMER_STATUS */
 
-/** @defgroup Periph_TIMER_IE	TIMER IE
+/** @defgroup Periph_TIMER_IE TIMER IE
   * @{
   */
 
@@ -2096,7 +2539,7 @@ typedef struct
 
 /** @} */ /* End of group TIMER_IE */
 
-/** @defgroup Periph_TIMER_DMA_RE	TIMER DMA RE
+/** @defgroup Periph_TIMER_DMA_RE TIMER DMA RE
   * @{
   */
 
@@ -2123,7 +2566,7 @@ typedef struct
 
 /** @} */ /* End of group TIMER_DMA_RE */
 
-/** @defgroup Periph_TIMER_CH_CNTRL2	TIMER CH CNTRL2
+/** @defgroup Periph_TIMER_CH_CNTRL2  TIMER CH CNTRL2
   * @{
   */
 
@@ -2137,6 +2580,18 @@ typedef struct
 #define TIMER_CH_CNTRL2_CHSEL1_Msk              ((uint32_t)0x00000003)
 #define TIMER_CH_CNTRL2_CCR1_EN                 ((uint32_t)0x00000004)
 #define TIMER_CH_CNTRL2_CCRRLD                  ((uint32_t)0x00000008)
+
+/* CHSEL1 Modes */
+#define TIMER_CH_CNTRL2_CHSEL1_POS_EDGE                   0x00
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE                   0x01
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH1_FROM_CH2      0x02
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH2_FROM_CH3      0x02
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH3_FROM_CH4      0x02
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH4_FROM_CH1      0x02
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH1_FROM_CH3      0x03
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH2_FROM_CH4      0x03
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH3_FROM_CH1      0x03
+#define TIMER_CH_CNTRL2_CHSEL1_NEG_EDGE_CH4_FROM_CH2      0x03
 
 /** @} */ /* End of group TIMER_CH_CNTRL2 */
 
@@ -2175,7 +2630,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_ADC1_CFG	ADC1 CFG
+/** @defgroup Periph_ADC1_CFG ADC1 CFG
   * @{
   */
 
@@ -2218,9 +2673,37 @@ typedef struct
 #define ADC1_CFG_DELAY_GO_Msk                   ((uint32_t)0x0E000000)
 #define ADC1_CFG_DELAY_ADC_Msk                  ((uint32_t)0xF0000000)
 
+/* Delay Go Modes */
+#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x00
+#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x01
+#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x02
+#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x03
+#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x04
+#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x05
+#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x06
+#define ADC1_CFG_DELAY_GO_8_CPU_CLK             0x07
+
+/* Delay ADC Modes */
+#define ADC1_CFG_DELAY_ADC_1_CPU_CLK            0x00
+#define ADC1_CFG_DELAY_ADC_2_CPU_CLK            0x01
+#define ADC1_CFG_DELAY_ADC_3_CPU_CLK            0x02
+#define ADC1_CFG_DELAY_ADC_4_CPU_CLK            0x03
+#define ADC1_CFG_DELAY_ADC_5_CPU_CLK            0x04
+#define ADC1_CFG_DELAY_ADC_6_CPU_CLK            0x05
+#define ADC1_CFG_DELAY_ADC_7_CPU_CLK            0x06
+#define ADC1_CFG_DELAY_ADC_8_CPU_CLK            0x07
+#define ADC1_CFG_DELAY_ADC_9_CPU_CLK            0x08
+#define ADC1_CFG_DELAY_ADC_10_CPU_CLK           0x09
+#define ADC1_CFG_DELAY_ADC_11_CPU_CLK           0x0A
+#define ADC1_CFG_DELAY_ADC_12_CPU_CLK           0x0B
+#define ADC1_CFG_DELAY_ADC_13_CPU_CLK           0x0C
+#define ADC1_CFG_DELAY_ADC_14_CPU_CLK           0x0D
+#define ADC1_CFG_DELAY_ADC_15_CPU_CLK           0x0E
+#define ADC1_CFG_DELAY_ADC_16_CPU_CLK           0x0F
+
 /** @} */ /* End of group ADC1_CFG */
 
-/** @defgroup Periph_ADC2_CFG	ADC2 CFG
+/** @defgroup Periph_ADC2_CFG ADC2 CFG
   * @{
   */
 
@@ -2253,9 +2736,37 @@ typedef struct
 #define ADC2_CFG_ADC2_OP                        ((uint32_t)0x00040000)
 #define ADC2_CFG_DELAY_GO_Msk                   ((uint32_t)0x0E000000)
 
+/* Delay Go Modes */
+#define ADC2_CFG_DELAY_GO_0_CPU_CLK             0x00
+#define ADC2_CFG_DELAY_GO_1_CPU_CLK             0x01
+#define ADC2_CFG_DELAY_GO_2_CPU_CLK             0x02
+#define ADC2_CFG_DELAY_GO_3_CPU_CLK             0x03
+#define ADC2_CFG_DELAY_GO_4_CPU_CLK             0x04
+#define ADC2_CFG_DELAY_GO_5_CPU_CLK             0x05
+#define ADC2_CFG_DELAY_GO_6_CPU_CLK             0x06
+#define ADC2_CFG_DELAY_GO_7_CPU_CLK             0x07
+
 /** @} */ /* End of group ADC2_CFG */
 
-/** @defgroup Periph_ADC1_RESULT	ADC1 RESULT
+/* CFG REG CHS Modes */
+#define ADC_CFG_REG_CHS_VREF                    30
+#define ADC_CFG_REG_CHS_TS                      31
+
+/* CFG REG DIVCLK Modes*/
+#define ADC_CFG_REG_DIVCLK_HCLK                 0x00
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_2           0x01
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_4           0x02
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_8           0x03
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_16          0x04
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_32          0x05
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_64          0x06
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_128         0x07
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_256         0x08
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_512         0x09
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_1024        0x0A
+#define ADC_CFG_REG_DIVCLK_HCLK_DIV_2048        0x0B
+
+/** @defgroup Periph_ADC1_RESULT  ADC1 RESULT
   * @{
   */
 
@@ -2271,7 +2782,7 @@ typedef struct
 
 /** @} */ /* End of group ADC1_RESULT */
 
-/** @defgroup Periph_ADC1_STATUS	ADC1 STATUS
+/** @defgroup Periph_ADC1_STATUS  ADC1 STATUS
   * @{
   */
 
@@ -2319,7 +2830,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_DAC_CFG	DAC CFG
+/** @defgroup Periph_DAC_CFG  DAC CFG
   * @{
   */
 
@@ -2340,7 +2851,7 @@ typedef struct
 
 /** @} */ /* End of group DAC_CFG */
 
-/** @defgroup Periph_DAC1_DATA	DAC1 DATA
+/** @defgroup Periph_DAC1_DATA  DAC1 DATA
   * @{
   */
 
@@ -2355,7 +2866,7 @@ typedef struct
 
 /** @} */ /* End of group DAC1_DATA */
 
-/** @defgroup Periph_DAC2_DATA	DAC2 DATA
+/** @defgroup Periph_DAC2_DATA  DAC2 DATA
   * @{
   */
 
@@ -2396,7 +2907,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_COMP_CFG	COMP CFG
+/** @defgroup Periph_COMP_CFG COMP CFG
   * @{
   */
 
@@ -2425,9 +2936,15 @@ typedef struct
 #define COMP_CFG_READY                          ((uint32_t)0x00001000)
 #define COMP_CFG_CMPIE                          ((uint32_t)0x00002000)
 
+/* COMP CFG CCH Modes */
+#define COMP_CFG_CCH_NEG_IN_2                   0x00
+#define COMP_CFG_CCH_NEG_IN_1                   0x01
+#define COMP_CFG_CCH_NEG_IN_3                   0x02
+#define COMP_CFG_CCH_NEG_IVREF                  0x03
+
 /** @} */ /* End of group COMP_CFG */
 
-/** @defgroup Periph_COMP_RESULT	COMP RESULT
+/** @defgroup Periph_COMP_RESULT  COMP RESULT
   * @{
   */
 
@@ -2475,7 +2992,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_PORT_FUNC	PORT FUNC
+/** @defgroup Periph_PORT_FUNC  PORT FUNC
   * @{
   */
 
@@ -2499,6 +3016,7 @@ typedef struct
 #define PORT_FUNC_MODE15_Pos                    30
 
 /* Bit field masks: */
+#define PORT_FUNC_MODE_Msk                      3U
 #define PORT_FUNC_MODE0_Msk                     ((uint32_t)0x00000003)
 #define PORT_FUNC_MODE1_Msk                     ((uint32_t)0x0000000C)
 #define PORT_FUNC_MODE2_Msk                     ((uint32_t)0x00000030)
@@ -2516,9 +3034,15 @@ typedef struct
 #define PORT_FUNC_MODE14_Msk                    ((uint32_t)0x30000000)
 #define PORT_FUNC_MODE15_Msk                    ((uint32_t)0xC0000000)
 
+/* PORT FUNC Modes */
+#define PORT_FUNC_MODE_PORT   0U
+#define PORT_FUNC_MODE_MAIN   1U
+#define PORT_FUNC_MODE_ALT    2U
+#define PORT_FUNC_MODE_OVER   3U
+
 /** @} */ /* End of group PORT_FUNC */
 
-/** @defgroup Periph_PORT_PULL	PORT PULL
+/** @defgroup Periph_PORT_PULL  PORT PULL
   * @{
   */
 
@@ -2533,7 +3057,7 @@ typedef struct
 
 /** @} */ /* End of group PORT_PULL */
 
-/** @defgroup Periph_PORT_PD	PORT PD
+/** @defgroup Periph_PORT_PD  PORT PD
   * @{
   */
 
@@ -2548,7 +3072,7 @@ typedef struct
 
 /** @} */ /* End of group PORT_PD */
 
-/** @defgroup Periph_PORT_PWR	PORT PWR
+/** @defgroup Periph_PORT_PWR PORT PWR
   * @{
   */
 
@@ -2572,6 +3096,7 @@ typedef struct
 #define PORT_PWR15_Pos                          30
 
 /* Bit field masks: */
+#define PORT_PWR_Msk                            3U
 #define PORT_PWR0_Msk                           ((uint32_t)0x00000003)
 #define PORT_PWR1_Msk                           ((uint32_t)0x0000000C)
 #define PORT_PWR2_Msk                           ((uint32_t)0x00000030)
@@ -2588,6 +3113,12 @@ typedef struct
 #define PORT_PWR13_Msk                          ((uint32_t)0x0C000000)
 #define PORT_PWR14_Msk                          ((uint32_t)0x30000000)
 #define PORT_PWR15_Msk                          ((uint32_t)0xC0000000)
+
+/* PORT PWR Modes */
+#define PORT_PWR_OFF        0U
+#define PORT_PWR_SLOW       1U
+#define PORT_PWR_FAST       2U
+#define PORT_PWR_MAX_FAST   3U
 
 /** @} */ /* End of group PORT_PWR */
 
@@ -2635,7 +3166,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_BKP_REG_0E	BKP REG 0E
+/** @defgroup Periph_BKP_REG_0E BKP REG 0E
   * @{
   */
 
@@ -2660,7 +3191,7 @@ typedef struct
 
 /** @} */ /* End of group BKP_REG_0E */
 
-/** @defgroup Periph_BKP_REG_0F	BKP REG 0F
+/** @defgroup Periph_BKP_REG_0F BKP REG 0F
   * @{
   */
 
@@ -2701,7 +3232,7 @@ typedef struct
 
 /** @} */ /* End of group BKP_REG_0F */
 
-/** @defgroup Periph_BKP_RTC_CS	BKP RTC CS
+/** @defgroup Periph_BKP_RTC_CS BKP RTC CS
   * @{
   */
 
@@ -2755,7 +3286,7 @@ typedef struct
   * @{
   */
 
-/** @defgroup Periph_EBC_NAND_CYCLES	EBC NAND CYCLES
+/** @defgroup Periph_EBC_NAND_CYCLES  EBC NAND CYCLES
   * @{
   */
 
@@ -2780,7 +3311,7 @@ typedef struct
 
 /** @} */ /* End of group EBC_NAND_CYCLES */
 
-/** @defgroup Periph_EBC_CONTROL	EBC CONTROL
+/** @defgroup Periph_EBC_CONTROL  EBC CONTROL
   * @{
   */
 
@@ -2793,8 +3324,8 @@ typedef struct
 #define EBC_CONTROL_BUSY_Pos                    7
 #define EBC_CONTROL_WAIT_STATE_Pos              12
 #if defined (USE_MDR1986VE94)
-	#define EBC_CONTROL_FS_RDY_Pos					16
-	#define EBC_CONTROL_FF_RDY_Pos					17
+  #define EBC_CONTROL_FS_RDY_Pos          16
+  #define EBC_CONTROL_FF_RDY_Pos          17
 #endif
 
 /* Bit field masks: */
@@ -2805,8 +3336,8 @@ typedef struct
 #define EBC_CONTROL_BUSY                        ((uint32_t)0x00000080)
 #define EBC_CONTROL_WAIT_STATE_Msk              ((uint32_t)0x0000F000)
 #if defined (USE_MDR1986VE94)
-	#define EBC_CONTROL_FS_RDY					((uint32_t)0x00010000)
-	#define EBC_CONTROL_FF_RDY					((uint32_t)0x00020000)
+  #define EBC_CONTROL_FS_RDY          ((uint32_t)0x00010000)
+  #define EBC_CONTROL_FF_RDY          ((uint32_t)0x00020000)
 #endif
 
 
@@ -2814,24 +3345,24 @@ typedef struct
 
 #if defined (USE_MDR1986VE94)
 
-/** @defgroup Periph_EBC_RAM_CYCLESx	EBC RAM CYCLESx
+/** @defgroup Periph_EBC_RAM_CYCLESx  EBC RAM CYCLESx
   * @{
   */
 
 /*-- EBC_RAM_CYCLESx: Register customization options exchange with RAM -------*/
 /* Bit field positions: */
-#define EBC_RAM_CYCLES_ENABLE_TUNE_Pos			0
-#define EBC_RAM_CYCLES_WS_ACTIVE_Pos			1
-#define EBC_RAM_CYCLES_WS_SETUP_Pos				8
-#define EBC_RAM_CYCLES_WS_HOLD_Pos				11
-#define EBC_RAM_CYCLES_USE_READY_Pos			14
+#define EBC_RAM_CYCLES_ENABLE_TUNE_Pos      0
+#define EBC_RAM_CYCLES_WS_ACTIVE_Pos      1
+#define EBC_RAM_CYCLES_WS_SETUP_Pos       8
+#define EBC_RAM_CYCLES_WS_HOLD_Pos        11
+#define EBC_RAM_CYCLES_USE_READY_Pos      14
 
 /* Bit field masks: */
-#define EBC_RAM_CYCLES_ENABLE_TUNE				((uint32_t)0x00000001)
-#define EBC_RAM_CYCLES_WS_ACTIVE_Msk			((uint32_t)0x000000FE)
-#define EBC_RAM_CYCLES_WS_SETUP_Msk				((uint32_t)0x00000700)
-#define EBC_RAM_CYCLES_WS_HOLD_Msk				((uint32_t)0x00003200)
-#define EBC_RAM_CYCLES_USE_READY				((uint32_t)0x00004000)
+#define EBC_RAM_CYCLES_ENABLE_TUNE        ((uint32_t)0x00000001)
+#define EBC_RAM_CYCLES_WS_ACTIVE_Msk      ((uint32_t)0x000000FE)
+#define EBC_RAM_CYCLES_WS_SETUP_Msk       ((uint32_t)0x00000700)
+#define EBC_RAM_CYCLES_WS_HOLD_Msk        ((uint32_t)0x00003200)
+#define EBC_RAM_CYCLES_USE_READY        ((uint32_t)0x00004000)
 
 /** @} */ /* End of group EBC_RAM_CYCLESx */
 #endif
@@ -2918,6 +3449,26 @@ typedef struct
 #endif
 
 /** @} */ /* End of group __MDR32Fx_Peripheral */
+
+#define BITBAND_SRAM_REF    (0x20000000)
+#define BITBAND_SRAM_BASE   (0x22000000)
+#define BITBAND_PER_REF     (0x40000000)
+#define BITBAND_PER_BASE    (0x42000000)
+
+#define BIT_RAM(a,b) *((volatile uint32_t *)(BITBAND_SRAM_BASE+(a-BITBAND_SRAM_REF)*32+(b*4)))
+#define BIT_PER(a,b) *((volatile uint32_t *)(BITBAND_PER_BASE+((uint32_t)&a-BITBAND_PER_REF)*32+(b*4)))
+
+#define CLR_BIT_RAM(a,b) (BIT_RAM(a,b) = 0x00000000)
+#define CLR_BIT_PER(a,b) (BIT_PER(a,b) = 0x00000000)
+
+#define SET_BIT_RAM(a,b) (BIT_RAM(a,b) = 0x00000001)
+#define SET_BIT_PER(a,b) (BIT_PER(a,b) = 0x00000001)
+
+#define CHF_BIT_RAM(a,b) (BIT_RAM(a,b) == 0x00000000)
+#define CHF_BIT_PER(a,b) (BIT_PER(a,b) == 0x00000000)
+
+#define CHT_BIT_RAM(a,b) (BIT_RAM(a,b) == 0x00000001)
+#define CHT_BIT_PER(a,b) (BIT_PER(a,b) == 0x00000001)
 
 /** @} */ /* End of group MDR1986VE9x */
 
