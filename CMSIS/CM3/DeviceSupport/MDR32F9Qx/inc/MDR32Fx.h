@@ -3324,8 +3324,8 @@ typedef struct
 #define EBC_CONTROL_BUSY_Pos                    7
 #define EBC_CONTROL_WAIT_STATE_Pos              12
 #if defined (USE_MDR1986VE94)
-  #define EBC_CONTROL_FS_RDY_Pos          16
-  #define EBC_CONTROL_FF_RDY_Pos          17
+  #define EBC_CONTROL_FS_RDY_Pos                16
+  #define EBC_CONTROL_FF_RDY_Pos                17
 #endif
 
 /* Bit field masks: */
@@ -3336,8 +3336,8 @@ typedef struct
 #define EBC_CONTROL_BUSY                        ((uint32_t)0x00000080)
 #define EBC_CONTROL_WAIT_STATE_Msk              ((uint32_t)0x0000F000)
 #if defined (USE_MDR1986VE94)
-  #define EBC_CONTROL_FS_RDY          ((uint32_t)0x00010000)
-  #define EBC_CONTROL_FF_RDY          ((uint32_t)0x00020000)
+  #define EBC_CONTROL_FS_RDY                    ((uint32_t)0x00010000)
+  #define EBC_CONTROL_FF_RDY                    ((uint32_t)0x00020000)
 #endif
 
 
@@ -3351,7 +3351,7 @@ typedef struct
 
 /*-- EBC_RAM_CYCLESx: Register customization options exchange with RAM -------*/
 /* Bit field positions: */
-#define EBC_RAM_CYCLES_ENABLE_TUNE_Pos      0
+#define EBC_RAM_CYCLES_ENABLE_TUNE_Pos    0
 #define EBC_RAM_CYCLES_WS_ACTIVE_Pos      1
 #define EBC_RAM_CYCLES_WS_SETUP_Pos       8
 #define EBC_RAM_CYCLES_WS_HOLD_Pos        11
@@ -3362,7 +3362,7 @@ typedef struct
 #define EBC_RAM_CYCLES_WS_ACTIVE_Msk      ((uint32_t)0x000000FE)
 #define EBC_RAM_CYCLES_WS_SETUP_Msk       ((uint32_t)0x00000700)
 #define EBC_RAM_CYCLES_WS_HOLD_Msk        ((uint32_t)0x00003200)
-#define EBC_RAM_CYCLES_USE_READY        ((uint32_t)0x00004000)
+#define EBC_RAM_CYCLES_USE_READY          ((uint32_t)0x00004000)
 
 /** @} */ /* End of group EBC_RAM_CYCLESx */
 #endif
@@ -3455,8 +3455,8 @@ typedef struct
 #define BITBAND_PER_REF     (0x40000000)
 #define BITBAND_PER_BASE    (0x42000000)
 
-#define BIT_RAM(a,b) *((volatile uint32_t *)(BITBAND_SRAM_BASE+(a-BITBAND_SRAM_REF)*32+(b*4)))
-#define BIT_PER(a,b) *((volatile uint32_t *)(BITBAND_PER_BASE+((uint32_t)&a-BITBAND_PER_REF)*32+(b*4)))
+#define BIT_RAM(a,b) *((volatile uint32_t *)(BITBAND_SRAM_BASE+((a)-BITBAND_SRAM_REF)*32+((b)*4)))
+#define BIT_PER(a,b) *((volatile uint32_t *)(BITBAND_PER_BASE+((uint32_t)&(a)-BITBAND_PER_REF)*32+((b)*4)))
 
 #define CLR_BIT_RAM(a,b) (BIT_RAM(a,b) = 0x00000000)
 #define CLR_BIT_PER(a,b) (BIT_PER(a,b) = 0x00000000)
