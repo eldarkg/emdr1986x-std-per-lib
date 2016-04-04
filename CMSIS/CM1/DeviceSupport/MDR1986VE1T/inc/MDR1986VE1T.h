@@ -4636,7 +4636,6 @@ typedef struct {
 #define MDR_EBC_BASE              (0x400F0000)  // 30
 #define MDR_SSP3_BASE             (0x400F8000)  // 31
 #define MDR_ETHERNET1_BASE        (0x30000000)
-#define MDR_SYS_BASE              (0xE000E000)
 
 /** @} */ /* End of group __Peripheral_Memory_Map */
 
@@ -4677,7 +4676,6 @@ typedef struct {
 #define MDR_EBC                   ((MDR_EBC_TypeDef           *)MDR_EBC_BASE          )
 #define MDR_SSP3                  ((MDR_SSP_TypeDef           *)MDR_SSP3_BASE         )
 #define MDR_ETHERNET1             ((MDR_ETHERNET_TypeDef      *)MDR_ETHERNET1_BASE    )
-#define MDR_SYS                   ((MDR_SYS_TypeDef           *)MDR_SYS_BASE          )
 
 /** @} */ /* End of group __Peripheral_declaration */
 

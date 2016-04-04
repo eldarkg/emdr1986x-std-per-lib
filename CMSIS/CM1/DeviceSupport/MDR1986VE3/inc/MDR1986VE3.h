@@ -4609,7 +4609,6 @@ typedef struct
 #define MDR_PORTI_BASE			  (0x40140000)
 #define MDR_ETHERNET1_BASE		  (0x30000000)
 #define MDR_ETHERNET2_BASE		  (0x34000000)
-#define MDR_SYS_BASE			  (0xE000E000)
 
 /** @} */ /* End of group __Peripheral_Memory_Map */
 
@@ -4660,7 +4659,6 @@ typedef struct
 #define MDR_PORTI				  ((MDR_PORT_TypeDef		  *)MDR_PORTI_BASE		  )
 #define MDR_ETHERNET1			  ((MDR_ETHERNET_TypeDef	  *)MDR_ETHERNET1_BASE	  )
 #define MDR_ETHERNET2			  ((MDR_ETHERNET_TypeDef	  *)MDR_ETHERNET2_BASE	  )
-#define MDR_SYS 				  ((MDR_SYS_TypeDef 		  *)MDR_SYS_BASE		  )
 
 /** @} */ /* End of group __Peripheral_declaration */
 
