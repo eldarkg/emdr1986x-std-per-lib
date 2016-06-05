@@ -820,8 +820,8 @@ ITStatus CAN_GetTxITStatus(MDR_CAN_TypeDef* CANx, uint32_t BufferNumber)
 }
 
 /**
-  * @brief  Clears the CANx transmission or reception buffer interrupt
-  *         pending bits.
+  * @brief  Clears the CANx reception buffer interrupt pending bit,
+  *         does nothing if transmission interrupt pending bit is specified.
   * @param  CANx: Select the CAN peripheral.
   *         This parameter can be one of the following values:
   *         CAN1, CAN2.
@@ -847,10 +847,16 @@ void CAN_ITClearRxTxPendingBit(MDR_CAN_TypeDef* CANx, uint32_t BufferNumber, uin
   {
     tmpreg &= ~CAN_STATUS_RX_FULL;
   }
+  /* FIXME: Setting of TX_REQ bit here, initiates a retransmission of a previous
+     message. For this reason, the following branch has been commented out.
+     The transmission interrupt pending bit will be automatically cleared when you
+     start the next transmission.
+
   else if (Status_Flag == CAN_STATUS_TX_READY)
   {
     tmpreg |= CAN_STATUS_TX_REQ;
   }
+  */
 
   CANx->BUF_CON[BufferNumber] = tmpreg;
 }
