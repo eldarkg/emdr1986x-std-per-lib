@@ -60,7 +60,7 @@
 	#define USE_MDR1986VE1T
 #endif
 
-/* Selet the header file for target microcontroller */
+/* Select the header file for target microcontroller */
 #if defined ( USE_MDR1986VE9x )
 	#include "MDR32Fx.h"
 #elif defined (USE_MDR1986VE1T)
@@ -77,7 +77,7 @@
  * if there is no JTAG ports */
 #if (defined(USE_MDR1986VE9x) || defined (USE_MDR1901VC1T))
 /* #define USE_JTAG_A */
- #define USE_JTAG_B 
+ #define USE_JTAG_B
 #endif
 
 /* Target system parameters */
@@ -173,7 +173,7 @@
 /* #define USB_CDC_STATE_REPORTING_SUPPORTED 	*/
 /* #define USB_CDC_ENCAPSULATION_SUPPORTED 	*/
 /* #define USB_CDC_COMM_FEATURE_SUPPORTED 	*/
-#define USB_CDC_LINE_CODING_SUPPORTED 	
+#define USB_CDC_LINE_CODING_SUPPORTED
 /* #define USB_CDC_CONTROL_LINE_STATE_SUPPORTED */
 /* #define USB_CDC_LINE_BREAK_SUPPORTED 	*/
 
