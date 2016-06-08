@@ -14,7 +14,7 @@ This isn't official library that compatible with GCC compiler.
 
 [**Link to a recomended GCC compiler version**](https://launchpad.net/gcc-arm-embedded)
 
-Tested version of GCC compiler 4.9.
+Tested version of GCC compiler 4.9, 5.0.
 
 ### Usage (pseudocode)
 ```
