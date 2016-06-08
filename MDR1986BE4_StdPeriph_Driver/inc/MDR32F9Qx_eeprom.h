@@ -115,7 +115,7 @@ extern "C" {
 #elif defined ( __CC_ARM )
   #define __RAMFUNC
 #elif defined ( __GNUC__ )
-  #define __RAMFUNC       __attribute__((section(".ramfunc"), long_call))
+  #define __RAMFUNC       __attribute__((section(".ramfunc")))
 #endif
 
 #if defined ( __GNUC__ )
