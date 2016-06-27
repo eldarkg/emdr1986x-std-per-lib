@@ -558,17 +558,13 @@ typedef struct
 #define USB_SIS_SCSOFREC_Set                 USB_SIS_SCSOFREC
 #define USB_SIS_SCNAKSENT_Set                USB_SIS_SCNAKSENT
 
-#define USB_SIS_Msk                          USB_SIS_SCTDONE_Set   | \
-                                             USB_SIS_SCRESUME_Set  | \
-                                             USB_SIS_SCRESETEV_Set | \
-                                             USB_SIS_SCSOFREC_Set  | \
-                                             USB_SIS_SCNAKSENT_Set
+#define USB_SIS_Msk                          (USB_SIS_SCTDONE_Set   | \
+                                              USB_SIS_SCRESUME_Set  | \
+                                              USB_SIS_SCRESETEV_Set | \
+                                              USB_SIS_SCSOFREC_Set  | \
+                                              USB_SIS_SCNAKSENT_Set)
 
-#define IS_USB_SIS_VALUE(VALUE)              (((VALUE) == USB_SIS_SCTDONE_Set)   || \
-                                              ((VALUE) == USB_SIS_SCRESUME_Set)  || \
-                                              ((VALUE) == USB_SIS_SCRESETEV_Set) || \
-                                              ((VALUE) == USB_SIS_SCSOFREC_Set)  || \
-                                              ((VALUE) == USB_SIS_SCNAKSENT_Set))
+#define IS_USB_SIS_VALUE(VALUE)              (!((VALUE) & ~USB_SIS_Msk))
 
 /** @} */ /* End of group USB_SIS_Values */
 
