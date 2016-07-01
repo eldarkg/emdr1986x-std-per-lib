@@ -3455,20 +3455,20 @@ typedef struct
 #define BITBAND_PER_REF     (0x40000000)
 #define BITBAND_PER_BASE    (0x42000000)
 
-#define BIT_RAM(a,b) *((volatile uint32_t *)(BITBAND_SRAM_BASE+((a)-BITBAND_SRAM_REF)*32+((b)*4)))
-#define BIT_PER(a,b) *((volatile uint32_t *)(BITBAND_PER_BASE+((uint32_t)&(a)-BITBAND_PER_REF)*32+((b)*4)))
+#define BIT_RAM_P(pa,b) *((volatile uint32_t *)(BITBAND_SRAM_BASE+((uint32_t)(pa)-BITBAND_SRAM_REF)*32+((b)*4)))
+#define BIT_PER(a,b)    *((volatile uint32_t *)(BITBAND_PER_BASE +((uint32_t)&(a)-BITBAND_PER_REF) *32+((b)*4)))
 
-#define CLR_BIT_RAM(a,b) (BIT_RAM(a,b) = 0x00000000)
-#define CLR_BIT_PER(a,b) (BIT_PER(a,b) = 0x00000000)
+#define CLR_BIT_RAM_P(pa,b) (BIT_RAM_P(pa,b) = 0x00000000)
+#define CLR_BIT_PER(a,b)    (BIT_PER(a,b)    = 0x00000000)
 
-#define SET_BIT_RAM(a,b) (BIT_RAM(a,b) = 0x00000001)
-#define SET_BIT_PER(a,b) (BIT_PER(a,b) = 0x00000001)
+#define SET_BIT_RAM_P(pa,b) (BIT_RAM_P(pa,b) = 0x00000001)
+#define SET_BIT_PER(a,b)    (BIT_PER(a,b)    = 0x00000001)
 
-#define CHF_BIT_RAM(a,b) (BIT_RAM(a,b) == 0x00000000)
-#define CHF_BIT_PER(a,b) (BIT_PER(a,b) == 0x00000000)
+#define CHF_BIT_RAM_P(pa,b) (BIT_RAM_P(pa,b) == 0x00000000)
+#define CHF_BIT_PER(a,b)    (BIT_PER(a,b)    == 0x00000000)
 
-#define CHT_BIT_RAM(a,b) (BIT_RAM(a,b) == 0x00000001)
-#define CHT_BIT_PER(a,b) (BIT_PER(a,b) == 0x00000001)
+#define CHT_BIT_RAM_P(pa,b) (BIT_RAM_P(pa,b) == 0x00000001)
+#define CHT_BIT_PER(a,b)    (BIT_PER(a,b)    == 0x00000001)
 
 /** @} */ /* End of group MDR1986VE9x */
 
