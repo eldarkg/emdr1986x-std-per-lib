@@ -1354,7 +1354,7 @@ USB_Result USB_DeviceDispatchEvent(void)
     }
 
     /* Clear pending bits, except for SCTDONE */
-    USB_SetSIS(USB_IT & (~USB_SIS_SCTDONE_Set));
+    USB_SetSIS(USB_IT & (~USB_SIS_SCTDONE_Set) & (~USB_SIS_SCUSBON_Set));
 
     bHandling = RESET;
 

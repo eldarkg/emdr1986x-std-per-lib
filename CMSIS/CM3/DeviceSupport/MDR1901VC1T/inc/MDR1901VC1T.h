@@ -872,6 +872,7 @@ typedef struct {
 #define USB_SIS_SCRESETEV_Pos                              2
 #define USB_SIS_SCSOFREC_Pos                               3
 #define USB_SIS_SCNAKSENT_Pos                              4
+#define USB_SIS_SCUSBON_Pos                                5
 
 /* Bit field masks: */
 #define USB_SIS_SCTDONE                                    ((uint32_t)0x00000001)
@@ -879,6 +880,7 @@ typedef struct {
 #define USB_SIS_SCRESETEV                                  ((uint32_t)0x00000004)
 #define USB_SIS_SCSOFREC                                   ((uint32_t)0x00000008)
 #define USB_SIS_SCNAKSENT                                  ((uint32_t)0x00000010)
+#define USB_SIS_SCUSBON                                    ((uint32_t)0x00000020)
 
 /** @} */ /* End of group USB_SIS */
 
