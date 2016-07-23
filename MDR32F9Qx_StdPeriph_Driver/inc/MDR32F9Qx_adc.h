@@ -342,9 +342,7 @@ typedef struct
                                  ADC_CH_INT_VREF_MSK | \
                                  ADC_CH_TEMP_SENSOR_MSK)
 
-#define IS_ADC1_CH_MASK(MASK) ((((MASK) & ~ADC2_ALL_CH_MSK) == 0) || \
-                               ((MASK) == ADC_CH_INT_VREF_MSK)    || \
-                               ((MASK) == ADC_CH_TEMP_SENSOR_MSK))
+#define IS_ADC1_CH_MASK(MASK) (((MASK) & ~ADC1_ALL_CH_MSK) == 0)
 
 /** @} */ /* End of group ADCx_Channels */
 
