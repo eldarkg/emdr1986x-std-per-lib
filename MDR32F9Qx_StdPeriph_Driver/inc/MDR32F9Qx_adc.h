@@ -497,8 +497,9 @@ typedef struct
 #define ADCx_IT_OUT_OF_RANGE               (((uint32_t)0x1) << ADC_STATUS_FLG_REG_AWOIFEN_Pos)
 #define ADCx_IT_END_OF_CONVERSION          (((uint32_t)0x1) << ADC_STATUS_FLG_REG_EOCIF_Pos)
 
-#define IS_ADCx_CONFIG_IT(IT)              (((IT) == ADCx_IT_OUT_OF_RANGE     ) || \
-                                            ((IT) == ADCx_IT_END_OF_CONVERSION))
+#define ADCx_IT_MASK            (ADCx_IT_OUT_OF_RANGE | ADCx_IT_END_OF_CONVERSION)
+#define IS_ADCx_CONFIG_IT(IT)   (((IT) & (~ADCx_IT_MASK)) == 0)
+
 
 #define ADC1_IT_OUT_OF_RANGE               (ADCx_IT_OUT_OF_RANGE      <<  0)
 #define ADC1_IT_END_OF_CONVERSION          (ADCx_IT_END_OF_CONVERSION <<  0)
