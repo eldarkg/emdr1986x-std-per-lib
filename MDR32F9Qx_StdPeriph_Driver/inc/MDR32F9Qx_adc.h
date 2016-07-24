@@ -342,9 +342,7 @@ typedef struct
                                  ADC_CH_INT_VREF_MSK | \
                                  ADC_CH_TEMP_SENSOR_MSK)
 
-#define IS_ADC1_CH_MASK(MASK) ((((MASK) & ~ADC2_ALL_CH_MSK) == 0) || \
-                               ((MASK) == ADC_CH_INT_VREF_MSK)    || \
-                               ((MASK) == ADC_CH_TEMP_SENSOR_MSK))
+#define IS_ADC1_CH_MASK(MASK) (((MASK) & ~ADC1_ALL_CH_MSK) == 0)
 
 /** @} */ /* End of group ADCx_Channels */
 
@@ -499,8 +497,9 @@ typedef struct
 #define ADCx_IT_OUT_OF_RANGE               (((uint32_t)0x1) << ADC_STATUS_FLG_REG_AWOIFEN_Pos)
 #define ADCx_IT_END_OF_CONVERSION          (((uint32_t)0x1) << ADC_STATUS_FLG_REG_EOCIF_Pos)
 
-#define IS_ADCx_CONFIG_IT(IT)              (((IT) == ADCx_IT_OUT_OF_RANGE     ) || \
-                                            ((IT) == ADCx_IT_END_OF_CONVERSION))
+#define ADCx_IT_MASK            (ADCx_IT_OUT_OF_RANGE | ADCx_IT_END_OF_CONVERSION)
+#define IS_ADCx_CONFIG_IT(IT)   (((IT) & (~ADCx_IT_MASK)) == 0)
+
 
 #define ADC1_IT_OUT_OF_RANGE               (ADCx_IT_OUT_OF_RANGE      <<  0)
 #define ADC1_IT_END_OF_CONVERSION          (ADCx_IT_END_OF_CONVERSION <<  0)
