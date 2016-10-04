@@ -855,7 +855,7 @@ typedef struct
 /* EEPROM Key */
 #define EEPROM_KEY                              0x8AAA5551
 
-#define EEPROM_ADDRESS                          0x08000000
+#define EEPROM_ADDRESS                          0x00000000
 
 #define EEPROM_SECTOR_A_SHIFT                   0x00
 #define EEPROM_SECTOR_B_SHIFT                   0x04
