@@ -211,7 +211,7 @@ Reset_Handler:
 	bge	.L_loop2_done
 	ldr	r1, [r3]
 	ldr	r2, [r3, #4]
-	movs	r0, 0
+	movs	r0, #0
 
 .L_loop2_0:
 	subs	r2, #4
@@ -235,7 +235,7 @@ Reset_Handler:
 	ldr	r1, =__bss_start__
 	ldr	r2, =__bss_end__
 
-	movs	r0, 0
+	movs	r0, #0
 
 	subs	r2, r1
 	ble	.L_loop3_done
@@ -275,11 +275,11 @@ Default_Handler:
 	.set	\handler_name, Default_Handler
 	.endm
 
-	def_irq_handler	NMI_Handler
-	def_irq_handler	HardFault_Handler
-	def_irq_handler	SVC_Handler
-	def_irq_handler	PendSV_Handler
-	def_irq_handler	SysTick_Handler
+	def_irq_handler NMI_Handler
+	def_irq_handler HardFault_Handler
+	def_irq_handler SVC_Handler
+	def_irq_handler PendSV_Handler
+	def_irq_handler SysTick_Handler
 
 	def_irq_handler DMA_IRQHandler
 	def_irq_handler UART1_IRQHandler

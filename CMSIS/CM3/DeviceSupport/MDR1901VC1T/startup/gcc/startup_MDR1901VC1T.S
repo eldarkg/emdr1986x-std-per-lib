@@ -220,7 +220,7 @@ Reset_Handler:
 	bge	.L_loop2_done
 	ldr	r1, [r3]
 	ldr	r2, [r3, #4]
-	movs	r0, 0
+	movs	r0, #0
 
 .L_loop2_0:
 	subs	r2, #4
@@ -243,7 +243,7 @@ Reset_Handler:
 	ldr	r1, =__bss_start__
 	ldr	r2, =__bss_end__
 
-	movs	r0, 0
+	movs	r0, #0
 .L_loop3:
 	cmp	r1, r2
 	itt	lt
@@ -293,46 +293,46 @@ Default_Handler:
 	.set	\handler_name, Default_Handler
 	.endm
 
-	def_irq_handler	NonMaskableInt_Handler
-	def_irq_handler	HardFault_Handler
-	def_irq_handler	MemoryManagement_Handler
-	def_irq_handler	BusFault_Handler
-	def_irq_handler	UsageFault_Handler
-	def_irq_handler	SVCall_Handler
-	def_irq_handler	PendSV_Handler
-	def_irq_handler	SysTick_Handler
+	def_irq_handler NonMaskableInt_Handler
+	def_irq_handler HardFault_Handler
+	def_irq_handler MemoryManagement_Handler
+	def_irq_handler BusFault_Handler
+	def_irq_handler UsageFault_Handler
+	def_irq_handler SVCall_Handler
+	def_irq_handler PendSV_Handler
+	def_irq_handler SysTick_Handler
 
-	def_irq_handler	SSP3_IRQHandler
-	def_irq_handler	SSP4_IRQHandler
-	def_irq_handler	USB_IRQHandler
-	def_irq_handler	MCBSP1_IRQHandler
-	def_irq_handler	MCBSP2_IRQHandler
-	def_irq_handler	DMA_IRQHandler
-	def_irq_handler	UART1_IRQHandler
-	def_irq_handler	UART2_IRQHandler
-	def_irq_handler	SSP1_IRQHandler
-	def_irq_handler	MCBSP3_IRQHandler
-	def_irq_handler	I2C_IRQHandler
-	def_irq_handler	POWER_IRQHandler
-	def_irq_handler	WWDG_IRQHandler
-	def_irq_handler	DMA_DSP_IRQHandler
-	def_irq_handler	TIMER1_IRQHandler
-	def_irq_handler	TIMER2_IRQHandler
-	def_irq_handler	TIMER3_IRQHandler
-	def_irq_handler	ADC_IRQHandler
-	def_irq_handler	SDIO_IRQHandler
-	def_irq_handler	COMPARATOR_IRQHandler
-	def_irq_handler	SSP2_IRQHandler
-	def_irq_handler	AUDIO_IP_IRQHandler
-	def_irq_handler	DSP_CRPT_IRQHandler
-	def_irq_handler	DSP_TIMER_IRQHandler
-	def_irq_handler	DSP_CORE_IRQHandler
-	def_irq_handler	DSP_STATE_IRQHandler
-	def_irq_handler	UART3_IRQHandler
-	def_irq_handler	BACKUP_IRQHandler
-	def_irq_handler	EXT_INT1_IRQHandler
-	def_irq_handler	EXT_INT2_IRQHandler
-	def_irq_handler	EXT_INT3_IRQHandler
-	def_irq_handler	EXT_INT4_IRQHandler
+	def_irq_handler SSP3_IRQHandler
+	def_irq_handler SSP4_IRQHandler
+	def_irq_handler USB_IRQHandler
+	def_irq_handler MCBSP1_IRQHandler
+	def_irq_handler MCBSP2_IRQHandler
+	def_irq_handler DMA_IRQHandler
+	def_irq_handler UART1_IRQHandler
+	def_irq_handler UART2_IRQHandler
+	def_irq_handler SSP1_IRQHandler
+	def_irq_handler MCBSP3_IRQHandler
+	def_irq_handler I2C_IRQHandler
+	def_irq_handler POWER_IRQHandler
+	def_irq_handler WWDG_IRQHandler
+	def_irq_handler DMA_DSP_IRQHandler
+	def_irq_handler TIMER1_IRQHandler
+	def_irq_handler TIMER2_IRQHandler
+	def_irq_handler TIMER3_IRQHandler
+	def_irq_handler ADC_IRQHandler
+	def_irq_handler SDIO_IRQHandler
+	def_irq_handler COMPARATOR_IRQHandler
+	def_irq_handler SSP2_IRQHandler
+	def_irq_handler AUDIO_IP_IRQHandler
+	def_irq_handler DSP_CRPT_IRQHandler
+	def_irq_handler DSP_TIMER_IRQHandler
+	def_irq_handler DSP_CORE_IRQHandler
+	def_irq_handler DSP_STATE_IRQHandler
+	def_irq_handler UART3_IRQHandler
+	def_irq_handler BACKUP_IRQHandler
+	def_irq_handler EXT_INT1_IRQHandler
+	def_irq_handler EXT_INT2_IRQHandler
+	def_irq_handler EXT_INT3_IRQHandler
+	def_irq_handler EXT_INT4_IRQHandler
 
 	.end
