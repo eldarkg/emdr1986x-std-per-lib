@@ -1350,12 +1350,11 @@ typedef struct {
 /** @} */ /* End of group RST_CLK_SSP_CLOCK */
 
 
-
 /** @defgroup __1T_Periph_RST_CLK_ETH_CLOCK RST CLK ETR CLOCK
   * @{
   */
 
-/*-- RST_CLK_ETH_CLOCK: ETR Clock Register -----------------------*/
+/*-- RST_CLK_ETH_CLOCK: ETH Clock Register -----------------------*/
 /* Bit field positions: */
 #define RST_CLK_ETH_CLOCK_ETH_BRG_Pos           0
 #define RST_CLK_ETH_CLOCK_MAN_BRG_Pos           8
@@ -1477,7 +1476,7 @@ typedef struct
 /** @} */ /* End of group __MDR1986VE1T_Periph_DMA */
 
 
-/** @defgroup __1T___MDR1986VE1T_Periph_Periph_UART UART
+/** @defgroup __1T___MDR1986VE1T_Periph_UART UART
   * @{
   */
 
@@ -1949,14 +1948,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_CR1 */
 
-
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_SR  SSP SR
   * @{
   */
@@ -1988,12 +1979,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_CPSR */
 
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_IMSC  SSP IMSC
   * @{
   */
@@ -2012,13 +1997,6 @@ typedef struct
 #define SSP_IMSC_TXIM                           ((uint32_t)0x00000008)
 
 /** @} */ /* End of group SSP_IMSC */
-
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
 
 /** @defgroup __1T_Periph_SSP_RIS SSP RIS
   * @{
@@ -2039,13 +2017,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_RIS */
 
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_MIS SSP MIS
   * @{
   */
@@ -2065,13 +2036,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_MIS */
 
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_SPI_SSPx SPI SSPx
  *  @{
  */
@@ -2086,12 +2050,6 @@ typedef struct
 #define SPI_SSPx_ICR_RTIC                       ((uint32_t)0x00000002)
 
 /** @} */ /* End of group SPI_SSPx */
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
 
 /** @defgroup __1T_Periph_SSP_ICR SSP ICR
   * @{
@@ -2122,7 +2080,6 @@ typedef struct
 #define SSP_DMACR_TXDMAE                        ((uint32_t)0x00000002)
 
 /** @} */ /* End of group SSP_DMACR */
-
 
 /** @} */ /* End of group Periph_SPI_Defines */
 
@@ -4681,7 +4638,7 @@ typedef struct {
 
 /** @} */ /* End of group __Peripheral_declaration */
 
-/** @} */ /* End of group MDR1986VE1T_Peripheral MDR1986VE1T Peripheral */
+/** @} */ /* End of group MDR1986VE1T_Peripheral */
 
 #define CLR_BIT(a,b) ((a) &= ~(1U << (b)))
 #define SET_BIT(a,b) ((a) |= (1U << (b)))
