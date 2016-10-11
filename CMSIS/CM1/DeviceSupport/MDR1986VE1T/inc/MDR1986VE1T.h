@@ -920,7 +920,8 @@ typedef struct {
 #define RST_CLK_CLOCK_STATUS_HSE_RDY            ((uint32_t)0x00000004)
 #define RST_CLK_CLOCK_STATUS_HSE_RDY2           ((uint32_t)0x00000008)
 
-#define RST_CLK_CLOCK_STATUS_HSE_ALL_RDY        ((uint32_t)0x0000000C)
+#define RST_CLK_CLOCK_STATUS_HSE_ALL_RDY        (RST_CLK_CLOCK_STATUS_HSE_RDY | \
+                                                 RST_CLK_CLOCK_STATUS_HSE_RDY2)
 
 /** @} */ /* End of group RST_CLK_CLOCK_STATUS */
 
@@ -2487,7 +2488,6 @@ typedef struct {
 #define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_PSG_0     0x01
 #define TIMER_CNTRL_CNT_MODE_UP_DIR_0_EVENT_1           0x02
 #define TIMER_CNTRL_CNT_MODE_DOWN_DIR_1_EVENT_1         0x02
-#define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_EVENT_1   0x03
 
 /* EVENT SEL Modes */
 #define TIMER_CNTRL_EVENT_SEL_TIM_CLK           0x00
@@ -2566,22 +2566,21 @@ typedef struct {
 #define TIMER_CH_CNTRL_CHPSC_DIV_8                      0x03
 
 /* OCCM Modes */
-// CCR1 EN = 0
+// CCR1 EN = X
 #define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
+#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+// CCR1 EN = 0
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR               0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR               0x02
 #define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CNT_CCR         0x07
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_1_CNT_CCR         0x07
 // CCR1 EN = 1
-#define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR_OR_CNT_CCR1   0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR_OR_CNT_CCR1   0x02
-#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR_OR_CNT_CCR1  0x03
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CCR1_CNT_CCR    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CCR_CNT_CCR1    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CCR1_CNT_CCR    0x07
@@ -2900,32 +2899,32 @@ typedef struct {
 #define ADC1_CFG_REG_DIVCLK_HCLK_DIV_32768      0x0F
 
 /* Delay Go Modes */
-#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x00
-#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x01
-#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x02
-#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x03
-#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x04
-#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x05
-#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x06
-#define ADC1_CFG_DELAY_GO_8_CPU_CLK             0x07
+#define ADC1_CFG_DELAY_GO_0_CPU_CLK             0x00
+#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x01
+#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x02
+#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x03
+#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x04
+#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x05
+#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x06
+#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x07
 
 /* Delay ADC Modes */
-#define ADC1_CFG_DELAY_ADC_1_CPU_CLK            0x00
-#define ADC1_CFG_DELAY_ADC_2_CPU_CLK            0x01
-#define ADC1_CFG_DELAY_ADC_3_CPU_CLK            0x02
-#define ADC1_CFG_DELAY_ADC_4_CPU_CLK            0x03
-#define ADC1_CFG_DELAY_ADC_5_CPU_CLK            0x04
-#define ADC1_CFG_DELAY_ADC_6_CPU_CLK            0x05
-#define ADC1_CFG_DELAY_ADC_7_CPU_CLK            0x06
-#define ADC1_CFG_DELAY_ADC_8_CPU_CLK            0x07
-#define ADC1_CFG_DELAY_ADC_9_CPU_CLK            0x08
-#define ADC1_CFG_DELAY_ADC_10_CPU_CLK           0x09
-#define ADC1_CFG_DELAY_ADC_11_CPU_CLK           0x0A
-#define ADC1_CFG_DELAY_ADC_12_CPU_CLK           0x0B
-#define ADC1_CFG_DELAY_ADC_13_CPU_CLK           0x0C
-#define ADC1_CFG_DELAY_ADC_14_CPU_CLK           0x0D
-#define ADC1_CFG_DELAY_ADC_15_CPU_CLK           0x0E
-#define ADC1_CFG_DELAY_ADC_16_CPU_CLK           0x0F
+#define ADC1_CFG_DELAY_ADC_0_CPU_CLK            0x00
+#define ADC1_CFG_DELAY_ADC_1_CPU_CLK            0x01
+#define ADC1_CFG_DELAY_ADC_2_CPU_CLK            0x02
+#define ADC1_CFG_DELAY_ADC_3_CPU_CLK            0x03
+#define ADC1_CFG_DELAY_ADC_4_CPU_CLK            0x04
+#define ADC1_CFG_DELAY_ADC_5_CPU_CLK            0x05
+#define ADC1_CFG_DELAY_ADC_6_CPU_CLK            0x06
+#define ADC1_CFG_DELAY_ADC_7_CPU_CLK            0x07
+#define ADC1_CFG_DELAY_ADC_8_CPU_CLK            0x08
+#define ADC1_CFG_DELAY_ADC_9_CPU_CLK            0x09
+#define ADC1_CFG_DELAY_ADC_10_CPU_CLK           0x0A
+#define ADC1_CFG_DELAY_ADC_11_CPU_CLK           0x0B
+#define ADC1_CFG_DELAY_ADC_12_CPU_CLK           0x0C
+#define ADC1_CFG_DELAY_ADC_13_CPU_CLK           0x0D
+#define ADC1_CFG_DELAY_ADC_14_CPU_CLK           0x0E
+#define ADC1_CFG_DELAY_ADC_15_CPU_CLK           0x0F
 
 /** @} */ /* End of group ADC1_CFG */
 
