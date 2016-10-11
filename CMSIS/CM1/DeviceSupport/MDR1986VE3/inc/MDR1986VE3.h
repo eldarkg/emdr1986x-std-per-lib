@@ -2931,14 +2931,14 @@ typedef struct {
 #define ADC1_CFG_REG_DIVCLK_HCLK_DIV_32768      0x0F
 
 /* Delay Go Modes */
-#define ADC1_CFG_DELAY_GO_0_CPU_CLK             0x00
-#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x01
-#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x02
-#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x03
-#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x04
-#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x05
-#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x06
-#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x07
+#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x00
+#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x01
+#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x02
+#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x03
+#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x04
+#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x05
+#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x06
+#define ADC1_CFG_DELAY_GO_8_CPU_CLK             0x07
 
 /** @} */ /* End of group ADC1_CFG */
 

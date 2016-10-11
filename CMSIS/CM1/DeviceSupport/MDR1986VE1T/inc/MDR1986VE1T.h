@@ -2899,32 +2899,32 @@ typedef struct {
 #define ADC1_CFG_REG_DIVCLK_HCLK_DIV_32768      0x0F
 
 /* Delay Go Modes */
-#define ADC1_CFG_DELAY_GO_0_CPU_CLK             0x00
-#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x01
-#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x02
-#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x03
-#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x04
-#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x05
-#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x06
-#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x07
+#define ADC1_CFG_DELAY_GO_1_CPU_CLK             0x00
+#define ADC1_CFG_DELAY_GO_2_CPU_CLK             0x01
+#define ADC1_CFG_DELAY_GO_3_CPU_CLK             0x02
+#define ADC1_CFG_DELAY_GO_4_CPU_CLK             0x03
+#define ADC1_CFG_DELAY_GO_5_CPU_CLK             0x04
+#define ADC1_CFG_DELAY_GO_6_CPU_CLK             0x05
+#define ADC1_CFG_DELAY_GO_7_CPU_CLK             0x06
+#define ADC1_CFG_DELAY_GO_8_CPU_CLK             0x07
 
 /* Delay ADC Modes */
-#define ADC1_CFG_DELAY_ADC_0_CPU_CLK            0x00
-#define ADC1_CFG_DELAY_ADC_1_CPU_CLK            0x01
-#define ADC1_CFG_DELAY_ADC_2_CPU_CLK            0x02
-#define ADC1_CFG_DELAY_ADC_3_CPU_CLK            0x03
-#define ADC1_CFG_DELAY_ADC_4_CPU_CLK            0x04
-#define ADC1_CFG_DELAY_ADC_5_CPU_CLK            0x05
-#define ADC1_CFG_DELAY_ADC_6_CPU_CLK            0x06
-#define ADC1_CFG_DELAY_ADC_7_CPU_CLK            0x07
-#define ADC1_CFG_DELAY_ADC_8_CPU_CLK            0x08
-#define ADC1_CFG_DELAY_ADC_9_CPU_CLK            0x09
-#define ADC1_CFG_DELAY_ADC_10_CPU_CLK           0x0A
-#define ADC1_CFG_DELAY_ADC_11_CPU_CLK           0x0B
-#define ADC1_CFG_DELAY_ADC_12_CPU_CLK           0x0C
-#define ADC1_CFG_DELAY_ADC_13_CPU_CLK           0x0D
-#define ADC1_CFG_DELAY_ADC_14_CPU_CLK           0x0E
-#define ADC1_CFG_DELAY_ADC_15_CPU_CLK           0x0F
+#define ADC1_CFG_DELAY_ADC_1_CPU_CLK            0x00
+#define ADC1_CFG_DELAY_ADC_2_CPU_CLK            0x01
+#define ADC1_CFG_DELAY_ADC_3_CPU_CLK            0x02
+#define ADC1_CFG_DELAY_ADC_4_CPU_CLK            0x03
+#define ADC1_CFG_DELAY_ADC_5_CPU_CLK            0x04
+#define ADC1_CFG_DELAY_ADC_6_CPU_CLK            0x05
+#define ADC1_CFG_DELAY_ADC_7_CPU_CLK            0x06
+#define ADC1_CFG_DELAY_ADC_8_CPU_CLK            0x07
+#define ADC1_CFG_DELAY_ADC_9_CPU_CLK            0x08
+#define ADC1_CFG_DELAY_ADC_10_CPU_CLK           0x09
+#define ADC1_CFG_DELAY_ADC_11_CPU_CLK           0x0A
+#define ADC1_CFG_DELAY_ADC_12_CPU_CLK           0x0B
+#define ADC1_CFG_DELAY_ADC_13_CPU_CLK           0x0C
+#define ADC1_CFG_DELAY_ADC_14_CPU_CLK           0x0D
+#define ADC1_CFG_DELAY_ADC_15_CPU_CLK           0x0E
+#define ADC1_CFG_DELAY_ADC_16_CPU_CLK           0x0F
 
 /** @} */ /* End of group ADC1_CFG */
 
