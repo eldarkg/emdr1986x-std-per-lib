@@ -920,7 +920,8 @@ typedef struct {
 #define RST_CLK_CLOCK_STATUS_HSE_RDY            ((uint32_t)0x00000004)
 #define RST_CLK_CLOCK_STATUS_HSE_RDY2           ((uint32_t)0x00000008)
 
-#define RST_CLK_CLOCK_STATUS_HSE_ALL_RDY        ((uint32_t)0x0000000C)
+#define RST_CLK_CLOCK_STATUS_HSE_ALL_RDY        (RST_CLK_CLOCK_STATUS_HSE_RDY | \
+                                                 RST_CLK_CLOCK_STATUS_HSE_RDY2)
 
 /** @} */ /* End of group RST_CLK_CLOCK_STATUS */
 
@@ -1350,12 +1351,11 @@ typedef struct {
 /** @} */ /* End of group RST_CLK_SSP_CLOCK */
 
 
-
 /** @defgroup __1T_Periph_RST_CLK_ETH_CLOCK RST CLK ETR CLOCK
   * @{
   */
 
-/*-- RST_CLK_ETH_CLOCK: ETR Clock Register -----------------------*/
+/*-- RST_CLK_ETH_CLOCK: ETH Clock Register -----------------------*/
 /* Bit field positions: */
 #define RST_CLK_ETH_CLOCK_ETH_BRG_Pos           0
 #define RST_CLK_ETH_CLOCK_MAN_BRG_Pos           8
@@ -1477,7 +1477,7 @@ typedef struct
 /** @} */ /* End of group __MDR1986VE1T_Periph_DMA */
 
 
-/** @defgroup __1T___MDR1986VE1T_Periph_Periph_UART UART
+/** @defgroup __1T___MDR1986VE1T_Periph_UART UART
   * @{
   */
 
@@ -1949,14 +1949,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_CR1 */
 
-
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_SR  SSP SR
   * @{
   */
@@ -1988,12 +1980,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_CPSR */
 
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_IMSC  SSP IMSC
   * @{
   */
@@ -2012,13 +1998,6 @@ typedef struct
 #define SSP_IMSC_TXIM                           ((uint32_t)0x00000008)
 
 /** @} */ /* End of group SSP_IMSC */
-
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
 
 /** @defgroup __1T_Periph_SSP_RIS SSP RIS
   * @{
@@ -2039,13 +2018,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_RIS */
 
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_Periph_SSP_MIS SSP MIS
   * @{
   */
@@ -2065,13 +2037,6 @@ typedef struct
 
 /** @} */ /* End of group SSP_MIS */
 
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
-
 /** @defgroup __1T_SPI_SSPx SPI SSPx
  *  @{
  */
@@ -2086,12 +2051,6 @@ typedef struct
 #define SPI_SSPx_ICR_RTIC                       ((uint32_t)0x00000002)
 
 /** @} */ /* End of group SPI_SSPx */
-
-/** @} */ /* End of group Periph_SPI_Defines */
-
-/** @defgroup __1T_Periph_SPI_Defines Defines
-  * @{
-  */
 
 /** @defgroup __1T_Periph_SSP_ICR SSP ICR
   * @{
@@ -2122,7 +2081,6 @@ typedef struct
 #define SSP_DMACR_TXDMAE                        ((uint32_t)0x00000002)
 
 /** @} */ /* End of group SSP_DMACR */
-
 
 /** @} */ /* End of group Periph_SPI_Defines */
 
@@ -2530,18 +2488,19 @@ typedef struct {
 #define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_PSG_0     0x01
 #define TIMER_CNTRL_CNT_MODE_UP_DIR_0_EVENT_1           0x02
 #define TIMER_CNTRL_CNT_MODE_DOWN_DIR_1_EVENT_1         0x02
-#define TIMER_CNTRL_CNT_MODE_UP_DOWN_DIR_AUTO_EVENT_1   0x03
 
 /* EVENT SEL Modes */
 #define TIMER_CNTRL_EVENT_SEL_TIM_CLK           0x00
 #define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM1      0x01
 #define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM2      0x02
 #define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM3      0x03
-#define TIMER_CNTRL_EVENT_SEL_CH1_MODE1         0x04
-#define TIMER_CNTRL_EVENT_SEL_CH2_MODE1         0x05
-#define TIMER_CNTRL_EVENT_SEL_CH3_MODE1         0x06
-#define TIMER_CNTRL_EVENT_SEL_CH4_MODE1         0x07
-#define TIMER_CNTRL_EVENT_SEL_ETR_MODE2         0x08
+#define TIMER_CNTRL_EVENT_SEL_CH1               0x04
+#define TIMER_CNTRL_EVENT_SEL_CH2               0x05
+#define TIMER_CNTRL_EVENT_SEL_CH3               0x06
+#define TIMER_CNTRL_EVENT_SEL_CH4               0x07
+#define TIMER_CNTRL_EVENT_SEL_ETR_POS_EDGE      0x08
+#define TIMER_CNTRL_EVENT_SEL_ETR_NEG_EDGE      0x09
+#define TIMER_CNTRL_EVENT_SEL_CNT_ARR_TIM4      0x0A
 
 /** @} */ /* End of group TIMER_CNTRL */
 
@@ -2609,22 +2568,21 @@ typedef struct {
 #define TIMER_CH_CNTRL_CHPSC_DIV_8                      0x03
 
 /* OCCM Modes */
-// CCR1 EN = 0
+// CCR1 EN = X
 #define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
+#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+// CCR1 EN = 0
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR               0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR               0x02
 #define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CNT_CCR         0x07
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_1_CNT_CCR         0x07
 // CCR1 EN = 1
-#define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR_OR_CNT_CCR1   0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR_OR_CNT_CCR1   0x02
-#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR_OR_CNT_CCR1  0x03
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CCR1_CNT_CCR    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CCR_CNT_CCR1    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CCR1_CNT_CCR    0x07
@@ -4681,7 +4639,7 @@ typedef struct {
 
 /** @} */ /* End of group __Peripheral_declaration */
 
-/** @} */ /* End of group MDR1986VE1T_Peripheral MDR1986VE1T Peripheral */
+/** @} */ /* End of group MDR1986VE1T_Peripheral */
 
 #define CLR_BIT(a,b) ((a) &= ~(1U << (b)))
 #define SET_BIT(a,b) ((a) |= (1U << (b)))

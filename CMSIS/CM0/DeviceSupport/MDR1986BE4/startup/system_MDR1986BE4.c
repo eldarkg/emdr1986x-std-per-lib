@@ -142,7 +142,7 @@ void SystemInit (void)
 {
   /* Reset the RST clock configuration to the default reset state */
 
-  /* Reset all clock but RST_CLK & BKP_CLC bits */
+  /* Reset all clock but RST_CLK & BKP_CLK bits */
   MDR_RST_CLK->PER1_CLOCK   = (uint32_t)0x30;
   MDR_RST_CLK->PER2_CLOCK   = (uint32_t)0x1010;
 

@@ -2369,22 +2369,21 @@ typedef struct
 #define TIMER_CH_CNTRL_CHPSC_DIV_8                      0x03
 
 /* OCCM Modes */
-// CCR1 EN = 0
+// CCR1 EN = X
 #define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
+#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+// CCR1 EN = 0
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR               0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR               0x02
 #define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CNT_CCR         0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CNT_CCR         0x07
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_1_CNT_CCR         0x07
 // CCR1 EN = 1
-#define TIMER_CH_CNTRL_OCCM_REF_0                       0x00
 #define TIMER_CH_CNTRL_OCCM_REF_1_CNT_CCR_OR_CNT_CCR1   0x01
 #define TIMER_CH_CNTRL_OCCM_REF_0_CNT_CCR_OR_CNT_CCR1   0x02
-#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR              0x03
-#define TIMER_CH_CNTRL_OCCM_REF_1                       0x05
+#define TIMER_CH_CNTRL_OCCM_SW_REF_CNT_CCR_OR_CNT_CCR1  0x03
 #define TIMER_CH_CNTRL_OCCM_REF_1_DIR_0_CCR1_CNT_CCR    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_1_CCR_CNT_CCR1    0x06
 #define TIMER_CH_CNTRL_OCCM_REF_0_DIR_0_CCR1_CNT_CCR    0x07
