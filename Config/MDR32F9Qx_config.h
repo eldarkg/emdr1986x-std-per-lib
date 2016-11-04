@@ -77,7 +77,7 @@
  * if there is no JTAG ports */
 #if (defined(USE_MDR1986VE9x) || defined (USE_MDR1901VC1T))
 /* #define USE_JTAG_A */
- #define USE_JTAG_B
+#define USE_JTAG_B
 #endif
 
 /* Target system parameters */
@@ -99,35 +99,38 @@
 #define PLLDSPonTimeOut ((uint16_t)0x0600)
 
 #define FLASH_PROG_FREQ_MHZ     (8.0)
+
 /* Use debug uart */
 //#define _USE_DEBUG_UART_
 
 #if defined (_USE_DEBUG_UART_)
 
+#define DEBUG_BAUD_RATE					115200
+
 #if defined (USE_MDR1986VE3)
-	#define DEBUG_UART 					MDR_UART2
+	#define DEBUG_UART					MDR_UART1
 	#define DEBUG_UART_PORT				MDR_PORTD
-	#define DEBUG_UART_PINS				(PORT_Pin_13 | PORT_Pin_14)
+	#define DEBUG_UART_TX_PIN			PORT_Pin_13
+	#define DEBUG_UART_RX_PIN			PORT_Pin_14
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_MAIN
-	#define DEBUG_BAUD_RATE				115200
 #elif defined (USE_MDR1986VE1T)
 	#define DEBUG_UART 					MDR_UART1
 	#define DEBUG_UART_PORT				MDR_PORTC
-	#define DEBUG_UART_PINS				(PORT_Pin_3 | PORT_Pin_4)
+	#define DEBUG_UART_TX_PIN			PORT_Pin_3
+	#define DEBUG_UART_RX_PIN			PORT_Pin_4
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_MAIN
-	#define DEBUG_BAUD_RATE				115200
 #elif defined (USE_MDR1986VE9x)
 	#define DEBUG_UART 					MDR_UART2
 	#define DEBUG_UART_PORT				MDR_PORTF
-	#define DEBUG_UART_PINS				(PORT_Pin_0 | PORT_Pin_1)
+	#define DEBUG_UART_TX_PIN			PORT_Pin_1
+	#define DEBUG_UART_RX_PIN			PORT_Pin_0
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_OVERRID
-	#define DEBUG_BAUD_RATE				115200
 #elif defined (USE_MDR1901VC1T)
-	#define DEBUG_UART 			MDR_UART3
-	#define DEBUG_UART_PORT			MDR_PORTF
-	#define DEBUG_UART_PINS			(PORT_Pin_0 | PORT_Pin_1)
+	#define DEBUG_UART					MDR_UART3
+	#define DEBUG_UART_PORT				MDR_PORTF
+	#define DEBUG_UART_TX_PIN			PORT_Pin_1
+	#define DEBUG_UART_RX_PIN			PORT_Pin_0
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_ALTER
-	#define DEBUG_BAUD_RATE			115200
 #endif
 
 //#define PRINTF_FORMAT_FULL
@@ -201,7 +204,7 @@
      2 - check enabled, source file ID, line number and checking expression
          (as string) are available (increased code size).
 */
- #define USE_ASSERT_INFO    0
+#define USE_ASSERT_INFO    0
 /* #define USE_ASSERT_INFO    1 */
 /* #define USE_ASSERT_INFO    2 */
 
@@ -245,6 +248,6 @@
 
 #endif /* __MDR32F9Qx_CONFIG_H */
 
-/******************* (C) COPYRIGHT 2011 Milandr *********************************
+/******************* (C) COPYRIGHT 2011 Milandr ********************************
 *
 * END OF FILE MDR32F9Qx_config.h */
