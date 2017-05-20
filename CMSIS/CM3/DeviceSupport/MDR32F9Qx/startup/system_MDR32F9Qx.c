@@ -140,11 +140,11 @@ void SystemCoreClockUpdate (void)
   */
 void SystemInit (void)
 {
-	
 #ifndef MDR_NO_RST_VTOR
-  /* Reset the RST clock configuration to the default reset state */
   SCB->VTOR = 0x08000000;
 #endif
+	
+  /* Reset the RST clock configuration to the default reset state */
 
   /* Reset all clock but RST_CLK & BKP_CLK bits */
   MDR_RST_CLK->PER_CLOCK   = (uint32_t)0x8000010;
