@@ -12,9 +12,7 @@ This isn't official library that compatible with GCC compiler.
 
 [**Link to documentation**](https://github.com/eldarkg/emdr1986x-std-per-lib-doc)
 
-[**Link to a recomended GCC compiler version**](https://launchpad.net/gcc-arm-embedded)
-
-Tested version of GCC compiler 4.9, 5.0.
+[**Link to a recomended GCC compiler version**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
 
 ### Usage (pseudocode)
 ```
