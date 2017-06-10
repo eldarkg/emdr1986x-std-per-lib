@@ -14,6 +14,8 @@ This isn't official library that compatible with GCC compiler.
 
 [**Link to a recomended GCC compiler version**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
 
+[**Link to newest CMSIS**](https://github.com/ARM-software/CMSIS_5) (The current package contain an old version of CMSIS)
+
 ### Usage (pseudocode)
 ```
 INC = inc
