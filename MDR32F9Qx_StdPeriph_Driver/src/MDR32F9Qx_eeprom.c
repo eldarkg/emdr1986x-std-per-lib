@@ -54,7 +54,10 @@
 
 #ifndef FLASH_PROG_FREQ_MHZ
 #  error "Please set a EEPROM programming the max MCU frequency. Define FLASH_PROG_FREQ_MHZ in MDR32F9Qx_config.h file"
+#endif
+
 #define GET_US_LOOPS(N)                 ((uint32_t)((double)(N) * FLASH_PROG_FREQ_MHZ / DELAY_LOOP_CYCLES + 1.0))
+
 
 /** @} */ /* End of group EEPROM_Private_Macros */
 
