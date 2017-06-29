@@ -102,7 +102,7 @@
 /* #define FLASH_PROG_FREQ_MHZ     (8.0) */
 
 /* Use debug uart */
-//#define _USE_DEBUG_UART_
+/* #define _USE_DEBUG_UART_ */
 
 #if defined (_USE_DEBUG_UART_)
 
@@ -134,8 +134,8 @@
 	#define DEBUG_UART_PINS_FUNCTION	PORT_FUNC_ALTER
 #endif
 
-//#define PRINTF_FORMAT_FULL
-//#define PRINTF_FORMAT_LARGE
+/* #define PRINTF_FORMAT_FULL */
+/* #define PRINTF_FORMAT_LARGE */
 
 #endif /* #if defined (_USE_DEBUG_UART_) */
 
