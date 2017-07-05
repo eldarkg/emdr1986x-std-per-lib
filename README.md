@@ -16,7 +16,7 @@ This isn't official library that compatible with GCC compiler.
 
 [**Link to newest CMSIS**](https://github.com/ARM-software/CMSIS_5) (The current package contain an old version of CMSIS)
 
-To see examples for using gcc toolchain look at /usr/share/gcc-arm-embedded/samples (on Linux).
+To see examples for using gcc toolchain look at ```/usr/share/gcc-arm-embedded/samples``` (on Linux).
 
 ### Usage (pseudocode)
 ```
