@@ -321,7 +321,7 @@ void ADC1_SamplingModeConfig(uint32_t SamplingMode)
   * @param  SwitchingMode: specifies the ADC1 channel switching.
   * @retval None
   */
-void ADC1_ChannelSwithingConfig(uint32_t SwitchingMode)
+void ADC1_ChannelSwitchingConfig(uint32_t SwitchingMode)
 {
   uint32_t tmpreg_CFG;
 

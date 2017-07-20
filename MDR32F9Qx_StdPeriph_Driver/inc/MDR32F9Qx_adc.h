@@ -237,12 +237,12 @@ typedef struct
 
 /** @} */ /* End of group ADCx_Sampling_Mode */
 
-/** @defgroup ADCx_Channel_Switching ADC Channel Swithing configuration
+/** @defgroup ADCx_Channel_Switching ADC Channel Switching configuration
   * @{
   */
 
-#define ADC_CH_SWITCHING_Disable              (((uint32_t)0x0) << ADC1_CFG_REG_CHCH_Pos)    /*!< Disables Channel Swithing. */
-#define ADC_CH_SWITCHING_Enable               (((uint32_t)0x1) << ADC1_CFG_REG_CHCH_Pos)    /*!< Enables Channel Swithing. */
+#define ADC_CH_SWITCHING_Disable              (((uint32_t)0x0) << ADC1_CFG_REG_CHCH_Pos)    /*!< Disables Channel Switching. */
+#define ADC_CH_SWITCHING_Enable               (((uint32_t)0x1) << ADC1_CFG_REG_CHCH_Pos)    /*!< Enables Channel Switching. */
 
 #define IS_ADC_CH_SWITCHING_CONFIG(CONFIG) (((CONFIG) == ADC_CH_SWITCHING_Disable) || \
                                             ((CONFIG) == ADC_CH_SWITCHING_Enable ))
@@ -571,8 +571,8 @@ void ADC1_OperationModeConfig(uint32_t SamplingMode, uint32_t SwitchingMode);
 void ADC2_OperationModeConfig(uint32_t SamplingMode, uint32_t SwitchingMode);
 void ADC1_SamplingModeConfig(uint32_t SamplingMode);
 void ADC2_SamplingModeConfig(uint32_t SamplingMode);
-void ADC1_ChannelSwithingConfig(uint32_t SwitchingMode);
-void ADC2_ChannelSwithingConfig(uint32_t SwitchingMode);
+void ADC1_ChannelSwitchingConfig(uint32_t SwitchingMode);
+void ADC2_ChannelSwitchingConfig(uint32_t SwitchingMode);
 
 void ADC1_LevelsConfig(uint32_t LowLevel, uint32_t HighLevel, uint32_t NewState);
 void ADC2_LevelsConfig(uint32_t LowLevel, uint32_t HighLevel, uint32_t NewState);
