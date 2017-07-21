@@ -10,11 +10,11 @@ This isn't official library that compatible with GCC compiler.
 - MDR1986BE4 (not tested)
 - MDR1986VE9x
 
-[**Link to documentation**](https://github.com/eldarkg/emdr1986x-std-per-lib-doc)
+[**>>>Link to documentation<<<**](https://github.com/eldarkg/emdr1986x-std-per-lib-doc)
 
-[**Link to a recomended GCC compiler version**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
+[**>>>Link to a recomended GCC compiler version<<<**](https://developer.arm.com/open-source/gnu-toolchain/gnu-rm)
 
-[**Link to newest CMSIS**](https://github.com/ARM-software/CMSIS_5) (The current package contain an old version of CMSIS)
+[**>>>Link to newest CMSIS<<<**](https://github.com/ARM-software/CMSIS_5) (The current package contain an old version of CMSIS)
 
 To see examples for using gcc toolchain look at ```/usr/share/gcc-arm-embedded/samples``` (on Linux).
 
@@ -61,6 +61,16 @@ Link:
 ```
 arm-none-eabi-g++ ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/startup/gcc/MDR32F9Qx.ld --specs=nosys.specs --specs=nano.specs -Wl,--gc-sections -ffreestanding  -Wl,-Map=example.map ${OBJ} -o example.elf
 ```
+
+Selection a type of C/C++ standard library:
+--specs=nano.specs	# use newlib-nano library (recomended for embedded systems).
+Without this flag - using common library.
+
+With semihosting:
+--specs=rdimon.specs
+Without semihosting:
+--specs=nosys.specs
+[**>>>What is semihosting?<<<**](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471g/Bgbjjgij.html)
 
 Get a hex file:
 ```
