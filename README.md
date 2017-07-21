@@ -63,13 +63,13 @@ arm-none-eabi-g++ ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/sta
 ```
 
 Selection a type of C/C++ standard library:
---specs=nano.specs	# use newlib-nano library (recomended for embedded systems).
-Without this flag - using common library.
 
-With semihosting:
---specs=rdimon.specs
-Without semihosting:
---specs=nosys.specs
+`--specs=nano.specs` - use newlib-nano library (recomended for embedded systems). Without this flag - used the common library.
+
+With semihosting: `--specs=rdimon.specs`
+
+Without semihosting: `--specs=nosys.specs`
+
 [**>>>What is semihosting?<<<**](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471g/Bgbjjgij.html)
 
 Get a hex file:
