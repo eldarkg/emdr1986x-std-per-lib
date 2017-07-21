@@ -34,10 +34,14 @@ SRC = example.c
       std-per-lib/MDR32F9Qx_StdPeriph_Driver/src/MDR32F9Qx_port.c
       # another peripheral modules
 ```
-***Release***
+#### Release
+
 ```
 CFLAGS = -mcpu=cortex-m3 -mthumb -O2 -ffunction-sections -fdata-sections -Wall -Wextra -Wshadow -Wredundant-decls -Wno-missing-field-initializers -pipe
 ```
+
+##### C
+
 For each `src` in `SRC` list call:
 ```
 arm-none-eabi-gcc ${CFLAGS} -DUSE_MDR1986VE9x -D__STARTUP_CLEAR_BSS -D__START=main -I${INC} -c ${src} -o ${src}.o
@@ -46,11 +50,23 @@ Link (`OBJ` it is a list of all `${src}.o`):
 ```
 arm-none-eabi-gcc ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/startup/gcc/MDR32F9Qx.ld --specs=nosys.specs -Wl,--gc-sections -ffreestanding -nostartfiles -Wl,-Map=example.map ${OBJ} -o example.elf
 ```
+
+##### C++
+
+For each `src` in `SRC` call:
+```
+arm-none-eabi-g++ ${CFLAGS} -fno-rtti -fno-exceptions -fno-threadsafe-statics -DUSE_MDR1986VE9x -D__STARTUP_CLEAR_BSS -I${INC} -c ${src} -o ${src}.o
+```
+Link:
+```
+arm-none-eabi-g++ ${CFLAGS} -T std-per-lib/CMSIS/CM3/DeviceSupport/MDR32F9Qx/startup/gcc/MDR32F9Qx.ld --specs=nosys.specs --specs=nano.specs -Wl,--gc-sections -ffreestanding  -Wl,-Map=example.map ${OBJ} -o example.elf
+```
+
 Get a hex file:
 ```
 arm-none-eabi-objcopy -O ihex example.elf example.hex
 ```
-***Debug***
+#### Debug
 
 Instead `cflag` `-O2` set `-O0 -ggdb3`.
 
