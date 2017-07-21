@@ -66,6 +66,12 @@ Get a hex file:
 ```
 arm-none-eabi-objcopy -O ihex example.elf example.hex
 ```
+
+Get a bin file:
+```
+arm-none-eabi-objcopy -O binary example.elf example.bin
+```
+
 #### Debug
 
 Instead `cflag` `-O2` set `-O0 -ggdb3`.
