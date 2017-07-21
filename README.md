@@ -3,7 +3,7 @@
 
 This isn't official library that compatible with GCC compiler.
 
-**Now next MCU support gcc compiler:**
+**The following MCU's are now supported by gcc:**
 - MDR1901VC1T (not tested)
 - MDR1986VE1T
 - MDR1986VE3 (not tested)
