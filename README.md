@@ -72,6 +72,15 @@ Without semihosting: `--specs=nosys.specs`
 
 [**>>>What is semihosting?<<<**](http://infocenter.arm.com/help/index.jsp?topic=/com.arm.doc.dui0471g/Bgbjjgij.html)
 
+Show compiled file sections size after building (additional linker flag): `-Wl,--print-memory-usage`.
+
+Example:
+```
+Memory region         Used Size  Region Size  %age Used
+           FLASH:     29760 B       128 KB     22.71%
+           RAM:        2312 B        32 KB      7.06%
+```
+
 Get a hex file:
 ```
 arm-none-eabi-objcopy -O ihex example.elf example.hex
