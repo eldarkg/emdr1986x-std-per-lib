@@ -37,7 +37,7 @@ SRC = example.c
 #### Release
 
 ```
-CFLAGS = -mcpu=cortex-m3 -mthumb -O2 -ffunction-sections -fdata-sections -Wall -Wextra -Wshadow -Wredundant-decls -Wno-missing-field-initializers -pipe
+CFLAGS = -mcpu=cortex-m3 -mthumb -O2 -ffunction-sections -fdata-sections -Wall -Wextra -Wshadow -Wredundant-decls -Wno-missing-field-initializers -Wconversion -Wno-packed-bitfield-compat -pipe
 ```
 
 ##### C
