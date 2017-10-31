@@ -25,6 +25,10 @@
 #ifndef __MDR32FX_H
 #define __MDR32FX_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** @addtogroup __CMSIS CMSIS
   * @{
   */
@@ -36,10 +40,6 @@
 /** @defgroup __MDR32Fx_Peripheral MDR32F9Qx Peripheral
   * @{
   */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #if defined ( __CC_ARM   )
   #pragma anon_unions
@@ -3445,10 +3445,6 @@ typedef struct
 
 /** @} */ /* End of group __Peripheral_declaration */
 
-#ifdef __cplusplus
-}
-#endif
-
 /** @} */ /* End of group __MDR32Fx_Peripheral */
 
 #define BITBAND_SRAM_REF    (0x20000000)
@@ -3474,6 +3470,10 @@ typedef struct
 /** @} */ /* End of group MDR1986VE9x */
 
 /** @} */ /* End of group __CMSIS */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __MDR32FX_H */
 

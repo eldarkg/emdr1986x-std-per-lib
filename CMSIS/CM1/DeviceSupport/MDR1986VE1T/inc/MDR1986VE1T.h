@@ -24,6 +24,10 @@
 #ifndef __MDR1986VE1T_H
 #define __MDR1986VE1T_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /** @addtogroup __CMSIS CMSIS
   * @{
   */
@@ -35,10 +39,6 @@
 /** @defgroup MDR1986VE1T_Peripheral MDR1986VE1T Peripheral
   * @{
   */
-
-#ifdef __cplusplus
-extern "C" {
-#endif
 
 #if defined ( __CC_ARM   )
   #pragma anon_unions
@@ -4651,6 +4651,10 @@ typedef struct {
 /** @} */ /* End of group MDR1986VE1T */
 
 /** @} */ /* End of group __CMSIS */
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif /* __MDR1986VE1T_H */
 
