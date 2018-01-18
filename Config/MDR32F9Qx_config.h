@@ -43,6 +43,10 @@
 #ifndef __MDR32F9Qx_CONFIG_H
 #define __MDR32F9Qx_CONFIG_H
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 #if ((__CC_ARM == 0) || (__ARMCC_VERSION < 5000000))
 	#include "MDR32F9Qx_board.h"
 #endif
@@ -245,6 +249,10 @@
 
 #if defined (__CC_ARM)
 	#define IAR_SECTION(section)
+#endif
+
+#ifdef __cplusplus
+} // extern "C" block end
 #endif
 
 #endif /* __MDR32F9Qx_CONFIG_H */
