@@ -83,7 +83,7 @@ void SystemCoreClockUpdate (void)
 
   if ((MDR_RST_CLK->CPU_CLOCK & (uint32_t)0x00000001) == (uint32_t)0x00000001)
   {
-    cpu_c1_freq /= 2;
+    cpu_c1_freq >>= 1;
   }
 
   /* Determine CPU_C2 frequency */
@@ -111,7 +111,7 @@ void SystemCoreClockUpdate (void)
       if (tmp & (uint32_t)0x8)
       {
         tmp &= (uint32_t)0x7;
-        cpu_c3_freq = cpu_c2_freq / ((uint32_t)2 << tmp);
+        cpu_c3_freq = cpu_c2_freq >> (tmp + 1);
       }
       else
       {
