@@ -1077,6 +1077,9 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
 			/* Send frame */
 			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
+			/* Put size of the frame first*/
+			*ptr_OutputFrame++ = BufLen;
+			EthReceiverFreeBufferSize--;
 			if(((BufLen + 3) / 4 + 1) < (uint32_t)EthReceiverFreeBufferSize){
 				for( i = 0; i < (BufLen + 3)/4 + 1; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
@@ -1104,6 +1107,9 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
 			/* Send frame */
 			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
+			/* Put size of the frame first*/
+			*ptr_OutputFrame++ = BufLen;
+			EthReceiverFreeBufferSize--;
 			if(((BufLen + 3) / 4 + 2) < (uint32_t)EthReceiverFreeBufferSize){
 				for( i = 0; i < (BufLen + 3)/4 + 2; i++ ){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
