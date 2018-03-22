@@ -204,6 +204,15 @@ typedef union {
   * @{
   */
 
+
+/** @defgroup ETH_Buf_Size
+  * @{
+  */
+
+#define ETH_BUFFER_SIZE_IN_BYTES                         ((uint32_t)0x2000)
+
+/** @} */ /* End of group ETH_Buf_Size */
+
 /** @defgroup ETH_MODE ETH_MODE
   * @{
   */
@@ -552,7 +561,7 @@ FlagStatus ETH_GetPHYStatus(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t ETH_PHY_F
 uint16_t ETH_ReadPHYRegister(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t PHYAddress, uint16_t PHYReg);
 uint32_t ETH_WritePHYRegister(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t PHYAddress, uint16_t PHYReg, uint16_t PHYValue);
 uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_InputBuffer);
-void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OututBuffer, uint32_t BufLen);
+uint32_t ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OututBuffer, uint32_t BufLen);
 void ETH_DMAPrepare(void);
 void ETH_DMAFrameRx(uint32_t * DstBuf, uint32_t BufferSize, uint32_t * SrcBuf);
 void ETH_DMAFrameTx(uint32_t * DstBuf, uint32_t BufferSize, uint32_t *  SrcBuf);

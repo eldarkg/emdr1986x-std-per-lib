@@ -63,7 +63,7 @@ extern DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_Alter
 #define IS_ETH_RETRY_COUNTER(COUNTER)			(COUNTER <= 0x0F)
 #define IS_ETH_DELIMITER(DELIMITER)				((DELIMITER >= 0x5EA) && (DELIMITER <= 0x1A16))
 
-#define ETH_BUFFER_SIZE							((uint32_t)0x2000)
+
 
 /** @} */ /* End of group ETH_Private_Defines */
 
@@ -1054,85 +1054,131 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
   *         MDR_ETHERNET1, MDR_ETHERNET2 for MDR1986VE3 and
   *         MDR_ETHERNET1 for MDR1986VE1T.
   * @param	ptr_OututBuffer: pointer to the sending frame.
-  * @param	BufLen: the size of the sending frmae.
-  * @retval	None
+  * @param	BufLen: the size of the sending frame in bytes.
+  * @retval	ETH_ERROR if there is an error (not enough space in output buffer)
+  *         ETH_SUCCESS otherwise
   */
-void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer, uint32_t BufLen)
+  
+uint32_t ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_BufferToSend, uint32_t BufLenInBytes)
 {
-	uint32_t BufferMode, i, Xtail, tmp;
-	uint32_t * ptr_OutputFrame;
-	int32_t EthReceiverFreeBufferSize;
+	uint32_t BufferMode;
+	uint32_t Xtail_InBytes;
+	uint32_t Xhead_InBytes;
+	uint32_t * ptr_PeriphDataBuffer;
+	uint32_t WordsAvailable[2];
+    
+    /* Since output buffer is uint32_t, it should be safe to round up its length in bytes to word boundary */
+	/* We have to do it because ethernet peripheral buffer only supports word access */
+	const uint32_t BufLenInWords = (BufLenInBytes + 3)/4;
+
+	/* Buffer length in bytes, rounded up to word boundary, plus word for length at the beginning */
+	/* plus reserved word at the end */
+	const uint32_t OutputLenInWords = BufLenInWords + 2;
 
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 
+    Xtail_InBytes = ETHERNETx->ETH_X_Tail;
+    Xhead_InBytes = ETHERNETx->ETH_X_Head;
+    
 	/* Read the buffer mode */
 	BufferMode = (ETHERNETx->ETH_G_CFGl & ETH_G_CFGl_BUFF_MODE_Msk);
-	/* Send packet */
-	Xtail = ETHERNETx->ETH_X_Tail;
 
-	switch (BufferMode){
-		case ETH_BUFFER_MODE_LINEAR:
-			/* Set pointer to output buffer */
-			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
-			/* Send frame */
-			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
-			/* Put size of the frame first*/
-			*ptr_OutputFrame++ = BufLen;
-			EthReceiverFreeBufferSize--;
-			if(((BufLen + 3) / 4 + 1) < (uint32_t)EthReceiverFreeBufferSize){
-				for( i = 0; i < (BufLen + 3)/4 + 1; i++ ){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
-				}
-			}
-			else{
-				for( i = 0; i < (uint32_t)EthReceiverFreeBufferSize; i++ ){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
-				}
-				tmp = i;
-				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Delimiter);
-				for(i = 0; i < (((BufLen + 3)/4 + 1) - EthReceiverFreeBufferSize); i++){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
-				}
-			}
-			ptr_OutputFrame++;
-			Xtail = (uint32_t)ptr_OutputFrame&0x1FFC;
-			if(Xtail >= ETH_BUFFER_SIZE)
-				Xtail = ETHERNETx->ETH_Delimiter;
-			/* Write the new value of the ETH_X_Tail register */
-			ETHERNETx->ETH_X_Tail = Xtail;
-			break;
-		case ETH_BUFFER_MODE_AUTOMATIC_CHANGE_POINTERS:
-			/* Set pointer to output buffer */
-			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
-			/* Send frame */
-			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
-			/* Put size of the frame first*/
-			*ptr_OutputFrame++ = BufLen;
-			EthReceiverFreeBufferSize--;
-			if(((BufLen + 3) / 4 + 2) < (uint32_t)EthReceiverFreeBufferSize){
-				for( i = 0; i < (BufLen + 3)/4 + 2; i++ ){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
-				}
-			}
-			else{
-				for( i = 0; i < (uint32_t)EthReceiverFreeBufferSize; i++ ){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
-				}
-				tmp = i;
-				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Delimiter);
-				for(i = 0; i < (((BufLen + 3)/4 + 2) - EthReceiverFreeBufferSize); i++){
-					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
-				}
-			}
-			break;
-		case ETH_BUFFER_MODE_FIFO:
-			/* Set the pointer to input frame */
-			ptr_OutputFrame = (uint32_t *) ((uint32_t)ETHERNETx + 0x08000004);
-			/* Send frame */
-			ETH_DMAFrameTx(ptr_OutputFrame, ((BufLen+3)/4 + 2), ptr_OutputBuffer);
-			break;
+	if( BufferMode == ETH_BUFFER_MODE_FIFO ){
+        /* Set the pointer to input frame */
+        ptr_PeriphDataBuffer = (uint32_t *) (MDR_ETHERNET1_BUF_BASE + 4);
+        /* Send frame */
+        ETH_DMAFrameTx(ptr_PeriphDataBuffer, OutputLenInWords, ptr_BufferToSend);
+
+        return ETH_SUCCESS;
 	}
+
+    /* Set pointer to output buffer */
+    ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + Xtail_InBytes);
+
+    /* Calculate available space, it can be split in two pieces */
+    if( Xhead_InBytes > Xtail_InBytes )
+    {
+        WordsAvailable[0] = (Xhead_InBytes - Xtail_InBytes) / 4;
+        WordsAvailable[1] = 0;
+    }
+    else
+    {
+        WordsAvailable[0] = (ETH_BUFFER_SIZE_IN_BYTES - Xtail_InBytes) / 4;
+        WordsAvailable[1] = (Xhead_InBytes - ETHERNETx->ETH_Delimiter) / 4;
+    }
+
+    /* If there is not enough space in the peripheral buffer - return error */
+    if( OutputLenInWords > WordsAvailable[0] + WordsAvailable[1] )
+    {
+        return ETH_ERROR;
+    }
+
+    /* Put size of the frame in bytes first, if there is a space for it */
+    if( WordsAvailable[0] >= 1){
+
+        *ptr_PeriphDataBuffer = BufLenInBytes;
+        ptr_PeriphDataBuffer++;
+        WordsAvailable[0]--;
+        Xtail_InBytes += 4;
+    }
+    else{
+        ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + ETHERNETx->ETH_Delimiter);
+        Xtail_InBytes = ETHERNETx->ETH_Delimiter;
+
+        *ptr_PeriphDataBuffer = BufLenInBytes;
+        ptr_PeriphDataBuffer++;
+        WordsAvailable[1]--;
+        Xtail_InBytes += 4;
+    }
+
+    /* Put frame body to the peripheral buffer plus reserved word for tx status */
+    /* We can't use memcpy because we have to ensure word access to peripheral buffer */
+    if( BufLenInWords + 1 <= WordsAvailable[0]){
+
+        uint32_t i;
+        for( i=0; i < BufLenInWords; i++ )
+        {
+            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
+        }
+        /* reserve word for tx status, required in auto mode*/
+        ptr_PeriphDataBuffer[i] = 0;
+
+        Xtail_InBytes += (BufLenInWords + 1)*4;
+    }
+    else{
+        uint32_t i;
+        /* Put what we can fit into first piece */
+        for( i=0; i < WordsAvailable[0]; i++ )
+        {
+            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
+        }
+
+        ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + ETHERNETx->ETH_Delimiter);
+        ptr_BufferToSend += WordsAvailable[0];
+
+        /* Put the rest of it in the second piece. It should be big enough, we checked it before */
+        for( i=0; i < BufLenInWords - WordsAvailable[0]; i++ )
+        {
+            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
+        }
+
+        Xtail_InBytes = ETHERNETx->ETH_Delimiter + (BufLenInWords - WordsAvailable[0]) * 4;
+
+        /* reserve word for tx status, required in auto mode*/
+        ptr_PeriphDataBuffer[i] = 0;
+        Xtail_InBytes += 4;
+    }
+    
+    if( BufferMode == ETH_BUFFER_MODE_LINEAR ){
+        if(Xtail_InBytes >= ETH_BUFFER_SIZE_IN_BYTES) {
+            Xtail_InBytes -= (ETH_BUFFER_SIZE_IN_BYTES - ETHERNETx->ETH_Delimiter);
+        }
+        /* Write the new value of the ETH_X_Tail register */
+        ETHERNETx->ETH_X_Tail = Xtail_InBytes;
+    }
+
+    return ETH_SUCCESS;
 }
 
 /**
