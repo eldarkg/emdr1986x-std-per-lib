@@ -400,10 +400,7 @@ typedef struct
 #define ADC_CLK_div_512                       (((uint32_t)0x9) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 512.   */
 #define ADC_CLK_div_1024                      (((uint32_t)0xA) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 1024.  */
 #define ADC_CLK_div_2048                      (((uint32_t)0xB) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 2048.  */
-#define ADC_CLK_div_4096                      (((uint32_t)0xC) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 4096.  */
-#define ADC_CLK_div_8192                      (((uint32_t)0xD) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 8192.  */
-#define ADC_CLK_div_16384                     (((uint32_t)0xE) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 16384. */
-#define ADC_CLK_div_32768                     (((uint32_t)0xF) << ADC1_CFG_REG_DIVCLK_Pos) /*!< The input ADC clock devides by 32768. */
+
 
 #define IS_ADC_CLK_div_VALUE(VALUE) (((VALUE) == ADC_CLK_div_None ) || \
                                      ((VALUE) == ADC_CLK_div_2    ) || \
@@ -416,11 +413,7 @@ typedef struct
                                      ((VALUE) == ADC_CLK_div_256  ) || \
                                      ((VALUE) == ADC_CLK_div_512  ) || \
                                      ((VALUE) == ADC_CLK_div_1024 ) || \
-                                     ((VALUE) == ADC_CLK_div_2048 ) || \
-                                     ((VALUE) == ADC_CLK_div_4096 ) || \
-                                     ((VALUE) == ADC_CLK_div_8192 ) || \
-                                     ((VALUE) == ADC_CLK_div_16384) || \
-                                     ((VALUE) == ADC_CLK_div_32768))
+                                     ((VALUE) == ADC_CLK_div_2048 ))
 
 /** @} */ /* End of group ADCx_Prescaler */
 
