@@ -31,6 +31,8 @@
 #ifndef __CORE_CM0_H_GENERIC
 #define __CORE_CM0_H_GENERIC
 
+#warning "You use deprecated version of CMSIS. Don't use this one. For more info look in README"
+
 /** \page CMSIS_MISRA_Exceptions  MISRA-C:2004 Compliance Exceptions
   CMSIS violates the following MISRA-C:2004 rules:
 
