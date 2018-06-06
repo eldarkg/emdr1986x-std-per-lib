@@ -4398,7 +4398,7 @@ typedef struct
   */
 
 typedef struct {
-  __IO uint16_t ETH_Dilimiter;      //0
+  __IO uint16_t ETH_Delimiter;      //0
   __IO uint16_t ETH_MAC_T;          //2
   __IO uint16_t ETH_MAC_M;          //4
   __IO uint16_t ETH_MAC_H;          //6
