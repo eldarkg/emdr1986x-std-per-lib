@@ -391,7 +391,7 @@ typedef struct {
   * @brief RST_CLK peripheral modules clock constants
   */
 
-#define PCLK_BIT(BASE)              ((uint32_t)(1 << ((((uint32_t)BASE) >> 15) & 0x1F)))
+#define PCLK_BIT(BASE)              ((uint32_t)(1u << ((((uint32_t)BASE) >> 15) & 0x1F)))
 #if defined USE_MDR1986VE3
 	#define PCLK_BIT2(BASE)				((uint32_t)(1 << ((((uint32_t)BASE) >> 15) & 0x0F)))
 #endif
