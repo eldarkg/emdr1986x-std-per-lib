@@ -376,7 +376,7 @@ typedef struct
   * @{
   */
 
-#define CAN_BUFFER_NUMBER           ((uint32_t)32)          /*!< Total buffer number */
+#define CAN_BUFFER_NUMBER           (32u)          /*!< Total buffer number */
 
 /** @} */ /* End of group CAN_Constants */
 
