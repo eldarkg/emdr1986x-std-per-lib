@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file	 MDR32F9Qx_eth.c
-  * @author	 sidorov.a
-  * @version V1.4.0
-  * @date    26.04.2013
-  * @brief   This file contains all the ethernet firmware functions.
-  ******************************************************************************
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, MILANDR SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2013 Milandr </center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_eth.c
   */
 
@@ -25,11 +6,13 @@
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_dma.h"
 #include "MDR32F9Qx_eth.h"
+#include "MDR32F9Qx_rst_clk.h"
 
 #include <math.h>
 #include <stdio.h>
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9X_ETH_C
+
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
@@ -54,7 +37,7 @@ extern DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_Alter
 
 #if defined (USE_MDR1986VE3)
 	#define IS_ETH_ALL_PERIPH(PERIPH)				((PERIPH == MDR_ETHERNET1) ||\
-													 (PERIPH == MDR_ETHERNET1))
+																					 (PERIPH == MDR_ETHERNET2))
 #elif defined (USE_MDR1986VE1T)
 	#define IS_ETH_ALL_PERIPH(PERIPH)				(PERIPH == MDR_ETHERNET1)
 #endif
@@ -63,7 +46,7 @@ extern DMA_CtrlDataTypeDef DMA_ControlTable[DMA_Channels_Number * (1 + DMA_Alter
 #define IS_ETH_RETRY_COUNTER(COUNTER)			(COUNTER <= 0x0F)
 #define IS_ETH_DELIMITER(DELIMITER)				((DELIMITER >= 0x5EA) && (DELIMITER <= 0x1A16))
 
-
+#define ETH_BUFFER_SIZE							((uint32_t)0x2000)
 
 /** @} */ /* End of group ETH_Private_Defines */
 
@@ -261,7 +244,7 @@ void ETH_DeInit(MDR_ETHERNET_TypeDef * ETHERNETx )
 	/* PHY reset */
 	ETH_PHY_Reset(ETHERNETx);
 
-	ETHERNETx->ETH_Delimiter 	= 0x0800;
+	ETHERNETx->ETH_Dilimiter 	= 0x1000;
 	ETHERNETx->ETH_MAC_T 		= 0x78AB;
 	ETHERNETx->ETH_MAC_M 		= 0x3456;
 	ETHERNETx->ETH_MAC_H 		= 0x0012;
@@ -280,7 +263,8 @@ void ETH_DeInit(MDR_ETHERNET_TypeDef * ETHERNETx )
 	ETHERNETx->ETH_IMR 			= 0x0000;
 	ETHERNETx->ETH_IFR 			= 0x0000;
 	ETHERNETx->ETH_R_Head 		= 0x0000;
-	ETHERNETx->ETH_X_Tail 		= 0x0800;
+	ETHERNETx->ETH_X_Tail 		= 0x1000;  
+  	ETHERNETx->ETH_STAT = 0;
 }
 
 /**
@@ -299,7 +283,7 @@ void ETH_StructInit(ETH_InitTypeDef * ETH_InitStruct)
 	ETH_InitStruct->ETH_PHY_Interface = ETH_PHY_INTERFACE_ETHERNET_802_3;
 
 	/* General config*/
-	ETH_InitStruct->ETH_Delimiter = 0x0800;
+	ETH_InitStruct->ETH_Dilimiter = 0x0800;
 	/* Set the DBG Mode */
 	ETH_InitStruct->ETH_DBG_Mode = ETH_DBG_MODE_FREE_RUN;
 	/* Enable automatically change the transmitter FIFO pointers in DBG Mode. */
@@ -382,9 +366,9 @@ void ETH_StructInit(ETH_InitTypeDef * ETH_InitStruct)
 	ETH_InitStruct->ETH_Hash_Table_Low	= 0x00000000;
 	ETH_InitStruct->ETH_Hash_Table_High = 0x08000000;
 
-	/* Set the pacet interval fo falf duplex mode. */
+	/* Set the pacet interval fo half duplex mode. */
 	ETH_InitStruct->ETH_IPG = 0x0060;
-	/* Set the prescaler increment values ​​BAG and JitterWnd. */
+	/* Set the prescaler increment values for BAG and JitterWnd. */
 	ETH_InitStruct->ETH_PSC = 0x0031;
 	/* Set period the following of packages.*/
 	ETH_InitStruct->ETH_BAG = 0x0064;
@@ -414,7 +398,7 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 
-	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Delimiter));
+	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Dilimiter));
 	assert_param(IS_ETH_PHY_ADDRESS(ETH_InitStruct->ETH_PHY_Address));
 	assert_param(IS_ETH_PHY_MODE(ETH_InitStruct->ETH_PHY_Mode));
 	assert_param(IS_ETH_DBG_MODE(ETH_InitStruct->ETH_DBG_Mode));
@@ -454,7 +438,7 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	assert_param(IS_FUNCTIONAL_STATE(ETH_InitStruct->ETH_Source_Addr_HASH_Filter));
 
 	/* Set the buffer size of transmitter and receiver */
-	ETHERNETx->ETH_Delimiter = ETH_InitStruct->ETH_Delimiter;
+	ETHERNETx->ETH_Dilimiter = ETH_InitStruct->ETH_Dilimiter;
 
 	/* Config the PHY control register */
 	tmpreg_PHY_Control = (ETH_InitStruct->ETH_PHY_Address << ETH_PHY_CONTROL_PHYADD_Pos) | (ETH_InitStruct->ETH_PHY_Mode) | (ETH_InitStruct->ETH_PHY_Interface);
@@ -523,12 +507,15 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 
 	/* Set the pacet interval fo falf duplex mode. */
 	ETHERNETx->ETH_IPG = ETH_InitStruct->ETH_IPG;
-	/* Set the prescaler increment values ​​BAG and JitterWnd. */
+	/* Set the prescaler increment values for BAG and JitterWnd. */
 	ETHERNETx->ETH_PSC = ETH_InitStruct->ETH_PSC;
 	/* Set period the following of packages.*/
 	ETHERNETx->ETH_BAG = ETH_InitStruct->ETH_BAG;
 	/* Set jitter of packets transmitted. */
 	ETHERNETx->ETH_JitterWnd = ETH_InitStruct->ETH_JitterWnd;
+  
+	if (ETH_InitStruct->ETH_Buffer_Mode == ETH_BUFFER_MODE_FIFO)
+		ETH_DMAPrepare();  
 }
 
 /**
@@ -706,7 +693,7 @@ FlagStatus ETH_GetFlagStatus(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t ETH_MAC_
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 	assert_param(IS_ETH_MAC_FLAG(ETH_MAC_FLAG));
 
-	if(ETHERNETx->ETH_IFR & ETH_MAC_FLAG){
+	if(ETHERNETx->ETH_STAT & ETH_MAC_FLAG){
 		bitstatus = SET;
 	}
 	else{
@@ -925,6 +912,8 @@ uint32_t ETH_WritePHYRegister(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t PHYAddr
 	tmpreg = ETHERNETx->ETH_MDIO_CTRL;
 	/* Keep only the CSR Clock Range CR[2:0] bits value */
 	tmpreg &= ~ETH_MDIO_CTRL_DIV_Msk;
+	
+	tmpreg &= ~(1 << ETH_MDIO_CTRL_OP_Pos);
 	/* Prepare the MII address register value */
 	tmpreg |= (uint32_t)(PHYAddress << 8) | (PHYReg << 0) | (0 << ETH_MDIO_CTRL_OP_Pos) | (1 << ETH_MDIO_CTRL_RDY_Pos) | (1 << ETH_MDIO_CTRL_PRE_EN_Pos) | (1<<5);
 	/* Give the value to the MII data register */
@@ -945,7 +934,7 @@ uint32_t ETH_WritePHYRegister(MDR_ETHERNET_TypeDef * ETHERNETx, uint16_t PHYAddr
 }
 
 /**
-  * @brief	Read the input ethernet frame.
+  * @brief	Read the input ethenet frame.
   * @param	ETHERNETx: Slect the ETHERNET peripheral.
   *         This parameter can be one of the following values:
   *         MDR_ETHERNET1, MDR_ETHERNET2 for MDR1986VE3 and
@@ -959,6 +948,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 	uint32_t PacketLength, i, Rhead, EthBaseBufferAddr, * ptr_InputFrame, tmp;
 	uint16_t BufferMode;
 	int32_t EthReceiverFreeBufferSize;
+  uint32_t RHead;
 
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
@@ -975,7 +965,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 			ETH_StatusPacketReceptionStruct.Status = (uint32_t)*ptr_InputFrame++;
 			PacketLength = (ETH_StatusPacketReceptionStruct.Fields.Length + 3)/4;
 			/* Read the input frame */
-			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Delimiter - Rhead) - PacketLength*4;
+			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Dilimiter - Rhead) - PacketLength*4;
 			if(EthReceiverFreeBufferSize > 0){
 				/* Read the input frame */
 				for(i = 0; i < PacketLength; i++){
@@ -992,12 +982,16 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 				EthReceiverFreeBufferSize = 0 - EthReceiverFreeBufferSize;
 				tmp = i;
 				/* Read the the second part of the packet */
-				for( i = 0; i < (uint32_t)((EthReceiverFreeBufferSize / 4) + 1); i++ ){
+				for( i = 0; i < (EthReceiverFreeBufferSize/4) + 1; i++){
 					ptr_InputBuffer[tmp + i] = *ptr_InputFrame++;
 				}
 			}
 			/* Set the new value of the ETH_R_Head register */
-			ETHERNETx->ETH_R_Head = ((uint32_t)ptr_InputFrame)&0x1FFF;
+      RHead = ((uint32_t)ptr_InputFrame)&0x1FFF;
+      if (RHead < ETHERNETx->ETH_Dilimiter)
+        ETHERNETx->ETH_R_Head = RHead;
+      else
+        ETHERNETx->ETH_R_Head = 0;
 			break;
 		/* The buffer mode is aoutomatic */
 		case ETH_BUFFER_MODE_AUTOMATIC_CHANGE_POINTERS:
@@ -1009,7 +1003,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 			/* Set the Length of receiving paket */
 			PacketLength = ((ETH_StatusPacketReceptionStruct.Fields.Length & 0x0003) != 0) + ETH_StatusPacketReceptionStruct.Fields.Length/4;
 			/* Get the size of recever buffer */
-			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Delimiter - Rhead) - PacketLength*4;
+			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Dilimiter - Rhead) - PacketLength*4;
 			if(EthReceiverFreeBufferSize > 0){
 				/* Read the input frame */
 				for(i = 0; i < PacketLength; i++){
@@ -1026,7 +1020,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 				EthReceiverFreeBufferSize = 0 - EthReceiverFreeBufferSize;
 				tmp = i;
 				/* Read the the second part of the packet */
-				for( i = 0; i < (uint32_t)((EthReceiverFreeBufferSize / 4) + 1); i++ ){
+				for( i = 0; i < (EthReceiverFreeBufferSize/4) + 1; i++){
 					ptr_InputBuffer[tmp + i] = *ptr_InputFrame++;
 				}
 			}
@@ -1054,131 +1048,79 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
   *         MDR_ETHERNET1, MDR_ETHERNET2 for MDR1986VE3 and
   *         MDR_ETHERNET1 for MDR1986VE1T.
   * @param	ptr_OututBuffer: pointer to the sending frame.
-  * @param	BufLen: the size of the sending frame in bytes.
-  * @retval	ETH_ERROR if there is an error (not enough space in output buffer)
-  *         ETH_SUCCESS otherwise
+  * @param	BufLen: the size of the sending frmae.
+  * @retval	None
   */
-  
-uint32_t ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_BufferToSend, uint32_t BufLenInBytes)
+void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer, uint32_t BufLen)
 {
-	uint32_t BufferMode;
-	uint32_t Xtail_InBytes;
-	uint32_t Xhead_InBytes;
-	uint32_t * ptr_PeriphDataBuffer;
-	uint32_t WordsAvailable[2];
-    
-    /* Since output buffer is uint32_t, it should be safe to round up its length in bytes to word boundary */
-	/* We have to do it because ethernet peripheral buffer only supports word access */
-	const uint32_t BufLenInWords = (BufLenInBytes + 3)/4;
-
-	/* Buffer length in bytes, rounded up to word boundary, plus word for length at the beginning */
-	/* plus reserved word at the end */
-	const uint32_t OutputLenInWords = BufLenInWords + 2;
+	uint32_t BufferMode, i, Xtail, tmp;
+	uint32_t * ptr_OutputFrame;
+	int32_t EthReceiverFreeBufferSize;
 
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 
-    Xtail_InBytes = ETHERNETx->ETH_X_Tail;
-    Xhead_InBytes = ETHERNETx->ETH_X_Head;
-    
 	/* Read the buffer mode */
 	BufferMode = (ETHERNETx->ETH_G_CFGl & ETH_G_CFGl_BUFF_MODE_Msk);
+	/* Send packet */
+	Xtail = ETHERNETx->ETH_X_Tail;
 
-	if( BufferMode == ETH_BUFFER_MODE_FIFO ){
-        /* Set the pointer to input frame */
-        ptr_PeriphDataBuffer = (uint32_t *) (MDR_ETHERNET1_BUF_BASE + 4);
-        /* Send frame */
-        ETH_DMAFrameTx(ptr_PeriphDataBuffer, OutputLenInWords, ptr_BufferToSend);
-
-        return ETH_SUCCESS;
+	switch (BufferMode){
+		case ETH_BUFFER_MODE_LINEAR:
+			/* Set pointer to output buffer */
+			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
+			/* Send frame */
+			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
+			if(((BufLen +3)/4 + 1) < EthReceiverFreeBufferSize){
+				for( i = 0; i < (BufLen + 3)/4 + 1; i++ ){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
+				}
+			}
+			else{
+				for( i = 0; i < EthReceiverFreeBufferSize; i++ ){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
+				}
+				tmp = i;
+				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Dilimiter);
+				for(i = 0; i < (((BufLen + 3)/4 + 1) - EthReceiverFreeBufferSize); i++){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
+				}
+			}
+			ptr_OutputFrame++;
+      Xtail = (uint32_t)ptr_OutputFrame&0x3FFC;
+			if(Xtail >= ETH_BUFFER_SIZE)
+				Xtail = ETHERNETx->ETH_Dilimiter;
+			/* Write the new value of the ETH_X_Tail register */
+			ETHERNETx->ETH_X_Tail = Xtail;
+			break;
+		case ETH_BUFFER_MODE_AUTOMATIC_CHANGE_POINTERS:
+			/* Set pointer to output buffer */
+			ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + Xtail);
+			/* Send frame */
+			EthReceiverFreeBufferSize = (ETH_BUFFER_SIZE - Xtail) / 4;
+			if(((BufLen +3)/4 + 2) < EthReceiverFreeBufferSize){
+				for( i = 0; i < (BufLen + 3)/4 + 2; i++ ){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
+				}
+			}
+			else{
+				for( i = 0; i < EthReceiverFreeBufferSize; i++ ){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
+				}
+				tmp = i;
+				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Dilimiter);
+				for(i = 0; i < (((BufLen + 3)/4 + 2) - EthReceiverFreeBufferSize); i++){
+					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
+				}
+			}
+			break;
+		case ETH_BUFFER_MODE_FIFO:
+			/* Set the pointer to input frame */
+			ptr_OutputFrame = (uint32_t *) ((uint32_t)ETHERNETx + 0x08000004);
+			/* Send frame */
+			ETH_DMAFrameTx(ptr_OutputFrame, ((BufLen+3)/4 + 2), ptr_OutputBuffer);
+			break;
 	}
-
-    /* Set pointer to output buffer */
-    ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + Xtail_InBytes);
-
-    /* Calculate available space, it can be split in two pieces */
-    if( Xhead_InBytes > Xtail_InBytes )
-    {
-        WordsAvailable[0] = (Xhead_InBytes - Xtail_InBytes) / 4;
-        WordsAvailable[1] = 0;
-    }
-    else
-    {
-        WordsAvailable[0] = (ETH_BUFFER_SIZE_IN_BYTES - Xtail_InBytes) / 4;
-        WordsAvailable[1] = (Xhead_InBytes - ETHERNETx->ETH_Delimiter) / 4;
-    }
-
-    /* If there is not enough space in the peripheral buffer - return error */
-    if( OutputLenInWords > WordsAvailable[0] + WordsAvailable[1] )
-    {
-        return ETH_ERROR;
-    }
-
-    /* Put size of the frame in bytes first, if there is a space for it */
-    if( WordsAvailable[0] >= 1){
-
-        *ptr_PeriphDataBuffer = BufLenInBytes;
-        ptr_PeriphDataBuffer++;
-        WordsAvailable[0]--;
-        Xtail_InBytes += 4;
-    }
-    else{
-        ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + ETHERNETx->ETH_Delimiter);
-        Xtail_InBytes = ETHERNETx->ETH_Delimiter;
-
-        *ptr_PeriphDataBuffer = BufLenInBytes;
-        ptr_PeriphDataBuffer++;
-        WordsAvailable[1]--;
-        Xtail_InBytes += 4;
-    }
-
-    /* Put frame body to the peripheral buffer plus reserved word for tx status */
-    /* We can't use memcpy because we have to ensure word access to peripheral buffer */
-    if( BufLenInWords + 1 <= WordsAvailable[0]){
-
-        uint32_t i;
-        for( i=0; i < BufLenInWords; i++ )
-        {
-            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
-        }
-        /* reserve word for tx status, required in auto mode*/
-        ptr_PeriphDataBuffer[i] = 0;
-
-        Xtail_InBytes += (BufLenInWords + 1)*4;
-    }
-    else{
-        uint32_t i;
-        /* Put what we can fit into first piece */
-        for( i=0; i < WordsAvailable[0]; i++ )
-        {
-            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
-        }
-
-        ptr_PeriphDataBuffer = (uint32_t *)(MDR_ETHERNET1_BUF_BASE + ETHERNETx->ETH_Delimiter);
-        ptr_BufferToSend += WordsAvailable[0];
-
-        /* Put the rest of it in the second piece. It should be big enough, we checked it before */
-        for( i=0; i < BufLenInWords - WordsAvailable[0]; i++ )
-        {
-            ptr_PeriphDataBuffer[i] = ptr_BufferToSend[i];
-        }
-
-        Xtail_InBytes = ETHERNETx->ETH_Delimiter + (BufLenInWords - WordsAvailable[0]) * 4;
-
-        /* reserve word for tx status, required in auto mode*/
-        ptr_PeriphDataBuffer[i] = 0;
-        Xtail_InBytes += 4;
-    }
-    
-    if( BufferMode == ETH_BUFFER_MODE_LINEAR ){
-        if(Xtail_InBytes >= ETH_BUFFER_SIZE_IN_BYTES) {
-            Xtail_InBytes -= (ETH_BUFFER_SIZE_IN_BYTES - ETHERNETx->ETH_Delimiter);
-        }
-        /* Write the new value of the ETH_X_Tail register */
-        ETHERNETx->ETH_X_Tail = Xtail_InBytes;
-    }
-
-    return ETH_SUCCESS;
 }
 
 /**
@@ -1190,9 +1132,10 @@ void ETH_DMAPrepare(void)
 {
 	DMA_CtrlDataInitTypeDef DMA_PriCtrlStr;
 	DMA_ChannelInitTypeDef DMA_InitStr;
-
+	
+	RST_CLK_PCLKcmd(RST_CLK_PCLK_DMA, ENABLE);
 	DMA_DeInit();
-
+	
 	DMA_StructInit(&DMA_InitStr);
 
 	/* Set Channel Structure */
@@ -1202,6 +1145,7 @@ void ETH_DMAPrepare(void)
 	DMA_InitStr.DMA_SelectDataStructure = DMA_CTRL_DATA_PRIMARY;
 	/* Init DMA channel */
 	DMA_Init(DMA_Channel_SW1, &DMA_InitStr);
+    DMA_Init(DMA_Channel_SW2, &DMA_InitStr);
 }
 
 /**
@@ -1234,7 +1178,7 @@ void ETH_DMAFrameRx(uint32_t * DstBuf, uint32_t BufferSize, uint32_t *  SrcBuf)
 	ptrControltable = (uint32_t *)&DMA_ControlTable[DMA_Channel_SW1].DMA_Control;
 	/* Wait while DMA running */
 	while( 1 ){
-		tmpval = (*ptrControltable)&0x3;
+		tmpval = (*ptrControltable)&0x7;
 		if(tmpval == 0)
 			break;
 	}
@@ -1272,7 +1216,7 @@ void ETH_DMAFrameTx(uint32_t * DstBuf, uint32_t BufferSize, uint32_t * SrcBuf)
 	ptrControltable = (uint32_t *)&DMA_ControlTable[DMA_Channel_SW2].DMA_Control;
 	/* Wait while DMA running */
 	while( 1 ){
-		tmpval = (*ptrControltable)&0x3;
+		tmpval = (*ptrControltable)&0x7;
 		if(tmpval == 0)
 			break;
 	}
@@ -1288,6 +1232,6 @@ void ETH_DMAFrameTx(uint32_t * DstBuf, uint32_t BufferSize, uint32_t * SrcBuf)
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2013 Milandr ********************************
+/*
 *
 * END OF FILE MDR32F9Qx_eth.c */

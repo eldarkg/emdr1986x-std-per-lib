@@ -1,24 +1,4 @@
 ;/**
-; *****************************************************************************
-; * @file	startup_MDR1986BE4.s
-; * @author	Milandr Application Team
-; * @brief	CMSIS Cortex-CM0 Peripheral Access Layer Header File for
-; * 		MDR1986BE4 from Milandr
-; * @version	1.0
-; * @date	2014-03-18
-; *****************************************************************************
-; * <br><br>
-; *
-; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-; * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-; * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-; * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-; *
-; 
-; * <h2><center>&copy; COPYRIGHT 2014 MDR1986BE4 </center></h2>
-; *****************************************************************************
 ; * FILE startup_MDR1986BE4.s
 ; */
 
@@ -61,7 +41,7 @@ __Vectors:
     .DCD     0                                   ; Reserved
     .DCD     0                                   ; Reserved
     .DCD     0                                   ; Reserved
-    SET_HANDLER     SVCall_Handler               ; 10 SV Call Handeler
+    SET_HANDLER     SVC_Handler                  ; 10 SV Call Handeler
     .DCD     0                                   ; Reserved
     .DCD     0                                   ; Reserved
     SET_HANDLER     PendSV_Handler               ; 14 Pend SV Handeler
@@ -79,9 +59,9 @@ __Vectors:
      SET_HANDLER     ADC_IRQHandler              ; ADC  Handeler
      SET_HANDLER     COMPARATOR_IRQHandler       ; COMPARATOR  Handeler
      SET_HANDLER     BACKUP_IRQHandler           ; BACKUP  Handeler
+     SET_HANDLER     EXT_INT0_IRQHandler         ; EXT_INT0  Handeler
      SET_HANDLER     EXT_INT1_IRQHandler         ; EXT_INT1  Handeler
      SET_HANDLER     EXT_INT2_IRQHandler         ; EXT_INT2  Handeler
-     SET_HANDLER     EXT_INT3_IRQHandler         ; EXT_INT3  Handeler
      SET_HANDLER     ADCIU_CH1_IRQHandler        ; ADCIU_CH1 Handeler
      SET_HANDLER     ADCIU_CH2_IRQHandler        ; ADCIU_CH2 Handeler
      SET_HANDLER     ADCIU_CH3_IRQHandler        ; ADCIU_CH3 Handeler
@@ -145,13 +125,13 @@ HardFault_Handler     .EQU    HardFault_Handler?T+1
 .FUNCTYPE .VOID HardFault_Handler(.VOID)
     B   $
 .ENDMOD
-.LMODULE2 ?SVCall_Handler
-.PUBLIC SVCall_Handler
+.LMODULE2 ?SVC_Handler
+.PUBLIC SVC_Handler
 .RSEG ??DEFAULT_HANDLERS,code
     .THUMB
-SVCall_Handler?T:
-SVCall_Handler     .EQU    SVCall_Handler?T+1
-.FUNCTYPE .VOID SVCall_Handler(.VOID)
+SVC_Handler?T:
+SVC_Handler     .EQU    SVC_Handler?T+1
+.FUNCTYPE .VOID SVC_Handler(.VOID)
     B   $
 .ENDMOD
 .LMODULE2 ?PendSV_Handler
@@ -274,6 +254,15 @@ BACKUP_IRQHandler     .EQU    BACKUP_IRQHandler?T+1
 .FUNCTYPE .VOID BACKUP_IRQHandler(.VOID)
     B   $
 .ENDMOD
+.LMODULE2 ?EXT_INT0_IRQHandler
+.PUBLIC EXT_INT0_IRQHandler
+.RSEG ??DEFAULT_HANDLERS,code
+    .THUMB
+EXT_INT0_IRQHandler?T:
+EXT_INT0_IRQHandler     .EQU    EXT_INT0_IRQHandler?T+1
+.FUNCTYPE .VOID EXT_INT0_IRQHandler(.VOID)
+    B   $
+.ENDMOD
 .LMODULE2 ?EXT_INT1_IRQHandler
 .PUBLIC EXT_INT1_IRQHandler
 .RSEG ??DEFAULT_HANDLERS,code
@@ -290,15 +279,6 @@ EXT_INT1_IRQHandler     .EQU    EXT_INT1_IRQHandler?T+1
 EXT_INT2_IRQHandler?T:
 EXT_INT2_IRQHandler     .EQU    EXT_INT2_IRQHandler?T+1
 .FUNCTYPE .VOID EXT_INT2_IRQHandler(.VOID)
-    B   $
-.ENDMOD
-.LMODULE2 ?EXT_INT3_IRQHandler
-.PUBLIC EXT_INT3_IRQHandler
-.RSEG ??DEFAULT_HANDLERS,code
-    .THUMB
-EXT_INT3_IRQHandler?T:
-EXT_INT3_IRQHandler     .EQU    EXT_INT3_IRQHandler?T+1
-.FUNCTYPE .VOID EXT_INT3_IRQHandler(.VOID)
     B   $
 .ENDMOD
 .LMODULE2 ?ADCIU_CH1_IRQHandler
@@ -412,6 +392,6 @@ SystemInit .EQU SystemInit?T+1
     BX      LR
 
 .END
-;/******************* (C) COPYRIGHT 2014 Milandr ******************************
+;/*
 ;*
 ;* END OF FILE startup_MDR1986BE4.s */

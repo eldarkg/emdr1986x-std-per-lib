@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_dma.h
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    11/06/2010
-  * @brief   This file contains all the functions prototypes for the DMA
-  *          firmware library.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2010 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_dma.h
   */
 
@@ -30,6 +11,7 @@ extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
+#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_lib.h"
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
@@ -359,6 +341,72 @@ typedef struct
 #define DMA_Channel_SREQ_ADCDMA    ((uint8_t)(30))
 #define DMA_Channel_SREQ_SW1         ((uint8_t)(31))
 
+#elif defined (USE_MDR1901VC1T)
+
+/*-- req DMA request ---------------------------------------------------------*/
+#define DMA_Channel_REQ_UART1_TX    ((uint8_t)(0))
+#define DMA_Channel_REQ_UART1_RX    ((uint8_t)(1))
+#define DMA_Channel_REQ_UART2_TX    ((uint8_t)(2))
+#define DMA_Channel_REQ_UART2_RX    ((uint8_t)(3))
+#define DMA_Channel_REQ_SSP1_TX     ((uint8_t)(4))
+#define DMA_Channel_REQ_SSP1_RX     ((uint8_t)(5))
+#define DMA_Channel_REQ_SSP2_TX     ((uint8_t)(6))
+#define DMA_Channel_REQ_SSP2_RX     ((uint8_t)(7))
+
+#define DMA_Channel_REQ_DSP0        ((uint8_t)(9))
+#define DMA_Channel_REQ_DSP1        ((uint8_t)(10))
+
+#define DMA_Channel_REQ_DSP2        ((uint8_t)(14))
+#define DMA_Channel_REQ_DSP3        ((uint8_t)(15))
+#define DMA_Channel_REQ_SSP3_TX     ((uint8_t)(16))
+#define DMA_Channel_REQ_SSP3_RX     ((uint8_t)(17))
+#define DMA_Channel_REQ_SSP4_TX     ((uint8_t)(18))
+#define DMA_Channel_REQ_SSP4_RX     ((uint8_t)(19))
+#define DMA_Channel_REQ_UART3_TX    ((uint8_t)(20))
+#define DMA_Channel_REQ_UART3_RX    ((uint8_t)(21)
+#define DMA_Channel_REQ_AUC_ADC     ((uint8_t)(22))
+#define DMA_Channel_REQ_AUC_DAC     ((uint8_t)(23))
+#define DMA_Channel_REQ_CRYPTO      ((uint8_t)(24))
+#define DMA_Channel_REQ_DSP_TIM     ((uint8_t)(25))
+#define DMA_Channel_REQ_MCBSP1_TX   ((uint8_t)(26))
+#define DMA_Channel_REQ_MCBSP1_RX   ((uint8_t)(27))
+#define DMA_Channel_REQ_MCBSP2_TX   ((uint8_t)(28))
+#define DMA_Channel_REQ_MCBSP2_RX   ((uint8_t)(29))
+#define DMA_Channel_REQ_MCBSP3_TX   ((uint8_t)(30))
+#define DMA_Channel_REQ_MCBSP3_RX   ((uint8_t)(31))
+
+/*-- sreq DMA request --------------------------------------------------------*/
+#define DMA_Channel_SREQ_UART1_TX    ((uint8_t)(0))
+#define DMA_Channel_SREQ_UART1_RX    ((uint8_t)(1))
+#define DMA_Channel_SREQ_UART2_TX    ((uint8_t)(2))
+#define DMA_Channel_SREQ_UART2_RX    ((uint8_t)(3))
+#define DMA_Channel_SREQ_SSP1_TX     ((uint8_t)(4))
+#define DMA_Channel_SREQ_SSP1_RX     ((uint8_t)(5))
+#define DMA_Channel_SREQ_SSP2_TX     ((uint8_t)(6))
+#define DMA_Channel_SREQ_SSP2_RX     ((uint8_t)(7))
+#define DMA_Channel_SREQ_ADC1        ((uint8_t)(8))
+#define DMA_Channel_SREQ_ADC2        ((uint8_t)(9))
+#define DMA_Channel_SREQ_TIM1        ((uint8_t)(10))
+#define DMA_Channel_SREQ_TIM2        ((uint8_t)(11))
+#define DMA_Channel_SREQ_TIM3        ((uint8_t)(12))
+#define DMA_Channel_SREQ_SDIO        ((uint8_t)(13))
+#define DMA_Channel_SREQ_DSP0        ((uint8_t)(14))
+#define DMA_Channel_SREQ_DSP1        ((uint8_t)(15))
+#define DMA_Channel_SREQ_SSP3_TX     ((uint8_t)(16))
+#define DMA_Channel_SREQ_SSP3_RX     ((uint8_t)(17))
+#define DMA_Channel_SREQ_SSP4_TX     ((uint8_t)(18))
+#define DMA_Channel_SREQ_SSP4_RX     ((uint8_t)(19))
+#define DMA_Channel_SREQ_UART3_TX    ((uint8_t)(20))
+#define DMA_Channel_SREQ_UART3_RX    ((uint8_t)(21))
+
+#define DMA_Channel_SREQ_DSP_TIM     ((uint8_t)(25))
+#define DMA_Channel_SREQ_MCBSP1_TX   ((uint8_t)(26))
+#define DMA_Channel_SREQ_MCBSP1_RX   ((uint8_t)(27))
+#define DMA_Channel_SREQ_MCBSP2_TX   ((uint8_t)(28))
+#define DMA_Channel_SREQ_MCBSP2_RX   ((uint8_t)(29))
+#define DMA_Channel_SREQ_MCBSP3_TX   ((uint8_t)(30))
+#define DMA_Channel_SREQ_MCBSP3_RX   ((uint8_t)(31))
+
 #endif
 
 #define IS_DMA_CHANNEL(CHANNEL) (CHANNEL <= (DMA_Channels_Number - 1))
@@ -611,7 +659,7 @@ void DMA_CtrlDataInit(DMA_CtrlDataInitTypeDef *DMA_ctrl_data_ptr, DMA_CtrlDataTy
 
 #endif /* __MDR32F9Qx_DMA_H */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_dma.h */
 

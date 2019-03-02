@@ -1,27 +1,8 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_dma.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    11/06/2010
-  * @brief   This file contains all the DMA firmware functions.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2010 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_dma.c
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_dma.h"
 
 #define ASSERT_INFO_FILE_ID FILEID__MDR32F9X_DMA_C
@@ -90,11 +71,16 @@
 	#endif
 #endif
 
+
+
+
 /** @} */ /* End of group DMA_Private_Variables */
 
 /** @defgroup DMA_Private_FunctionPrototypes DMA Private Function Prototypes
   * @{
   */
+
+void DMA_CtrlDataInit(DMA_CtrlDataInitTypeDef *DMA_ctrl_data_ptr, DMA_CtrlDataTypeDef *DMA_ctrl_table_ptr);
 
 /** @} */ /* End of group DMA_Private_FunctionPrototypes */
 
@@ -179,8 +165,9 @@ void DMA_DeInit(void)
   MDR_DMA->CFG = 0;                           /* Master Enable Off */
   MDR_DMA->CTRL_BASE_PTR = 0;                 /* Control data base pointer */
   MDR_DMA->CHNL_SW_REQUEST = 0;               /* Disable all sw requests */
-  MDR_DMA->CHNL_USEBURST_CLR = 0xFFFFFFFF;    /* Disable burst mode */
-  MDR_DMA->CHNL_REQ_MASK_CLR = 0xFFFFFFFF;    /* Clear mask request */
+  MDR_DMA->CHNL_USEBURST_SET = 0xFFFFFFFF;    /* Disable burst mode */
+  MDR_DMA->CHNL_REQ_MASK_SET = 0xFFFFFFFF;    /* Disable all channel*/
+  
   MDR_DMA->CHNL_ENABLE_CLR = 0xFFFFFFFF;      /* Clear channel enable */
   MDR_DMA->CHNL_PRI_ALT_CLR = 0xFFFFFFFF;     /* Reset to primary data structure */
   MDR_DMA->CHNL_PRIORITY_CLR = 0xFFFFFFFF;    /* Reset to default priority */
@@ -538,7 +525,7 @@ FlagStatus DMA_GetFlagStatus(uint8_t DMA_Channel, uint8_t DMA_Flag)
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_dma.c */
 

@@ -1,24 +1,4 @@
 ;/**
-; *****************************************************************************
-; * @file	startup_MDR1986BE4.s
-; * @author	Milandr Application Team
-; * @brief	CMSIS Cortex-CM0 Peripheral Access Layer Header File for
-; * 		MDR1986BE4 from Milandr
-; * @version	1.0
-; * @date	2014-03-18
-; *****************************************************************************
-; * <br><br>
-; *
-; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-; * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-; * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-; * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-; *
-; 
-; * <h2><center>&copy; COPYRIGHT 2014 MDR1986BE4 </center></h2>
-; *****************************************************************************
 ; * FILE startup_MDR1986BE4.s
 ; */
 
@@ -47,7 +27,7 @@ __vector_table
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
-                 DCD     SVCall_Handler               ; 10 SV Call Handeler
+                 DCD     SVC_Handler                  ; 10 SV Call Handeler
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
                  DCD     PendSV_Handler               ; 14 Pend SV Handeler
@@ -65,9 +45,9 @@ __vector_table
                  DCD     ADC_IRQHandler               ; ADC  Handeler
                  DCD     COMPARATOR_IRQHandler        ; COMPARATOR  Handeler
                  DCD     BACKUP_IRQHandler            ; BACKUP  Handeler
+                 DCD     EXT_INT0_IRQHandler          ; EXT_INT0  Handeler
                  DCD     EXT_INT1_IRQHandler          ; EXT_INT1  Handeler
                  DCD     EXT_INT2_IRQHandler          ; EXT_INT2  Handeler
-                 DCD     EXT_INT3_IRQHandler          ; EXT_INT3  Handeler
                  DCD     ADCIU_CH1_IRQHandler         ; ADCIU_CH1 Handeler
                  DCD     ADCIU_CH2_IRQHandler         ; ADCIU_CH2 Handeler
                  DCD     ADCIU_CH3_IRQHandler         ; ADCIU_CH3 Handeler
@@ -104,10 +84,10 @@ NonMaskableInt_Handler
 HardFault_Handler
 		   BL HardFault_Handler
 
-        PUBWEAK SVCall_Handler
+        PUBWEAK SVC_Handler
         SECTION .text:CODE:REORDER(1)
-SVCall_Handler
-		   BL SVCall_Handler
+SVC_Handler
+		   BL SVC_Handler
 
         PUBWEAK PendSV_Handler
         SECTION .text:CODE:REORDER(1)
@@ -177,6 +157,11 @@ COMPARATOR_IRQHandler
 BACKUP_IRQHandler
 		   BL BACKUP_IRQHandler
 
+        PUBWEAK EXT_INT0_IRQHandler
+        SECTION .text:CODE:REORDER(1)
+EXT_INT0_IRQHandler
+		   BL EXT_INT0_IRQHandler
+
         PUBWEAK EXT_INT1_IRQHandler
         SECTION .text:CODE:REORDER(1)
 EXT_INT1_IRQHandler
@@ -186,11 +171,6 @@ EXT_INT1_IRQHandler
         SECTION .text:CODE:REORDER(1)
 EXT_INT2_IRQHandler
 		   BL EXT_INT2_IRQHandler
-
-        PUBWEAK EXT_INT3_IRQHandler
-        SECTION .text:CODE:REORDER(1)
-EXT_INT3_IRQHandler
-		   BL EXT_INT3_IRQHandler
 
         PUBWEAK ADCIU_CH1_IRQHandler
         SECTION .text:CODE:REORDER(1)

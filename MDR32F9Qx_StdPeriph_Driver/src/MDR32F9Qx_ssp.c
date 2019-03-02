@@ -1,27 +1,8 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_ssp.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    01/02/2011
-  * @brief   This file contains all the SSP firmware functions.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2011 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_ssp.c
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_ssp.h"
 #include "MDR32F9Qx_rst_clk.h"
 
@@ -146,7 +127,8 @@ void SSP_StructInit(SSP_InitTypeDef* SSP_InitStruct)
   /* Initialize the SSP max speed */
   SSP_InitStruct->SSP_CPSDVSR = 2;
   SSP_InitStruct->SSP_SCR = 0;
-
+  
+  SSP_InitStruct->SSP_HardwareFlowControl = 0;
 }
 
 /**
@@ -275,7 +257,7 @@ ITStatus SSP_GetITStatusMasked(MDR_SSP_TypeDef* SSPx, uint32_t SSP_IT)
 }
 
 /**
-  * @brief  Clears the SSPx’s interrupt pending bits.
+  * @brief  Clears the SSPx's interrupt pending bits.
   * @param  SSPx: Select the SSP or the SSP peripheral.
   *         This parameter can be one of the following values:
   *         SSP1, SSP2.
@@ -295,7 +277,7 @@ void SSP_ClearITPendingBit(MDR_SSP_TypeDef* SSPx, uint32_t SSP_IT)
 }
 
 /**
-  * @brief  Enables or disables the SSP’s DMA interface.
+  * @brief  Enables or disables the SSP's DMA interface.
   * @param  SSPx: Select the SSP peripheral.
   *         This parameter can be one of the following values:
   *         SSP1, SSP2.
@@ -439,30 +421,26 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 		tmpreg &= ~RST_CLK_SSP_CLOCK_SSP1_BRG_Msk;
 		tmpreg |= SSP_BRG;
 	}
-	else{
-		if (SSPx == MDR_SSP2) {
+	else if (SSPx == MDR_SSP2) {
 			tmpreg |= RST_CLK_SSP_CLOCK_SSP2_CLK_EN;
 			tmpreg &= ~RST_CLK_SSP_CLOCK_SSP2_BRG_Msk;
 			tmpreg |= (SSP_BRG << 8);
 		}
-#if defined  (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
-		else{
-			if(SSPx == MDR_SSP3) {
-				tmpreg |= RST_CLK_SSP_CLOCK_SSP3_CLK_EN;
-				tmpreg &= ~RST_CLK_SSP_CLOCK_SSP3_BRG_Msk;
-				tmpreg |= (SSP_BRG << RST_CLK_SSP_CLOCK_SSP3_BRG_Pos);
-			}
-
-			else{
-				if(SSPx == MDR_SSP4) {
-					tmpreg |= SSP4_CLK_EN;
-					tmpreg &= ~SSP4_BRG_Mask;
-					tmpreg |= (SSP_BRG << SSP4_BRG_Pos);
-				}
-			}
+#if defined (USE_MDR1986VE1T) || defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
+	else if(SSPx == MDR_SSP3) {
+			tmpreg |= RST_CLK_SSP_CLOCK_SSP3_CLK_EN;
+			tmpreg &= ~RST_CLK_SSP_CLOCK_SSP3_BRG_Msk;
+			tmpreg |= (SSP_BRG << RST_CLK_SSP_CLOCK_SSP3_BRG_Pos);
 		}
-#endif // #ifdef USE_MDR1986VE3 /* For Cortex M1 */
-	}
+#endif      
+#if defined (USE_MDR1986VE3) || defined (USE_MDR1901VC1T)
+	else if(SSPx == MDR_SSP4) {
+			tmpreg |= SSP4_CLK_EN;
+			tmpreg &= ~SSP4_BRG_Mask;
+			tmpreg |= (SSP_BRG << SSP4_BRG_Pos);
+		}
+#endif  
+
 #ifdef USE_MDR1986VE3 /* For Cortex M1 */
 	if( (SSPx != MDR_SSP1) && (SSPx != MDR_SSP2) && (SSPx != MDR_SSP3) ){
 		MDR_RST_CLK->UART_SSP_CLOCK = tmpreg;
@@ -484,7 +462,7 @@ void SSP_BRGInit ( MDR_SSP_TypeDef* SSPx, uint32_t SSP_BRG ) {
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2011 Phyton *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_ssp.c */
 

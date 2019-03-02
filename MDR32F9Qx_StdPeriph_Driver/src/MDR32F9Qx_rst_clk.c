@@ -1,27 +1,8 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_rst_clk.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    23/09/2011
-  * @brief   This file contains all the RST_CLK firmware functions.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2010 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_rst_clk.c
   */
 
 /* Includes ------------------------------------------------------------------*/
-#include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_rst_clk.h"
 
 
@@ -1857,7 +1838,7 @@ void RST_CLK_DSPCmd(FunctionalState NewState)
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2014 Milandr ********************************
+/*
 *
 * END OF FILE MDR32F9Qx_rst_clk.c */
 

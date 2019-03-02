@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file	 MDR32F9Qx_led.c
-  * @author	 sidorov.a
-  * @version V1.4.0
-  * @date    31.10.2013
-  * @brief   This file contains all the LED firmware functions.
-  ******************************************************************************
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, MILANDR SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2013 Milandr </center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_led.c
   */
 
@@ -252,7 +233,7 @@ const uint8_t font5x7[256 * 5] =
 
 	126, 210, 82, 210, 66,				// A8
 	0, 0, 0, 0, 0,						//
-	124, 146, 146, 130, 68,				// ВЄ
+	124, 146, 146, 130, 68,				// AA
 	0, 0, 0, 0, 0,						//
 
 	0, 0, 0, 0, 0,						// AC
@@ -637,6 +618,6 @@ void LED_PutString(uint32_t position, const char * ptr_char)
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2013 Milandr ********************************
+/*
 *
 * END OF FILE MDR32F9Qx_led.c */

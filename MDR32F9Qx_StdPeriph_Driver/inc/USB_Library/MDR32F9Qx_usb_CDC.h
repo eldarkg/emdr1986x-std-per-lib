@@ -1,27 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    USB_Library\MDR32F9Qx_usb_CDC.h
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    02/03/2011
-  * @brief   This file contains all the interface types and function prototypes
-  *          of the:
-  *          [1] Communication Device Class driver as of USB Class Definitions
-  *              for Communications Devices Rev.1.2 (Errata 1);
-  *          [2] USB Communication Class Subclass Specification for PSTN
-  *              Devices Rev.1.2.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2011 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_usb_device.h
   */
 
@@ -277,6 +254,6 @@ USB_Result USB_CDC_DummySendBreak(uint16_t wVALUE, uint16_t wINDEX);
 
 #endif /* __MDR32F9Qx_USB_CDC_H */
 
-/******************* (C) COPYRIGHT 2011 Phyton *********
+/*
 *
 * END OF FILE MDR32F9Qx_usb_CDC.h */

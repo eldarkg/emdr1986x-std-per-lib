@@ -98,9 +98,9 @@ __isr_vector:
 	.long	ADC_IRQHandler              /* IRQ8 */
 	.long	COMPARATOR_IRQHandler       /* IRQ9 */
 	.long	BACKUP_IRQHandler           /* IRQ10 */
-	.long	EXT_INT1_IRQHandler         /* IRQ11 */
-	.long	EXT_INT2_IRQHandler         /* IRQ12 */
-	.long	EXT_INT3_IRQHandler         /* IRQ13 */
+	.long	EXT_INT0_IRQHandler         /* IRQ11 */
+	.long	EXT_INT1_IRQHandler         /* IRQ12 */
+	.long	EXT_INT2_IRQHandler         /* IRQ13 */
 	.long	ADCIU_CH1_IRQHandler        /* IRQ14 */
 	.long	ADCIU_CH2_IRQHandler        /* IRQ15 */
 	.long	ADCIU_CH3_IRQHandler        /* IRQ16 */
@@ -292,9 +292,9 @@ Default_Handler:
 	def_irq_handler ADC_IRQHandler
 	def_irq_handler COMPARATOR_IRQHandler
 	def_irq_handler BACKUP_IRQHandler
+	def_irq_handler EXT_INT0_IRQHandler
 	def_irq_handler EXT_INT1_IRQHandler
 	def_irq_handler EXT_INT2_IRQHandler
-	def_irq_handler EXT_INT3_IRQHandler
 	def_irq_handler ADCIU_CH1_IRQHandler
 	def_irq_handler ADCIU_CH2_IRQHandler
 	def_irq_handler ADCIU_CH3_IRQHandler

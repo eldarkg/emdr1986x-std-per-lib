@@ -1,24 +1,4 @@
 ;/**
-; *****************************************************************************
-; * @file	startup_MDR1901VC1T.s
-; * @author	Milandr Application Team
-; * @brief	CMSIS Cortex-CM3 Peripheral Access Layer Header File for
-; * 		MDR1901VC1T from Milandr
-; * @version	1.0
-; * @date	2014-02-06
-; *****************************************************************************
-; * <br><br>
-; *
-; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-; * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-; * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-; * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-; *
-; 
-; * <h2><center>&copy; COPYRIGHT 2014 MDR1901VC1T </center></h2>
-; *****************************************************************************
 ; * FILE startup_MDR1901VC1T.s
 ; */
 
@@ -47,7 +27,7 @@ __vector_table
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
-                 DCD     SVCall_Handler               ; 10 SV Call Handeler
+                 DCD     SVCall_Handler               ; 11 SV Call Handeler
                  DCD     0                            ; Reserved
                  DCD     0                            ; Reserved
                  DCD     PendSV_Handler               ; 14 Pend SV Handeler

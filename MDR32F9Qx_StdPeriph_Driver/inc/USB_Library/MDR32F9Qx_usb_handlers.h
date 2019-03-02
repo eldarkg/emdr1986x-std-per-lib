@@ -1,20 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    Examples/MDR32F9Q1_EVAL/USB/VCOM_Echo/inc/MDR32F9Qx_usb_handlers.h
-  * @author  Milandr Application Team
-  * @version V1.4.0
-  * @date    18/03/2011
-  * @brief   USB Library user-defined handlers definition file.
-  ******************************************************************************
-  * <br><br>
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, MILANDR SHALL NOT BE HELD LIABLE FOR ANY
-  * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2011 Milandr</center></h2>
   * FILE MDR32F9Qx_usb_handlers.h
   */
 
@@ -114,6 +98,6 @@ USB_Result USB_DeviceSetupPacket_Debug(USB_EP_TypeDef EPx, const USB_SetupPacket
 
 #endif /* __MDR32F9Qx_USB_HANDLERS_H */
 
-/******************* (C) COPYRIGHT 2011 Milandr *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_usb_handlers.h */

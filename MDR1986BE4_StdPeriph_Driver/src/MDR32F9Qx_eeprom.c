@@ -1,22 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_eeprom.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    11/06/2010
-  * @brief   This file contains all the EEPROM firmware functions.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2010 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_eeprom.c
   */
 
@@ -221,7 +203,6 @@ __RAMFUNC uint32_t EEPROM_ReadWord(uint32_t Address, uint32_t BankSelector)
 __RAMFUNC void EEPROM_ErasePage(uint32_t Address, uint32_t BankSelector)
 {
   uint32_t Command;
-  uint32_t Offset;
 
   assert_param(IS_EEPROM_BANK_SELECTOR(BankSelector));
 
@@ -230,66 +211,62 @@ __RAMFUNC void EEPROM_ErasePage(uint32_t Address, uint32_t BankSelector)
   Command |= (BankSelector == EEPROM_Info_Bank_Select) ? EEPROM_CMD_IFREN : 0;
   MDR_EEPROM->CMD = Command;
 
-  for (Offset = 0; Offset < (4 << 2); Offset += 4)
-  {
-    MDR_EEPROM->ADR = Address + Offset;             /* Page Address */
-    MDR_EEPROM->DI = 0;
-    Command |= EEPROM_CMD_XE | EEPROM_CMD_ERASE;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(5));              /* Wait for 5 us */
-    Command |= EEPROM_CMD_NVSTR;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(40000));          /* Wait for 40 ms */
-    Command &= ~EEPROM_CMD_ERASE;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(5));              /* Wait for 5 us */
-    Command &= ~(EEPROM_CMD_XE | EEPROM_CMD_NVSTR);
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(1));              /* Wait for 1 us */
-  }
+  MDR_EEPROM->ADR = Address;                  /* Page Address */
+  MDR_EEPROM->DI = 0;
+  Command |= EEPROM_CMD_XE | EEPROM_CMD_ERASE;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(10));              /* Wait for 10 us */
+  Command |= EEPROM_CMD_NVSTR;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(40000));          /* Wait for 40 ms */
+  Command &= ~EEPROM_CMD_ERASE;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(5));              /* Wait for 5 us */
+  Command &= ~(EEPROM_CMD_XE | EEPROM_CMD_NVSTR);
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(1));              /* Wait for 1 us */
+
   Command &= EEPROM_CMD_DELAY_Msk;
   MDR_EEPROM->CMD = Command;
   MDR_EEPROM->KEY = 0;
 }
 
 /**
-  * @brief  Erases all pages of the selected EEPROM memory bank.
+  * @brief  Erases one block of the selected EEPROM memory bank.
+  * @param  Address: Block Address in the EEPROM memory.
   * @param  BankSelector: Selects EEPROM Bank (Main Bank or Information Bank).
   *         This parameter can be one of the following values:
   *           @arg EEPROM_Main_Bank_Select:      The EEPROM Main Bank selector.
-  *           @arg EEPROM_All_Banks_Select:      The EEPROM All Banks selector.
+  *           @arg EEPROM_Info_Bank_Select:      The EEPROM Information Bank selector.
   * @retval None
   */
-__RAMFUNC void EEPROM_EraseAllPages(uint32_t BankSelector)
+__RAMFUNC void EEPROM_EraseBlock(uint32_t Address, uint32_t BankSelector)
 {
   uint32_t Command;
-  uint32_t Offset;
 
-  assert_param(IS_EEPROM_ERASE_SELECTOR(BankSelector));
+  assert_param(IS_EEPROM_BANK_SELECTOR(BankSelector));
 
   MDR_EEPROM->KEY = EEPROM_REG_ACCESS_KEY;
   Command = (MDR_EEPROM->CMD & EEPROM_CMD_DELAY_Msk) | EEPROM_CMD_CON;
-  Command |= (BankSelector == EEPROM_All_Banks_Select) ? EEPROM_CMD_IFREN : 0;
+  Command |= (BankSelector == EEPROM_Info_Bank_Select) ? EEPROM_CMD_IFREN : 0;
 
   MDR_EEPROM->CMD = Command;
 
-  for (Offset = 0; Offset < (4 << 2); Offset += 4)
-  {
-    MDR_EEPROM->ADR = Offset;
-    MDR_EEPROM->DI = 0;
-    Command |= EEPROM_CMD_XE | EEPROM_CMD_MAS1 | EEPROM_CMD_ERASE;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(5));                /* Wait for 5 us */
-    Command |= EEPROM_CMD_NVSTR;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(40000));            /* Wait for 40 ms */
-    Command &= ~EEPROM_CMD_ERASE;
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(100));              /* Wait for 100 us */
-    Command &= ~(EEPROM_CMD_XE | EEPROM_CMD_MAS1 | EEPROM_CMD_NVSTR);
-    MDR_EEPROM->CMD = Command;
-    ProgramDelay(GET_US_LOOPS(1));                /* Wait for 1 us */
-  }
+  MDR_EEPROM->ADR = Address;
+  MDR_EEPROM->DI = 0;
+  Command |= EEPROM_CMD_XE | EEPROM_CMD_MAS1 | EEPROM_CMD_ERASE;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(10));                /* Wait for 10 us */
+  Command |= EEPROM_CMD_NVSTR;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(40000));            /* Wait for 40 ms */
+  Command &= ~EEPROM_CMD_ERASE;
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(100));              /* Wait for 100 us */
+  Command &= ~(EEPROM_CMD_XE | EEPROM_CMD_MAS1 | EEPROM_CMD_NVSTR);
+  MDR_EEPROM->CMD = Command;
+  ProgramDelay(GET_US_LOOPS(1));                /* Wait for 1 us */
+
   Command &= EEPROM_CMD_DELAY_Msk;
   MDR_EEPROM->CMD = Command;
   MDR_EEPROM->KEY = 0;
@@ -398,7 +375,6 @@ __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint3
 
 /** @} */ /* End of group __MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_eeprom.c */
-

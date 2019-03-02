@@ -257,6 +257,6 @@ extern "C" {
 
 #endif /* __MDR32F9Qx_CONFIG_H */
 
-/******************* (C) COPYRIGHT 2011 Milandr ********************************
+/******************* (C) COPYRIGHT 2011 Milandr *********************************
 *
 * END OF FILE MDR32F9Qx_config.h */

@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    MDR32F9Qx_eeprom.h
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    11/06/2010
-  * @brief   This file contains all the functions prototypes for the EEPROM
-  *          firmware library.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2010 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_eeprom.h
   */
 
@@ -76,13 +57,11 @@ extern "C" {
 
 #define EEPROM_Main_Bank_Select         ((uint32_t)0x00000000)  /*!< EEPROM Main Bank Selector */
 #define EEPROM_Info_Bank_Select         ((uint32_t)0x00000001)  /*!< EEPROM Information Bank Selector */
-#define EEPROM_All_Banks_Select         ((uint32_t)0x00000002)  /*!< EEPROM All Banks Selector */
 
 #define IS_EEPROM_BANK_SELECTOR(SEL)    (((SEL) == EEPROM_Main_Bank_Select) || \
                                          ((SEL) == EEPROM_Info_Bank_Select))
 
-#define IS_EEPROM_ERASE_SELECTOR(SEL)   (((SEL) == EEPROM_Main_Bank_Select) || \
-                                         ((SEL) == EEPROM_All_Banks_Select))
+
 
 /** @} */ /* End of group EEPROM_Bank */
 
@@ -130,7 +109,7 @@ __RAMFUNC uint8_t EEPROM_ReadByte(uint32_t Address, uint32_t BankSelector) __RAM
 __RAMFUNC uint16_t EEPROM_ReadHalfWord(uint32_t Address, uint32_t BankSelector) __RAMFUNCSECTION;
 __RAMFUNC uint32_t EEPROM_ReadWord(uint32_t Address, uint32_t BankSelector) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ErasePage(uint32_t Address, uint32_t BankSelector) __RAMFUNCSECTION;
-__RAMFUNC void EEPROM_EraseAllPages(uint32_t BankSelector) __RAMFUNCSECTION;
+__RAMFUNC void EEPROM_EraseBlock(uint32_t Address, uint32_t BankSelector) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramByte(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramHalfWord(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
@@ -149,7 +128,6 @@ __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint3
 
 #endif /* __MDR32F9Qx_EEPROM_H */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/*
 *
 * END OF FILE MDR32F9Qx_eeprom.h */
-

@@ -1,22 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    system_MDR1986VE3.c
-  * @author  Andrey Sidorov
-  * @version V1.4.0
-  * @date    27/02/2013
-  * @brief   CMSIS Cortex-M1 Device Peripheral Access Layer System Source File.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2013 Milandr</center></h2>
-  ******************************************************************************
   * FILE system_MDR1986VE3.c
   */
 
@@ -172,6 +154,6 @@ void SystemInit (void)
 
 /** @} */ /* End of group __CMSIS */
 
-/******************* (C) COPYRIGHT 2010 Phyton *********************************
+/*
 *
 * END OF FILE system_MDR1986VE3.c */

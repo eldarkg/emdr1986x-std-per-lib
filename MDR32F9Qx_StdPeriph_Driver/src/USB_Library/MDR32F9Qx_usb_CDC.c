@@ -1,31 +1,7 @@
 /**
-  ******************************************************************************
-  * @file    USB_Library\MDR32F9Qx_usb_CDC.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    02/03/2011
-  * @brief   This file contains the implementation of the Communication Device
-  *          Class driver as of:
-  *          [1] Communication Device Class driver as of USB Class Definitions
-  *              for Communications Devices Rev.1.2 (Errata 1);
-  *          [2] USB Communication Class Subclass Specification for PSTN
-  *              Devices Rev.1.2.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2011 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_usb_device.c
   */
 
-/* Includes ------------------------------------------------------------------*/
 /* Includes ------------------------------------------------------------------*/
 #include "MDR32F9Qx_config.h"
 #include "MDR32F9Qx_usb_handlers.h"
@@ -978,7 +954,7 @@ USB_Result USB_CDC_DummySendBreak(uint16_t wVALUE, uint16_t wINDEX)
 
 /** @} */ /* End of group MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2011 Phyton *********
+/*
 *
 * END OF FILE MDR32F9Qx_usb_CDC.c */
 

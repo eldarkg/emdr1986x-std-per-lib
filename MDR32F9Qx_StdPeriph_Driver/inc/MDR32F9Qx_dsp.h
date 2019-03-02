@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file	 MDR32F9Qx_dsp.h
-  * @author	 sidorov.a
-  * @version 1.0.0
-  * @date    11.02.2014
-  * @brief   This file contains all the 
-  ******************************************************************************
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, MILANDR SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2014 Milandr </center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_dsp.h
   */
 
@@ -26,6 +7,8 @@
 #define MDR32F9QX_DSP_H_
 
 /* Includes ------------------------------------------------------------------*/
+#include "MDR32F9Qx_config.h"
+
 
 /** @addtogroup __MDR32F9Qx_StdPeriph_Driver MDR32F9Qx Standard Peripherial Driver
   * @{
@@ -177,6 +160,6 @@ void DSP_DSPToRISCInterruptCmd(uint32_t Interrupt, FlagStatus NewStatus);
 
 #endif /* MDR32F9QX_DSP_H_ */
 
-/******************* (C) COPYRIGHT 2014 Milandr ********************************
+/*
 *
 * END OF FILE MDR32F9Qx_dsp.h */

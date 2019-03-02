@@ -1,23 +1,4 @@
 /**
-  ******************************************************************************
-  * @file    USB_Library\MDR32F9Qx_usb_device.c
-  * @author  Phyton Application Team
-  * @version V1.4.0
-  * @date    21/02/2011
-  * @brief   This file contains implementation of the EndPoint and Device basic
-  *          functionality as of USB Specification Rev.2 Chapter 9.
-  ******************************************************************************
-  * <br><br>
-  *
-  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-  * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-  * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-  *
-  * <h2><center>&copy; COPYRIGHT 2011 Phyton</center></h2>
-  ******************************************************************************
   * FILE MDR32F9Qx_usb_device.c
   */
 
@@ -314,11 +295,12 @@ USB_Result USB_EP_doDataIn(USB_EP_TypeDef EPx, uint8_t* Buffer, uint32_t Length,
   ep->Buffer.IO_Buffer.bytesToAck = MAX_PACKET_SIZE;
   ep->Buffer.IO_Buffer.offset     = 0;
   ep->InHandler                   = onInDone;
-  ep->EP_State                    = USB_EP_IN;
 
   /* Send first data portion */
   USB_EP_sendInDataPortion(EPx, StartInStage);
 
+  ep->EP_State                    = USB_EP_IN;
+  
   return USB_SUCCESS;
 }
 
@@ -1013,7 +995,7 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
                   break;
               }
               SetupPacketData[1] = 0;
-              result = USB_EP_doDataIn(EPx, SetupPacketData, 2, 0);
+              result = USB_EP_doDataIn(EPx, SetupPacketData, 2, USB_DeviceDoStatusOutAck);
             }
           }
           break;
@@ -1066,7 +1048,7 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
           {
             SetupPacketData[0] = (uint8_t)USB_DEVICE_HANDLE_GET_CONFIGURATION;
           }
-          result = USB_EP_doDataIn(EPx, SetupPacketData, 1, 0);
+          result = USB_EP_doDataIn(EPx, SetupPacketData, 1, USB_DeviceDoStatusOutAck);
           break;
         /* SET_CONFIGURATION */
         case USB_SET_CONFIGURATION:
@@ -1092,7 +1074,7 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
           else
           {
             SetupPacketData[0] = (uint8_t)USB_DEVICE_HANDLE_GET_INTERFACE(wIndex);
-            result = USB_EP_doDataIn(EPx, SetupPacketData, 1, 0);
+            result = USB_EP_doDataIn(EPx, SetupPacketData, 1, USB_DeviceDoStatusOutAck);
           }
           break;
         /* SET_INTERFACE */
@@ -1117,7 +1099,7 @@ USB_Result USB_DeviceSetupPacket(USB_EP_TypeDef EPx, const USB_SetupPacket_TypeD
             result = USB_DEVICE_HANDLE_SYNC_FRAME(wIndex, SetupPacketData);
             if (result == USB_SUCCESS)
             {
-              result = USB_EP_doDataIn(EPx, SetupPacketData, 2, 0);
+              result = USB_EP_doDataIn(EPx, SetupPacketData, 2, USB_DeviceDoStatusOutAck);
             }
           }
           break;
@@ -1345,6 +1327,9 @@ USB_Result USB_DeviceDispatchEvent(void)
     if (USB_IT & USB_SIS_SCRESETEV)
     {
       result = USB_DeviceReset();
+      USB_DeviceContext.Address = 0;
+      USB_SetSA(USB_DeviceContext.Address);
+
     }
 
     /* Invoke End Point dispatchers */
@@ -1666,7 +1651,7 @@ USB_Result USB_DeviceDummyDataError(USB_EP_TypeDef EPx, uint32_t STS, uint32_t T
 
 /** @} */ /* End of group MDR32F9Qx_StdPeriph_Driver */
 
-/******************* (C) COPYRIGHT 2011 Phyton *********
+/*
 *
 * END OF FILE MDR32F9Qx_usb_device.c */
 

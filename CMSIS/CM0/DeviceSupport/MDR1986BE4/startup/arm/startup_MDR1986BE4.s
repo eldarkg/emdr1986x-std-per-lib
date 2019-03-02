@@ -1,24 +1,4 @@
 ;/**
-; *****************************************************************************
-; * @file	startup_MDR1986BE4.s
-; * @author	Milandr Application Team
-; * @brief	CMSIS Cortex-CM0 Peripheral Access Layer Header File for
-; * 		MDR1986BE4 from Milandr
-; * @version	1.0
-; * @date	2014-03-18
-; *****************************************************************************
-; * <br><br>
-; *
-; * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
-; * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
-; * TIME. AS A RESULT, PHYTON SHALL NOT BE HELD LIABLE FOR ANY DIRECT, INDIRECT
-; * OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
-; * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
-; * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
-; *
-;
-; * <h2><center>&copy; COPYRIGHT 2014 MDR1986BE4 </center></h2>
-; *****************************************************************************
 ; * FILE startup_MDR1986BE4.s
 ; */
 
@@ -68,7 +48,7 @@ __Vectors       DCD     __initial_sp             ; Top of Stack
                  DCD     0                       ; Reserved
                  DCD     0                       ; Reserved
                  DCD     0                       ; Reserved
-                 DCD     SVCall_Handler          ; 10 SV Call Handeler
+                 DCD     SVC_Handler             ; 10 SV Call Handeler
                  DCD     0                       ; Reserved
                  DCD     0                       ; Reserved
                  DCD     PendSV_Handler          ; 14 Pend SV Handeler
@@ -86,9 +66,9 @@ __Vectors       DCD     __initial_sp             ; Top of Stack
                  DCD     ADC_IRQHandler          ; ADC  Handeler
                  DCD     COMPARATOR_IRQHandler   ; COMPARATOR  Handeler
                  DCD     BACKUP_IRQHandler       ; BACKUP  Handeler
+                 DCD     EXT_INT0_IRQHandler     ; EXT_INT0  Handeler
                  DCD     EXT_INT1_IRQHandler     ; EXT_INT1  Handeler
                  DCD     EXT_INT2_IRQHandler     ; EXT_INT2  Handeler
-                 DCD     EXT_INT3_IRQHandler     ; EXT_INT3  Handeler
                  DCD     ADCIU_CH1_IRQHandler    ; ADCIU_CH1 Handeler
                  DCD     ADCIU_CH2_IRQHandler    ; ADCIU_CH2 Handeler
                  DCD     ADCIU_CH3_IRQHandler    ; ADCIU_CH3 Handeler
@@ -125,8 +105,8 @@ HardFault_Handler            PROC
                 B       .
 		                ENDP
 
-SVCall_Handler               PROC
-                EXPORT  SVCall_Handler                [WEAK]
+SVC_Handler               PROC
+                EXPORT  SVC_Handler                [WEAK]
                 B       .
 		                ENDP
 
@@ -198,6 +178,11 @@ BACKUP_IRQHandler       PROC
                 B       .
                      ENDP
 
+EXT_INT0_IRQHandler     PROC
+                EXPORT  EXT_INT0_IRQHandler           [WEAK]
+                B       .
+                     ENDP
+
 EXT_INT1_IRQHandler     PROC
                 EXPORT  EXT_INT1_IRQHandler           [WEAK]
                 B       .
@@ -205,11 +190,6 @@ EXT_INT1_IRQHandler     PROC
 
 EXT_INT2_IRQHandler     PROC
                 EXPORT  EXT_INT2_IRQHandler           [WEAK]
-                B       .
-                     ENDP
-
-EXT_INT3_IRQHandler     PROC
-                EXPORT  EXT_INT3_IRQHandler           [WEAK]
                 B       .
                      ENDP
 
