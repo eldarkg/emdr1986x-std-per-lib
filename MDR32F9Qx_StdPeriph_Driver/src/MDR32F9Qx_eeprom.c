@@ -374,6 +374,61 @@ __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint3
   MDR_EEPROM->KEY = 0;
 }
 
+
+__RAMFUNC void EEPROM_ProgramWordsBlock(uint32_t Address, uint32_t BankSelector, uint32_t *DataArr, uint32_t Num)
+{
+	uint32_t Command;
+	uint32_t Addr;	
+	const uint32_t MaxSectors = 4;
+	assert_param(IS_EEPROM_BANK_SELECTOR(BankSelector));
+	assert_param(IS_FOUR_BYTE_ALLIGNED(Address));
+
+	MDR_EEPROM->KEY = EEPROM_REG_ACCESS_KEY;
+	BankSelector = (BankSelector == EEPROM_Info_Bank_Select) ? EEPROM_CMD_IFREN : 0;
+	
+	for(uint32_t j = 0; j < MaxSectors; j++) {
+		Addr = Address + j*sizeof(DataArr[0]);		
+		Command = MDR_EEPROM->CMD & EEPROM_CMD_DELAY_Msk;
+		Command |= EEPROM_CMD_CON | BankSelector;
+		MDR_EEPROM->CMD = Command;
+		MDR_EEPROM->ADR = Addr;
+		Command |= EEPROM_CMD_XE | EEPROM_CMD_PROG;
+		MDR_EEPROM->CMD = Command;
+		ProgramDelay(GET_US_LOOPS(5));                /* Wait for 5 us */
+		Command |= EEPROM_CMD_NVSTR;
+		MDR_EEPROM->CMD = Command;
+		ProgramDelay(GET_US_LOOPS(10));               /* Wait for 10 us */
+
+		for(uint32_t i = 0;; i++) {
+			uint32_t indx = i*MaxSectors + j;
+			if (indx >= Num)
+				break;
+			MDR_EEPROM->DI  = DataArr[indx];
+			MDR_EEPROM->ADR = Addr;
+			Command |= EEPROM_CMD_YE;
+			MDR_EEPROM->CMD = Command;
+			ProgramDelay(GET_US_LOOPS(40));               /* Wait for 40 us */
+			Command &= ~EEPROM_CMD_YE;
+			MDR_EEPROM->CMD = Command;
+			ProgramDelay(GET_US_LOOPS(0));
+			Addr+=sizeof(DataArr[0])*MaxSectors;
+		}
+
+
+		Command &= ~EEPROM_CMD_PROG;
+		MDR_EEPROM->CMD = Command;
+		ProgramDelay(GET_US_LOOPS(5));                /* Wait for 5 us */
+		Command &= ~(EEPROM_CMD_XE | EEPROM_CMD_NVSTR);
+		MDR_EEPROM->CMD = Command;
+		ProgramDelay(GET_US_LOOPS(1));                /* Wait for 1 us */
+	
+		MDR_EEPROM->CMD = Command & EEPROM_CMD_DELAY_Msk;
+	}	
+	MDR_EEPROM->KEY = 0;
+	ProgramDelay(GET_US_LOOPS(10));                /* Wait for 10 us */  	
+}
+
+
 /** @} */ /* End of group EEPROM_Private_Functions */
 
 /** @} */ /* End of group EEPROM */
