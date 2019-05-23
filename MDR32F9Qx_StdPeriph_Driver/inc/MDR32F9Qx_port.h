@@ -228,6 +228,14 @@ typedef enum
 #define PORT_JTAG                   MDR_PORTD    /*!< Port containing JTAG interface */
 #define PORT_JTAG_Msk               0x001FU      /*!< JTAG pins */
 
+#elif defined (USE_SWD_A)
+#define PORT_JTAG                   MDR_PORTB    /*!< Port containing SWD interface */
+#define PORT_JTAG_Msk               0x0006U      /*!< SWD pins SWDIO and SWCLK */
+
+#elif defined (USE_SWD_B)
+#define PORT_JTAG                   MDR_PORTD    /*!< Port containing SWD interface */
+#define PORT_JTAG_Msk               0x0003U      /*!< SWD pins SWDIO and SWCLK */
+
 #endif
 
 #if defined (PORT_JTAG)

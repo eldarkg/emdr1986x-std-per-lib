@@ -82,6 +82,8 @@ extern "C" {
 #if (defined(USE_MDR1986VE9x) || defined (USE_MDR1901VC1T))
 /* #define USE_JTAG_A */
 #define USE_JTAG_B
+/* #define USE_SWD_A */
+/* #define USE_SWD_B */
 #endif
 
 /* Target system parameters */
