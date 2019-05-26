@@ -115,6 +115,7 @@ __RAMFUNC void EEPROM_EraseAllPages(uint32_t BankSelector) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramByte(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramHalfWord(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
 __RAMFUNC void EEPROM_ProgramWord(uint32_t Address, uint32_t BankSelector, uint32_t Data) __RAMFUNCSECTION;
+__RAMFUNC void EEPROM_ProgramWordsBlock(uint32_t Address, uint32_t BankSelector, uint32_t *DataArr, uint32_t Num) __RAMFUNCSECTION;
 
 /** @} */ /* End of group EEPROM_Functions_not_allowed_to_be_located_in_Flash */
 
