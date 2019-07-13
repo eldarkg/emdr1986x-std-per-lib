@@ -61,9 +61,9 @@ __Vectors:
      SET_HANDLER     POWER_IRQHandler            ; POWER Detecor  Handeler
      SET_HANDLER     WWDG_IRQHandler             ; Window Watchdog  Handeler
      SET_HANDLER     DMA_DSP_IRQHandler          ; DMA DSP  Handeler
-     SET_HANDLER     TIMER1_IRQHandler           ; Timer1  Handeler
-     SET_HANDLER     TIMER2_IRQHandler           ; Timer2  Handeler
-     SET_HANDLER     TIMER3_IRQHandler           ; Timer3  Handeler
+     SET_HANDLER     Timer1_IRQHandler           ; Timer1  Handeler
+     SET_HANDLER     Timer2_IRQHandler           ; Timer2  Handeler
+     SET_HANDLER     Timer3_IRQHandler           ; Timer3  Handeler
      SET_HANDLER     ADC_IRQHandler              ; ADC  Handeler
      SET_HANDLER     SDIO_IRQHandler             ; SDIO  Handeler
      SET_HANDLER     COMPARATOR_IRQHandler       ; COMPARATOR  Handeler
@@ -316,31 +316,31 @@ DMA_DSP_IRQHandler     .EQU    DMA_DSP_IRQHandler?T+1
 .FUNCTYPE .VOID DMA_DSP_IRQHandler(.VOID)
     B   $
 .ENDMOD
-.LMODULE2 ?TIMER1_IRQHandler
-.PUBLIC TIMER1_IRQHandler
+.LMODULE2 ?Timer1_IRQHandler
+.PUBLIC Timer1_IRQHandler
 .RSEG ??DEFAULT_HANDLERS,code
     .THUMB
-TIMER1_IRQHandler?T:
-TIMER1_IRQHandler     .EQU    TIMER1_IRQHandler?T+1
-.FUNCTYPE .VOID TIMER1_IRQHandler(.VOID)
+Timer1_IRQHandler?T:
+Timer1_IRQHandler     .EQU    Timer1_IRQHandler?T+1
+.FUNCTYPE .VOID Timer1_IRQHandler(.VOID)
     B   $
 .ENDMOD
-.LMODULE2 ?TIMER2_IRQHandler
-.PUBLIC TIMER2_IRQHandler
+.LMODULE2 ?Timer2_IRQHandler
+.PUBLIC Timer2_IRQHandler
 .RSEG ??DEFAULT_HANDLERS,code
     .THUMB
-TIMER2_IRQHandler?T:
-TIMER2_IRQHandler     .EQU    TIMER2_IRQHandler?T+1
-.FUNCTYPE .VOID TIMER2_IRQHandler(.VOID)
+Timer2_IRQHandler?T:
+Timer2_IRQHandler     .EQU    Timer2_IRQHandler?T+1
+.FUNCTYPE .VOID Timer2_IRQHandler(.VOID)
     B   $
 .ENDMOD
-.LMODULE2 ?TIMER3_IRQHandler
-.PUBLIC TIMER3_IRQHandler
+.LMODULE2 ?Timer3_IRQHandler
+.PUBLIC Timer3_IRQHandler
 .RSEG ??DEFAULT_HANDLERS,code
     .THUMB
-TIMER3_IRQHandler?T:
-TIMER3_IRQHandler     .EQU    TIMER3_IRQHandler?T+1
-.FUNCTYPE .VOID TIMER3_IRQHandler(.VOID)
+Timer3_IRQHandler?T:
+Timer3_IRQHandler     .EQU    Timer3_IRQHandler?T+1
+.FUNCTYPE .VOID Timer3_IRQHandler(.VOID)
     B   $
 .ENDMOD
 .LMODULE2 ?ADC_IRQHandler

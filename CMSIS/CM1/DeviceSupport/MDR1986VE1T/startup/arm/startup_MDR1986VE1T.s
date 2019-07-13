@@ -66,10 +66,10 @@ __Vectors       DCD     __initial_sp              ; Top of Stack
 				DCD     ARINC429R_IRQHandler			;IRQ10
 				DCD     POWER_IRQHandler			;IRQ11
 				DCD     WWDG_IRQHandler				;IRQ12
-				DCD     TIMER4_IRQHandler			;IRQ13
-				DCD     TIMER1_IRQHandler			;IRQ14
-				DCD     TIMER2_IRQHandler			;IRQ15
-				DCD     TIMER3_IRQHandler			;IRQ16
+				DCD     Timer4_IRQHandler			;IRQ13
+				DCD     Timer1_IRQHandler			;IRQ14
+				DCD     Timer2_IRQHandler			;IRQ15
+				DCD     Timer3_IRQHandler			;IRQ16
 				DCD     ADC_IRQHandler				;IRQ17
 				DCD     ETHERNET_IRQHandler			;IRQ18
 				DCD     SSP3_IRQHandler				;IRQ19
@@ -196,23 +196,23 @@ WWDG_IRQHandler	PROC
 				B       .
                 ENDP
 
-TIMER4_IRQHandler	PROC
-				EXPORT  TIMER4_IRQHandler			[WEAK]
+Timer4_IRQHandler	PROC
+				EXPORT  Timer4_IRQHandler			[WEAK]
 				B       .
                 ENDP
 
-TIMER1_IRQHandler	PROC
-				EXPORT  TIMER1_IRQHandler			[WEAK]
+Timer1_IRQHandler	PROC
+				EXPORT  Timer1_IRQHandler			[WEAK]
 				B       .
                 ENDP
 
-TIMER2_IRQHandler	PROC
-				EXPORT  TIMER2_IRQHandler			[WEAK]
+Timer2_IRQHandler	PROC
+				EXPORT  Timer2_IRQHandler			[WEAK]
 				B       .
                 ENDP
 
-TIMER3_IRQHandler	PROC
-				EXPORT  TIMER3_IRQHandler			[WEAK]
+Timer3_IRQHandler	PROC
+				EXPORT  Timer3_IRQHandler			[WEAK]
 				B       .
                 ENDP
 

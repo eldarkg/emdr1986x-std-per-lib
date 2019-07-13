@@ -69,9 +69,9 @@ __Vectors       DCD     __initial_sp             ; Top of Stack
                  DCD     POWER_IRQHandler        ; POWER Detecor  Handeler
                  DCD     WWDG_IRQHandler         ; Window Watchdog  Handeler
                  DCD     DMA_DSP_IRQHandler      ; DMA DSP  Handeler
-                 DCD     TIMER1_IRQHandler       ; Timer1  Handeler
-                 DCD     TIMER2_IRQHandler       ; Timer2  Handeler
-                 DCD     TIMER3_IRQHandler       ; Timer3  Handeler
+                 DCD     Timer1_IRQHandler       ; Timer1  Handeler
+                 DCD     Timer2_IRQHandler       ; Timer2  Handeler
+                 DCD     Timer3_IRQHandler       ; Timer3  Handeler
                  DCD     ADC_IRQHandler          ; ADC  Handeler
                  DCD     SDIO_IRQHandler         ; SDIO  Handeler
                  DCD     COMPARATOR_IRQHandler   ; COMPARATOR  Handeler
@@ -217,18 +217,18 @@ DMA_DSP_IRQHandler      PROC
                 B       .
                      ENDP
 
-TIMER1_IRQHandler       PROC
-                EXPORT  TIMER1_IRQHandler             [WEAK]
+Timer1_IRQHandler       PROC
+                EXPORT  Timer1_IRQHandler             [WEAK]
                 B       .
                      ENDP
 
-TIMER2_IRQHandler       PROC
-                EXPORT  TIMER2_IRQHandler             [WEAK]
+Timer2_IRQHandler       PROC
+                EXPORT  Timer2_IRQHandler             [WEAK]
                 B       .
                      ENDP
 
-TIMER3_IRQHandler       PROC
-                EXPORT  TIMER3_IRQHandler             [WEAK]
+Timer3_IRQHandler       PROC
+                EXPORT  Timer3_IRQHandler             [WEAK]
                 B       .
                      ENDP
 

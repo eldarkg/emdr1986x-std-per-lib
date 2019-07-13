@@ -48,9 +48,9 @@ __vector_table
                  DCD     POWER_IRQHandler             ; POWER Detecor  Handeler
                  DCD     WWDG_IRQHandler              ; Window Watchdog  Handeler
                  DCD     DMA_DSP_IRQHandler           ; DMA DSP  Handeler
-                 DCD     TIMER1_IRQHandler            ; Timer1  Handeler
-                 DCD     TIMER2_IRQHandler            ; Timer2  Handeler
-                 DCD     TIMER3_IRQHandler            ; Timer3  Handeler
+                 DCD     Timer1_IRQHandler            ; Timer1  Handeler
+                 DCD     Timer2_IRQHandler            ; Timer2  Handeler
+                 DCD     Timer3_IRQHandler            ; Timer3  Handeler
                  DCD     ADC_IRQHandler               ; ADC  Handeler
                  DCD     SDIO_IRQHandler              ; SDIO  Handeler
                  DCD     COMPARATOR_IRQHandler        ; COMPARATOR  Handeler
@@ -196,20 +196,20 @@ WWDG_IRQHandler
 DMA_DSP_IRQHandler
 		   BL DMA_DSP_IRQHandler
 
-        PUBWEAK TIMER1_IRQHandler
+        PUBWEAK Timer1_IRQHandler
         SECTION .text:CODE:REORDER(1)
-TIMER1_IRQHandler
-		   BL TIMER1_IRQHandler
+Timer1_IRQHandler
+		   BL Timer1_IRQHandler
 
-        PUBWEAK TIMER2_IRQHandler
+        PUBWEAK Timer2_IRQHandler
         SECTION .text:CODE:REORDER(1)
-TIMER2_IRQHandler
-		   BL TIMER2_IRQHandler
+Timer2_IRQHandler
+		   BL Timer2_IRQHandler
 
-        PUBWEAK TIMER3_IRQHandler
+        PUBWEAK Timer3_IRQHandler
         SECTION .text:CODE:REORDER(1)
-TIMER3_IRQHandler
-		   BL TIMER3_IRQHandler
+Timer3_IRQHandler
+		   BL Timer3_IRQHandler
 
         PUBWEAK ADC_IRQHandler
         SECTION .text:CODE:REORDER(1)

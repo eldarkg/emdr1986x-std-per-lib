@@ -40,8 +40,8 @@ __vector_table
                  DCD     SSP1_IRQHandler              ; SSP1  Handeler
                  DCD     POWER_IRQHandler             ; POWER Handeler
                  DCD     WWDG_IRQHandler              ; WWDG Handeler
-                 DCD     TIMER1_IRQHandler            ; Timer1  Handeler
-                 DCD     TIMER2_IRQHandler            ; Timer2  Handeler
+                 DCD     Timer1_IRQHandler            ; Timer1  Handeler
+                 DCD     Timer2_IRQHandler            ; Timer2  Handeler
                  DCD     ADC_IRQHandler               ; ADC  Handeler
                  DCD     COMPARATOR_IRQHandler        ; COMPARATOR  Handeler
                  DCD     BACKUP_IRQHandler            ; BACKUP  Handeler
@@ -132,15 +132,15 @@ POWER_IRQHandler
 WWDG_IRQHandler
 		   BL WWDG_IRQHandler
 
-        PUBWEAK TIMER1_IRQHandler
+        PUBWEAK Timer1_IRQHandler
         SECTION .text:CODE:REORDER(1)
-TIMER1_IRQHandler
-		   BL TIMER1_IRQHandler
+Timer1_IRQHandler
+		   BL Timer1_IRQHandler
 
-        PUBWEAK TIMER2_IRQHandler
+        PUBWEAK Timer2_IRQHandler
         SECTION .text:CODE:REORDER(1)
-TIMER2_IRQHandler
-		   BL TIMER2_IRQHandler
+Timer2_IRQHandler
+		   BL Timer2_IRQHandler
 
         PUBWEAK ADC_IRQHandler
         SECTION .text:CODE:REORDER(1)

@@ -101,9 +101,9 @@ __isr_vector:
 	.long	POWER_IRQHandler            /* IRQ11 */
 	.long	WWDG_IRQHandler             /* IRQ12 */
 	.long	DMA_DSP_IRQHandler          /* IRQ13 */
-	.long	TIMER1_IRQHandler           /* IRQ14 */
-	.long	TIMER2_IRQHandler           /* IRQ15 */
-	.long	TIMER3_IRQHandler           /* IRQ16 */
+	.long	Timer1_IRQHandler           /* IRQ14 */
+	.long	Timer2_IRQHandler           /* IRQ15 */
+	.long	Timer3_IRQHandler           /* IRQ16 */
 	.long	ADC_IRQHandler              /* IRQ17 */
 	.long	SDIO_IRQHandler             /* IRQ18 */
 	.long	COMPARATOR_IRQHandler       /* IRQ19 */
@@ -316,9 +316,9 @@ Default_Handler:
 	def_irq_handler POWER_IRQHandler
 	def_irq_handler WWDG_IRQHandler
 	def_irq_handler DMA_DSP_IRQHandler
-	def_irq_handler TIMER1_IRQHandler
-	def_irq_handler TIMER2_IRQHandler
-	def_irq_handler TIMER3_IRQHandler
+	def_irq_handler Timer1_IRQHandler
+	def_irq_handler Timer2_IRQHandler
+	def_irq_handler Timer3_IRQHandler
 	def_irq_handler ADC_IRQHandler
 	def_irq_handler SDIO_IRQHandler
 	def_irq_handler COMPARATOR_IRQHandler

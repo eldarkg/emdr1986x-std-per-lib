@@ -61,8 +61,8 @@ __Vectors       DCD     __initial_sp             ; Top of Stack
                  DCD     SSP1_IRQHandler         ; SSP1  Handeler
                  DCD     POWER_IRQHandler        ; POWER Handeler
                  DCD     WWDG_IRQHandler         ; WWDG Handeler
-                 DCD     TIMER1_IRQHandler       ; Timer1  Handeler
-                 DCD     TIMER2_IRQHandler       ; Timer2  Handeler
+                 DCD     Timer1_IRQHandler       ; Timer1  Handeler
+                 DCD     Timer2_IRQHandler       ; Timer2  Handeler
                  DCD     ADC_IRQHandler          ; ADC  Handeler
                  DCD     COMPARATOR_IRQHandler   ; COMPARATOR  Handeler
                  DCD     BACKUP_IRQHandler       ; BACKUP  Handeler
@@ -153,13 +153,13 @@ WWDG_IRQHandler         PROC
                 B       .
                      ENDP
 
-TIMER1_IRQHandler       PROC
-                EXPORT  TIMER1_IRQHandler             [WEAK]
+Timer1_IRQHandler       PROC
+                EXPORT  Timer1_IRQHandler             [WEAK]
                 B       .
                      ENDP
 
-TIMER2_IRQHandler       PROC
-                EXPORT  TIMER2_IRQHandler             [WEAK]
+Timer2_IRQHandler       PROC
+                EXPORT  Timer2_IRQHandler             [WEAK]
                 B       .
                      ENDP
 
