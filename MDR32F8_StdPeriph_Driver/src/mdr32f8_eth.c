@@ -322,7 +322,7 @@ void ETH_StructInit(ETH_InitTypeDef * ETH_InitStruct)
 	
 	
 	/* General config*/
-	ETH_InitStruct->ETH_Dilimiter = 0x0800;
+	ETH_InitStruct->ETH_Delimiter = 0x0800;
 	/* Set the DBG Mode */
 	ETH_InitStruct->ETH_DBG_Mode = ETH_DBG_MODE_FREE_RUN;
 	/* Enable automatically change the transmitter FIFO pointers in DBG Mode. */
@@ -438,7 +438,7 @@ void ETH_Init(MDR_ETH_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct)
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 
-	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Dilimiter));
+	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Delimiter));
 	assert_param(IS_ETH_PHY_ADDRESS(ETH_InitStruct->ETH_PHY_Address));
 	assert_param(IS_ETH_PHY_MODE(ETH_InitStruct->ETH_PHY_Mode));
 	assert_param(IS_ETH_DBG_MODE(ETH_InitStruct->ETH_DBG_Mode));
@@ -478,7 +478,7 @@ void ETH_Init(MDR_ETH_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct)
 	assert_param(IS_FUNCTIONAL_STATE(ETH_InitStruct->ETH_Source_Addr_HASH_Filter));
 
 	/* Set the buffer size of transmitter and receiver */
-    ETHERNETx->DILIMETR = ETH_InitStruct->ETH_Dilimiter;
+    ETHERNETx->DILIMETR = ETH_InitStruct->ETH_Delimiter;
 
 //	/* Config the PHY control register */
 //	tmpreg_PHY_Control = (ETH_InitStruct->ETH_PHY_Address << ETH_PHY_CONTROL_PHYADD_Pos) | (ETH_InitStruct->ETH_PHY_Mode) | (ETH_InitStruct->ETH_PHY_Interface);

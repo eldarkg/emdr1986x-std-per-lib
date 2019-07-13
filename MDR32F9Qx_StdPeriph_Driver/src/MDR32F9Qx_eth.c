@@ -244,7 +244,7 @@ void ETH_DeInit(MDR_ETHERNET_TypeDef * ETHERNETx )
 	/* PHY reset */
 	ETH_PHY_Reset(ETHERNETx);
 
-	ETHERNETx->ETH_Dilimiter 	= 0x1000;
+	ETHERNETx->ETH_Delimiter 	= 0x1000;
 	ETHERNETx->ETH_MAC_T 		= 0x78AB;
 	ETHERNETx->ETH_MAC_M 		= 0x3456;
 	ETHERNETx->ETH_MAC_H 		= 0x0012;
@@ -283,7 +283,7 @@ void ETH_StructInit(ETH_InitTypeDef * ETH_InitStruct)
 	ETH_InitStruct->ETH_PHY_Interface = ETH_PHY_INTERFACE_ETHERNET_802_3;
 
 	/* General config*/
-	ETH_InitStruct->ETH_Dilimiter = 0x0800;
+	ETH_InitStruct->ETH_Delimiter = 0x0800;
 	/* Set the DBG Mode */
 	ETH_InitStruct->ETH_DBG_Mode = ETH_DBG_MODE_FREE_RUN;
 	/* Enable automatically change the transmitter FIFO pointers in DBG Mode. */
@@ -398,7 +398,7 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	/* Check the parameters */
 	assert_param(IS_ETH_ALL_PERIPH(ETHERNETx));
 
-	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Dilimiter));
+	assert_param(IS_ETH_DELIMITER(ETH_InitStruct->ETH_Delimiter));
 	assert_param(IS_ETH_PHY_ADDRESS(ETH_InitStruct->ETH_PHY_Address));
 	assert_param(IS_ETH_PHY_MODE(ETH_InitStruct->ETH_PHY_Mode));
 	assert_param(IS_ETH_DBG_MODE(ETH_InitStruct->ETH_DBG_Mode));
@@ -438,7 +438,7 @@ void ETH_Init(MDR_ETHERNET_TypeDef * ETHERNETx, ETH_InitTypeDef * ETH_InitStruct
 	assert_param(IS_FUNCTIONAL_STATE(ETH_InitStruct->ETH_Source_Addr_HASH_Filter));
 
 	/* Set the buffer size of transmitter and receiver */
-	ETHERNETx->ETH_Dilimiter = ETH_InitStruct->ETH_Dilimiter;
+	ETHERNETx->ETH_Delimiter = ETH_InitStruct->ETH_Delimiter;
 
 	/* Config the PHY control register */
 	tmpreg_PHY_Control = (ETH_InitStruct->ETH_PHY_Address << ETH_PHY_CONTROL_PHYADD_Pos) | (ETH_InitStruct->ETH_PHY_Mode) | (ETH_InitStruct->ETH_PHY_Interface);
@@ -965,7 +965,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 			ETH_StatusPacketReceptionStruct.Status = (uint32_t)*ptr_InputFrame++;
 			PacketLength = (ETH_StatusPacketReceptionStruct.Fields.Length + 3)/4;
 			/* Read the input frame */
-			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Dilimiter - Rhead) - PacketLength*4;
+			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Delimiter - Rhead) - PacketLength*4;
 			if(EthReceiverFreeBufferSize > 0){
 				/* Read the input frame */
 				for(i = 0; i < PacketLength; i++){
@@ -988,7 +988,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 			}
 			/* Set the new value of the ETH_R_Head register */
       RHead = ((uint32_t)ptr_InputFrame)&0x1FFF;
-      if (RHead < ETHERNETx->ETH_Dilimiter)
+      if (RHead < ETHERNETx->ETH_Delimiter)
         ETHERNETx->ETH_R_Head = RHead;
       else
         ETHERNETx->ETH_R_Head = 0;
@@ -1003,7 +1003,7 @@ uint32_t ETH_ReceivedFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_Inpu
 			/* Set the Length of receiving paket */
 			PacketLength = ((ETH_StatusPacketReceptionStruct.Fields.Length & 0x0003) != 0) + ETH_StatusPacketReceptionStruct.Fields.Length/4;
 			/* Get the size of recever buffer */
-			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Dilimiter - Rhead) - PacketLength*4;
+			EthReceiverFreeBufferSize = (uint32_t) (ETHERNETx->ETH_Delimiter - Rhead) - PacketLength*4;
 			if(EthReceiverFreeBufferSize > 0){
 				/* Read the input frame */
 				for(i = 0; i < PacketLength; i++){
@@ -1081,7 +1081,7 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 				tmp = i;
-				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Dilimiter);
+				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Delimiter);
 				for(i = 0; i < (((BufLen + 3)/4 + 1) - EthReceiverFreeBufferSize); i++){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
 				}
@@ -1089,7 +1089,7 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 			ptr_OutputFrame++;
       Xtail = (uint32_t)ptr_OutputFrame&0x3FFC;
 			if(Xtail >= ETH_BUFFER_SIZE)
-				Xtail = ETHERNETx->ETH_Dilimiter;
+				Xtail = ETHERNETx->ETH_Delimiter;
 			/* Write the new value of the ETH_X_Tail register */
 			ETHERNETx->ETH_X_Tail = Xtail;
 			break;
@@ -1108,7 +1108,7 @@ void ETH_SendFrame(MDR_ETHERNET_TypeDef * ETHERNETx, uint32_t * ptr_OutputBuffer
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i];
 				}
 				tmp = i;
-				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Dilimiter);
+				ptr_OutputFrame = (uint32_t *)((((uint32_t)ETHERNETx) + 0x08000000) + ETHERNETx->ETH_Delimiter);
 				for(i = 0; i < (((BufLen + 3)/4 + 2) - EthReceiverFreeBufferSize); i++){
 					*ptr_OutputFrame++ = ptr_OutputBuffer[i+tmp];
 				}

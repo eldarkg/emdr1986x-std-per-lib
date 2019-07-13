@@ -91,7 +91,7 @@ typedef struct {
 	  * @brief MAC General Config
 	  */
 
-	uint32_t			ETH_Dilimiter;						/*!< Defines the boundaries of the transmitter and receiver buffers.
+	uint32_t			ETH_Delimiter;						/*!< Defines the boundaries of the transmitter and receiver buffers.
 													 	 	 	 This parameter can be a value from 0 to 0x1FFF. */
 	uint32_t			ETH_DBG_Mode;						/*!< Select the mode of operation in debug mode.
 													 	 	 	 This parameter can be a value of @ref ETH_DBG_MODE. */
