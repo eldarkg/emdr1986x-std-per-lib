@@ -187,7 +187,8 @@ void MIL_STD_1553_Cmd(MDR_MIL_STD_1553_TypeDef * MIL_STD_1553x, FunctionalState 
 	}
 	else{
 		/* Disable the selected MIL_STD_1553 by setting the MR bit in the CONTROL register */
-		MIL_STD_1553x->CONTROL |= ~MR_EN_Reset;
+		MIL_STD_1553x->CONTROL |= MR_EN_Set; // setting only the MR bit in the CONTROL register
+		//MIL_STD_1553x->CONTROL |= ~MR_EN_Reset; // it is wrong, unnecessary high bits are set!
 	}
 }
 
